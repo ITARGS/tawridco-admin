@@ -195,11 +195,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -1274,59 +1269,6 @@ var render = function () {
                             ]),
                           ]),
                         ]),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "tab-content",
-                    {
-                      attrs: {
-                        title: "Purchase Code",
-                        "before-change": _vm.purchaseCode,
-                      },
-                    },
-                    [
-                      _c("div", { staticClass: "form-group mb-3" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-label",
-                            attrs: { for: "purchase_code" },
-                          },
-                          [
-                            _vm._v("Purchase Code"),
-                            _c("span", { staticClass: "text-danger text-xs" }, [
-                              _vm._v("*"),
-                            ]),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.purchase_code,
-                              expression: "purchase_code",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "purchase_code",
-                            placeholder: "Purchase Code",
-                          },
-                          domProps: { value: _vm.purchase_code },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.purchase_code = $event.target.value
-                            },
-                          },
-                        }),
                       ]),
                     ]
                   ),

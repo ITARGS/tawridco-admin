@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\API;
+
 use App\Helpers\CommonHelper;
 use App\Http\Controllers\Controller;
-use Cassandra\Type\Set;
-use Illuminate\Http\Request;
 use App\Models\Setting;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Log;
+use Config;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Mail;
 
 
 class StoreSettingsApiController extends Controller
@@ -17,117 +18,117 @@ class StoreSettingsApiController extends Controller
     public function index()
     {
         $timezone_options = CommonHelper::getTimezoneOptions();
-        $countries = json_decode(file_get_contents(base_path('config/countries_currency.json')),true);
+        $countries = json_decode(file_get_contents(base_path('config/countries_currency.json')), true);
         $store_settingsArray = array(
-                "system_configurations" => 1,
-                "system_timezone_gmt" => "+05:30",
-                "system_configurations_id" => "13",
-                "app_name" => "",
-                "support_number" => "",
-                "support_email" => "",
+            "system_configurations" => 1,
+            "system_timezone_gmt" => "+05:30",
+            "system_configurations_id" => "13",
+            "app_name" => "",
+            "support_number" => "",
+            "support_email" => "",
 
-                "is_version_system_on" => 0,
-                "required_force_update" => 0,
-                "current_version" => "1.0.0",
+            "is_version_system_on" => 0,
+            "required_force_update" => 0,
+            "current_version" => "1.0.0",
 
-                "ios_is_version_system_on" => 0,
-                "ios_required_force_update" => 0,
-                "ios_current_version" => "1.0.0",
+            "ios_is_version_system_on" => 0,
+            "ios_required_force_update" => 0,
+            "ios_current_version" => "1.0.0",
 
-                "logo" => "",
-                "copyright_details" => "",
-                "store_address" => "",
-                'map_latitude' => "",
-                "map_longitude" => "",
-                "currency" => "",
-                "currency_code" => "",
-                "decimal_point" => "",
-                "system_timezone" => "",
-                "default_city_id" => 0,
+            "logo" => "",
+            "copyright_details" => "",
+            "store_address" => "",
+            'map_latitude' => "",
+            "map_longitude" => "",
+            "currency" => "",
+            "currency_code" => "",
+            "decimal_point" => "",
+            "system_timezone" => "",
+            "default_city_id" => 0,
 
-                "max_cart_items_count" => "",
-                "min_order_amount" => "",
-                "low_stock_limit" => "",
+            "max_cart_items_count" => "",
+            "min_order_amount" => "",
+            "low_stock_limit" => "",
 
 
-                "delivery_boy_bonus_settings" => 0,
-                "delivery_boy_bonus_type" => 0,
-                "delivery_boy_bonus_percentage" => 0,
-                "delivery_boy_bonus_min_amount" => 0,
-                "delivery_boy_bonus_max_amount" => 0,
+            "delivery_boy_bonus_settings" => 0,
+            "delivery_boy_bonus_type" => 0,
+            "delivery_boy_bonus_percentage" => 0,
+            "delivery_boy_bonus_min_amount" => 0,
+            "delivery_boy_bonus_max_amount" => 0,
 
-                "area_wise_delivery_charge" => 0,
-                "min_amount" => "",
-                "delivery_charge" => "",
-                "is_refer_earn_on" => 0,
-                "min_refer_earn_order_amount" => "",
-                "refer_earn_bonus" => "",
-                "refer_earn_method" => "",
-                "max_refer_earn_amount" => "",
-                "minimum_withdrawal_amount" => "",
-                "max_product_return_days" => "",
+            "area_wise_delivery_charge" => 0,
+            "min_amount" => "",
+            "delivery_charge" => "",
+            "is_refer_earn_on" => 0,
+            "min_refer_earn_order_amount" => "",
+            "refer_earn_bonus" => "",
+            "refer_earn_method" => "",
+            "max_refer_earn_amount" => "",
+            "minimum_withdrawal_amount" => "",
+            "max_product_return_days" => "",
 
-                "user_wallet_refill_limit" => "",
-                "tax_name" => "",
-                "tax_number" => "",
+            "user_wallet_refill_limit" => "",
+            "tax_name" => "",
+            "tax_number" => "",
 
-                "from_mail" => "",
-                "reply_to" => "",
-                "generate_otp" => 0,
+            "from_mail" => "",
+            "reply_to" => "",
+            "generate_otp" => 0,
 
-                "app_mode_customer" => 0,
-                "app_mode_customer_remark" => "",
+            "app_mode_customer" => 0,
+            "app_mode_customer_remark" => "",
 
-                "app_mode_seller" => 0,
-                "app_mode_seller_remark" => "",
+            "app_mode_seller" => 0,
+            "app_mode_seller_remark" => "",
 
-                "app_mode_delivery_boy" => 0,
-                "app_mode_delivery_boy_remark" => "",
+            "app_mode_delivery_boy" => 0,
+            "app_mode_delivery_boy_remark" => "",
 
-                "smtp_from_mail" => "",
-                "smtp_reply_to" => "",
-                "smtp_email_password" => "",
-                "smtp_host" => "",
-                "smtp_port" => "",
-                "smtp_content_type" => "",
-                "smtp_encryption_type" => "",
-                "google_place_api_key" => "",
-                "fssai_lic_img" => "",
-                "is_category_section_in_homepage" => "",
-                "is_brand_section_in_homepage" => "",
-                "is_seller_section_in_homepage" => "",
-                "is_country_section_in_homepage" => "",
-                "count_category_section_in_homepage" => "",
-                "count_brand_section_in_homepage" => "",
-                "count_seller_section_in_homepage" => "",
-                "count_country_section_in_homepage" => "",
-                "one_seller_cart" => "",
-                "playstore_url" => "",
-                "appstore_url" => "",
-                "guest_cart" => "",
-                "phone_login" => "",
-                "google_login" => "",
-                "apple_login" => "",
-                "email_login" => "",
-                "panel_login_background_img",
-                "notification_delay_after_cart_addition",
-                "notification_interval",
-                "notification_stop_time"
-            );
+            "smtp_from_mail" => "",
+            "smtp_reply_to" => "",
+            "smtp_email_password" => "",
+            "smtp_host" => "",
+            "smtp_port" => "",
+            "smtp_content_type" => "",
+            "smtp_encryption_type" => "",
+            "google_place_api_key" => "",
+            "fssai_lic_img" => "",
+            "is_category_section_in_homepage" => "",
+            "is_brand_section_in_homepage" => "",
+            "is_seller_section_in_homepage" => "",
+            "is_country_section_in_homepage" => "",
+            "count_category_section_in_homepage" => "",
+            "count_brand_section_in_homepage" => "",
+            "count_seller_section_in_homepage" => "",
+            "count_country_section_in_homepage" => "",
+            "one_seller_cart" => "",
+            "playstore_url" => "",
+            "appstore_url" => "",
+            "guest_cart" => "",
+            "phone_login" => "",
+            "google_login" => "",
+            "apple_login" => "",
+            "email_login" => "",
+            "panel_login_background_img",
+            "notification_delay_after_cart_addition",
+            "notification_interval",
+            "notification_stop_time"
+        );
         $variables = array_keys($store_settingsArray);
-        $store_settings = Setting::whereIn('variable',$variables )->get();
+        $store_settings = Setting::whereIn('variable', $variables)->get();
 
         $login_settingsArray = array(
             "phone_login" => "",
-                "google_login" => "",
-                "apple_login" => "",
-                "email_login" => "",
-                "firebase_authentication" => "",
-                "custom_sms_gateway_otp_based" => ""
-            );
-            $login_variables = array_keys($login_settingsArray);
-            $login_settings = Setting::whereIn('variable',$login_variables )->get();
-    
+            "google_login" => "",
+            "apple_login" => "",
+            "email_login" => "",
+            "firebase_authentication" => "",
+            "custom_sms_gateway_otp_based" => ""
+        );
+        $login_variables = array_keys($login_settingsArray);
+        $login_settings = Setting::whereIn('variable', $login_variables)->get();
+
         $data = array(
             "store_settingsObject" => $store_settingsArray,
             "timezone_options" => $timezone_options,
@@ -150,39 +151,35 @@ class StoreSettingsApiController extends Controller
             return CommonHelper::responseError($validator->errors()->first());
         }
 
-        
 
-        if($request->hasFile('logo'))
-        {
+        if ($request->hasFile('logo')) {
             $file = $request->file('logo');
-            $fileName = time().'_'.rand(1111,99999).'.'.$file->getClientOriginalExtension();
-            $logo = Storage::disk('public')->putFileAs('logo', $file,$fileName);
+            $fileName = time() . '_' . rand(1111, 99999) . '.' . $file->getClientOriginalExtension();
+            $logo = Storage::disk('public')->putFileAs('logo', $file, $fileName);
         }
-        if($request->hasFile('fssai_lic_img'))
-        {
+        if ($request->hasFile('fssai_lic_img')) {
             $file1 = $request->file('fssai_lic_img');
-            $fileName1 = time().'_'.rand(1111,99999).'.'.$file1->getClientOriginalExtension();
-            $fssai_lic_img = Storage::disk('public')->putFileAs('fssai_lic_img', $file1,$fileName1);
+            $fileName1 = time() . '_' . rand(1111, 99999) . '.' . $file1->getClientOriginalExtension();
+            $fssai_lic_img = Storage::disk('public')->putFileAs('fssai_lic_img', $file1, $fileName1);
         }
-        if($request->hasFile('panel_login_background_img'))
-        {
-            $file2= $request->file('panel_login_background_img');
-            $fileName2 = time().'_'.rand(1111,99999).'.'.$file2->getClientOriginalExtension();
-            $panel_login_background_img = Storage::disk('public')->putFileAs('panel_login_background_img', $file2,$fileName2);
+        if ($request->hasFile('panel_login_background_img')) {
+            $file2 = $request->file('panel_login_background_img');
+            $fileName2 = time() . '_' . rand(1111, 99999) . '.' . $file2->getClientOriginalExtension();
+            $panel_login_background_img = Storage::disk('public')->putFileAs('panel_login_background_img', $file2, $fileName2);
         }
-       
-        foreach ($request->all() as $key => $value){
+
+        foreach ($request->all() as $key => $value) {
             $value = $value ?? " ";
-            $setting = Setting::where('variable', $key)->first(); 
+            $setting = Setting::where('variable', $key)->first();
             if ($setting) {
                 $setting->variable = $key;
-                $setting->value = ($key == 'logo' && isset($logo)) ? $logo : (($key == 'fssai_lic_img' && isset($fssai_lic_img)) ? $fssai_lic_img :(($key == 'panel_login_background_img' && isset($panel_login_background_img)) ? $panel_login_background_img : (($key == 'copyright_details' ) ? str_replace(["\r\n", "\r", "\n"], '<br/>', $request->copyright_details) : $value)));
-               
+                $setting->value = ($key == 'logo' && isset($logo)) ? $logo : (($key == 'fssai_lic_img' && isset($fssai_lic_img)) ? $fssai_lic_img : (($key == 'panel_login_background_img' && isset($panel_login_background_img)) ? $panel_login_background_img : (($key == 'copyright_details') ? str_replace(["\r\n", "\r", "\n"], '<br/>', $request->copyright_details) : $value)));
+
                 $setting->save();
             } else {
                 $setting = new Setting();
                 $setting->variable = $key;
-                $setting->value = ($key == 'logo' && isset($logo)) ? $logo : (($key == 'fssai_lic_img' && isset($fssai_lic_img)) ? $fssai_lic_img :(($key == 'panel_login_background_img' && isset($panel_login_background_img)) ? $panel_login_background_img : $value));
+                $setting->value = ($key == 'logo' && isset($logo)) ? $logo : (($key == 'fssai_lic_img' && isset($fssai_lic_img)) ? $fssai_lic_img : (($key == 'panel_login_background_img' && isset($panel_login_background_img)) ? $panel_login_background_img : $value));
 
                 $setting->save();
             }
@@ -195,14 +192,14 @@ class StoreSettingsApiController extends Controller
         $validator = Validator::make($request->all(), [
             'at_least_one' => 'At least one of phone login or google login must be enabled.',
         ]);
-        
+
         $validator->after(function ($validator) use ($request) {
             // Validate that at least one of phone_login or google_login is enabled
             if (!$request->phone_login && !$request->google_login) {
                 $validator->errors()->add('phone_login', 'At least one of phone login or google login must be enabled.');
                 $validator->errors()->add('google_login', 'At least one of phone login or google login must be enabled.');
             }
-        
+
             // Additional validation if phone_login is enabled
             if ($request->phone_login) {
                 if (!$request->firebase_authentication && !$request->custom_sms_gateway_otp_based) {
@@ -211,18 +208,18 @@ class StoreSettingsApiController extends Controller
                 }
             }
         });
-        
+
         if ($validator->fails()) {
             return CommonHelper::responseError($validator->errors()->first());
         }
 
-        foreach ($request->all() as $key => $value){
+        foreach ($request->all() as $key => $value) {
             $value = $value ?? " ";
-            $setting = Setting::where('variable', $key)->first(); 
+            $setting = Setting::where('variable', $key)->first();
             if ($setting) {
                 $setting->variable = $key;
                 $setting->value = $value;
-               
+
                 $setting->save();
             } else {
                 $setting = new Setting();
@@ -236,64 +233,38 @@ class StoreSettingsApiController extends Controller
     }
 
 
-
-    public function getPurchaseCode(){
-        $code = Setting::get_value('purchase_code')??'';
+    public function getPurchaseCode()
+    {
+        $code = Setting::get_value('purchase_code') ?? '';
 
         return CommonHelper::responseWithData($code);
     }
 
-    public function purchaseCode($code,$type=0){
-
-        $domain = env('APP_URL');
-        $path = 'https://wrteam.in/validator/egrocer_validator?purchase_code='.$code.'&domain_url='.$domain;
-        $response = file_get_contents($path);
-        $data = json_decode($response,true);
-
-        $valid = false;
-        if(isset($data['error']) && $data['error']==false){
-            $valid = true;
-        }
-
-        $setting = Setting::where('variable', 'purchase_code')->first()??new Setting();
+    public function purchaseCode($code, $type = 0)
+    {
+        $setting = Setting::where('variable', 'purchase_code')->first() ?? new Setting();
         $setting->variable = 'purchase_code';
-        $setting->value = $valid?$code:'';
+        $setting->value = $code;
         $setting->save();
 
-        if($type){
-            return $valid;
-        }else{
-            return CommonHelper::responseWithData($response);
-        }
-
+        return true;
     }
-    public function getPurchaseCodeUpdater(){
-        $code = Setting::get_value('purchase_code')??'';
 
-        $domain = env('APP_URL');
-        $path = 'https://wrteam.in/validator/egrocer_validator?purchase_code='.$code.'&domain_url='.$domain;
-        $response = file_get_contents($path);
-        $data = json_decode($response,true);
+    public function getPurchaseCodeUpdater()
+    {
+        $code = Setting::get_value('purchase_code') ?? '';
 
-        $valid = false;
-        if(isset($data['error']) && $data['error']==false){
-            $valid = true;
-        }
-        if($code == 'direct_sale_from_wrteam'){
-            $valid = true;
-        }
-
-        $setting = Setting::where('variable', 'purchase_code')->first()??new Setting();
+        $setting = Setting::where('variable', 'purchase_code')->first() ?? new Setting();
         $setting->variable = 'purchase_code';
-        $setting->value = $valid?$code:'';
+        $setting->value = $code;
         $setting->save();
 
-        return $valid;
+        return true;
     }
 
-    public function testMail(Request $request){
-
-        $validator = Validator::make($request->all(),[
+    public function testMail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'host' => 'required',
             'username' => 'required',
@@ -316,13 +287,13 @@ class StoreSettingsApiController extends Controller
             'encryption' => $request->encryption,
         ];
 
-        \Config::set('mail', $config);
-       
-
-       try {
+        Config::set('mail', $config);
 
 
-            \Mail::send([],[], function ($message) use ($request) {
+        try {
+
+
+            Mail::send([], [], function ($message) use ($request) {
                 $message->to($request->email)
                     ->subject('Testing Mail')
                     ->html('Email Test Successfully!');
@@ -331,9 +302,9 @@ class StoreSettingsApiController extends Controller
 
             return CommonHelper::responseSuccess("Test Mail Sent Successfully!");
 
-         }catch (\Exception $e){
-             return CommonHelper::responseError($e->getMessage());
-         }
+        } catch (Exception $e) {
+            return CommonHelper::responseError($e->getMessage());
+        }
 
     }
 }

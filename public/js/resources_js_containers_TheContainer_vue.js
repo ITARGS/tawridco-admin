@@ -96,6 +96,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -489,12 +500,14 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'grid-fill',
           url: '/delivery_settings',
           permission: 'manage_time_slots'
-        }, {
-          name: __('payment_methods'),
-          icon: 'grid-fill',
-          url: '/payment_methods',
-          permission: 'manage_payment_methods'
-        }, {
+        },
+        // {
+        //     name: __('payment_methods'),
+        //     icon: 'grid-fill',
+        //     url: '/payment_methods',
+        //     permission: 'manage_payment_methods',
+        // },
+        {
           name: __('contact_us'),
           icon: 'grid-fill',
           url: '/contact_us',
@@ -519,17 +532,20 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'grid-fill',
           url: '/sms-templates',
           permission: 'manage_store_settings'
-        }, {
-          name: __('system_registration'),
-          icon: 'grid-fill',
-          url: '/purchase_code',
-          permission: 'manage_system_registration'
-        }, {
-          name: __('system_updater'),
-          icon: 'grid-fill',
-          url: '/system_updater',
-          permission: 'manage_store_settings'
-        }]
+        }
+        // {
+        //     name: __('system_registration'),
+        //     icon : 'grid-fill',
+        //     url:'/purchase_code',
+        //     permission:'manage_system_registration',
+        // },
+        // {
+        //     name: __('system_updater'),
+        //     icon: 'grid-fill',
+        //     url: '/system_updater',
+        //     permission: 'manage_store_settings',
+        // },
+        ]
       }, {
         name: __('web_settings'),
         // icon : 'gear fa-spin',
@@ -2037,12 +2053,15 @@ var render = function () {
                             },
                             [
                               _c("i", { class: "fa fa-download" }),
+                              _vm._v(" "),
                               _vm.isLoading
                                 ? _c("b-spinner", {
                                     attrs: { small: "", label: "Spinning" },
                                   })
                                 : _vm._e(),
-                              _vm._v(" Download Database"),
+                              _vm._v(
+                                "\n                                Download Database\n                            "
+                              ),
                             ],
                             1
                           ),
