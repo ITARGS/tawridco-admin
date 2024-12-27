@@ -1,0 +1,5 @@
+{
+    "version": "2.0.6",
+    "archive": "RELEASE-2.06.zip",
+    "description": "+ [Added] Email password login option (Admin panel, website, customer app, partner app) <br/>+ [Added] While delivery order otp option added  (Admin panel, website, customer app, partner app) <br/>+ [Added] Search product by barcode (Admin panel, customer app) <br/>+ [Added] Seller active/inactive option for stop the accept new orders  (Partner app) <br/>+ [Compatible] Larval 10 - Seamlessly utilize the Laravel features (Admin panel, seller panel, delivery boy panel) <br/>+ [Compatible] Flutter 3.24.5 - Seamlessly utilize the latest Flutter features (Customer app, partner app) <br/>+ [Fixed] Other improvements and fixes <br/><br/><h4 class='text-danger' style='font-color:red'>Note:<br/>After updating to version 2.0.6, replace the vendor folder because Laravel has been updated to version 10.</h4>"
+}
