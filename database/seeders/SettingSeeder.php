@@ -19,7 +19,7 @@ class SettingSeeder extends Seeder
         $settings = [
             [
                 'variable' => 'app_name',
-                'value' => 'eGrocer',
+                'value' => 'Tawridco',
             ],
             [
                 'variable' => 'support_number',
@@ -51,7 +51,7 @@ class SettingSeeder extends Seeder
             ],
         ];
 
-        foreach ($settings as $setting){
+        foreach ($settings as $setting) {
             Setting::create($setting);
         }
     }

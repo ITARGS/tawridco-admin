@@ -1,5 +1,5 @@
 @php
-    $logo="";
+    use App\Models\Setting;$logo="";
     $app_name="";
     $support_email="";
     $support_number="";
@@ -26,27 +26,27 @@
 
 
     if(isInstalled()){
-        $app_name = \App\Models\Setting::get_value('app_name');
+        $app_name = Setting::get_value('app_name');
         if($app_name == "" || $app_name == null){
-            $app_name = "eGrocer";
+            $app_name = "Tawridco";
         }
-        $support_email = \App\Models\Setting::get_value('support_email');
+        $support_email = Setting::get_value('support_email');
         if($support_email == "" || $support_email == null){
             $support_email = "";
         }
-        $support_number = \App\Models\Setting::get_value('support_number');
+        $support_number = Setting::get_value('support_number');
         if($support_number == "" || $support_number == null){
             $support_number = "";
         }
 
-        $logo = \App\Models\Setting::get_value('logo') ?? "";
+        $logo = Setting::get_value('logo') ?? "";
         if($logo!==""){
             $logo_full_path =  url('/').'/storage/'.$logo;
         }else{
             $logo_full_path =  asset('images/favicon.png');
         }
 
-        $panel_login_background_img = \App\Models\Setting::get_value('panel_login_background_img') ?? "";
+        $panel_login_background_img = Setting::get_value('panel_login_background_img') ?? "";
         $panel_login_background_img_full_path = '';
         if($panel_login_background_img!==""){
             $panel_login_background_img_full_path =  url('/').'/storage/'.$panel_login_background_img;
@@ -54,38 +54,38 @@
             $panel_login_background_img_full_path =  asset('images/panel_login_background_img.jpg');
         }
 
-        $google_place_api_key = \App\Models\Setting::get_value('google_place_api_key') ?? "";
-        $currency = \App\Models\Setting::get_value('currency') ?? "$";
-        $purchase_code = \App\Models\Setting::get_value('purchase_code') ?? "";
+        $google_place_api_key = Setting::get_value('google_place_api_key') ?? "";
+        $currency = Setting::get_value('currency') ?? "$";
+        $purchase_code = Setting::get_value('purchase_code') ?? "";
 
-        $website_url = \App\Models\Setting::get_value('website_url') ?? "";
-        $copyright_details = \App\Models\Setting::get_value('copyright_details') ?? "";
+        $website_url = Setting::get_value('website_url') ?? "";
+        $copyright_details = Setting::get_value('copyright_details') ?? "";
 
-        $delivery_boy_bonus_settings = \App\Models\Setting::get_value('delivery_boy_bonus_settings') ?? 0;
+        $delivery_boy_bonus_settings = Setting::get_value('delivery_boy_bonus_settings') ?? 0;
 
         // Firebase keys
-        $apiKey = \App\Models\Setting::get_value('apiKey') ?? "";
-        $authDomain = \App\Models\Setting::get_value('authDomain') ?? "";
-        $projectId = \App\Models\Setting::get_value('projectId') ?? "";
-        $storageBucket = \App\Models\Setting::get_value('storageBucket') ?? "";
-        $messagingSenderId = \App\Models\Setting::get_value('messagingSenderId') ?? "";
-        $appId = \App\Models\Setting::get_value('appId') ?? "";
-        $measurementId = \App\Models\Setting::get_value('measurementId') ?? "";
+        $apiKey = Setting::get_value('apiKey') ?? "";
+        $authDomain = Setting::get_value('authDomain') ?? "";
+        $projectId = Setting::get_value('projectId') ?? "";
+        $storageBucket = Setting::get_value('storageBucket') ?? "";
+        $messagingSenderId = Setting::get_value('messagingSenderId') ?? "";
+        $appId = Setting::get_value('appId') ?? "";
+        $measurementId = Setting::get_value('measurementId') ?? "";
         $isDemoMode = isDemoMode() ?? 0;
     }
 @endphp
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ app()->isLocale('ar') ? 'rtl' : '' }}"> 
+    <!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ app()->isLocale('ar') ? 'rtl' : '' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-    <title>{{ $app_name??'eGrocer' }}</title>
+    <title>{{ $app_name??'Tawridco' }}</title>
     <link rel="shortcut icon" href="{{ $logo_full_path }}">
 
-<!-- Fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css')}}">
@@ -94,7 +94,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/vendors/iconly/bold.css') }}">
-{{--        <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/all.min.css') }}">--}}
+    {{--        <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/all.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
@@ -110,13 +110,17 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/custom/common.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dark-mode/app-dark.css') }}">
-  
+
     @if (isDemoMode())
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZZ7MV8RBB"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
             gtag('js', new Date());
 
             gtag('config', 'G-CZZ7MV8RBB');
@@ -124,7 +128,7 @@
     @endif
 
 </head>
-<body >
+<body>
 {{-- <script src="{{ asset('assets/dark-mode/initTheme.js') }}"></script> --}}
 <div id="app">
     <router-view></router-view>
@@ -135,7 +139,8 @@
     @include('vendor.laraupdater.notification')
 @endif
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/mazer.js') }}"></script>
@@ -163,12 +168,12 @@
     window.appName = "{{ $app_name }}";
     window.supportEmail = "{{ $support_email }}";
     window.supportNumber = "{{ $support_number }}";
-  
+
     window.appLogo = "{{ $logo }}";
     window.panelLoginBackgroundImg = "{{ $panel_login_background_img_full_path ?? '' }}";
     window.currency = "{{ $currency }}";
     window.isInstalled = "{{ isInstalled() }}";
-   
+
 
     window.websiteUrl = "{{ $website_url }}";
     window.copyrightDetails = "{!! $copyright_details !!}";
@@ -197,7 +202,7 @@
 
 
 @if(isInstalled())
-{{--<script src="{{ route('assets.firebase-messaging-sw')  }}"></script>--}}
+    {{--<script src="{{ route('assets.firebase-messaging-sw')  }}"></script>--}}
 @endif
 <!--Web Push-->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -214,96 +219,98 @@
 
 <script>
 
-    let lang = JSON.stringify(<?php  echo $file; ?>);
+    let lang = JSON.stringify(<?php echo $file; ?>);
     localStorage.setItem('language', lang);
 
 
     @if($apiKey!='' && $authDomain!='' && $authDomain!='' && $projectId!='' && $storageBucket!='' && $messagingSenderId!='' && $appId!='' && $measurementId!='')
 
-        var firebaseConfig = {
-            apiKey: "{{ $apiKey }}",
-            authDomain: "{{ $authDomain }}",
-            projectId: "{{ $projectId }}",
-            storageBucket: "{{ $storageBucket }}",
-            messagingSenderId: "{{ $messagingSenderId }}",
-            appId: "{{ $appId }}",
-            measurementId: "{{ $measurementId }}"
-        };
+    var firebaseConfig = {
+        apiKey: "{{ $apiKey }}",
+        authDomain: "{{ $authDomain }}",
+        projectId: "{{ $projectId }}",
+        storageBucket: "{{ $storageBucket }}",
+        messagingSenderId: "{{ $messagingSenderId }}",
+        appId: "{{ $appId }}",
+        measurementId: "{{ $measurementId }}"
+    };
 
-        var firebaseCheck =  firebase.initializeApp(firebaseConfig);
+    var firebaseCheck = firebase.initializeApp(firebaseConfig);
 
-        if ('Notification' in window) {
+    if ('Notification' in window) {
 
-            if (firebase.messaging.isSupported()) {
-                const messaging = firebase.messaging();
-                startFCM();
+        if (firebase.messaging.isSupported()) {
+            const messaging = firebase.messaging();
+            startFCM();
 
-                function startFCM() {
-                    messaging
-                        .requestPermission()
-                        .then(function () {
-                            return messaging.getToken()
-                        })
-                        .then(function (response) {
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                }
-                            });
-                            $.ajax({
-                                url: '{{ route("fcmToken") }}',
-                                type: 'POST',
-                                data: {
-                                    token: response
-                                },
-                                dataType: 'JSON',
-                                success: function (response) {
-                                    
-                                },
-                                error: function (error) {
-                                    
-                                },
-                            });
-                        }).catch(function (error) {
-                      
-                    });
-                }
+            function startFCM() {
+                messaging
+                    .requestPermission()
+                    .then(function () {
+                        return messaging.getToken()
+                    })
+                    .then(function (response) {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        $.ajax({
+                            url: '{{ route("fcmToken") }}',
+                            type: 'POST',
+                            data: {
+                                token: response
+                            },
+                            dataType: 'JSON',
+                            success: function (response) {
 
-                messaging.onMessage(function (payload) {
-                    console.log(payload);
-                    if(payload.data.type == 'new_order'){
-                        var url = "{{ asset('assets/order_sound.wav') }}";
-                        var audio = new Audio(url);
-                        audio.play();
-                        toastr.options = {
-                            "onclick": function() { window.open(payload.data.click_action, '_blank');  },
-                            "showDuration": "60000",
-                            "hideDuration": "20000",
-                            "timeOut": "60000",
-                            "extendedTimeOut": "10000",
-                            "closeButton": true,
-                        };
-                        toastr.info(payload.data.message,payload.data.title);
-                    }
+                            },
+                            error: function (error) {
 
-                    const notification = payload.data;
-                    console.log(notification);
-                    //prevent notification on other tabs
-                    if (document.hidden) {
-                        return false;
-                    }
+                            },
+                        });
+                    }).catch(function (error) {
 
-                    const title = notification.title;
-                    const options = {
-                        body: notification.body,
-                        icon: notification.icon,
-                       
-                    };
-                    
-                    new Notification(title, options);
                 });
             }
+
+            messaging.onMessage(function (payload) {
+                console.log(payload);
+                if (payload.data.type == 'new_order') {
+                    var url = "{{ asset('assets/order_sound.wav') }}";
+                    var audio = new Audio(url);
+                    audio.play();
+                    toastr.options = {
+                        "onclick": function () {
+                            window.open(payload.data.click_action, '_blank');
+                        },
+                        "showDuration": "60000",
+                        "hideDuration": "20000",
+                        "timeOut": "60000",
+                        "extendedTimeOut": "10000",
+                        "closeButton": true,
+                    };
+                    toastr.info(payload.data.message, payload.data.title);
+                }
+
+                const notification = payload.data;
+                console.log(notification);
+                //prevent notification on other tabs
+                if (document.hidden) {
+                    return false;
+                }
+
+                const title = notification.title;
+                const options = {
+                    body: notification.body,
+                    icon: notification.icon,
+
+                };
+
+                new Notification(title, options);
+            });
         }
+    }
 
     @endif
 </script>

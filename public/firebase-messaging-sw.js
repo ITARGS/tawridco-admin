@@ -3,7 +3,7 @@ importScripts('https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js');
 
 firebase.initializeApp({
     apiKey: "AIzaSyBdDqLlXGn2RXOgnfPJ8ZMjkQ1DWUD7SMM",
-    projectId: "egrocer-457a9",
+    projectId: "Tawridco-457a9",
     messagingSenderId: "755773183987",
     appId: "1:755773183987:web:b21f893398fac9c493e486",
 });
