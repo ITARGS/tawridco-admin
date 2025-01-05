@@ -5,7 +5,7 @@
     $support_number="";
     $google_place_api_key = "";
     $currency = "";
-    $purchase_code = "";
+    // $purchase_code = "";
     $logo_full_path = "";
     $delivery_boy_bonus_settings = 0;
     $isDemoMode = 0;
@@ -56,7 +56,7 @@
 
         $google_place_api_key = Setting::get_value('google_place_api_key') ?? "";
         $currency = Setting::get_value('currency') ?? "$";
-        $purchase_code = Setting::get_value('purchase_code') ?? "";
+        // $purchase_code = Setting::get_value('purchase_code') ?? "";
 
         $website_url = Setting::get_value('website_url') ?? "";
         $copyright_details = Setting::get_value('copyright_details') ?? "";

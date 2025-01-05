@@ -16,7 +16,7 @@ class BrandsApiController extends Controller
         $limit = $request->input('per_page', 10); // Default items per page
         $offset = (($request->input('page', 0))-1)*$limit; // Default page
         $filter = $request->input('filter', ''); // Filter query
-    
+
         // Fetch paginated data
         $brands = Brand::orderBy('id', 'DESC');
         if ($filter) {
@@ -69,7 +69,7 @@ class BrandsApiController extends Controller
             $brand->name = $request->name;
             $brand->status = $request->status;
 
-            if($request->hasFile('image')){
+            if($request->hasFile('image')&&$brand->image){
                 @Storage::disk('public')->delete($brand->image);
                 $file = $request->file('image');
                 $fileName = time().'_'.rand(1111,99999).'.'.$file->getClientOriginalExtension();

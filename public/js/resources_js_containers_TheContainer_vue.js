@@ -107,6 +107,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -114,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'TheContainer',
+  name: "TheContainer",
   components: {
     TheSidebar: _TheSidebar__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _TheFooter__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -126,12 +164,12 @@ __webpack_require__.r(__webpack_exports__);
     this.checkPermissions();
   },
   watch: {
-    '$route': 'checkPermissions'
+    $route: "checkPermissions"
   },
   mounted: function mounted() {
     //lang
-    if (window.localStorage.getItem('lang')) {
-      this.lang = window.localStorage.getItem('lang');
+    if (window.localStorage.getItem("lang")) {
+      this.lang = window.localStorage.getItem("lang");
     }
     function slideToggle(t, e, o) {
       0 === t.clientHeight ? j(t, e, o, !0) : j(t, e, o);
@@ -162,48 +200,48 @@ __webpack_require__.r(__webpack_exports__);
         i ? (t.style.height = g * f + "px", t.style.paddingTop = y * f + "px", t.style.paddingBottom = m * f + "px", t.style.marginTop = u * f + "px", t.style.marginBottom = h * f + "px") : (t.style.height = n - g * f + "px", t.style.paddingTop = a - y * f + "px", t.style.paddingBottom = s - m * f + "px", t.style.marginTop = r - u * f + "px", t.style.marginBottom = d - h * f + "px"), f >= e ? (t.style.height = "", t.style.paddingTop = "", t.style.paddingBottom = "", t.style.marginTop = "", t.style.marginBottom = "", t.style.overflow = "", i || (t.style.display = "none"), "function" == typeof o && o()) : window.requestAnimationFrame(l);
       });
     }
-    var sidebarItems = document.querySelectorAll('.sidebar-item.has-sub');
+    var sidebarItems = document.querySelectorAll(".sidebar-item.has-sub");
     var _loop = function _loop() {
       var sidebarItem = sidebarItems[i];
-      sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', function (e) {
+      sidebarItems[i].querySelector(".sidebar-link").addEventListener("click", function (e) {
         var _submenu$classList, _submenu$classList2, _submenu$classList3;
         e.preventDefault();
-        var submenu = sidebarItem.querySelector('.submenu');
-        if (submenu !== null && submenu !== void 0 && (_submenu$classList = submenu.classList) !== null && _submenu$classList !== void 0 && _submenu$classList.contains('active')) submenu.style.display = "block";
-        if (submenu.style.display == "none") submenu === null || submenu === void 0 ? void 0 : (_submenu$classList2 = submenu.classList) === null || _submenu$classList2 === void 0 ? void 0 : _submenu$classList2.add('active');else submenu === null || submenu === void 0 ? void 0 : (_submenu$classList3 = submenu.classList) === null || _submenu$classList3 === void 0 ? void 0 : _submenu$classList3.remove('active');
+        var submenu = sidebarItem.querySelector(".submenu");
+        if (submenu !== null && submenu !== void 0 && (_submenu$classList = submenu.classList) !== null && _submenu$classList !== void 0 && _submenu$classList.contains("active")) submenu.style.display = "block";
+        if (submenu.style.display == "none") submenu === null || submenu === void 0 ? void 0 : (_submenu$classList2 = submenu.classList) === null || _submenu$classList2 === void 0 ? void 0 : _submenu$classList2.add("active");else submenu === null || submenu === void 0 ? void 0 : (_submenu$classList3 = submenu.classList) === null || _submenu$classList3 === void 0 ? void 0 : _submenu$classList3.remove("active");
         slideToggle(submenu, 300);
       });
     };
     for (var i = 0; i < sidebarItems.length; i++) {
       _loop();
     }
-    window.addEventListener('DOMContentLoaded', function (event) {
+    window.addEventListener("DOMContentLoaded", function (event) {
       var w = window.innerWidth;
       if (w < 1200) {
         var _document$getElementB, _document$getElementB2;
-        (_document$getElementB = document.getElementById('sidebar')) === null || _document$getElementB === void 0 ? void 0 : (_document$getElementB2 = _document$getElementB.classList) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.remove('active');
+        (_document$getElementB = document.getElementById("sidebar")) === null || _document$getElementB === void 0 ? void 0 : (_document$getElementB2 = _document$getElementB.classList) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.remove("active");
       }
     });
-    window.addEventListener('resize', function (event) {
+    window.addEventListener("resize", function (event) {
       var w = window.innerWidth;
       if (w < 1200) {
         var _document$getElementB3, _document$getElementB4;
-        (_document$getElementB3 = document.getElementById('sidebar')) === null || _document$getElementB3 === void 0 ? void 0 : (_document$getElementB4 = _document$getElementB3.classList) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.remove('active');
+        (_document$getElementB3 = document.getElementById("sidebar")) === null || _document$getElementB3 === void 0 ? void 0 : (_document$getElementB4 = _document$getElementB3.classList) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.remove("active");
       } else {
         var _document$getElementB5, _document$getElementB6;
-        (_document$getElementB5 = document.getElementById('sidebar')) === null || _document$getElementB5 === void 0 ? void 0 : (_document$getElementB6 = _document$getElementB5.classList) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.add('active');
+        (_document$getElementB5 = document.getElementById("sidebar")) === null || _document$getElementB5 === void 0 ? void 0 : (_document$getElementB6 = _document$getElementB5.classList) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.add("active");
       }
     });
-    document.querySelector('.burger-btn').addEventListener('click', function () {
+    document.querySelector(".burger-btn").addEventListener("click", function () {
       var _document$getElementB7, _document$getElementB8;
-      (_document$getElementB7 = document.getElementById('sidebar')) === null || _document$getElementB7 === void 0 ? void 0 : (_document$getElementB8 = _document$getElementB7.classList) === null || _document$getElementB8 === void 0 ? void 0 : _document$getElementB8.toggle('active');
+      (_document$getElementB7 = document.getElementById("sidebar")) === null || _document$getElementB7 === void 0 ? void 0 : (_document$getElementB8 = _document$getElementB7.classList) === null || _document$getElementB8 === void 0 ? void 0 : _document$getElementB8.toggle("active");
     });
-    document.querySelector('.sidebar-hide').addEventListener('click', function () {
+    document.querySelector(".sidebar-hide").addEventListener("click", function () {
       var _document$getElementB9, _document$getElementB10;
-      (_document$getElementB9 = document.getElementById('sidebar')) === null || _document$getElementB9 === void 0 ? void 0 : (_document$getElementB10 = _document$getElementB9.classList) === null || _document$getElementB10 === void 0 ? void 0 : _document$getElementB10.toggle('active');
+      (_document$getElementB9 = document.getElementById("sidebar")) === null || _document$getElementB9 === void 0 ? void 0 : (_document$getElementB10 = _document$getElementB9.classList) === null || _document$getElementB10 === void 0 ? void 0 : _document$getElementB10.toggle("active");
     });
     // Perfect Scrollbar Init
-    if (typeof PerfectScrollbar["default"] == 'function') {
+    if (typeof PerfectScrollbar["default"] == "function") {
       var container = document.querySelector(".sidebar-wrapper");
       var ps = new PerfectScrollbar["default"](container, {
         wheelPropagation: false
@@ -211,130 +249,130 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     // Scroll into active sidebar
-    if (document.querySelector('.sidebar-item.active')) {
-      document.querySelector('.sidebar-item.active').scrollIntoView(false);
+    if (document.querySelector(".sidebar-item.active")) {
+      document.querySelector(".sidebar-item.active").scrollIntoView(false);
     }
   },
   data: function data() {
     return {
-      lang: 'en',
-      search: '',
+      lang: "en",
+      search: "",
       isLoading: false,
       suspecious: null,
       sidebarItems: [{
-        name: __('dashboard'),
-        icon: 'tachometer-alt',
-        url: '/dashboard',
-        permission: 'manage_dashboard'
+        name: __("dashboard"),
+        icon: "tachometer-alt",
+        url: "/dashboard",
+        permission: "manage_dashboard"
       }, {
-        name: __('orders'),
-        icon: 'shopping-cart',
-        url: '/orders',
-        permission: 'order_list'
+        name: __("orders"),
+        icon: "shopping-cart",
+        url: "/orders",
+        permission: "order_list"
       }, {
-        name: __('categories'),
-        icon: 'bullseye',
-        permission: 'category_list',
+        name: __("categories"),
+        icon: "bullseye",
+        permission: "category_list",
         submenu: [{
-          name: __('add_category'),
-          icon: 'grid-fill',
-          url: '/manage_categories/create',
-          permission: 'category_create'
+          name: __("add_category"),
+          icon: "grid-fill",
+          url: "/manage_categories/create",
+          permission: "category_create"
         }, {
-          name: __('manage_categories'),
-          icon: 'grid-fill',
-          url: '/manage_categories',
-          permission: 'category_list'
+          name: __("manage_categories"),
+          icon: "grid-fill",
+          url: "/manage_categories",
+          permission: "category_list"
         }, {
-          name: __('order_categories'),
-          icon: 'grid-fill',
-          url: '/categories_order',
-          permission: 'manage_categories_order'
+          name: __("order_categories"),
+          icon: "grid-fill",
+          url: "/categories_order",
+          permission: "manage_categories_order"
         }]
       }, {
-        name: __('products'),
-        icon: 'cubes',
-        permission: 'product_list',
+        name: __("products"),
+        icon: "cubes",
+        permission: "product_list",
         submenu: [{
-          name: __('add_product'),
-          icon: 'grid-fill',
-          url: '/manage_products/create',
-          permission: 'product_create'
+          name: __("add_product"),
+          icon: "grid-fill",
+          url: "/manage_products/create",
+          permission: "product_create"
         }, {
-          name: __('manage_products'),
-          icon: 'grid-fill',
-          url: '/manage_products',
-          permission: 'product_list'
+          name: __("manage_products"),
+          icon: "grid-fill",
+          url: "/manage_products",
+          permission: "product_list"
         }, {
-          name: __('approve_requests'),
-          icon: 'grid-fill',
-          url: '/approve_requests',
-          permission: 'product_list'
+          name: __("approve_requests"),
+          icon: "grid-fill",
+          url: "/approve_requests",
+          permission: "product_list"
         }, {
-          name: __('units'),
-          icon: 'grid-fill',
-          url: '/units',
-          permission: 'manage_units'
+          name: __("units"),
+          icon: "grid-fill",
+          url: "/units",
+          permission: "manage_units"
         }, {
-          name: __('product_ratings'),
-          icon: 'grid-fill',
-          url: '/product_ratings',
-          permission: 'product_list'
+          name: __("product_ratings"),
+          icon: "grid-fill",
+          url: "/product_ratings",
+          permission: "product_list"
         }, {
-          name: __('media'),
-          icon: 'grid-fill',
-          url: '/media',
-          permission: 'manage_media'
+          name: __("media"),
+          icon: "grid-fill",
+          url: "/media",
+          permission: "manage_media"
         }, {
-          name: __('bulk_upload'),
-          icon: 'grid-fill',
-          url: '/bulk_upload',
-          permission: 'manage_product_bulk_upload'
+          name: __("bulk_upload"),
+          icon: "grid-fill",
+          url: "/bulk_upload",
+          permission: "manage_product_bulk_upload"
         }, {
-          name: __('bulk_update'),
-          icon: 'grid-fill',
-          url: '/bulk_update',
-          permission: 'manage_product_bulk_upload'
+          name: __("bulk_update"),
+          icon: "grid-fill",
+          url: "/bulk_update",
+          permission: "manage_product_bulk_upload"
         }, {
-          name: __('taxes'),
-          icon: 'grid-fill',
-          url: '/taxes',
-          permission: 'product_list'
+          name: __("taxes"),
+          icon: "grid-fill",
+          url: "/taxes",
+          permission: "product_list"
         }, {
-          name: __('brands'),
-          icon: 'grid-fill',
-          url: '/brands',
-          permission: 'product_list'
+          name: __("brands"),
+          icon: "grid-fill",
+          url: "/brands",
+          permission: "product_list"
         }, {
-          name: __('product_order'),
-          icon: 'grid-fill',
-          url: '/product_order',
-          permission: 'manage_product_order'
+          name: __("product_order"),
+          icon: "grid-fill",
+          url: "/product_order",
+          permission: "manage_product_order"
         }]
       }, {
-        name: __('stock_management'),
-        icon: 'cubes',
-        url: '/manage_stock',
-        permission: 'product_list'
+        name: __("stock_management"),
+        icon: "cubes",
+        url: "/manage_stock",
+        permission: "product_list"
       }, {
-        name: __('sellers'),
-        icon: 'male',
-        permission: 'seller_list',
+        name: __("sellers"),
+        icon: "male",
+        permission: "seller_list",
         submenu: [{
-          name: __('add_seller'),
-          icon: 'grid-fill',
-          url: '/sellers/create',
-          permission: 'seller_create'
+          name: __("add_seller"),
+          icon: "grid-fill",
+          url: "/sellers/create",
+          permission: "seller_create"
         }, {
-          name: __('seller_requests'),
-          icon: 'grid-fill',
-          url: '/registered_sellers',
-          permission: 'seller_list'
+          name: __("seller_requests"),
+          icon: "grid-fill",
+          url: "/registered_sellers",
+          permission: "seller_list"
         }, {
-          name: __('manage_sellers'),
-          icon: 'grid-fill',
-          url: '/sellers',
-          permission: 'seller_list'
+          name: __("manage_sellers"),
+          icon: "grid-fill",
+          url: "/sellers",
+          permission: "seller_list"
         },
         // {
         //     name: __('seller_commissions'),
@@ -343,80 +381,80 @@ __webpack_require__.r(__webpack_exports__);
         //     permission:'seller_list',
         // },
         {
-          name: __('seller_wallet_transactions'),
-          icon: 'grid-fill',
-          url: '/seller_wallet_transactions',
-          permission: 'seller_list'
+          name: __("seller_wallet_transactions"),
+          icon: "grid-fill",
+          url: "/seller_wallet_transactions",
+          permission: "seller_list"
         }, {
-          name: __('policies_seller'),
-          icon: 'grid-fill',
-          url: '/privacy_policy_seller',
-          permission: 'manage_privacy_policy_seller_app'
+          name: __("policies_seller"),
+          icon: "grid-fill",
+          url: "/privacy_policy_seller",
+          permission: "manage_privacy_policy_seller_app"
         }]
       }, {
-        name: __('home_sliders'),
-        icon: 'picture-o',
-        permission: 'home_slider_image_list',
+        name: __("home_sliders"),
+        icon: "picture-o",
+        permission: "home_slider_image_list",
         submenu: [{
-          name: __('add_home_slider'),
-          icon: 'grid-fill',
-          url: '/home_sliders/create',
-          permission: 'home_slider_image_create'
+          name: __("add_home_slider"),
+          icon: "grid-fill",
+          url: "/home_sliders/create",
+          permission: "home_slider_image_create"
         }, {
-          name: __('manager_home_sliders'),
-          icon: 'grid-fill',
-          url: '/home_sliders',
-          permission: 'home_slider_image_list'
+          name: __("manager_home_sliders"),
+          icon: "grid-fill",
+          url: "/home_sliders",
+          permission: "home_slider_image_list"
         }]
       }, {
-        name: __('offer_image'),
-        icon: 'gift',
-        permission: 'new_offer_image_list',
+        name: __("offer_image"),
+        icon: "gift",
+        permission: "new_offer_image_list",
         submenu: [{
-          name: __('add_offer_image'),
-          icon: 'grid-fill',
-          url: '/offers/create',
-          permission: 'new_offer_image_create'
+          name: __("add_offer_image"),
+          icon: "grid-fill",
+          url: "/offers/create",
+          permission: "new_offer_image_create"
         }, {
-          name: __('manage_offer_images'),
-          icon: 'grid-fill',
-          url: '/offers',
-          permission: 'new_offer_image_list'
+          name: __("manage_offer_images"),
+          icon: "grid-fill",
+          url: "/offers",
+          permission: "new_offer_image_list"
         }, {
-          name: __('manage_popup_offer'),
-          icon: 'grid-fill',
-          url: '/popup',
-          permission: 'new_offer_image_list'
+          name: __("manage_popup_offer"),
+          icon: "grid-fill",
+          url: "/popup",
+          permission: "new_offer_image_list"
         }]
       }, {
-        name: __('promo_code'),
-        icon: 'gift',
-        permission: 'promo_code_list',
+        name: __("promo_code"),
+        icon: "gift",
+        permission: "promo_code_list",
         submenu: [{
-          name: __('add_promo_code'),
-          icon: 'grid-fill',
-          url: '/promo_code/create',
-          permission: 'promo_code_create'
+          name: __("add_promo_code"),
+          icon: "grid-fill",
+          url: "/promo_code/create",
+          permission: "promo_code_create"
         }, {
-          name: __('manage_promo_code'),
-          icon: 'grid-fill',
-          url: '/promo_code',
-          permission: 'promo_code_list'
+          name: __("manage_promo_code"),
+          icon: "grid-fill",
+          url: "/promo_code",
+          permission: "promo_code_list"
         }]
       }, {
-        name: __('featured_sections'),
-        icon: 'puzzle-piece',
-        permission: 'featured_section_list',
+        name: __("featured_sections"),
+        icon: "puzzle-piece",
+        permission: "featured_section_list",
         submenu: [{
-          name: __('add_section'),
-          icon: 'grid-fill',
-          url: '/sections/create',
-          permission: 'featured_section_create'
+          name: __("add_section"),
+          icon: "grid-fill",
+          url: "/sections/create",
+          permission: "featured_section_create"
         }, {
-          name: __('manage_section'),
-          icon: 'grid-fill',
-          url: '/sections',
-          permission: 'featured_section_list'
+          name: __("manage_section"),
+          icon: "grid-fill",
+          url: "/sections",
+          permission: "featured_section_list"
         }
         // {
         //     name: __('order_section'),
@@ -426,112 +464,110 @@ __webpack_require__.r(__webpack_exports__);
         // },
         ]
       }, {
-        name: __('return_requests'),
-        icon: 'retweet',
-        url: '/return_requests',
-        permission: 'return_request_list'
+        name: __("return_requests"),
+        icon: "retweet",
+        url: "/return_requests",
+        permission: "return_request_list"
       }, {
-        name: __('withdrawal_requests'),
-        icon: 'credit-card',
-        url: '/withdrawal_requests',
-        permission: 'withdrawal_request_list'
+        name: __("withdrawal_requests"),
+        icon: "credit-card",
+        url: "/withdrawal_requests",
+        permission: "withdrawal_request_list"
       }, {
-        name: __('delivery_boys'),
-        icon: 'male',
-        permission: 'delivery_boy_list',
+        name: __("delivery_boys"),
+        icon: "male",
+        permission: "delivery_boy_list",
         submenu: [{
-          name: __('add_delivery_boy'),
-          icon: 'grid-fill',
-          url: '/delivery_boys/create',
-          permission: 'delivery_boy_create'
+          name: __("add_delivery_boy"),
+          icon: "grid-fill",
+          url: "/delivery_boys/create",
+          permission: "delivery_boy_create"
         }, {
-          name: __('dlivery_boy_requests'),
-          icon: 'grid-fill',
-          url: '/registered_delivery_boys',
-          permission: 'delivery_boy_list'
+          name: __("dlivery_boy_requests"),
+          icon: "grid-fill",
+          url: "/registered_delivery_boys",
+          permission: "delivery_boy_list"
         }, {
-          name: __('manage_delivery_boys'),
-          icon: 'grid-fill',
-          url: '/delivery_boys',
-          permission: 'delivery_boy_list'
+          name: __("manage_delivery_boys"),
+          icon: "grid-fill",
+          url: "/delivery_boys",
+          permission: "delivery_boy_list"
         }, {
-          name: __('fund_transfers'),
-          icon: 'grid-fill',
-          url: '/fund_transfers',
-          permission: 'fund_transfers_list'
+          name: __("fund_transfers"),
+          icon: "grid-fill",
+          url: "/fund_transfers",
+          permission: "fund_transfers_list"
         }, {
-          name: __('delivery_boy_cash'),
-          icon: 'grid-fill',
-          url: '/cash_collection',
-          permission: 'cash_collection_list'
+          name: __("delivery_boy_cash"),
+          icon: "grid-fill",
+          url: "/cash_collection",
+          permission: "cash_collection_list"
         }, {
-          name: __('delivery_boy_policies'),
-          icon: 'grid-fill',
-          url: '/privacy_policy_delivery_boy',
-          permission: 'manage_privacy_policy_delivery_boy'
+          name: __("delivery_boy_policies"),
+          icon: "grid-fill",
+          url: "/privacy_policy_delivery_boy",
+          permission: "manage_privacy_policy_delivery_boy"
         }]
       }, {
-        name: __('notifications'),
-        icon: 'share-square',
-        url: '/notifications',
-        permission: 'notification_list',
+        name: __("notifications"),
+        icon: "share-square",
+        url: "/notifications",
+        permission: "notification_list",
         submenu: [{
-          name: __('send_notifications'),
-          icon: 'grid-fill',
-          url: '/notifications/create',
-          permission: 'notification_create'
+          name: __("send_notifications"),
+          icon: "grid-fill",
+          url: "/notifications/create",
+          permission: "notification_create"
         }, {
-          name: __('manage_notifications'),
-          icon: 'grid-fill',
-          url: '/notifications',
-          permission: 'notification_list'
+          name: __("manage_notifications"),
+          icon: "grid-fill",
+          url: "/notifications",
+          permission: "notification_list"
         }]
       }, {
-        name: __('system'),
-        icon: 'wrench',
-        permission: 'manage_time_slots',
+        name: __("system"),
+        icon: "wrench",
+        permission: "manage_time_slots",
         submenu: [{
-          name: __('store_settings'),
-          icon: 'grid-fill',
-          url: '/store_settings',
-          permission: 'manage_store_settings'
+          name: __("store_settings"),
+          icon: "grid-fill",
+          url: "/store_settings",
+          permission: "manage_store_settings"
         }, {
-          name: __('delivery_settings'),
-          icon: 'grid-fill',
-          url: '/delivery_settings',
-          permission: 'manage_time_slots'
-        },
-        // {
-        //     name: __('payment_methods'),
-        //     icon: 'grid-fill',
-        //     url: '/payment_methods',
-        //     permission: 'manage_payment_methods',
-        // },
-        {
-          name: __('contact_us'),
-          icon: 'grid-fill',
-          url: '/contact_us',
-          permission: 'manage_contact_us'
+          name: __("delivery_settings"),
+          icon: "grid-fill",
+          url: "/delivery_settings",
+          permission: "manage_time_slots"
         }, {
-          name: __('about_us'),
-          icon: 'grid-fill',
-          url: '/about_us',
-          permission: 'manage_about_us'
+          name: __("payment_methods"),
+          icon: "grid-fill",
+          url: "/payment_methods",
+          permission: "manage_payment_methods"
         }, {
-          name: __('firebase_settings'),
-          icon: 'grid-fill',
-          url: '/firebase-settings',
-          permission: 'manage_store_settings'
+          name: __("contact_us"),
+          icon: "grid-fill",
+          url: "/contact_us",
+          permission: "manage_contact_us"
         }, {
-          name: __('sms_settings'),
-          icon: 'grid-fill',
-          url: '/sms-settings',
-          permission: 'manage_store_settings'
+          name: __("about_us"),
+          icon: "grid-fill",
+          url: "/about_us",
+          permission: "manage_about_us"
         }, {
-          name: __('sms_templates'),
-          icon: 'grid-fill',
-          url: '/sms-templates',
-          permission: 'manage_store_settings'
+          name: __("firebase_settings"),
+          icon: "grid-fill",
+          url: "/firebase-settings",
+          permission: "manage_store_settings"
+        }, {
+          name: __("sms_settings"),
+          icon: "grid-fill",
+          url: "/sms-settings",
+          permission: "manage_store_settings"
+        }, {
+          name: __("sms_templates"),
+          icon: "grid-fill",
+          url: "/sms-templates",
+          permission: "manage_store_settings"
         }
         // {
         //     name: __('system_registration'),
@@ -547,65 +583,65 @@ __webpack_require__.r(__webpack_exports__);
         // },
         ]
       }, {
-        name: __('web_settings'),
+        name: __("web_settings"),
         // icon : 'gear fa-spin',
-        icon: 'gear',
-        permission: 'general_settings',
+        icon: "gear",
+        permission: "general_settings",
         submenu: [{
-          name: __('general_web_settings'),
-          icon: 'grid-fill',
-          url: '/general_settings',
-          permission: 'general_settings'
+          name: __("general_web_settings"),
+          icon: "grid-fill",
+          url: "/general_settings",
+          permission: "general_settings"
         }, {
-          name: __('social_media'),
-          icon: 'grid-fill',
-          url: '/social_media',
-          permission: 'manage_social_media_list'
+          name: __("social_media"),
+          icon: "grid-fill",
+          url: "/social_media",
+          permission: "manage_social_media_list"
         }]
       }, {
-        name: __('languages'),
-        icon: 'language',
-        permission: 'city_list',
+        name: __("languages"),
+        icon: "language",
+        permission: "city_list",
         submenu: [{
-          name: __('add_language'),
-          icon: 'grid-fill',
-          url: '/languages/create',
-          permission: 'manage_dashboard'
+          name: __("add_language"),
+          icon: "grid-fill",
+          url: "/languages/create",
+          permission: "manage_dashboard"
         }, {
-          name: __('manage_languages'),
-          icon: 'grid-fill',
-          url: '/languages',
-          permission: 'manage_dashboard'
+          name: __("manage_languages"),
+          icon: "grid-fill",
+          url: "/languages",
+          permission: "manage_dashboard"
         }]
       }, {
-        name: __('countries'),
-        icon: 'globe-asia',
-        permission: 'city_list',
+        name: __("countries"),
+        icon: "globe-asia",
+        permission: "city_list",
         submenu: [{
-          name: __('add_country'),
-          icon: 'grid-fill',
-          url: '/countries/create',
-          permission: 'manage_dashboard'
+          name: __("add_country"),
+          icon: "grid-fill",
+          url: "/countries/create",
+          permission: "manage_dashboard"
         }, {
-          name: __('manage_countries'),
-          icon: 'grid-fill',
-          url: '/countries',
-          permission: 'manage_dashboard'
+          name: __("manage_countries"),
+          icon: "grid-fill",
+          url: "/countries",
+          permission: "manage_dashboard"
         }]
       }, {
-        name: __('location'),
-        icon: 'map',
-        permission: 'city_list',
+        name: __("location"),
+        icon: "map",
+        permission: "city_list",
         submenu: [{
-          name: __('add_city'),
-          icon: 'grid-fill',
-          url: '/cities/create',
-          permission: 'manage_dashboard'
+          name: __("add_city"),
+          icon: "grid-fill",
+          url: "/cities/create",
+          permission: "manage_dashboard"
         }, {
-          name: __('manage_cities'),
-          icon: 'grid-fill',
-          url: '/cities',
-          permission: 'manage_dashboard'
+          name: __("manage_cities"),
+          icon: "grid-fill",
+          url: "/cities",
+          permission: "manage_dashboard"
         }
         // ,{
         //     name: __('deliverable_area'),
@@ -615,70 +651,70 @@ __webpack_require__.r(__webpack_exports__);
         // }
         ]
       }, {
-        name: __('customers'),
-        icon: 'male',
-        permission: 'customer_list',
+        name: __("customers"),
+        icon: "male",
+        permission: "customer_list",
         submenu: [{
-          name: __('customers'),
-          icon: 'grid-fill',
-          url: '/users',
-          permission: 'customer_list'
+          name: __("customers"),
+          icon: "grid-fill",
+          url: "/users",
+          permission: "customer_list"
         }, {
-          name: __('wishlists'),
-          icon: 'grid-fill',
-          url: '/wishlists',
-          permission: 'manage_wishlists'
+          name: __("wishlists"),
+          icon: "grid-fill",
+          url: "/wishlists",
+          permission: "manage_wishlists"
         }, {
-          name: __('wallet_transactions'),
-          icon: 'grid-fill',
-          url: '/wallet_transactions',
-          permission: 'transaction_list'
+          name: __("wallet_transactions"),
+          icon: "grid-fill",
+          url: "/wallet_transactions",
+          permission: "transaction_list"
         }, {
-          name: __('transactions'),
-          icon: 'grid-fill',
-          url: '/transactions',
-          permission: 'transaction_list'
+          name: __("transactions"),
+          icon: "grid-fill",
+          url: "/transactions",
+          permission: "transaction_list"
         }, {
-          name: __('customer_policies'),
-          icon: 'grid-fill',
-          url: '/privacy_policy',
-          permission: 'manage_privacy_policy'
+          name: __("customer_policies"),
+          icon: "grid-fill",
+          url: "/privacy_policy",
+          permission: "manage_privacy_policy"
         }]
       }, {
-        name: __('reports'),
-        icon: 'folder-open',
-        permission: 'product_sales_reports',
+        name: __("reports"),
+        icon: "folder-open",
+        permission: "product_sales_reports",
         submenu: [{
-          name: __('product_sales_report'),
-          icon: 'grid-fill',
-          url: '/product_sales_reports',
-          permission: 'product_sales_reports'
+          name: __("product_sales_report"),
+          icon: "grid-fill",
+          url: "/product_sales_reports",
+          permission: "product_sales_reports"
         }, {
-          name: __('sales_reports'),
-          icon: 'grid-fill',
-          url: '/sales_reports',
-          permission: 'sales_reports'
+          name: __("sales_reports"),
+          icon: "grid-fill",
+          url: "/sales_reports",
+          permission: "sales_reports"
         }]
       }, {
-        name: __('system_users'),
-        icon: 'users',
-        url: '/system_users',
+        name: __("system_users"),
+        icon: "users",
+        url: "/system_users",
         role: true
       }, {
-        name: __('role'),
-        icon: 'user-secret',
-        url: '/role',
+        name: __("role"),
+        icon: "user-secret",
+        url: "/role",
         role: true
       }, {
-        name: __('faqs'),
-        icon: 'info',
-        url: '/faqs',
-        permission: 'faq_list'
+        name: __("faqs"),
+        icon: "info",
+        url: "/faqs",
+        permission: "faq_list"
       }],
       databasedownloadBtn: [{
-        name: __('database_backup'),
-        icon: 'info',
-        permission: 'database_backup_download'
+        name: __("database_backup"),
+        icon: "info",
+        permission: "database_backup_download"
       }]
     };
   },
@@ -695,16 +731,16 @@ __webpack_require__.r(__webpack_exports__);
       var filter = this.search;
       $(".sidebar-menu li:not(.sidebar-search)").each(function (index, element) {
         var item = $(element);
-        var parentListIsNested = item.closest('ul').hasClass('submenu');
-        if (item.text().match(new RegExp(filter, 'gi'))) {
+        var parentListIsNested = item.closest("ul").hasClass("submenu");
+        if (item.text().match(new RegExp(filter, "gi"))) {
           item.fadeIn();
           if (parentListIsNested) {
-            item.closest('ul').removeClass('active');
+            item.closest("ul").removeClass("active");
           }
         } else {
           item.fadeOut();
           if (parentListIsNested) {
-            item.closest('ul').addClass('active');
+            item.closest("ul").addClass("active");
           }
         }
       });
@@ -732,7 +768,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkPermissions: function checkPermissions() {
       var current_path = this.$route.path;
-      var permission = '';
+      var permission = "";
       this.sidebarItems.forEach(function (menu) {
         //Only Main Categories
         if (menu.submenu && menu.submenu.length > 0) {
@@ -749,14 +785,14 @@ __webpack_require__.r(__webpack_exports__);
       });
       if (_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].check() && UserPermissions.length === 0) {
         //this.$router.push({path:'/login'});
-        if (window.localStorage.getItem('loginCheck') == 1) {
+        if (window.localStorage.getItem("loginCheck") == 1) {
           _Auth__WEBPACK_IMPORTED_MODULE_3__["default"].logout();
         }
-        window.localStorage.setItem('loginCheck', 1);
+        window.localStorage.setItem("loginCheck", 1);
         window.location.reload();
       } else if (_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].check() && permission && !this.$can(permission)) {
         this.$router.push({
-          path: '/unauthorized'
+          path: "/unauthorized"
         });
       }
     },
@@ -764,31 +800,31 @@ __webpack_require__.r(__webpack_exports__);
       var w = window.innerWidth;
       if (w < 1200) {
         var _document$getElementB11, _document$getElementB12;
-        (_document$getElementB11 = document.getElementById('sidebar')) === null || _document$getElementB11 === void 0 ? void 0 : (_document$getElementB12 = _document$getElementB11.classList) === null || _document$getElementB12 === void 0 ? void 0 : _document$getElementB12.remove('active');
+        (_document$getElementB11 = document.getElementById("sidebar")) === null || _document$getElementB11 === void 0 ? void 0 : (_document$getElementB12 = _document$getElementB11.classList) === null || _document$getElementB12 === void 0 ? void 0 : _document$getElementB12.remove("active");
       }
     },
     downloadDatabase: function downloadDatabase() {
       var _this2 = this;
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_4___default()({
-        method: 'get',
-        url: this.$apiUrl + '/database_backup_download',
-        responseType: 'blob' // important: responseType must be 'blob' for file download
+        method: "get",
+        url: this.$apiUrl + "/database_backup_download",
+        responseType: "blob" // important: responseType must be 'blob' for file download
       }).then(function (response) {
         var blob = new Blob([response.data]);
-        var link = document.createElement('a');
+        var link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
 
         // Extracting the filename from the response headers
-        var contentDisposition = response.headers['content-disposition'];
+        var contentDisposition = response.headers["content-disposition"];
         var filenameMatch = contentDisposition && contentDisposition.match(/filename="(.+?)"/);
-        var filename = filenameMatch ? filenameMatch[1] : 'downloaded-database-backup.sql';
+        var filename = filenameMatch ? filenameMatch[1] : "downloaded-database-backup.sql";
         link.download = filename;
         link.click();
-        _this2.showMessage("success", __('database_downloaded_successfully'));
+        _this2.showMessage("success", __("database_downloaded_successfully"));
         _this2.isLoading = false;
       })["catch"](function (error) {
-        console.error('Error downloading file:', error);
+        console.error("Error downloading file:", error);
         // Handle error accordingly
       });
     }
@@ -1442,7 +1478,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-59a2dd7f],\n.fade-leave-active[data-v-59a2dd7f] {\n    transition: opacity 0.3s;\n}\n.fade-enter[data-v-59a2dd7f],\n.fade-leave-to[data-v-59a2dd7f] {\n    opacity: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-59a2dd7f],\n.fade-leave-active[data-v-59a2dd7f] {\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-59a2dd7f],\n.fade-leave-to[data-v-59a2dd7f] {\n  opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1868,7 +1904,7 @@ var render = function () {
                       "router-link",
                       {
                         staticClass:
-                          "d-flex flex-column align-items-center justify-content-center align-content-center flex-wrap ",
+                          "d-flex flex-column align-items-center justify-content-center align-content-center flex-wrap",
                         attrs: { to: "/" },
                       },
                       [
@@ -1994,9 +2030,9 @@ var render = function () {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                                " +
+                                                        "\n                        " +
                                                           _vm._s(sub.name) +
-                                                          "\n                                            "
+                                                          "\n                      "
                                                       ),
                                                     ]
                                                   ),
@@ -2060,7 +2096,7 @@ var render = function () {
                                   })
                                 : _vm._e(),
                               _vm._v(
-                                "\n                                Download Database\n                            "
+                                "\n                Download Database\n              "
                               ),
                             ],
                             1

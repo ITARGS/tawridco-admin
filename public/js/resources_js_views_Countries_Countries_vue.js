@@ -414,10 +414,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record'],
+  props: ["record"],
   data: function data() {
     return {
       isLoading: false,
@@ -433,24 +473,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit_country') : __('add_country');
+      var title = this.id ? __("edit_country") : __("add_country");
       return title;
     }
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     dropFile: function dropFile(event) {
       event.preventDefault();
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       var file = this.$refs.file_image.files[0];
@@ -484,23 +524,23 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('name', this.name);
-      formData.append('dial_code', this.dial_code);
-      formData.append('code', this.code);
-      formData.append('logo', this.logo);
-      formData.append('status', this.status);
-      var url = this.$apiUrl + '/countries/save';
+      formData.append("name", this.name);
+      formData.append("dial_code", this.dial_code);
+      formData.append("code", this.code);
+      formData.append("logo", this.logo);
+      formData.append("status", this.status);
+      var url = this.$apiUrl + "/countries/save";
       if (this.id) {
-        url = this.$apiUrl + '/countries/update';
+        url = this.$apiUrl + "/countries/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this.$eventBus.$emit('recordSaved', data.message);
+          _this.$eventBus.$emit("recordSaved", data.message);
           vm.$router.push({
-            path: '/countries'
+            path: "/countries"
           });
           _this.hideModal();
         } else {
@@ -543,7 +583,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-734c5df8] {\n    margin-top: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-734c5df8] {\n  margin-top: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1220,7 +1260,7 @@ var render = function () {
               },
             },
             [
-              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -1339,11 +1379,13 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  _vm._s(
-                    _vm.__(
-                      "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
-                    )
-                  )
+                  "\n          " +
+                    _vm._s(
+                      _vm.__(
+                        "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                      )
+                    ) +
+                    "\n        "
                 ),
               ]),
               _vm._v(" "),

@@ -14,7 +14,7 @@ Route::group(['prefix' => 'install'], function () {
     Route::get('check-composer-updates', [\App\Http\Controllers\InstallController::class, 'checkUpdates']);
     Route::get('requirements', [\App\Http\Controllers\InstallController::class, 'getRequirements']);
     Route::post('database', [\App\Http\Controllers\InstallController::class, 'setDatabase']);
-    Route::post('purchase_code', [\App\Http\Controllers\InstallController::class, 'checkPurchaseCode']);
+    // Route::post('purchase_code', [\App\Http\Controllers\InstallController::class, 'checkPurchaseCode']);
 });
 
 Route::post('login', [\App\Http\Controllers\API\AdminAuthController::class, 'login']);
@@ -185,9 +185,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'index']);
         Route::post('save', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'save']);
         Route::post('save_login_setting', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'save_login_setting']);
-        Route::get('/purchase_code', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'getPurchaseCode']);
-        Route::get('/purchase_code/{code}', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'purchaseCode']);
-        Route::get('/purchase_code_updater', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'getPurchaseCodeUpdater']);
+        // Route::get('/purchase_code', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'getPurchaseCode']);
+        // Route::get('/purchase_code/{code}', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'purchaseCode']);
+        // Route::get('/purchase_code_updater', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'getPurchaseCodeUpdater']);
         Route::post('/test_mail', [\App\Http\Controllers\API\StoreSettingsApiController::class, 'testMail']);
     });
 

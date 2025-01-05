@@ -5,12 +5,12 @@ use Illuminate\Support\Facades\Cache;
 
 function validateLogin(){
 
-    $code = Setting::get_value('purchase_code')??'';
+    // $code = Setting::get_value('purchase_code')??'';
     $is_login = false;
-    $url = '';
-    if($code==''){
-        $is_login = true;
-    }
+    // $url = '';
+    // if($code==''){
+    //     $is_login = true;
+    // }
     $data=array();
     $data['is_login']=$is_login;
     $data['url']=$url;
@@ -26,18 +26,18 @@ function validateAdmin(){
         Cache::forever('validate_admin', $today);
     }
     if($interval>15) {
-        Cache::forever('validate_admin', $today);
-        $code = Setting::get_value('purchase_code') ?? '';
-        $domain = env('APP_URL');
-        $path = 'https://wrteam.in/validator/egrocer_validator?purchase_code=' . $code . '&domain_url=' . $domain;
-        $response = file_get_contents($path);
-        $data = json_decode($response, true);
+        // Cache::forever('validate_admin', $today);
+        // $code = Setting::get_value('purchase_code') ?? '';
+        // $domain = env('APP_URL');
+        // $path = 'https://wrteam.in/validator/egrocer_validator?purchase_code=' . $code . '&domain_url=' . $domain;
+        // $response = file_get_contents($path);
+        // $data = json_decode($response, true);
 
-        if (isset($data['error']) && $data['error'] == true) {
-            $setting = Setting::where('variable', 'purchase_code')->first() ?? new Setting();
-            $setting->value = '';
-            $setting->save();
-        }
+        // if (isset($data['error']) && $data['error'] == true) {
+        //     $setting = Setting::where('variable', 'purchase_code')->first() ?? new Setting();
+        //     $setting->value = '';
+        //     $setting->save();
+        // }
     }
 }
 

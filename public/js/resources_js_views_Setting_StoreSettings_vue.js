@@ -862,6 +862,1040 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -900,18 +1934,18 @@ __webpack_require__.r(__webpack_exports__);
       Logoerror: null,
       Panel_login_background_imgerror: null,
       Fssaierror: null,
-      tabs: [__('store_setting'), __('address_setting'), __('other_setting'), __('delivery_boy_setting'), __('app_setting'), __('frontend_home_setting'), __('smtp_mail_setting'), __('google_place_apis'), __('seller_setting'), __('login_setting'), __('cart_setting')],
-      activeTab: __('store_setting')
+      tabs: [__("store_setting"), __("address_setting"), __("other_setting"), __("delivery_boy_setting"), __("app_setting"), __("frontend_home_setting"), __("smtp_mail_setting"), __("google_place_apis"), __("seller_setting"), __("login_setting"), __("cart_setting")],
+      activeTab: __("store_setting")
     };
   },
   watch: {
-    'login_settings.firebase_authentication': function login_settingsFirebase_authentication(newValue) {
+    "login_settings.firebase_authentication": function login_settingsFirebase_authentication(newValue) {
       if (newValue == 1) {
         this.login_settings.custom_sms_gateway_otp_based = 0;
         this.login_settings.firebase_authentication = 1;
       }
     },
-    'login_settings.custom_sms_gateway_otp_based': function login_settingsCustom_sms_gateway_otp_based(newValue) {
+    "login_settings.custom_sms_gateway_otp_based": function login_settingsCustom_sms_gateway_otp_based(newValue) {
       if (newValue == 1) {
         this.login_settings.firebase_authentication = 0;
         this.login_settings.custom_sms_gateway_otp_based = 1;
@@ -928,24 +1962,24 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.logo.files = event.dataTransfer.files;
       this.handleLogoUpload();
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     dropFileFssaiLicImg: function dropFileFssaiLicImg(event) {
       event.preventDefault();
       this.$refs.fssai_lic_img.files = event.dataTransfer.files;
       this.handleFssaiLicImgUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     dropFilePanelLoginackground_imgImg: function dropFilePanelLoginackground_imgImg(event) {
       event.preventDefault();
       this.$refs.panel_login_background_img.files = event.dataTransfer.files;
       this.handlePanelLoginBackgroundImgUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleLogoUpload: function handleLogoUpload() {
       var file = this.$refs.logo.files[0];
@@ -1061,7 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
     getCities: function getCities() {
       var _this = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/cities").then(function (response) {
         _this.isLoading = false;
         var data = response.data;
         _this.cities = data.data;
@@ -1086,7 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getStoreSetting: function getStoreSetting() {
       var _this2 = this;
-      var url = this.$apiUrl + '/store_settings';
+      var url = this.$apiUrl + "/store_settings";
       var vm = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
         _this2.store_settings = response.data.data.store_settingsObject;
@@ -1094,16 +2128,16 @@ __webpack_require__.r(__webpack_exports__);
         _this2.currency_codes = response.data.data.currency_code.country;
         _this2.record = response.data.data.store_settings;
         _this2.record.map(function (item, index) {
-          if (item.value === '0' || item.value === '1') {
-            _this2.store_settings[item.variable] = item.value === '0' ? 0 : 1;
+          if (item.value === "0" || item.value === "1") {
+            _this2.store_settings[item.variable] = item.value === "0" ? 0 : 1;
           } else {
             _this2.store_settings[item.variable] = item.value;
           }
         });
         _this2.login_record = response.data.data.login_settings;
         _this2.login_record.map(function (item, index) {
-          if (item.value === '0' || item.value === '1') {
-            _this2.login_settings[item.variable] = item.value === '0' ? 0 : 1;
+          if (item.value === "0" || item.value === "1") {
+            _this2.login_settings[item.variable] = item.value === "0" ? 0 : 1;
           } else {
             _this2.login_settings[item.variable] = item.value;
           }
@@ -1114,20 +2148,20 @@ __webpack_require__.r(__webpack_exports__);
         if (_this2.store_settings.logo != "") {
           _this2.logo_url = _this2.$storageUrl + _this2.store_settings.logo;
         } else {
-          _this2.logo_url = _this2.$baseUrl + '/images/logo.png';
+          _this2.logo_url = _this2.$baseUrl + "/images/logo.png";
         }
         if (_this2.store_settings.fssai_lic_img != "") {
           _this2.fssai_lic_img_url = _this2.$storageUrl + _this2.store_settings.fssai_lic_img;
         } else {
-          _this2.fssai_lic_img_url = _this2.$baseUrl + '/images/fssai_lic_img.png';
+          _this2.fssai_lic_img_url = _this2.$baseUrl + "/images/fssai_lic_img.png";
         }
         if (_this2.store_settings.panel_login_background_img != "") {
           _this2.panel_login_background_img_url = _this2.$storageUrl + _this2.store_settings.panel_login_background_img;
         } else {
-          _this2.panel_login_background_img_url = _this2.$baseUrl + '/images/panel_login_background_img.png';
+          _this2.panel_login_background_img_url = _this2.$baseUrl + "/images/panel_login_background_img.png";
         }
         if (_this2.store_settings.copyright_details != "") {
-          _this2.store_settings.copyright_details = _this2.store_settings.copyright_details.replace(/<br\s*\/?>/g, '\n');
+          _this2.store_settings.copyright_details = _this2.store_settings.copyright_details.replace(/<br\s*\/?>/g, "\n");
         }
       });
     },
@@ -1139,7 +2173,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var key in store_settingsObject) {
         formData.append(key, store_settingsObject[key]);
       }
-      var url = this.$apiUrl + '/store_settings/save';
+      var url = this.$apiUrl + "/store_settings/save";
       var vm = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData).then(function (res) {
         var data = res.data;
@@ -1151,7 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
             vm.isLoading = false;
             window.location.reload();
             vm.$router.push({
-              path: '/store_settings'
+              path: "/store_settings"
             });
           }, 2000);
         } else {
@@ -1178,7 +2212,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var key in login_settingsObject) {
         formData.append(key, login_settingsObject[key]);
       }
-      var url = this.$apiUrl + '/store_settings/save_login_setting';
+      var url = this.$apiUrl + "/store_settings/save_login_setting";
       var vm = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData).then(function (res) {
         var data = res.data;
@@ -1190,7 +2224,7 @@ __webpack_require__.r(__webpack_exports__);
             vm.isLoading = false;
             window.location.reload();
             vm.$router.push({
-              path: '/store_settings'
+              path: "/store_settings"
             });
           }, 2000);
         } else {
@@ -1212,15 +2246,15 @@ __webpack_require__.r(__webpack_exports__);
     testMail: function testMail() {
       var _this5 = this;
       var data = {
-        'email': this.store_settings.test_email,
-        'host': this.store_settings.smtp_host,
-        'username': this.store_settings.smtp_from_mail,
-        'password': this.store_settings.smtp_email_password,
-        'port': this.store_settings.smtp_port,
-        'encryption': this.store_settings.smtp_encryption_type,
-        'support_email': this.store_settings.support_email
+        email: this.store_settings.test_email,
+        host: this.store_settings.smtp_host,
+        username: this.store_settings.smtp_from_mail,
+        password: this.store_settings.smtp_email_password,
+        port: this.store_settings.smtp_port,
+        encryption: this.store_settings.smtp_encryption_type,
+        support_email: this.store_settings.support_email
       };
-      var url = this.$apiUrl + '/store_settings/test_mail';
+      var url = this.$apiUrl + "/store_settings/test_mail";
       var vm = this;
       vm.isSendingTestEmail = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data).then(function (res) {
@@ -1466,7 +2500,13 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v(_vm._s(_vm.__("store_settings")))]
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.__("store_settings")) +
+                          "\n              "
+                      ),
+                    ]
                   ),
                 ]),
               ]
@@ -1503,9 +2543,9 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                                        " +
+                          "\n                  " +
                             _vm._s(tab) +
-                            "\n                                    "
+                            "\n                "
                         ),
                       ]
                     )
@@ -1882,7 +2922,7 @@ var render = function () {
                                                 ? [
                                                     _c("label", [
                                                       _vm._v(
-                                                        " " +
+                                                        "\n                                      " +
                                                           _vm._s(
                                                             _vm.__(
                                                               "selected_file_name"
@@ -1988,7 +3028,7 @@ var render = function () {
                                                             "selected_file_name"
                                                           )
                                                         ) +
-                                                          " " +
+                                                          "\n                                      " +
                                                           _vm._s(
                                                             _vm.fssai_lic_img_name
                                                           )
@@ -2095,7 +3135,7 @@ var render = function () {
                                                 ? [
                                                     _c("label", [
                                                       _vm._v(
-                                                        " " +
+                                                        "\n                                      " +
                                                           _vm._s(
                                                             _vm.__(
                                                               "selected_file_name"
@@ -2218,7 +3258,7 @@ var render = function () {
                                       [
                                         _vm._v(
                                           _vm._s(_vm.__("update")) +
-                                            "\n                                                    "
+                                            "\n                          "
                                         ),
                                         _vm.isLoading
                                           ? _c("b-spinner", {
@@ -2433,9 +3473,9 @@ var render = function () {
                                         { attrs: { for: "currency" } },
                                         [
                                           _vm._v(
-                                            " " +
+                                            "\n                              " +
                                               _vm._s(_vm.__("store_currency")) +
-                                              "(Symbol or Code - $ or USD):"
+                                              "(Symbol or Code - $ or\n                              USD):"
                                           ),
                                         ]
                                       ),
@@ -2487,7 +3527,7 @@ var render = function () {
                                         { attrs: { for: "currency_code" } },
                                         [
                                           _vm._v(
-                                            "  " +
+                                            "\n                              " +
                                               _vm._s(_vm.__("currency_code"))
                                           ),
                                         ]
@@ -2566,13 +3606,13 @@ var render = function () {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                                            " +
+                                                        "\n                                " +
                                                           _vm._s(
                                                             code.currencyCode +
                                                               " - " +
                                                               code.countryName
                                                           ) +
-                                                          "\n                                        "
+                                                          "\n                              "
                                                       ),
                                                     ]
                                                   )
@@ -2654,11 +3694,13 @@ var render = function () {
                                             { attrs: { value: "" } },
                                             [
                                               _vm._v(
-                                                _vm._s(
-                                                  _vm.__(
-                                                    "select_currency_decimal_point"
-                                                  )
-                                                )
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "select_currency_decimal_point"
+                                                    )
+                                                  ) +
+                                                  "\n                              "
                                               ),
                                             ]
                                           ),
@@ -2765,13 +3807,13 @@ var render = function () {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                                            " +
+                                                  "\n                                " +
                                                     _vm._s(timezone_option[2]) +
-                                                    " - GMT " +
+                                                    " - GMT\n                                " +
                                                     _vm._s(timezone_option[1]) +
-                                                    " -\n                                            " +
+                                                    " -\n                                " +
                                                     _vm._s(timezone_option[0]) +
-                                                    "\n                                        "
+                                                    "\n                              "
                                                 ),
                                               ]
                                             )
@@ -2888,11 +3930,11 @@ var render = function () {
                                             { staticClass: "text-muted" },
                                             [
                                               _vm._v(
-                                                "\n                                        " +
+                                                "\n                              " +
                                                   _vm._s(
                                                     _vm.__("city_not_found")
                                                   ) +
-                                                  ". "
+                                                  ".\n                              "
                                               ),
                                               _vm.$can("city_create")
                                                 ? _c(
@@ -2938,7 +3980,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -3002,13 +4044,13 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            " " +
+                                            "\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "maximum_items_allowed_in_cart"
                                                 )
                                               ) +
-                                              " "
+                                              "\n                            "
                                           ),
                                         ]
                                       ),
@@ -3066,7 +4108,7 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "(  " +
+                                            "(\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "maximum_items_user_can_add_to_cart_at_once"
@@ -3088,7 +4130,7 @@ var render = function () {
                                         { attrs: { for: "min_order_amount" } },
                                         [
                                           _vm._v(
-                                            "  " +
+                                            "\n                              " +
                                               _vm._s(
                                                 _vm.__("minimum_order_amount")
                                               )
@@ -3144,7 +4186,7 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            " ( Below this user will not allowed to place order " +
+                                            "\n                              ( Below this user will not allowed to place order\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "below_this_user_will_not_allowed_to_place_order"
@@ -3218,13 +4260,13 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            " ( " +
+                                            "\n                              (\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "product_will_be_considered_as_low_stock_if_stock_goes_below_this_limit"
                                                 )
                                               ) +
-                                              " ) "
+                                              "\n                              )\n                            "
                                           ),
                                         ]
                                       ),
@@ -3250,7 +4292,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -3499,9 +4541,13 @@ var render = function () {
                                                 { attrs: { value: "0" } },
                                                 [
                                                   _vm._v(
-                                                    _vm._s(_vm.__("fixed")) +
+                                                    "\n                                " +
+                                                      _vm._s(_vm.__("fixed")) +
                                                       "/" +
-                                                      _vm._s(_vm.__("salaried"))
+                                                      _vm._s(
+                                                        _vm.__("salaried")
+                                                      ) +
+                                                      "\n                              "
                                                   ),
                                                 ]
                                               ),
@@ -3878,7 +4924,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -3915,12 +4961,10 @@ var render = function () {
                           _c("div", { staticClass: "card-body" }, [
                             _c(
                               "span",
-                              {
-                                staticClass: " text text-primary font-size-13",
-                              },
+                              { staticClass: "text text-primary font-size-13" },
                               [
                                 _vm._v(
-                                  "In this mode you can set your app in Maintenance and that Appilication will not work till not disabled from here" +
+                                  "In this mode you can set your app in Maintenance and that\n                        Appilication will not work till not disabled from here" +
                                     _vm._s(
                                       _vm.__(
                                         "in_this_mode_you_can_set_your_app_in_maitenance_and_that_application_will_not_work_till_not_disabled_from_here"
@@ -3955,7 +4999,8 @@ var render = function () {
                                         { attrs: { for: "app_mode_customer" } },
                                         [
                                           _vm._v(
-                                            _vm._s(_vm.__("customer_app")) + " "
+                                            _vm._s(_vm.__("customer_app")) +
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -3969,7 +5014,7 @@ var render = function () {
                                                   _vm._s(_vm.__("enable")) +
                                                   "/" +
                                                   _vm._s(_vm.__("disable")) +
-                                                  "\n                                        )"
+                                                  " )"
                                               ),
                                             ]
                                           ),
@@ -4143,7 +5188,8 @@ var render = function () {
                                         { attrs: { for: "app_mode_seller" } },
                                         [
                                           _vm._v(
-                                            _vm._s(_vm.__("seller_app")) + " "
+                                            _vm._s(_vm.__("seller_app")) +
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -4157,7 +5203,7 @@ var render = function () {
                                                   _vm._s(_vm.__("enable")) +
                                                   "/" +
                                                   _vm._s(_vm.__("disable")) +
-                                                  "\n                                        )"
+                                                  " )"
                                               ),
                                             ]
                                           ),
@@ -4349,7 +5395,7 @@ var render = function () {
                                                   _vm._s(_vm.__("enable")) +
                                                   "/" +
                                                   _vm._s(_vm.__("disable")) +
-                                                  "\n                                        )"
+                                                  " )"
                                               ),
                                             ]
                                           ),
@@ -5277,7 +6323,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -5314,9 +6360,7 @@ var render = function () {
                           _c("div", { staticClass: "card-body" }, [
                             _c(
                               "span",
-                              {
-                                staticClass: " text text-primary font-size-13",
-                              },
+                              { staticClass: "text text-primary font-size-13" },
                               [
                                 _vm._v(
                                   _vm._s(
@@ -5460,7 +6504,7 @@ var render = function () {
                                                       _vm.store_settings
                                                         .count_category_section_in_homepage,
                                                     expression:
-                                                      "store_settings.count_category_section_in_homepage",
+                                                      "\n                                  store_settings.count_category_section_in_homepage\n                                ",
                                                   },
                                                 ],
                                                 staticClass: "form-control",
@@ -5838,7 +6882,7 @@ var render = function () {
                                                       _vm.store_settings
                                                         .count_seller_section_in_homepage,
                                                     expression:
-                                                      "store_settings.count_seller_section_in_homepage",
+                                                      "\n                                  store_settings.count_seller_section_in_homepage\n                                ",
                                                   },
                                                 ],
                                                 staticClass: "form-control",
@@ -6027,7 +7071,7 @@ var render = function () {
                                                       _vm.store_settings
                                                         .count_country_section_in_homepage,
                                                     expression:
-                                                      "store_settings.count_country_section_in_homepage",
+                                                      "\n                                  store_settings.count_country_section_in_homepage\n                                ",
                                                   },
                                                 ],
                                                 staticClass: "form-control",
@@ -6119,7 +7163,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -6230,7 +7274,7 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "( " +
+                                            "(\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "this_email_id_will_be_used_in_smtp_mail_system"
@@ -6330,7 +7374,8 @@ var render = function () {
                                           _vm._v(
                                             _vm._s(
                                               _vm.__("smtp_email_password")
-                                            ) + ": "
+                                            ) +
+                                              ":\n                            "
                                           ),
                                         ]
                                       ),
@@ -6492,7 +7537,8 @@ var render = function () {
                                           _vm._v(
                                             _vm._s(
                                               _vm.__("smtp_email_content_type")
-                                            ) + ": "
+                                            ) +
+                                              ":\n                            "
                                           ),
                                         ]
                                       ),
@@ -6550,11 +7596,13 @@ var render = function () {
                                             { attrs: { value: "" } },
                                             [
                                               _vm._v(
-                                                _vm._s(
-                                                  _vm.__(
-                                                    "select_smtp_email_content_tpe"
-                                                  )
-                                                )
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "select_smtp_email_content_tpe"
+                                                    )
+                                                  ) +
+                                                  "\n                              "
                                               ),
                                             ]
                                           ),
@@ -6589,7 +7637,7 @@ var render = function () {
                                         [
                                           _vm._v(
                                             _vm._s(_vm.__("smtp_encryption")) +
-                                              ": "
+                                              ":\n                            "
                                           ),
                                         ]
                                       ),
@@ -6647,11 +7695,13 @@ var render = function () {
                                             { attrs: { value: "" } },
                                             [
                                               _vm._v(
-                                                _vm._s(
-                                                  _vm.__(
-                                                    "select_smtp_encryption_type"
-                                                  )
-                                                )
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "select_smtp_encryption_type"
+                                                    )
+                                                  ) +
+                                                  "\n                              "
                                               ),
                                             ]
                                           ),
@@ -6737,9 +7787,9 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                            " +
+                                                "\n                                " +
                                                   _vm._s(_vm.__("test_mail")) +
-                                                  "\n                                            "
+                                                  "\n                                "
                                               ),
                                               _vm.isSendingTestEmail
                                                 ? _c("b-spinner", {
@@ -6758,11 +7808,13 @@ var render = function () {
                                       _vm._v(" "),
                                       _c("p", [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.__(
-                                              "test_mail_for_test_your_smtp_configuration"
-                                            )
-                                          )
+                                          "\n                              " +
+                                            _vm._s(
+                                              _vm.__(
+                                                "test_mail_for_test_your_smtp_configuration"
+                                              )
+                                            ) +
+                                            "\n                            "
                                         ),
                                       ]),
                                     ]
@@ -6787,7 +7839,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -6844,7 +7896,7 @@ var render = function () {
                                     _c(
                                       "div",
                                       {
-                                        staticClass: " row -align-items-center",
+                                        staticClass: "row -align-items-center",
                                       },
                                       [
                                         _c(
@@ -6930,7 +7982,7 @@ var render = function () {
                                                 [
                                                   _vm._v(
                                                     _vm._s(_vm.__("update")) +
-                                                      "\n                                        "
+                                                      "\n                              "
                                                   ),
                                                   _vm.isLoading
                                                     ? _c("b-spinner", {
@@ -6983,7 +8035,7 @@ var render = function () {
                               [
                                 _c(
                                   "div",
-                                  { staticClass: " row -align-items-center" },
+                                  { staticClass: "row -align-items-center" },
                                   [
                                     _c(
                                       "div",
@@ -7188,7 +8240,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                                            "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -7252,7 +8304,7 @@ var render = function () {
                                         [
                                           _vm._v(
                                             _vm._s(_vm.__("phone_login")) +
-                                              "\n                    "
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -7369,7 +8421,7 @@ var render = function () {
                                         [
                                           _vm._v(
                                             _vm._s(_vm.__("google_login")) +
-                                              "\n                    "
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -7486,7 +8538,7 @@ var render = function () {
                                         [
                                           _vm._v(
                                             _vm._s(_vm.__("apple_login")) +
-                                              "\n                    "
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -7603,7 +8655,7 @@ var render = function () {
                                         [
                                           _vm._v(
                                             _vm._s(_vm.__("email_login")) +
-                                              "\n                    "
+                                              "\n                              "
                                           ),
                                           _c(
                                             "span",
@@ -7728,7 +8780,8 @@ var render = function () {
                                                   _vm.__(
                                                     "firebase_authentication"
                                                   )
-                                                ) + "\n                        "
+                                                ) +
+                                                  "\n                              "
                                               ),
                                               _c("small", [
                                                 _vm._v(
@@ -7736,7 +8789,7 @@ var render = function () {
                                                     _vm._s(_vm.__("enable")) +
                                                     " / " +
                                                     _vm._s(_vm.__("disable")) +
-                                                    " ] "
+                                                    " ]\n                              "
                                                 ),
                                               ]),
                                             ]
@@ -7852,7 +8905,8 @@ var render = function () {
                                                   _vm.__(
                                                     "custom_sms_gateway_otp_based"
                                                   )
-                                                ) + "\n                        "
+                                                ) +
+                                                  "\n                              "
                                               ),
                                               _c("small", [
                                                 _vm._v(
@@ -7860,7 +8914,7 @@ var render = function () {
                                                     _vm._s(_vm.__("enable")) +
                                                     " / " +
                                                     _vm._s(_vm.__("disable")) +
-                                                    " ] "
+                                                    " ]\n                              "
                                                 ),
                                               ]),
                                             ]
@@ -7976,9 +9030,9 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                    " +
+                                                "\n                              " +
                                                   _vm._s(_vm.__("update")) +
-                                                  "\n                    "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -8040,7 +9094,7 @@ var render = function () {
                                           _vm._v(
                                             _vm._s(
                                               _vm.__("cart_notification")
-                                            ) + " "
+                                            ) + "\n                            "
                                           ),
                                         ]
                                       ),
@@ -8168,7 +9222,7 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                " " +
+                                                "\n                              " +
                                                   _vm._s(
                                                     _vm.__(
                                                       "notification_delay_after_cart_addition"
@@ -8255,7 +9309,7 @@ var render = function () {
                                                       _vm.store_settings
                                                         .notification_delay_after_cart_addition,
                                                     expression:
-                                                      "store_settings.notification_delay_after_cart_addition",
+                                                      "\n                                  store_settings.notification_delay_after_cart_addition\n                                ",
                                                   },
                                                 ],
                                                 staticClass: "form-control",
@@ -8306,7 +9360,7 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                " " +
+                                                "\n                              " +
                                                   _vm._s(
                                                     _vm.__(
                                                       "notification_interval"
@@ -8444,7 +9498,7 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                " " +
+                                                "\n                              " +
                                                   _vm._s(
                                                     _vm.__(
                                                       "notification_stop_time"
@@ -8587,7 +9641,7 @@ var render = function () {
                                             [
                                               _vm._v(
                                                 _vm._s(_vm.__("update")) +
-                                                  "\n                                        "
+                                                  "\n                              "
                                               ),
                                               _vm.isLoading
                                                 ? _c("b-spinner", {
@@ -8650,7 +9704,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "text text-primary font-size-13" }, [
-      _vm._v(" ( "),
+      _vm._v("\n                              ( "),
       _c("b", [_vm._v("TLS: ")]),
       _vm._v("587 "),
       _c("b", [_vm._v("SSL: ")]),

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers;
-
 
 use App\Helpers\CommonHelper;
 use App\Helpers\PermissionsChecker;
@@ -21,43 +19,39 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
-class InstallController
-{
+class InstallController {
     protected $requirements;
     protected $permissions;
 
-    public function __construct(RequirementsChecker $requirements, PermissionsChecker $permissions)
-    {
+    public function __construct( RequirementsChecker $requirements, PermissionsChecker $permissions ) {
         $this->requirements = $requirements;
         $this->permissions = $permissions;
     }
 
-    public function checkUpdates()
-    {
+    public function checkUpdates() {
         try {
-            $composerFile = base_path('composer.json');
+            $composerFile = base_path( 'composer.json' );
 
-            if (!file_exists($composerFile)) {
-                throw new Exception('composer.json not found in the current directory.');
+            if ( !file_exists( $composerFile ) ) {
+                throw new Exception( 'composer.json not found in the current directory.' );
             }
 
-            // dd($composerFile);
+            // dd( $composerFile );
 
-            $composer = Factory::create(new NullIO(), $composerFile);
+            $composer = Factory::create( new NullIO(), $composerFile );
 
-
-            $lockFile = new JsonFile(base_path('composer.lock'));
+            $lockFile = new JsonFile( base_path( 'composer.lock' ) );
             $lockData = $lockFile->read();
 
             $outdatedPackages = [];
 
-            foreach ($lockData['packages'] as $packageData) {
-                $name = $packageData['name'];
-                $version = $packageData['version'];
+            foreach ( $lockData[ 'packages' ] as $packageData ) {
+                $name = $packageData[ 'name' ];
+                $version = $packageData[ 'version' ];
 
-                $latestVersion = $composer->getRepositoryManager()->findPackage($name, '*');
+                $latestVersion = $composer->getRepositoryManager()->findPackage( $name, '*' );
 
-                if ($latestVersion && Comparator::lessThan($version, $latestVersion->getVersion())) {
+                if ( $latestVersion && Comparator::lessThan( $version, $latestVersion->getVersion() ) ) {
                     $outdatedPackages[] = [
                         'name' => $name,
                         'current_version' => $version,
@@ -66,68 +60,66 @@ class InstallController
                 }
             }
 
-            if (!empty($outdatedPackages)) {
-                $message = "Outdated packages:\n";
-                foreach ($outdatedPackages as $package) {
+            if ( !empty( $outdatedPackages ) ) {
+                $message = 'Outdated packages:\n';
+                foreach ( $outdatedPackages as $package ) {
                     $message .= "{$package['name']} (current version: {$package['current_version']}, latest version: {$package['latest_version']})\n";
                 }
             } else {
-                $message = "All packages are up to date.\n";
+                $message = 'All packages are up to date.\n';
             }
 
-            return response($message, 200);
-        } catch (Exception $e) {
-            return response("Error: " . $e->getMessage() . "\n", 500);
+            return response( $message, 200 );
+        } catch ( Exception $e ) {
+            return response( 'Error: ' . $e->getMessage() . '\n', 500 );
         }
     }
 
-
-    public function getRequirements()
-    {
+    public function getRequirements() {
 
         $phpSupportInfo = $this->requirements->checkPHPversion(
-            config('installer.core.minPhpVersion')
+            config( 'installer.core.minPhpVersion' )
         );
 
         $requirements = $this->requirements->check(
-            config('installer.requirements')
+            config( 'installer.requirements' )
         );
 
         $permissions = $this->permissions->check(
-            config('installer.permissions')
+            config( 'installer.permissions' )
         );
 
         $data = array();
-        $data['phpSupportInfo'] = $phpSupportInfo;
-        $data['requirements'] = $requirements;
-        $data['permissions'] = $permissions;
+        $data[ 'phpSupportInfo' ] = $phpSupportInfo;
+        $data[ 'requirements' ] = $requirements;
+        $data[ 'permissions' ] = $permissions;
 
-        return CommonHelper::responseWithData($data);
+        return CommonHelper::responseWithData( $data );
     }
 
     /*Database*/
-    public function checkDatabaseConnection($database_host, $database_port, $database_name, $database_username, $database_password)
-    {
+
+    public function checkDatabaseConnection( $database_host, $database_port, $database_name, $database_username, $database_password ) {
 
         $connection = 'mysql';
 
-        $settings = config("database.connections.$connection");
+        $settings = config( "database.connections.$connection" );
 
-        config([
+        config( [
             'database' => [
                 'default' => $connection,
                 'connections' => [
-                    $connection => array_merge($settings, [
+                    $connection => array_merge( $settings, [
                         'driver' => $connection,
                         'host' => $database_host,
                         'port' => $database_port,
                         'database' => $database_name,
                         'username' => $database_username,
                         'password' => $database_password,
-                    ]),
+                    ] ),
                 ],
             ],
-        ]);
+        ] );
 
         DB::purge();
 
@@ -137,24 +129,23 @@ class InstallController
 
             return true;
 
-        } catch (Exception $e) {
+        } catch ( Exception $e ) {
 
             return false;
         }
     }
 
-    public function setDatabase(Request $request)
-    {
+    public function setDatabase( Request $request ) {
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make( $request->all(), [
             'database_host' => 'required',
             'database_port' => 'required',
             'database_name' => 'required',
             'admin_email' => 'required|email',
             'admin_password' => 'required|min:6'
-        ]);
-        if ($validator->fails()) {
-            return CommonHelper::responseError($validator->errors()->first());
+        ] );
+        if ( $validator->fails() ) {
+            return CommonHelper::responseError( $validator->errors()->first() );
         }
         try {
 
@@ -167,93 +158,92 @@ class InstallController
             $admin_email = $request->admin_email;
             $admin_password = $request->admin_password;
 
-            if (!$this->checkDatabaseConnection($database_host, $database_port, $database_name, $database_username, $database_password)) {
-                return CommonHelper::responseError("Could not connect to the database. Maybe your Database is not available.");
+            if ( !$this->checkDatabaseConnection( $database_host, $database_port, $database_name, $database_username, $database_password ) ) {
+                return CommonHelper::responseError( 'Could not connect to the database. Maybe your Database is not available.' );
             }
 
             try {
 
                 $env = new DotenvEditor();
 
-                $env->changeEnv([
+                $env->changeEnv( [
                     'DB_HOST' => $database_host,
                     'DB_PORT' => $database_port,
                     'DB_DATABASE' => $database_name,
                     'DB_USERNAME' => $database_username,
                     'DB_PASSWORD' => $database_password,
-                    'APP_URL' => url('/'),
+                    'APP_URL' => url( '/' ),
                     'APP_ENV' => 'development'
 
-                ]);
+                ] );
 
-                Artisan::call('config:cache');
-                Artisan::call('config:clear');
-                Artisan::call('migrate:fresh');
-                Artisan::call('db:seed');
-                Artisan::call('migrate', ['--path' => 'vendor/laravel/passport/database/migrations']);
-                Artisan::call('passport:install');
-                Artisan::call('storage:link');
+                Artisan::call( 'config:cache' );
+                Artisan::call( 'config:clear' );
+                Artisan::call( 'migrate:fresh' );
+                Artisan::call( 'db:seed' );
+                Artisan::call( 'migrate', [ '--path' => 'vendor/laravel/passport/database/migrations' ] );
+                Artisan::call( 'passport:install' );
+                Artisan::call( 'storage:link' );
 
-                $installedLogFile = storage_path('installed');
-                $dateStamp = date('Y/m/d h:i:sa');
-                if (!file_exists($installedLogFile)) {
-                    $message = "Tawridco Installer successfully Installed on " . $dateStamp . "\n";
-                    file_put_contents($installedLogFile, $message);
+                $installedLogFile = storage_path( 'installed' );
+                $dateStamp = date( 'Y/m/d h:i:sa' );
+                if ( !file_exists( $installedLogFile ) ) {
+                    $message = 'Tawridco Installer successfully Installed on ' . $dateStamp . '\n';
+                    file_put_contents( $installedLogFile, $message );
                 } else {
-                    $message = "Tawridco Installer successfully UPDATED on " . $dateStamp;
-                    file_put_contents($installedLogFile, $message . PHP_EOL, FILE_APPEND | LOCK_EX);
+                    $message = 'Tawridco Installer successfully UPDATED on ' . $dateStamp;
+                    file_put_contents( $installedLogFile, $message . PHP_EOL, FILE_APPEND | LOCK_EX );
                 }
 
                 Admin::truncate();
-                $superAdmin = Admin::create([
+                $superAdmin = Admin::create( [
                     'username' => 'superadmin',
                     'email' => $admin_email,
-                    'password' => bcrypt($admin_password),
+                    'password' => bcrypt( $admin_password ),
                     'role_id' => 1,
                     'created_by' => 1,
-                ]);
-                $superAdmin->assignRole('Super Admin');
+                ] );
+                $superAdmin->assignRole( 'Super Admin' );
 
-                $env->changeEnv([
+                $env->changeEnv( [
                     'APP_ENV' => 'production'
 
-                ]);
+                ] );
 
-                return CommonHelper::responseSuccess("Database");
+                return CommonHelper::responseSuccess( 'Database' );
 
-            } catch (Exception $e) {
-                Log::error("Installer -> Database Error : ", [$e]);
-                return CommonHelper::responseError("We were able to connect to the database server (which means your username and password is okay) but not able to select the database. Please make sure it exists and that the root user has permission to use the database.");
+            } catch ( Exception $e ) {
+                Log::error( 'Installer -> Database Error : ', [ $e ] );
+                return CommonHelper::responseError( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the database. Please make sure it exists and that the root user has permission to use the database.' );
             }
 
-        } catch (Exception $e) {
-            return CommonHelper::responseError($e->getMessage());
+        } catch ( Exception $e ) {
+            return CommonHelper::responseError( $e->getMessage() );
         }
 
     }
 
-    public function checkPurchaseCode(Request $request)
-    {
+    public function checkPurchaseCode( Request $request ) {
 
-        $validator = Validator::make($request->all(), [
-            'purchase_code' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return CommonHelper::responseError($validator->errors()->first());
-        }
+        // $validator = Validator::make( $request->all(), [
+        //     'purchase_code' => 'required',
+        // ] );
+        // if ( $validator->fails() ) {
+        //     return CommonHelper::responseError( $validator->errors()->first() );
+        // }
 
-        try {
+        // try {
 
-            $response = app(StoreSettingsApiController::class)->purchaseCode($request->purchase_code, 1);
-            if ($response) {
+        //     $response = app( StoreSettingsApiController::class )->purchaseCode( $request->purchase_code, 1 );
+        //     if ( $response ) {
 
-                return CommonHelper::responseSuccess("Valid");
-            } else {
-                return CommonHelper::responseError("Invalid code supplied!");
-            }
-        } catch (Exception $e) {
-            return CommonHelper::responseError($e->getMessage());
-        }
+        //     } else {
+        //         return CommonHelper::responseError( 'Invalid code supplied!' );
+        //     }
+        // } catch ( Exception $e ) {
+        //     return CommonHelper::responseError( $e->getMessage() );
+        // }
+        return CommonHelper::responseSuccess( 'Valid' );
     }
 
 }

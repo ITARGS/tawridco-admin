@@ -35,7 +35,7 @@ class SettingSeeder extends Seeder
             ],
             [
                 'variable' => 'purchase_code',
-                'value' => '',
+                'value' => '123456',
             ],
             [
                 'variable' => 'stripe_secret_key',

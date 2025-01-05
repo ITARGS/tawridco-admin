@@ -244,7 +244,7 @@ const DeliveryBoyViewProduct = () => import("../views/Product/ViewProduct");
 let router = new Router({
     //mode: "hash", // https://router.vuejs.org/api/#mode
     mode: "history",
-    scrollBehavior: () => ({y: 0}),
+    scrollBehavior: () => ({ y: 0 }),
     routes: configRoutes(),
     //linkActiveClass: 'active',
 });
@@ -390,7 +390,7 @@ function configRoutes() {
                 title: 'Admin Dashboard'
             },
             children: [
-                {path: "/unauthorized", component: Unauthorized, meta: {title: 'Unauthorized'}},
+                { path: "/unauthorized", component: Unauthorized, meta: { title: 'Unauthorized' } },
                 {
                     path: "dashboard",
                     name: "Dashboard",
@@ -774,17 +774,17 @@ function configRoutes() {
 
                     },
                 },
-                // {
-                //     path: "payment_methods",
-                //     name: "Payment Methods",
-                //     component: PaymentMethods,
-                //     meta: {
-                //         permission: 'order_list',
-                //         role: adminRoles,
-                //         title: 'Payment Methods'
-                //
-                //     },
-                // },
+                {
+                    path: "payment_methods",
+                    name: "Payment Methods",
+                    component: PaymentMethods,
+                    meta: {
+                        permission: 'order_list',
+                        role: adminRoles,
+                        title: 'Payment Methods'
+
+                    },
+                },
                 {
                     path: "contact_us",
                     name: "Contact Us",
@@ -1966,8 +1966,8 @@ function configRoutes() {
 
         /*Other Pages*/
 
-        {path: "/error_500", component: ServerError, meta: {title: 'Server Error'}},
-        {path: "*", component: PageNotFound, meta: {title: '404 Page Not Found'}}
+        { path: "/error_500", component: ServerError, meta: { title: 'Server Error' } },
+        { path: "*", component: PageNotFound, meta: { title: '404 Page Not Found' } }
 
     ];
 

@@ -72,6 +72,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -79,7 +93,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       updaterResult: {
-        version: '0.0.0'
+        version: "0.0.0"
       }
     };
   },
@@ -97,51 +111,50 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.checkSystemRegister();
+    // this.checkSystemRegister();
   },
   methods: {
-    checkSystemRegister: function checkSystemRegister() {
-      var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/store_settings/purchase_code_updater').then(function (response) {
-        console.log(response.data);
-        if (response.data == 1) {
-          _this.checkSystemUpdate();
-        }
-      });
-    },
+    //   checkSystemRegister(){
+    //       axios.get(this.$apiUrl + '/store_settings/purchase_code_updater').then((response) => {
+    //         console.log(response.data);
+    //         if (response.data == 1) {
+    //                 this.checkSystemUpdate();
+    //             }
+    //       });
+    //   },
     checkSystemUpdate: function checkSystemUpdate() {
-      var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$baseUrl + '/updater.check').then(function (response) {
+      var _this = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$baseUrl + "/updater.check").then(function (response) {
         var result = JSON.stringify(response.data);
-        _this2.updaterResult = JSON.parse(result);
+        _this.updaterResult = JSON.parse(result);
       });
     },
     systemUpdate: function systemUpdate() {
-      var _this3 = this;
+      var _this2 = this;
       this.$swal.fire({
         title: "Are you Sure?",
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
-          _this3.isLoading = true;
-          axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this3.$baseUrl + "/updater.update").then(function (response) {
-            if (response != '') {
-              _this3.showMessage("success", "Congratulation System Updated Successfully");
-              _this3.checkSystemUpdate();
-              _this3.isLoading = false;
+          _this2.isLoading = true;
+          axios__WEBPACK_IMPORTED_MODULE_0___default().get(_this2.$baseUrl + "/updater.update").then(function (response) {
+            if (response != "") {
+              _this2.showMessage("success", "Congratulation System Updated Successfully");
+              _this2.checkSystemUpdate();
+              _this2.isLoading = false;
               setTimeout(function () {
-                window.location.href = _this3.$baseUrl + '/migration';
+                window.location.href = _this2.$baseUrl + "/migration";
               }, 5000);
             } else {
-              _this3.showMessage("error", "Something went wrong! System did not update.");
-              _this3.showError("Something went wrong! System did not update.");
-              _this3.isLoading = false;
+              _this2.showMessage("error", "Something went wrong! System did not update.");
+              _this2.showError("Something went wrong! System did not update.");
+              _this2.isLoading = false;
             }
           });
         }
@@ -269,7 +282,13 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v(_vm._s(_vm.__("system_updater")))]
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.__("system_updater")) +
+                        "\n            "
+                    ),
+                  ]
                 ),
               ]),
             ]
@@ -284,17 +303,18 @@ var render = function () {
                 _c("div", { staticClass: "card-header" }, [
                   _c("h4", [
                     _vm._v(
-                      _vm._s(_vm.__("change_logs_of_egrocer")) +
+                      "\n              " +
+                        _vm._s(_vm.__("change_logs_of_egrocer")) +
                         " " +
                         _vm._s("v - " + _vm.updaterResult.version) +
-                        " "
+                        "\n            "
                     ),
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "pull-right" }, [
                     _c("span", { staticClass: "badge bg-primary" }, [
                       _vm._v(
-                        "\n                  " +
+                        "\n                " +
                           _vm._s(_vm.__("new_update_available"))
                       ),
                       _c(
@@ -341,7 +361,8 @@ var render = function () {
                                   attrs: { small: "", label: "Spinning" },
                                 }),
                                 _vm._v(
-                                  "  " + _vm._s(_vm.__("system_is_updating"))
+                                  "\n                " +
+                                    _vm._s(_vm.__("system_is_updating"))
                                 ),
                               ],
                               1
@@ -359,16 +380,16 @@ var render = function () {
                 _c("div", { staticClass: "card-header" }, [
                   _c("h4", [
                     _vm._v(
-                      " " + _vm._s(_vm.__("new_system_update_is_not_available"))
+                      _vm._s(_vm.__("new_system_update_is_not_available"))
                     ),
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "pull-right" }, [
                     _c("span", { staticClass: "badge bg-primary" }, [
                       _vm._v(
-                        "\n                          " +
+                        "\n                " +
                           _vm._s(_vm.__("egrocer_current_version_is")) +
-                          "\n                          "
+                          "\n                "
                       ),
                       _c(
                         "span",

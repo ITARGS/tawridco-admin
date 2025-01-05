@@ -567,6 +567,521 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -649,7 +1164,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPaymentMethods: function getPaymentMethods() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/payment_methods').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/payment_methods").then(function (response) {
         if (response.data.data) {
           var _this$record$payment_, _this$record$cod_paym, _this$record$cod_mode, _this$record$paypal_m, _this$record$paypal_c, _this$record$paypal_n, _this$record$payumone, _this$record$paystack, _this$record$flutterw, _this$record$stripe_w, _this$record$paytm_mo, _this$record$ssl_comm;
           _this.record = response.data.data;
@@ -734,7 +1249,7 @@ __webpack_require__.r(__webpack_exports__);
       }
       var vm = this;
       if (this.payment_method.cod_payment_method == 1 || this.payment_method.paypal_payment_method == 1 || this.payment_method.razorpay_payment_method == 1 || this.payment_method.paystack_payment_method == 1 || this.payment_method.stripe_payment_method == 1 || this.payment_method.paytm_payment_method == 1 || this.payment_method.midtrans_payment_method == 1 || this.payment_method.phonepay_payment_method == 1 || this.payment_method.cashfree_payment_method == 1 || this.payment_method.paytabs_payment_method == 1) {
-        var url = this.$apiUrl + '/payment_methods/save';
+        var url = this.$apiUrl + "/payment_methods/save";
         axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData).then(function (res) {
           var data = res.data;
           if (data.status === 1) {
@@ -743,7 +1258,7 @@ __webpack_require__.r(__webpack_exports__);
               vm.$swal.close();
               vm.getPaymentMethods();
               vm.$router.push({
-                path: '/payment_methods'
+                path: "/payment_methods"
               });
               vm.isLoading = false;
             }, 100);
@@ -757,7 +1272,7 @@ __webpack_require__.r(__webpack_exports__);
           } else if (error.message) {
             _this2.showError(error.message);
           } else {
-            _this2.showError(__('something_went_wrong'));
+            _this2.showError(__("something_went_wrong"));
           }
           vm.isLoading = false;
         });
@@ -893,7 +1408,9 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        _vm._s(_vm.__("payment_gateways_methods_settings"))
+                        "\n                " +
+                          _vm._s(_vm.__("payment_gateways_methods_settings")) +
+                          "\n              "
                       ),
                     ]
                   ),
@@ -968,14 +1485,17 @@ var render = function () {
                     _c("div", {}, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "cod_payment_method" } }, [
-                          _vm._v(_vm._s(_vm.__("cod_payments")) + " "),
+                          _vm._v(
+                            _vm._s(_vm.__("cod_payments")) +
+                              "\n                      "
+                          ),
                           _c("small", [
                             _vm._v(
                               "[ " +
                                 _vm._s(_vm.__("enable")) +
                                 " / " +
                                 _vm._s(_vm.__("disable")) +
-                                " ] "
+                                " ]\n                      "
                             ),
                           ]),
                         ]),
@@ -1063,7 +1583,7 @@ var render = function () {
                                   _vm._v(_vm._s(_vm.__("global")) + " :"),
                                 ]),
                                 _vm._v(
-                                  " " +
+                                  "\n                        " +
                                     _vm._s(
                                       _vm.__(
                                         "will_be_considered_for_all_the_products"
@@ -1080,7 +1600,7 @@ var render = function () {
                                   _vm._v(_vm._s(_vm.__("product_wise")) + " :"),
                                 ]),
                                 _vm._v(
-                                  " " +
+                                  "\n                        " +
                                     _vm._s(
                                       _vm.__(
                                         "product_wise_cod_will_be_considered"
@@ -1158,14 +1678,17 @@ var render = function () {
                   _c("div", { staticClass: "card-body" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "paypal_payment_method" } }, [
-                        _vm._v(" " + _vm._s(_vm.__("paypal_payments"))),
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.__("paypal_payments"))
+                        ),
                         _c("small", [
                           _vm._v(
                             "[ " +
                               _vm._s(_vm.__("enable")) +
                               " / " +
                               _vm._s(_vm.__("disable")) +
-                              " ] "
+                              " ]\n                    "
                           ),
                         ]),
                       ]),
@@ -1245,7 +1768,10 @@ var render = function () {
                     _vm.payment_method.paypal_payment_method == 1
                       ? _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "paypal_mode" } }, [
-                            _vm._v(" " + _vm._s(_vm.__("payment_mode"))),
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(_vm.__("payment_mode"))
+                            ),
                             _c("small", [
                               _vm._v(
                                 "[ " +
@@ -1297,7 +1823,7 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_mode")) + " "),
+                                _vm._v(_vm._s(_vm.__("select_mode"))),
                               ]),
                               _vm._v(" "),
                               _c(
@@ -1305,21 +1831,22 @@ var render = function () {
                                 { attrs: { value: "sandbox", selected: "" } },
                                 [
                                   _vm._v(
-                                    _vm._s(_vm.__("sandbox")) +
+                                    "\n                      " +
+                                      _vm._s(_vm.__("sandbox")) +
                                       " ( " +
                                       _vm._s(_vm.__("testing")) +
-                                      " )"
+                                      " )\n                    "
                                   ),
                                 ]
                               ),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "production" } }, [
                                 _vm._v(
-                                  " " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("production")) +
                                     "( " +
                                     _vm._s(_vm.__("live")) +
-                                    " )"
+                                    " )\n                    "
                                 ),
                               ]),
                             ]
@@ -1333,7 +1860,10 @@ var render = function () {
                             "label",
                             { attrs: { for: "paypal_currency_code" } },
                             [
-                              _vm._v(_vm._s(_vm.__("currency_code")) + " "),
+                              _vm._v(
+                                _vm._s(_vm.__("currency_code")) +
+                                  "\n                    "
+                              ),
                               _c("small", [
                                 _vm._v(
                                   "[ " +
@@ -1388,9 +1918,7 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v(
-                                  " " + _vm._s(_vm.__("select_currency_code"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("select_currency_code"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "INR" } }, [
@@ -1402,41 +1930,40 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AUD" } }, [
                                 _vm._v(
-                                  "Australian dollar" +
+                                  "\n                      Australian dollar" +
                                     _vm._s(_vm.__("australian_dollar")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BRL" } }, [
                                 _vm._v(
-                                  "Brazilian real" +
+                                  "\n                      Brazilian real" +
                                     _vm._s(_vm.__("brazilian_real")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CAD" } }, [
                                 _vm._v(
-                                  "Canadian dollar" +
+                                  "\n                      Canadian dollar" +
                                     _vm._s(_vm.__("canadian_doller")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CNY" } }, [
                                 _vm._v(
-                                  "Chinese Renmenbi" +
+                                  "\n                      Chinese Renmenbi" +
                                     _vm._s(_vm.__("chinese_renmenbi")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CZK" } }, [
                                 _vm._v(
                                   "Czech koruna" +
-                                    _vm._s(_vm.__("czech_koruna")) +
-                                    " "
+                                    _vm._s(_vm.__("czech_koruna"))
                                 ),
                               ]),
                               _vm._v(" "),
@@ -1453,39 +1980,40 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HKD" } }, [
                                 _vm._v(
-                                  "Hong Kong dollar " +
-                                    _vm._s(_vm.__("hong_kong_dollar"))
+                                  "\n                      Hong Kong dollar " +
+                                    _vm._s(_vm.__("hong_kong_dollar")) +
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HUF" } }, [
                                 _vm._v(
-                                  "Hungarian forint " +
-                                    _vm._s(_vm.__("hungarian_forint"))
+                                  "\n                      Hungarian forint " +
+                                    _vm._s(_vm.__("hungarian_forint")) +
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ILS" } }, [
                                 _vm._v(
-                                  "Israeli new shekel" +
+                                  "\n                      Israeli new shekel" +
                                     _vm._s(_vm.__("israeli_new_shekel")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "JPY" } }, [
                                 _vm._v(
                                   "Japanese yen" +
-                                    _vm._s(_vm.__("japanese_yen")) +
-                                    " "
+                                    _vm._s(_vm.__("japanese_yen"))
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MYR" } }, [
                                 _vm._v(
-                                  "Malaysian ringgit" +
+                                  "\n                      Malaysian ringgit" +
                                     _vm._s(_vm.__("malaysian_ringgit")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
@@ -1498,31 +2026,33 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TWD" } }, [
                                 _vm._v(
-                                  "New Taiwan dollar " +
-                                    _vm._s(_vm.__("new_taiwan_dollar"))
+                                  "\n                      New Taiwan dollar " +
+                                    _vm._s(_vm.__("new_taiwan_dollar")) +
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NZD" } }, [
                                 _vm._v(
-                                  "New Zealand dollar" +
+                                  "\n                      New Zealand dollar" +
                                     _vm._s(_vm.__("new_zealand_dollar")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NOK" } }, [
                                 _vm._v(
-                                  "Norwegian krone" +
+                                  "\n                      Norwegian krone" +
                                     _vm._s(_vm.__("norwegian_krone")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PHP" } }, [
                                 _vm._v(
-                                  "Philippine peso " +
-                                    _vm._s(_vm.__("philippine_peso"))
+                                  "\n                      Philippine peso " +
+                                    _vm._s(_vm.__("philippine_peso")) +
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
@@ -1535,48 +2065,43 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GBP" } }, [
                                 _vm._v(
-                                  "Pound sterling" +
+                                  "\n                      Pound sterling" +
                                     _vm._s(_vm.__("pound_sterling")) +
-                                    " "
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RUB" } }, [
                                 _vm._v(
                                   "Russian ruble" +
-                                    _vm._s(_vm.__("russian_ruble")) +
-                                    " "
+                                    _vm._s(_vm.__("russian_ruble"))
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SGD" } }, [
                                 _vm._v(
-                                  "Singapore dollar " +
-                                    _vm._s(_vm.__("singapore_dollar"))
+                                  "\n                      Singapore dollar " +
+                                    _vm._s(_vm.__("singapore_dollar")) +
+                                    "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SEK" } }, [
                                 _vm._v(
                                   "Swedish krona" +
-                                    _vm._s(_vm.__("swedish_krona")) +
-                                    " "
+                                    _vm._s(_vm.__("swedish_krona"))
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CHF" } }, [
                                 _vm._v(
-                                  "Swiss franc" +
-                                    _vm._s(_vm.__("swiss_franc")) +
-                                    " "
+                                  "Swiss franc" + _vm._s(_vm.__("swiss_franc"))
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "THB" } }, [
                                 _vm._v(
-                                  "Thai baht" +
-                                    _vm._s(_vm.__("thai_baht")) +
-                                    " "
+                                  "Thai baht" + _vm._s(_vm.__("thai_baht"))
                                 ),
                               ]),
                               _vm._v(" "),
@@ -1585,9 +2110,9 @@ var render = function () {
                                 { attrs: { value: "USD", selected: "" } },
                                 [
                                   _vm._v(
-                                    "United States dollar" +
+                                    "\n                      United States dollar" +
                                       _vm._s(_vm.__("united_states_dollar")) +
-                                      " "
+                                      "\n                    "
                                   ),
                                 ]
                               ),
@@ -1707,471 +2232,6 @@ var render = function () {
                 _c("div", { staticClass: "card h-100" }, [
                   _c("div", { staticClass: "card-header" }, [
                     _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("razorpay_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "razorpay_payment_method" } },
-                        [
-                          _vm._v(_vm._s(_vm.__("razorpay_payments"))),
-                          _c("small", [
-                            _vm._v(
-                              "[ " +
-                                _vm._s(_vm.__("enable")) +
-                                " / " +
-                                _vm._s(_vm.__("disable")) +
-                                " ] "
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.razorpay_payment_method,
-                              expression:
-                                "payment_method.razorpay_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "razorpay_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.razorpay_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.razorpay_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.razorpay_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.razorpay_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a =
-                                  _vm.payment_method.razorpay_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "razorpay_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "razorpay_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "razorpay_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.razorpay_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "razorpay_key" } }, [
-                            _vm._v(_vm._s(_vm.__("razorpay_key_id"))),
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.razorpay_key,
-                                expression: "payment_method.razorpay_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "razorpay_key",
-                              id: "razorpay_key",
-                              placeholder: "Razor Key ID",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.razorpay_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "razorpay_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.razorpay_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "razorpay_secret_key" } },
-                            [_vm._v(_vm._s(_vm.__("secret_key")))]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.razorpay_secret_key,
-                                expression:
-                                  "payment_method.razorpay_secret_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "razorpay_secret_key",
-                              id: "razorpay_secret_key",
-                              placeholder: "Razorpay Secret Key ",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.razorpay_secret_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "razorpay_secret_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("paystack_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "paystack_payment_method" } },
-                        [
-                          _vm._v(_vm._s(_vm.__("paystack_payments"))),
-                          _c("small", [
-                            _vm._v(
-                              "[ " +
-                                _vm._s(_vm.__("enable")) +
-                                " / " +
-                                _vm._s(_vm.__("disable")) +
-                                " ] "
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.paystack_payment_method,
-                              expression:
-                                "payment_method.paystack_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "paystack_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.paystack_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.paystack_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.paystack_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.paystack_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a =
-                                  _vm.payment_method.paystack_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "paystack_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "paystack_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paystack_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.paystack_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "paystack_public_key" } },
-                            [_vm._v(_vm._s(_vm.__("paystack_public_key")))]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.paystack_public_key,
-                                expression:
-                                  "payment_method.paystack_public_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "paystack_public_key",
-                              id: "paystack_public_key",
-                              placeholder: "Paystack Public key",
-                              required: "",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.paystack_public_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paystack_public_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.paystack_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "paystack_secret_key" } },
-                            [_vm._v(_vm._s(_vm.__("paystack_secret_key")))]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.paystack_secret_key,
-                                expression:
-                                  "payment_method.paystack_secret_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "paystack_secret_key",
-                              id: "paystack_secret_key",
-                              placeholder: "Paystack Secret Key ",
-                              required: "",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.paystack_secret_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paystack_secret_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.paystack_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "paystack_currency_code" } },
-                            [
-                              _vm._v(" " + _vm._s(_vm.__("currency_code"))),
-                              _c("small", [
-                                _vm._v(
-                                  "[" +
-                                    _vm._s(_vm.__("paystack_supported")) +
-                                    "]"
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(1),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value:
-                                    _vm.payment_method.paystack_currency_code,
-                                  expression:
-                                    "payment_method.paystack_currency_code",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: {
-                                name: "paystack_currency_code",
-                                id: "paystack_currency_code",
-                                required: "",
-                              },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.payment_method,
-                                    "paystack_currency_code",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_currency_code"))),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "GHS" } }, [
-                                _vm._v(_vm._s(_vm.__("ghana")) + " - GHS"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "NGN" } }, [
-                                _vm._v(_vm._s(_vm.__("nigeria")) + " - NGN"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "USD" } }, [
-                                _vm._v(_vm._s(_vm.__("nigeria")) + " - USD"),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "ZAR" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("south_africa")) + "- ZAR"
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
                       _vm._v(_vm._s(_vm.__("stripe_payments"))),
                     ]),
                   ]),
@@ -2179,7 +2239,10 @@ var render = function () {
                   _c("div", { staticClass: "card-body" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "stripe_payment_method" } }, [
-                        _vm._v(_vm._s(_vm.__("stripe_payments")) + " "),
+                        _vm._v(
+                          _vm._s(_vm.__("stripe_payments")) +
+                            "\n                    "
+                        ),
                         _c("small", [
                           _vm._v(
                             "[ " +
@@ -2406,7 +2469,8 @@ var render = function () {
                             { attrs: { for: "stripe_webhook_url" } },
                             [
                               _vm._v(
-                                _vm._s(_vm.__("payment_endpoint_url")) + " "
+                                _vm._s(_vm.__("payment_endpoint_url")) +
+                                  "\n                    "
                               ),
                               _c("small", [
                                 _vm._v(
@@ -2463,7 +2527,10 @@ var render = function () {
                             "label",
                             { attrs: { for: "stripe_currency_code" } },
                             [
-                              _vm._v(_vm._s(_vm.__("currency_code")) + " "),
+                              _vm._v(
+                                _vm._s(_vm.__("currency_code")) +
+                                  "\n                    "
+                              ),
                               _c("small", [
                                 _vm._v(
                                   "[ " +
@@ -2472,7 +2539,7 @@ var render = function () {
                                 ),
                               ]),
                               _vm._v(" "),
-                              _vm._m(2),
+                              _vm._m(1),
                             ]
                           ),
                           _vm._v(" "),
@@ -2518,547 +2585,547 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v("Select Currency Code "),
+                                _vm._v("Select Currency Code"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "INR" } }, [
-                                _vm._v(" Indian rupee "),
+                                _vm._v("Indian rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "USD" } }, [
-                                _vm._v(" United States dollar "),
+                                _vm._v("United States dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AED" } }, [
-                                _vm._v(" United Arab Emirates Dirham "),
+                                _vm._v("United Arab Emirates Dirham"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AFN" } }, [
-                                _vm._v(" Afghan Afghani "),
+                                _vm._v("Afghan Afghani"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ALL" } }, [
-                                _vm._v(" Albanian Lek "),
+                                _vm._v("Albanian Lek"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AMD" } }, [
-                                _vm._v(" Armenian Dram "),
+                                _vm._v("Armenian Dram"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ANG" } }, [
-                                _vm._v(" Netherlands Antillean Guilder "),
+                                _vm._v("Netherlands Antillean Guilder"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AOA" } }, [
-                                _vm._v(" Angolan Kwanza "),
+                                _vm._v("Angolan Kwanza"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ARS" } }, [
-                                _vm._v(" Argentine Peso"),
+                                _vm._v("Argentine Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AUD" } }, [
-                                _vm._v(" Australian Dollar"),
+                                _vm._v("Australian Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AWG" } }, [
-                                _vm._v(" Aruban Florin"),
+                                _vm._v("Aruban Florin"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AZN" } }, [
-                                _vm._v(" Azerbaijani Manat "),
+                                _vm._v("Azerbaijani Manat"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BAM" } }, [
-                                _vm._v(" Bosnia-Herzegovina Convertible Mark "),
+                                _vm._v("Bosnia-Herzegovina Convertible Mark"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BBD" } }, [
-                                _vm._v(" Bajan dollar "),
+                                _vm._v("Bajan dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BDT" } }, [
-                                _vm._v(" Bangladeshi Taka"),
+                                _vm._v("Bangladeshi Taka"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BGN" } }, [
-                                _vm._v(" Bulgarian Lev "),
+                                _vm._v("Bulgarian Lev"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BIF" } }, [
-                                _vm._v(" Burundian Franc"),
+                                _vm._v("Burundian Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BMD" } }, [
-                                _vm._v(" Bermudan Dollar"),
+                                _vm._v("Bermudan Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BND" } }, [
-                                _vm._v(" Brunei Dollar "),
+                                _vm._v("Brunei Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BOB" } }, [
-                                _vm._v(" Bolivian Boliviano "),
+                                _vm._v("Bolivian Boliviano"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BRL" } }, [
-                                _vm._v(" Brazilian Real "),
+                                _vm._v("Brazilian Real"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BSD" } }, [
-                                _vm._v(" Bahamian Dollar "),
+                                _vm._v("Bahamian Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BWP" } }, [
-                                _vm._v(" Botswanan Pula "),
+                                _vm._v("Botswanan Pula"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BZD" } }, [
-                                _vm._v(" Belize Dollar "),
+                                _vm._v("Belize Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CAD" } }, [
-                                _vm._v(" Canadian Dollar "),
+                                _vm._v("Canadian Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CDF" } }, [
-                                _vm._v(" Congolese Franc "),
+                                _vm._v("Congolese Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CHF" } }, [
-                                _vm._v(" Swiss Franc "),
+                                _vm._v("Swiss Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CLP" } }, [
-                                _vm._v(" Chilean Peso "),
+                                _vm._v("Chilean Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CNY" } }, [
-                                _vm._v(" Chinese Yuan "),
+                                _vm._v("Chinese Yuan"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "COP" } }, [
-                                _vm._v(" Colombian Peso "),
+                                _vm._v("Colombian Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CRC" } }, [
-                                _vm._v(" Costa Rican Colón "),
+                                _vm._v("Costa Rican Colón"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CVE" } }, [
-                                _vm._v(" Cape Verdean Escudo "),
+                                _vm._v("Cape Verdean Escudo"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CZK" } }, [
-                                _vm._v(" Czech Koruna "),
+                                _vm._v("Czech Koruna"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DJF" } }, [
-                                _vm._v(" Djiboutian Franc "),
+                                _vm._v("Djiboutian Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DKK" } }, [
-                                _vm._v(" Danish Krone "),
+                                _vm._v("Danish Krone"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DOP" } }, [
-                                _vm._v(" Dominican Peso "),
+                                _vm._v("Dominican Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DZD" } }, [
-                                _vm._v(" Algerian Dinar "),
+                                _vm._v("Algerian Dinar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "EGP" } }, [
-                                _vm._v(" Egyptian Pound "),
+                                _vm._v("Egyptian Pound"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ETB" } }, [
-                                _vm._v(" Ethiopian Birr "),
+                                _vm._v("Ethiopian Birr"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "EUR" } }, [
-                                _vm._v(" Euro "),
+                                _vm._v("Euro"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "FJD" } }, [
-                                _vm._v(" Fijian Dollar "),
+                                _vm._v("Fijian Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "FKP" } }, [
-                                _vm._v(" Falkland Island Pound "),
+                                _vm._v("Falkland Island Pound"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GBP" } }, [
-                                _vm._v(" Pound sterling "),
+                                _vm._v("Pound sterling"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GEL" } }, [
-                                _vm._v(" Georgian Lari "),
+                                _vm._v("Georgian Lari"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GIP" } }, [
-                                _vm._v(" Gibraltar Pound "),
+                                _vm._v("Gibraltar Pound"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GMD" } }, [
-                                _vm._v(" Gambian dalasi "),
+                                _vm._v("Gambian dalasi"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GNF" } }, [
-                                _vm._v(" Guinean Franc "),
+                                _vm._v("Guinean Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GTQ" } }, [
-                                _vm._v(" Guatemalan Quetzal "),
+                                _vm._v("Guatemalan Quetzal"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GYD" } }, [
-                                _vm._v(" Guyanaese Dollar "),
+                                _vm._v("Guyanaese Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HKD" } }, [
-                                _vm._v(" Hong Kong Dollar "),
+                                _vm._v("Hong Kong Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HNL" } }, [
-                                _vm._v(" Honduran Lempira "),
+                                _vm._v("Honduran Lempira"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HRK" } }, [
-                                _vm._v(" Croatian Kuna "),
+                                _vm._v("Croatian Kuna"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HTG" } }, [
-                                _vm._v(" Haitian Gourde "),
+                                _vm._v("Haitian Gourde"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HUF" } }, [
-                                _vm._v(" Hungarian Forint "),
+                                _vm._v("Hungarian Forint"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "IDR" } }, [
-                                _vm._v(" Indonesian Rupiah "),
+                                _vm._v("Indonesian Rupiah"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ILS" } }, [
-                                _vm._v(" Israeli New Shekel "),
+                                _vm._v("Israeli New Shekel"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ISK" } }, [
-                                _vm._v(" Icelandic Króna "),
+                                _vm._v("Icelandic Króna"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "JMD" } }, [
-                                _vm._v(" Jamaican Dollar "),
+                                _vm._v("Jamaican Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "JPY" } }, [
-                                _vm._v(" Japanese Yen "),
+                                _vm._v("Japanese Yen"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KES" } }, [
-                                _vm._v(" Kenyan Shilling "),
+                                _vm._v("Kenyan Shilling"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KGS" } }, [
-                                _vm._v(" Kyrgystani Som "),
+                                _vm._v("Kyrgystani Som"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KHR" } }, [
-                                _vm._v(" Cambodian riel "),
+                                _vm._v("Cambodian riel"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KMF" } }, [
-                                _vm._v(" Comorian franc "),
+                                _vm._v("Comorian franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KRW" } }, [
-                                _vm._v(" South Korean won "),
+                                _vm._v("South Korean won"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KYD" } }, [
-                                _vm._v(" Cayman Islands Dollar "),
+                                _vm._v("Cayman Islands Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "KZT" } }, [
-                                _vm._v(" Kazakhstani Tenge "),
+                                _vm._v("Kazakhstani Tenge"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "LAK" } }, [
-                                _vm._v(" Laotian Kip "),
+                                _vm._v("Laotian Kip"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "LBP" } }, [
-                                _vm._v(" Lebanese pound "),
+                                _vm._v("Lebanese pound"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "LKR" } }, [
-                                _vm._v(" Sri Lankan Rupee "),
+                                _vm._v("Sri Lankan Rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "LRD" } }, [
-                                _vm._v(" Liberian Dollar "),
+                                _vm._v("Liberian Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "LSL" } }, [
-                                _vm._v(" Lesotho loti "),
+                                _vm._v("Lesotho loti"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MAD" } }, [
-                                _vm._v(" Moroccan Dirham "),
+                                _vm._v("Moroccan Dirham"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MDL" } }, [
-                                _vm._v(" Moldovan Leu "),
+                                _vm._v("Moldovan Leu"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MGA" } }, [
-                                _vm._v(" Malagasy Ariary "),
+                                _vm._v("Malagasy Ariary"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MKD" } }, [
-                                _vm._v(" Macedonian Denar "),
+                                _vm._v("Macedonian Denar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MMK" } }, [
-                                _vm._v(" Myanmar Kyat "),
+                                _vm._v("Myanmar Kyat"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MNT" } }, [
-                                _vm._v(" Mongolian Tugrik "),
+                                _vm._v("Mongolian Tugrik"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MOP" } }, [
-                                _vm._v(" Macanese Pataca "),
+                                _vm._v("Macanese Pataca"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MRO" } }, [
-                                _vm._v(" Mauritanian Ouguiya "),
+                                _vm._v("Mauritanian Ouguiya"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MUR" } }, [
-                                _vm._v(" Mauritian Rupee"),
+                                _vm._v("Mauritian Rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MVR" } }, [
-                                _vm._v(" Maldivian Rufiyaa "),
+                                _vm._v("Maldivian Rufiyaa"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MWK" } }, [
-                                _vm._v(" Malawian Kwacha "),
+                                _vm._v("Malawian Kwacha"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MXN" } }, [
-                                _vm._v(" Mexican Peso "),
+                                _vm._v("Mexican Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MYR" } }, [
-                                _vm._v(" Malaysian Ringgit "),
+                                _vm._v("Malaysian Ringgit"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MZN" } }, [
-                                _vm._v(" Mozambican metical "),
+                                _vm._v("Mozambican metical"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NAD" } }, [
-                                _vm._v(" Namibian dollar "),
+                                _vm._v("Namibian dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NGN" } }, [
-                                _vm._v(" Nigerian Naira "),
+                                _vm._v("Nigerian Naira"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NIO" } }, [
-                                _vm._v(" Nicaraguan Córdoba "),
+                                _vm._v("Nicaraguan Córdoba"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NOK" } }, [
-                                _vm._v(" Norwegian Krone "),
+                                _vm._v("Norwegian Krone"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NPR" } }, [
-                                _vm._v(" Nepalese Rupee "),
+                                _vm._v("Nepalese Rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NZD" } }, [
-                                _vm._v(" New Zealand Dollar "),
+                                _vm._v("New Zealand Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PAB" } }, [
-                                _vm._v(" Panamanian Balboa "),
+                                _vm._v("Panamanian Balboa"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PEN" } }, [
-                                _vm._v(" Sol "),
+                                _vm._v("Sol"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PGK" } }, [
-                                _vm._v(" Papua New Guinean Kina "),
+                                _vm._v("Papua New Guinean Kina"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PHP" } }, [
-                                _vm._v(" Philippine peso "),
+                                _vm._v("Philippine peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PKR" } }, [
-                                _vm._v(" Pakistani Rupee "),
+                                _vm._v("Pakistani Rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PLN" } }, [
-                                _vm._v(" Poland złoty "),
+                                _vm._v("Poland złoty"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PYG" } }, [
-                                _vm._v(" Paraguayan Guarani "),
+                                _vm._v("Paraguayan Guarani"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "QAR" } }, [
-                                _vm._v(" Qatari Rial "),
+                                _vm._v("Qatari Rial"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RON" } }, [
-                                _vm._v(" Romanian Leu "),
+                                _vm._v("Romanian Leu"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RSD" } }, [
-                                _vm._v(" Serbian Dinar "),
+                                _vm._v("Serbian Dinar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RUB" } }, [
-                                _vm._v(" Russian Ruble "),
+                                _vm._v("Russian Ruble"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RWF" } }, [
-                                _vm._v(" Rwandan franc "),
+                                _vm._v("Rwandan franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SAR" } }, [
-                                _vm._v(" Saudi Riyal "),
+                                _vm._v("Saudi Riyal"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SBD" } }, [
-                                _vm._v(" Solomon Islands Dollar "),
+                                _vm._v("Solomon Islands Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SCR" } }, [
-                                _vm._v(" Seychellois Rupee "),
+                                _vm._v("Seychellois Rupee"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SEK" } }, [
-                                _vm._v(" Swedish Krona "),
+                                _vm._v("Swedish Krona"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SGD" } }, [
-                                _vm._v(" Singapore Dollar "),
+                                _vm._v("Singapore Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SHP" } }, [
-                                _vm._v(" Saint Helenian Pound "),
+                                _vm._v("Saint Helenian Pound"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SLL" } }, [
-                                _vm._v(" Sierra Leonean Leone "),
+                                _vm._v("Sierra Leonean Leone"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SOS" } }, [
-                                _vm._v(" Somali Shilling "),
+                                _vm._v("Somali Shilling"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SRD" } }, [
-                                _vm._v(" Surinamese Dollar "),
+                                _vm._v("Surinamese Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "STD" } }, [
-                                _vm._v(" Sao Tome Dobra "),
+                                _vm._v("Sao Tome Dobra"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SZL" } }, [
-                                _vm._v(" Swazi Lilangeni "),
+                                _vm._v("Swazi Lilangeni"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "THB" } }, [
-                                _vm._v(" Thai Baht "),
+                                _vm._v("Thai Baht"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TJS" } }, [
-                                _vm._v(" Tajikistani Somoni "),
+                                _vm._v("Tajikistani Somoni"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TOP" } }, [
-                                _vm._v(" Tongan Paʻanga "),
+                                _vm._v("Tongan Paʻanga"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TRY" } }, [
-                                _vm._v(" Turkish lira "),
+                                _vm._v("Turkish lira"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TTD" } }, [
-                                _vm._v(" Trinidad & Tobago Dollar "),
+                                _vm._v("Trinidad & Tobago Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TWD" } }, [
-                                _vm._v(" New Taiwan dollar "),
+                                _vm._v("New Taiwan dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TZS" } }, [
-                                _vm._v(" Tanzanian Shilling "),
+                                _vm._v("Tanzanian Shilling"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "UAH" } }, [
-                                _vm._v(" Ukrainian hryvnia "),
+                                _vm._v("Ukrainian hryvnia"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "UGX" } }, [
-                                _vm._v(" Ugandan Shilling "),
+                                _vm._v("Ugandan Shilling"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "UYU" } }, [
-                                _vm._v(" Uruguayan Peso "),
+                                _vm._v("Uruguayan Peso"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "UZS" } }, [
-                                _vm._v(" Uzbekistani Som "),
+                                _vm._v("Uzbekistani Som"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "VND" } }, [
-                                _vm._v(" Vietnamese dong "),
+                                _vm._v("Vietnamese dong"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "VUV" } }, [
-                                _vm._v(" Vanuatu Vatu "),
+                                _vm._v("Vanuatu Vatu"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "WST" } }, [
-                                _vm._v(" Samoa Tala"),
+                                _vm._v("Samoa Tala"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "XAF" } }, [
-                                _vm._v(" Central African CFA franc "),
+                                _vm._v("Central African CFA franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "XCD" } }, [
-                                _vm._v(" East Caribbean Dollar "),
+                                _vm._v("East Caribbean Dollar"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "XOF" } }, [
-                                _vm._v(" West African CFA franc "),
+                                _vm._v("West African CFA franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "XPF" } }, [
-                                _vm._v(" CFP Franc "),
+                                _vm._v("CFP Franc"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "YER" } }, [
-                                _vm._v(" Yemeni Rial "),
+                                _vm._v("Yemeni Rial"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ZAR" } }, [
-                                _vm._v(" South African Rand "),
+                                _vm._v("South African Rand"),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ZMW" } }, [
-                                _vm._v(" Zambian Kwacha "),
+                                _vm._v("Zambian Kwacha"),
                               ]),
                             ]
                           ),
@@ -3112,1218 +3179,30 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_mode")) + " "),
+                                _vm._v(_vm._s(_vm.__("select_mode"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "sandbox" } }, [
                                 _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
+                                  "\n                      " +
+                                    _vm._s(_vm.__("sandbox")) +
                                     " (" +
                                     _vm._s(_vm.__("testing")) +
-                                    ")"
+                                    ")\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "production" } }, [
                                 _vm._v(
-                                  _vm._s(_vm.__("production")) +
+                                  "\n                      " +
+                                    _vm._s(_vm.__("production")) +
                                     " (" +
                                     _vm._s(_vm.__("live")) +
-                                    " )"
+                                    " )\n                    "
                                 ),
                               ]),
                             ]
                           ),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("paytm_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "paytm_payment_method" } }, [
-                        _vm._v(_vm._s(_vm.__("paytm_payments"))),
-                        _c("small", [
-                          _vm._v(
-                            "[ " +
-                              _vm._s(_vm.__("enable")) +
-                              " / " +
-                              _vm._s(_vm.__("disable")) +
-                              " ] "
-                          ),
-                        ]),
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.paytm_payment_method,
-                              expression: "payment_method.paytm_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "paytm_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.paytm_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.paytm_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.paytm_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.paytm_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a = _vm.payment_method.paytm_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "paytm_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "paytm_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paytm_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.paytm_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "paytm_mode" } }, [
-                            _vm._v(_vm._s(_vm.__("paytm_payment_mode")) + " "),
-                            _c("small", [
-                              _vm._v(
-                                "[ " +
-                                  _vm._s(_vm.__("sandbox")) +
-                                  " / " +
-                                  _vm._s(_vm.__("live")) +
-                                  " ]"
-                              ),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.payment_method.paytm_mode,
-                                  expression: "payment_method.paytm_mode",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: {
-                                name: "paytm_mode",
-                                id: "paytm_mode",
-                                required:
-                                  _vm.payment_method.paytm_payment_method == 1,
-                              },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.payment_method,
-                                    "paytm_mode",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("select_paytm_payment_mode"))
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "sandbox" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("testing")) +
-                                    ")"
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "production" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("production")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("live")) +
-                                    ")"
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.paytm_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "paytm_merchant_key" } },
-                            [_vm._v(_vm._s(_vm.__("merchant_key")))]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.paytm_merchant_key,
-                                expression: "payment_method.paytm_merchant_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "paytm_merchant_key",
-                              id: "paytm_merchant_key",
-                              placeholder: "Paytm Merchant Key",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.paytm_merchant_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paytm_merchant_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.paytm_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "paytm_merchant_id" } }, [
-                            _vm._v(_vm._s(_vm.__("merchant_id"))),
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.paytm_merchant_id,
-                                expression: "payment_method.paytm_merchant_id",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "paytm_merchant_id",
-                              id: "paytm_merchant_id",
-                              placeholder: "Paytm Merchant ID",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.paytm_merchant_id,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "paytm_merchant_id",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("midtrans_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "midtrans_payment_method" } },
-                        [
-                          _vm._v(_vm._s(_vm.__("midtrans_payments"))),
-                          _c("small", [
-                            _vm._v(
-                              "[ " +
-                                _vm._s(_vm.__("enable")) +
-                                " / " +
-                                _vm._s(_vm.__("disable")) +
-                                " ] "
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.midtrans_payment_method,
-                              expression:
-                                "payment_method.midtrans_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "midtrans_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.midtrans_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.midtrans_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.midtrans_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.midtrans_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a =
-                                  _vm.payment_method.midtrans_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "midtrans_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "midtrans_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "midtrans_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.midtrans_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "midtrans_mode" } }, [
-                            _vm._v(
-                              _vm._s(_vm.__("midtrans_payment_mode")) + " "
-                            ),
-                            _c("small", [
-                              _vm._v(
-                                "[ " +
-                                  _vm._s(_vm.__("sandbox")) +
-                                  " / " +
-                                  _vm._s(_vm.__("live")) +
-                                  " ]"
-                              ),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.payment_method.midtrans_mode,
-                                  expression: "payment_method.midtrans_mode",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: {
-                                name: "midtrans_mode",
-                                id: "midtrans_mode",
-                                required:
-                                  _vm.payment_method.midtrans_payment_method ==
-                                  1,
-                              },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.payment_method,
-                                    "midtrans_mode",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_mode"))),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "sandbox" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("testing")) +
-                                    ")"
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "production" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("production")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("live")) +
-                                    ")"
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.midtrans_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "midtrans_server_key" } },
-                            [_vm._v(_vm._s(_vm.__("server_key")))]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.midtrans_server_key,
-                                expression:
-                                  "payment_method.midtrans_server_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "midtrans_server_key",
-                              id: "midtrans_server_key",
-                              placeholder: "Midtrans Server Key",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.midtrans_server_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "midtrans_server_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.midtrans_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "paypal_notification_url" } },
-                            [
-                              _vm._v(_vm._s(_vm.__("notification_url")) + " "),
-                              _c("small", [
-                                _vm._v(_vm._s(_vm.__("set_webhook_url"))),
-                              ]),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value:
-                                  _vm.payment_method.midtrans_notification_url,
-                                expression:
-                                  "payment_method.midtrans_notification_url",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "midtrans_notification_url",
-                              placeholder: "Midtrans Webhook URL",
-                              disabled: "",
-                            },
-                            domProps: {
-                              value:
-                                _vm.payment_method.midtrans_notification_url,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "midtrans_notification_url",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.midtrans_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "midtrans_return_url" } },
-                            [
-                              _vm._v(_vm._s(_vm.__("return_url")) + " "),
-                              _c("small", [
-                                _vm._v(_vm._s(_vm.__("set_webhook_url"))),
-                              ]),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.midtrans_return_url,
-                                expression:
-                                  "payment_method.midtrans_return_url",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "midtrans_return_url",
-                              placeholder: "Midtrans Return URL",
-                              disabled: "",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.midtrans_return_url,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "midtrans_return_url",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("small", [
-                            _vm._v(_vm._s(_vm.__("set_website_url"))),
-                          ]),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("phonepay_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "phonepay_payment_method" } },
-                        [
-                          _vm._v(_vm._s(_vm.__("phonepay_payments"))),
-                          _c("small", [
-                            _vm._v(
-                              "[ " +
-                                _vm._s(_vm.__("enable")) +
-                                " / " +
-                                _vm._s(_vm.__("disable")) +
-                                " ] "
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.phonepay_payment_method,
-                              expression:
-                                "payment_method.phonepay_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "phonepay_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.phonepay_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.phonepay_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.phonepay_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.phonepay_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a =
-                                  _vm.payment_method.phonepay_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "phonepay_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "phonepay_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "phonepay_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.phonepay_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "phonepay_mode" } }, [
-                            _vm._v(
-                              _vm._s(_vm.__("phonepay_payment_mode")) + " "
-                            ),
-                            _c("small", [
-                              _vm._v(
-                                "[ " +
-                                  _vm._s(_vm.__("sandbox")) +
-                                  " / " +
-                                  _vm._s(_vm.__("live")) +
-                                  " ]"
-                              ),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.payment_method.phonepay_mode,
-                                  expression: "payment_method.phonepay_mode",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: {
-                                name: "phonepay_mode",
-                                id: "phonepay_mode",
-                                required:
-                                  _vm.payment_method.phonepay_payment_method ==
-                                  1,
-                              },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.payment_method,
-                                    "phonepay_mode",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_mode"))),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "sandbox" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("testing")) +
-                                    ")"
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "production" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("production")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("live")) +
-                                    ")"
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.phonepay_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "phonepay_api_key" } }, [
-                            _vm._v(_vm._s(_vm.__("api_key"))),
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.phonepay_api_key,
-                                expression: "payment_method.phonepay_api_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "phonepay_api_key",
-                              id: "phonepay_api_key",
-                              placeholder: "phonepe API Key",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.phonepay_api_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "phonepay_api_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.phonepay_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "phonepay_merchant_id" } },
-                            [_vm._v(_vm._s(_vm.__("merchant_id")) + " ")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.phonepay_merchant_id,
-                                expression:
-                                  "payment_method.phonepay_merchant_id",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "phonepay_merchant_id",
-                              placeholder: "phonepe Merchant ID",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.phonepay_merchant_id,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "phonepay_merchant_id",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 mb-4" }, [
-                _c("div", { staticClass: "card h-100" }, [
-                  _c("div", { staticClass: "card-header" }, [
-                    _c("h4", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(_vm.__("cashfree_payments"))),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        { attrs: { for: "phonepay_payment_method" } },
-                        [
-                          _vm._v(_vm._s(_vm.__("cashfree_payments"))),
-                          _c("small", [
-                            _vm._v(
-                              "[ " +
-                                _vm._s(_vm.__("enable")) +
-                                " / " +
-                                _vm._s(_vm.__("disable")) +
-                                " ] "
-                            ),
-                          ]),
-                        ]
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check form-switch" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.payment_method.cashfree_payment_method,
-                              expression:
-                                "payment_method.cashfree_payment_method",
-                            },
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            id: "cashfree_payment_method",
-                            type: "checkbox",
-                            "true-value": "1",
-                            "false-value": "0",
-                          },
-                          domProps: {
-                            checked: _vm.payment_method.cashfree_payment_method,
-                            checked: Array.isArray(
-                              _vm.payment_method.cashfree_payment_method
-                            )
-                              ? _vm._i(
-                                  _vm.payment_method.cashfree_payment_method,
-                                  null
-                                ) > -1
-                              : _vm._q(
-                                  _vm.payment_method.cashfree_payment_method,
-                                  "1"
-                                ),
-                          },
-                          on: {
-                            change: function ($event) {
-                              var $$a =
-                                  _vm.payment_method.cashfree_payment_method,
-                                $$el = $event.target,
-                                $$c = $$el.checked ? "1" : "0"
-                              if (Array.isArray($$a)) {
-                                var $$v = null,
-                                  $$i = _vm._i($$a, $$v)
-                                if ($$el.checked) {
-                                  $$i < 0 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "cashfree_payment_method",
-                                      $$a.concat([$$v])
-                                    )
-                                } else {
-                                  $$i > -1 &&
-                                    _vm.$set(
-                                      _vm.payment_method,
-                                      "cashfree_payment_method",
-                                      $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1))
-                                    )
-                                }
-                              } else {
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "cashfree_payment_method",
-                                  $$c
-                                )
-                              }
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm.payment_method.cashfree_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "cashfree_mode" } }, [
-                            _vm._v(
-                              _vm._s(_vm.__("cashfree_payment_mode")) + " "
-                            ),
-                            _c("small", [
-                              _vm._v(
-                                "[ " +
-                                  _vm._s(_vm.__("sandbox")) +
-                                  " / " +
-                                  _vm._s(_vm.__("live")) +
-                                  " ]"
-                              ),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.payment_method.cashfree_mode,
-                                  expression: "payment_method.cashfree_mode",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: {
-                                name: "cashfree_mode",
-                                id: "cashfree_mode",
-                                required:
-                                  _vm.payment_method.cashfree_payment_method ==
-                                  1,
-                              },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.payment_method,
-                                    "cashfree_mode",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(_vm.__("select_mode"))),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "sandbox" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("testing")) +
-                                    ")"
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "production" } }, [
-                                _vm._v(
-                                  _vm._s(_vm.__("production")) +
-                                    " (  " +
-                                    _vm._s(_vm.__("live")) +
-                                    ")"
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.cashfree_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "cashfree_app_id" } }, [
-                            _vm._v(_vm._s(_vm.__("app_id"))),
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.cashfree_app_id,
-                                expression: "payment_method.cashfree_app_id",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "cashfree_app_id",
-                              id: "cashfree_app_id",
-                              placeholder: "Cashfree APP ID",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.cashfree_app_id,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "cashfree_app_id",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.cashfree_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "cashfree_secret_key" } },
-                            [_vm._v(_vm._s(_vm.__("secret_key")) + " ")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.payment_method.cashfree_secret_key,
-                                expression:
-                                  "payment_method.cashfree_secret_key",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "cashfree_secret_key",
-                              placeholder: "Cashfree Secret Key",
-                            },
-                            domProps: {
-                              value: _vm.payment_method.cashfree_secret_key,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "cashfree_secret_key",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.payment_method.cashfree_payment_method == 1
-                      ? _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "cashfree_notification_url" } },
-                            [
-                              _vm._v(_vm._s(_vm.__("notification_url")) + " "),
-                              _c("small", [
-                                _vm._v(
-                                  _vm._s(_vm.__("set_webhook_url_for_cashfree"))
-                                ),
-                              ]),
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value:
-                                  _vm.payment_method.cashfree_notification_url,
-                                expression:
-                                  "payment_method.cashfree_notification_url",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              name: "cashfree_notification_url",
-                              placeholder: "Cashfree Webhook URL",
-                              disabled: "",
-                            },
-                            domProps: {
-                              value:
-                                _vm.payment_method.cashfree_notification_url,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.payment_method,
-                                  "cashfree_notification_url",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
                         ])
                       : _vm._e(),
                   ]),
@@ -4351,7 +3230,7 @@ var render = function () {
                                 _vm._s(_vm.__("enable")) +
                                 " / " +
                                 _vm._s(_vm.__("disable")) +
-                                " ] "
+                                " ]\n                    "
                             ),
                           ]),
                         ]
@@ -4433,7 +3312,8 @@ var render = function () {
                       ? _c("div", { staticClass: "form-group" }, [
                           _c("label", { attrs: { for: "paytabs_mode" } }, [
                             _vm._v(
-                              _vm._s(_vm.__("paytabs_payment_mode")) + " "
+                              _vm._s(_vm.__("paytabs_payment_mode")) +
+                                "\n                    "
                             ),
                             _c("small", [
                               _vm._v(
@@ -4493,19 +3373,21 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "sandbox" } }, [
                                 _vm._v(
-                                  _vm._s(_vm.__("sandbox")) +
-                                    " (  " +
+                                  "\n                      " +
+                                    _vm._s(_vm.__("sandbox")) +
+                                    " ( " +
                                     _vm._s(_vm.__("testing")) +
-                                    ")"
+                                    ")\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "production" } }, [
                                 _vm._v(
-                                  _vm._s(_vm.__("production")) +
-                                    " (  " +
+                                  "\n                      " +
+                                    _vm._s(_vm.__("production")) +
+                                    " ( " +
                                     _vm._s(_vm.__("live")) +
-                                    ")"
+                                    ")\n                    "
                                 ),
                               ]),
                             ]
@@ -4604,7 +3486,10 @@ var render = function () {
                             "label",
                             { attrs: { for: "paytabs_notification_url" } },
                             [
-                              _vm._v(_vm._s(_vm.__("notification_url")) + " "),
+                              _vm._v(
+                                _vm._s(_vm.__("notification_url")) +
+                                  "\n                    "
+                              ),
                               _c("small", [
                                 _vm._v(
                                   _vm._s(_vm.__("set_webhook_url_for_paytabs"))
@@ -4671,9 +3556,9 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            " " +
+                            "\n              " +
                               _vm._s(_vm.__("update")) +
-                              "\n                            "
+                              "\n              "
                           ),
                           _vm.isLoading
                             ? _c("b-spinner", {
@@ -4704,21 +3589,6 @@ var staticRenderFns = [
       {
         attrs: {
           href: "https://developer.paypal.com/docs/api/reference/currency-codes/",
-          target: "_BLANK",
-        },
-      },
-      [_c("i", { staticClass: "fa fa-link" })]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        attrs: {
-          href: "https://support.paystack.com/hc/en-us/articles/360009973779-What-currency-is-available-to-my-business-",
           target: "_BLANK",
         },
       },

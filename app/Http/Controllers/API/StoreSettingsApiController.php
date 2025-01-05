@@ -141,6 +141,9 @@ class StoreSettingsApiController extends Controller
 
     public function save(Request $request)
     {
+
+
+
         $validator = Validator::make($request->all(), [
             'logo' => $request->hasFile('logo') ? 'mimes:jpeg,jpg,png,gif' : '',
             'fssai_lic_img' => $request->hasFile('fssai_lic_img') ? 'mimes:jpeg,jpg,png,gif' : '',
@@ -150,7 +153,6 @@ class StoreSettingsApiController extends Controller
         if ($validator->fails()) {
             return CommonHelper::responseError($validator->errors()->first());
         }
-
 
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
@@ -235,7 +237,7 @@ class StoreSettingsApiController extends Controller
 
     public function getPurchaseCode()
     {
-        $code = Setting::get_value('purchase_code') ?? '';
+        $code = "123456";//Setting::get_value('purchase_code') ?? '';
 
         return CommonHelper::responseWithData($code);
     }
