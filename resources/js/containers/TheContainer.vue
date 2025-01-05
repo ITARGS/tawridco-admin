@@ -46,6 +46,7 @@
 
             <template v-for="item in filteredSidebarItems">
               <li
+                v-bind:key="item"
                 class="sidebar-item"
                 :class="{
                   active: isActive(item.url) || subIsActive(item),
@@ -98,6 +99,7 @@
             </template>
             <template v-for="item in filteredDatabaseDownloadBtn">
               <div
+                v-bind:key="item"
                 v-if="
                   item.role == true
                     ? $role('Super Admin') &&

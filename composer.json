@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0",
@@ -14,6 +17,7 @@
         "kreait/firebase-php": "^5.8",
         "laravel/cashier": "*",
         "laravel/framework": "^10.0",
+        "laravel/octane": "^2.6",
         "laravel/passport": "^11.4",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.5",
@@ -64,10 +68,15 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup",
+        "serve:octane": [
+            "@php artisan optimize",
+            "@php artisan migrate --force",
+            "@php artisan serve"
+        ]
     },
     "extra": {
-       "laravel": {
+        "laravel": {
             "dont-discover": []
         },
         "google/apiclient-services": [

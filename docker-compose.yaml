@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  mysql:
+      image: mysql:8.0 # Use your preferred MySQL version
+      container_name: mysql_tawridco_container
+      restart: always
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: true
+        MYSQL_DATABASE: default
+      volumes:
+        - mysql_data:/var/lib/mysql      # Persist data
+
+
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+
+  admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: composer serve:octane
+    depends_on:
+        - mysql
+        - caddy
+
+
+
+
+
+
+volumes:
+  mysql_data:
+
+networks:
+  default:
+    name: infrastructure

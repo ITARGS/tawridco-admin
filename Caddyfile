@@ -1,0 +1,6 @@
+http://tawridco.com {
+	reverse_proxy admin  {
+		header_up X-Forwarded-Proto http
+		header_up X-Forwarded-For {header.CF-Connecting-IP}
+	}
+}
