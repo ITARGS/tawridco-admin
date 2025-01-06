@@ -71,8 +71,9 @@
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup",
         "serve:octane": [
             "@php artisan optimize",
+            "@php artisan storage:link",
             "@php artisan migrate --force",
-            "@php artisan serve"
+            "@php artisan octane:swoole --workers=4 --host=0.0.0.0 --port=80"
         ]
     },
     "extra": {

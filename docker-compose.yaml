@@ -30,15 +30,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: unless-stopped
     entrypoint: composer serve:octane
     depends_on:
         - mysql
         - caddy
-
-
-
-
-
+    volumes:
+      - ./storage:/var/www/html/storage
 
 volumes:
   mysql_data:

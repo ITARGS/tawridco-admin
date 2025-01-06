@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM phpswoole/swoole:php8.2
 
 RUN set -ex \
     && apt update \
