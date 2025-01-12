@@ -192,7 +192,7 @@ class AdminAuthController extends Controller {
             'password' => 'min:6|required_with:confirm_password|same:confirm_password',
             'categories_ids' => 'required',
             'store_name' => 'required',
-            'store_url' => 'required',
+            // 'store_url' => 'required',
             'city_id' => 'required',
             'pan_number' => 'required',
             'commission' => 'required',

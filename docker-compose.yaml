@@ -32,6 +32,8 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     entrypoint: composer serve:octane
+    ports:
+      - 8000:8000
     depends_on:
         - mysql
         - caddy

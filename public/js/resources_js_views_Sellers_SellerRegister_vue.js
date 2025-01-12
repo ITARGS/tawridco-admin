@@ -289,6 +289,149 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -300,9 +443,9 @@ __webpack_require__.r(__webpack_exports__);
     VuejsDatatableFactory: vuejs_datatable__WEBPACK_IMPORTED_MODULE_1__.VuejsDatatableFactory,
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_2__["default"],
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default()),
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    editor: _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  delimiters: ['${', '}'],
+  delimiters: ["${", "}"],
   // Avoid Twig conflicts
   data: function data() {
     return {
@@ -367,7 +510,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCategories: function getCategories() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + '/categories').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + "/categories").then(function (response) {
         var data = response.data;
         _this.categories = data.data;
         console.log(_this.categories);
@@ -375,7 +518,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSellerCommission: function getSellerCommission() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + '/seller_commission').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + "/seller_commission").then(function (response) {
         var data = response.data;
         _this2.commission = data.data.value;
       });
@@ -398,8 +541,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_store_logo.files = event.dataTransfer.files;
       this.handleFileStoreLogo(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileNationalIdCard: function handleFileNationalIdCard() {
       this.national_id_card = this.$refs.file_national_id_card.files[0];
@@ -410,8 +553,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_national_id_card.files = event.dataTransfer.files;
       this.handleFileNationalIdCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileAddressProof: function handleFileAddressProof() {
       this.address_proof = this.$refs.file_address_proof.files[0];
@@ -423,12 +566,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_address_proof.files = event.dataTransfer.files;
       this.handleFileAddressProof(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     getCities: function getCities() {
       var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + "/cities").then(function (response) {
         _this3.isLoading = false;
         var data = response.data;
         _this3.cities = data.data;
@@ -442,28 +585,28 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       this.isLoading = true;
       var formData = new FormData();
-      formData.append('username', this.username);
-      formData.append('name', this.name);
-      formData.append('email', this.email);
-      formData.append('mobile', this.mobile);
-      formData.append('store_url', this.store_url);
-      formData.append('password', this.password);
-      formData.append('confirm_password', this.confirm_password);
-      formData.append('store_name', this.store_name);
-      formData.append('categories_ids', this.categories_ids);
-      formData.append('tax_name', this.tax_name);
-      formData.append('tax_number', this.tax_number);
-      formData.append('pan_number', this.pan_number);
-      formData.append('store_description', this.store_description);
-      formData.append('store_logo', this.store_logo);
-      formData.append('national_id_card', this.national_id_card);
-      formData.append('address_proof', this.address_proof);
-      formData.append('city_id', this.city_id);
-      formData.append('commission', this.commission);
-      var url = this.$apiUrl + '/seller/register';
+      formData.append("username", this.username);
+      formData.append("name", this.name);
+      formData.append("email", this.email);
+      formData.append("mobile", this.mobile);
+      formData.append("store_url", this.store_url);
+      formData.append("password", this.password);
+      formData.append("confirm_password", this.confirm_password);
+      formData.append("store_name", this.store_name);
+      formData.append("categories_ids", this.categories_ids);
+      formData.append("tax_name", this.tax_name);
+      formData.append("tax_number", this.tax_number);
+      formData.append("pan_number", this.pan_number);
+      formData.append("store_description", this.store_description);
+      formData.append("store_logo", this.store_logo);
+      formData.append("national_id_card", this.national_id_card);
+      formData.append("address_proof", this.address_proof);
+      formData.append("city_id", this.city_id);
+      formData.append("commission", this.commission);
+      var url = this.$apiUrl + "/seller/register";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -473,7 +616,7 @@ __webpack_require__.r(__webpack_exports__);
             vm.$swal.close();
             //Auth.logout();
             vm.$router.push({
-              path: '/seller/login'
+              path: "/seller/login"
             });
           }, 2000);
         } else {
@@ -516,7 +659,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948]{\n    overflow: auto!important;\n}\n.auth[data-v-e3df3948] {\n    overflow-x: hidden!important;\n}\n.auth-logo[data-v-e3df3948] {\n    padding-bottom: 10px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948] {\n  overflow: auto !important;\n}\n.auth[data-v-e3df3948] {\n  overflow-x: hidden !important;\n}\n.auth-logo[data-v-e3df3948] {\n  padding-bottom: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -727,7 +870,9 @@ var render = function () {
           _c("h4", [_vm._v("Seller Complete Profile")]),
           _vm._v(" "),
           _c("p", { staticClass: "auth-subtitle text-primary" }, [
-            _vm._v("Please Complete the form to complete your registration"),
+            _vm._v(
+              "\n        Please Complete the form to complete your registration\n      "
+            ),
           ]),
           _vm._v(" "),
           _c(
@@ -1185,7 +1330,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _vm._m(6),
+                          _c("label", [_vm._v("Store URL ")]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -1218,7 +1363,7 @@ var render = function () {
                         "div",
                         { staticClass: "col-md-4" },
                         [
-                          _vm._m(7),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c("multiselect", {
                             attrs: {
@@ -1348,7 +1493,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-3" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -1379,7 +1524,7 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-3" }, [
-                        _vm._m(9),
+                        _vm._m(8),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -1409,14 +1554,18 @@ var render = function () {
                         _vm._v(" "),
                         _vm.commissionvalidationError
                           ? _c("p", { staticClass: "error" }, [
-                              _vm._v(_vm._s(_vm.commissionvalidationError)),
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(_vm.commissionvalidationError) +
+                                  "\n                  "
+                              ),
                             ])
                           : _vm._e(),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _vm._m(10),
+                          _vm._m(9),
                           _vm._v(" "),
                           _c("input", {
                             ref: "file_national_id_card",
@@ -1450,7 +1599,7 @@ var render = function () {
                                     ]),
                                   ]
                                 : [
-                                    _vm._m(11),
+                                    _vm._m(10),
                                     _vm._v(" "),
                                     _c("label", [
                                       _vm._v(
@@ -1508,7 +1657,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _vm._m(12),
+                          _vm._m(11),
                           _vm._v(" "),
                           _c("input", {
                             ref: "file_address_proof",
@@ -1533,7 +1682,7 @@ var render = function () {
                             [
                               _vm.address_proof_name == ""
                                 ? [
-                                    _vm._m(13),
+                                    _vm._m(12),
                                     _vm._v(" "),
                                     _c("label", [
                                       _vm._v(
@@ -1598,7 +1747,7 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _vm._m(14),
+                        _vm._m(13),
                         _vm._v(" "),
                         _c("input", {
                           ref: "file_store_logo",
@@ -1636,7 +1785,7 @@ var render = function () {
                                   ]),
                                 ]
                               : [
-                                  _vm._m(15),
+                                  _vm._m(14),
                                   _vm._v(" "),
                                   _c("label", [
                                     _vm._v(
@@ -1672,7 +1821,7 @@ var render = function () {
                         "div",
                         { staticClass: "form-group col-md-12" },
                         [
-                          _vm._m(16),
+                          _vm._m(15),
                           _vm._v(" "),
                           _c("editor", {
                             attrs: {
@@ -1707,9 +1856,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-1",
                   },
                   [
-                    _vm._v(
-                      "\n                         Complete\n                         "
-                    ),
+                    _vm._v("\n            Complete\n            "),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -1729,7 +1876,7 @@ var render = function () {
                 staticClass: "text-primary font-weight-normal",
                 attrs: { href: "javascript:void(0)" },
               },
-              [_vm._v(" " + _vm._s(_vm.$copyrightDetails))]
+              [_vm._v("\n          " + _vm._s(_vm.$copyrightDetails))]
             ),
           ]),
         ]),
@@ -1789,15 +1936,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _vm._v("Store Name "),
-      _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [
-      _vm._v("Store URL "),
       _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
   },

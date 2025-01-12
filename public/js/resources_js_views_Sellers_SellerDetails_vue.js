@@ -373,6 +373,197 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -386,9 +577,9 @@ __webpack_require__.r(__webpack_exports__);
     VuejsDatatableFactory: vuejs_datatable__WEBPACK_IMPORTED_MODULE_2__.VuejsDatatableFactory,
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_3__["default"],
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_4___default()),
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    editor: _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  delimiters: ['${', '}'],
+  delimiters: ["${", "}"],
   // Avoid Twig conflicts
   data: function data() {
     return {
@@ -410,7 +601,7 @@ __webpack_require__.r(__webpack_exports__);
           lng: 0
         },
         open: false,
-        template: ''
+        template: ""
       },
       city: "",
       cities: [],
@@ -463,7 +654,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (!this.loggedUser) {
-      this.$router.push('/login');
+      this.$router.push("/login");
     }
   },
   computed: {
@@ -485,14 +676,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCities: function getCities() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/cities").then(function (response) {
         var data = response.data;
         _this.cities = data.data;
       });
     },
     getCategories: function getCategories() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories").then(function (response) {
         var data = response.data;
         _this2.categories = data.data;
       });
@@ -550,9 +741,9 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({
-        'location': latlng
+        location: latlng
       }, function (results, status) {
-        if (status === 'OK') {
+        if (status === "OK") {
           if (results[1]) {
             var clikedPlace = results[1];
             var addressArr = clikedPlace.formatted_address.split(",");
@@ -577,7 +768,7 @@ __webpack_require__.r(__webpack_exports__);
             });
             vm.center = marker;
           } else {
-            console.warn('No results found');
+            console.warn("No results found");
           }
         }
       });
@@ -598,8 +789,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_store_logo.files = event.dataTransfer.files;
       this.handleFileStoreLogo(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileNationalIdCard: function handleFileNationalIdCard() {
       this.national_id_card = this.$refs.file_national_id_card.files[0];
@@ -610,8 +801,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_national_id_card.files = event.dataTransfer.files;
       this.handleFileNationalIdCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileAddressProof: function handleFileAddressProof() {
       this.address_proof = this.$refs.file_address_proof.files[0];
@@ -623,49 +814,49 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_address_proof.files = event.dataTransfer.files;
       this.handleFileAddressProof(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     saveSellerDetails: function saveSellerDetails() {
       var _this4 = this;
       var vm = this;
       this.isLoading = true;
       var formData = new FormData();
-      formData.append('name', this.name);
-      formData.append('email', this.email);
-      formData.append('mobile', this.mobile);
-      formData.append('store_url', this.store_url);
-      formData.append('password', this.password);
-      formData.append('confirm_password', this.confirm_password);
-      formData.append('store_name', this.store_name);
-      formData.append('street', this.street);
-      formData.append('pincode_id', this.pincode_id);
-      formData.append('city_id', this.city_id);
-      formData.append('categories_ids', this.categories_ids);
-      formData.append('state', this.state);
-      formData.append('account_number', this.account_number);
-      formData.append('ifsc_code', this.ifsc_code);
-      formData.append('bank_name', this.bank_name);
-      formData.append('account_name', this.account_name);
-      formData.append('tax_name', this.tax_name);
-      formData.append('tax_number', this.tax_number);
-      formData.append('pan_number', this.pan_number);
-      formData.append('latitude', this.latitude);
-      formData.append('longitude', this.longitude);
-      formData.append('place_name', this.place_name);
-      formData.append('formatted_address', this.formatted_address);
-      formData.append('store_description', this.store_description);
-      formData.append('require_products_approval', this.require_products_approval);
-      formData.append('customer_privacy', this.customer_privacy);
-      formData.append('view_order_otp', this.view_order_otp);
-      formData.append('assign_delivery_boy', this.assign_delivery_boy);
-      formData.append('store_logo', this.store_logo);
-      formData.append('national_id_card', this.national_id_card);
-      formData.append('address_proof', this.address_proof);
-      var url = this.$apiUrl + '/seller/details';
+      formData.append("name", this.name);
+      formData.append("email", this.email);
+      formData.append("mobile", this.mobile);
+      formData.append("store_url", this.store_url);
+      formData.append("password", this.password);
+      formData.append("confirm_password", this.confirm_password);
+      formData.append("store_name", this.store_name);
+      formData.append("street", this.street);
+      formData.append("pincode_id", this.pincode_id);
+      formData.append("city_id", this.city_id);
+      formData.append("categories_ids", this.categories_ids);
+      formData.append("state", this.state);
+      formData.append("account_number", this.account_number);
+      formData.append("ifsc_code", this.ifsc_code);
+      formData.append("bank_name", this.bank_name);
+      formData.append("account_name", this.account_name);
+      formData.append("tax_name", this.tax_name);
+      formData.append("tax_number", this.tax_number);
+      formData.append("pan_number", this.pan_number);
+      formData.append("latitude", this.latitude);
+      formData.append("longitude", this.longitude);
+      formData.append("place_name", this.place_name);
+      formData.append("formatted_address", this.formatted_address);
+      formData.append("store_description", this.store_description);
+      formData.append("require_products_approval", this.require_products_approval);
+      formData.append("customer_privacy", this.customer_privacy);
+      formData.append("view_order_otp", this.view_order_otp);
+      formData.append("assign_delivery_boy", this.assign_delivery_boy);
+      formData.append("store_logo", this.store_logo);
+      formData.append("national_id_card", this.national_id_card);
+      formData.append("address_proof", this.address_proof);
+      var url = this.$apiUrl + "/seller/details";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -675,7 +866,7 @@ __webpack_require__.r(__webpack_exports__);
             vm.$swal.close();
             _Auth_js__WEBPACK_IMPORTED_MODULE_1__["default"].logout();
             vm.$router.push({
-              path: '/login'
+              path: "/login"
             });
           }, 2000);
         } else {
@@ -718,7 +909,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-655cb019]{\n    overflow: auto!important;\n}\n.auth[data-v-655cb019] {\n    overflow-x: hidden!important;\n}\n.auth-logo[data-v-655cb019] {\n    padding-bottom: 10px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-655cb019] {\n  overflow: auto !important;\n}\n.auth[data-v-655cb019] {\n  overflow-x: hidden !important;\n}\n.auth-logo[data-v-655cb019] {\n  padding-bottom: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -929,7 +1120,9 @@ var render = function () {
           _c("h4", [_vm._v("Seller Complete Profile")]),
           _vm._v(" "),
           _c("p", { staticClass: "auth-subtitle text-primary" }, [
-            _vm._v("Please Complete the form to complete your registration"),
+            _vm._v(
+              "\n        Please Complete the form to complete your registration\n      "
+            ),
           ]),
           _vm._v(" "),
           _c(
@@ -1452,7 +1645,7 @@ var render = function () {
                           [
                             _c("label", [_vm._v("Store Description :")]),
                             _vm._v(
-                              "\n                                        <\n                                        "
+                              "\n                    <\n                    "
                             ),
                             _c("editor", {
                               attrs: {
@@ -1752,6 +1945,7 @@ var render = function () {
                                           fill: "none",
                                         },
                                       }),
+                                      _vm._v(" "),
                                       _c("path", {
                                         attrs: {
                                           d: "M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
@@ -1780,7 +1974,7 @@ var render = function () {
                             { staticClass: "text text-primary font-size-13" },
                             [
                               _vm._v(
-                                "Search your seller name and you will get the location points(Latitude & Longitude) below."
+                                "Search your seller name and you will get the location\n                      points(Latitude & Longitude) below."
                               ),
                             ]
                           ),
@@ -1790,7 +1984,7 @@ var render = function () {
                           _vm.formatted_address
                             ? _c("div", { staticClass: "text-danger" }, [
                                 _vm._v(
-                                  "*Drag and click marker to your shop proper location (This will affect into delivery charge calculation)"
+                                  "\n                      *Drag and click marker to your shop proper location (This will\n                      affect into delivery charge calculation)\n                    "
                                 ),
                               ])
                             : _vm._e(),
@@ -2037,9 +2231,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-5",
                   },
                   [
-                    _vm._v(
-                      "\n                        Complete\n                        "
-                    ),
+                    _vm._v("\n            Complete\n            "),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -2059,7 +2251,7 @@ var render = function () {
                 staticClass: "text-primary font-weight-normal",
                 attrs: { href: "javascript:void(0)" },
               },
-              [_vm._v(" " + _vm._s(_vm.$copyrightDetails))]
+              [_vm._v("\n          " + _vm._s(_vm.$copyrightDetails))]
             ),
           ]),
         ]),

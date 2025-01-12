@@ -145,6 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1971,6 +1973,7 @@ var render = function () {
                       ? _c(
                           "li",
                           {
+                            key: item,
                             staticClass: "sidebar-item",
                             class: {
                               active:
@@ -2080,7 +2083,7 @@ var render = function () {
                           (item.name == "Role" || item.name == "System Users")
                         : item.permission && _vm.$can(item.permission)
                     )
-                      ? _c("div", [
+                      ? _c("div", { key: item }, [
                           _c(
                             "button",
                             {

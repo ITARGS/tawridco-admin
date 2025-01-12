@@ -77,6 +77,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -86,8 +122,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       user: {
-        email: this.$isDemo === 1 || this.$isDemo === '1' ? 'admin@gmail.com' : '',
-        password: this.$isDemo === 1 || this.$isDemo === '1' ? '123456' : '',
+        email: this.$isDemo === 1 || this.$isDemo === "1" ? "admin@gmail.com" : "",
+        password: this.$isDemo === 1 || this.$isDemo === "1" ? "123456" : "",
         type: 1
       },
       showPassword: false,
@@ -98,9 +134,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (this.loggedUser) {
-      this.$router.push('/dashboard');
+      this.$router.push("/dashboard");
     } else {
-      this.$router.push('/login')["catch"](function () {});
+      this.$router.push("/login")["catch"](function () {});
     }
     var user_theme = sessionStorage.getItem("user-theme");
     this.userTheme = user_theme;
@@ -109,15 +145,16 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     loginCheck: function loginCheck() {
       var _this = this;
+      debugger;
       var vm = this;
       this.isLoading = true;
-      var url = this.$apiUrl + '/login';
+      var url = this.$apiUrl + "/login";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, this.user).then(function (res) {
         vm.isLoading = false;
         var data = res.data;
         if (data.status === 1) {
           _Auth_js__WEBPACK_IMPORTED_MODULE_1__["default"].login(data.data.access_token, data.data.user);
-          _this.$router.push('/dashboard');
+          _this.$router.push("/dashboard");
         } else {
           vm.showError(data.message);
         }
@@ -452,9 +489,9 @@ var render = function () {
                       },
                       [
                         _vm._v(
-                          "\n                            " +
+                          "\n              " +
                             _vm._s(_vm.showPassword ? "Hide" : "Show") +
-                            "\n\n                        "
+                            "\n            "
                         ),
                       ]
                     ),
@@ -487,9 +524,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn",
                   },
                   [
-                    _vm._v(
-                      "\n                        Login\n                        "
-                    ),
+                    _vm._v("\n            Login\n            "),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -508,7 +543,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-2",
                     attrs: { to: "/seller/login" },
                   },
-                  [_vm._v("\n                        Seller Panel")]
+                  [_vm._v("\n            Seller Panel")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -518,7 +553,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-2",
                     attrs: { to: "/delivery_boy/login" },
                   },
-                  [_vm._v("\n                        Delivery Boy Panel")]
+                  [_vm._v("\n            Delivery Boy Panel")]
                 ),
               ],
               1
