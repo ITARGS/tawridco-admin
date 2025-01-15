@@ -277,7 +277,6 @@ export default {
       return false;
     },
     setDirection(isRTL) {
-
       const htmlElement = document.documentElement;
       htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
     },
@@ -288,7 +287,7 @@ export default {
       let data = {
         language: this.lang,
       };
-      
+
       const isRTL = this.lang === "ar"; // Check if the new language is RTL
       this.setDirection(isRTL);
       localStorage.setItem("isRTL", isRTL);
