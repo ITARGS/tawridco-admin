@@ -1421,7 +1421,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     getLanguage: function getLanguage() {
       var _this = this;
-      debugger;
       this.isLoading = true;
       var data = {
         params: {
@@ -1447,6 +1446,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.selectedLanguage = defaultLanguage.code;
             window.localStorage.setItem("lang", _this.selectedLanguage);
             var isRTL = defaultLanguage.code === "ar"; // Check if the new language is RTL
+
             localStorage.setItem("isRTL", isRTL);
           }
         }
@@ -1465,7 +1465,6 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         language: this.lang
       };
-      debugger;
       if (this.lang === "ar") {
         localStorage.setItem("isRTL", true);
         document.body.classList.add("rtl");

@@ -443,7 +443,7 @@ export default {
         // Update the underlying data based on the new value
         localStorage.setItem("isRTL", value); // Example for RTL languages
       },
-    },,
+    },
   },
   mounted() {},
   methods: {

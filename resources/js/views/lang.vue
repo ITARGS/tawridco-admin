@@ -64,7 +64,6 @@ export default {
       htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
     },
     getLanguage() {
-      debugger;
       this.isLoading = true;
       let data = {
         params: {
@@ -93,6 +92,7 @@ export default {
               this.selectedLanguage = defaultLanguage.code;
               window.localStorage.setItem("lang", this.selectedLanguage);
               const isRTL = defaultLanguage.code === "ar"; // Check if the new language is RTL
+
               localStorage.setItem("isRTL", isRTL);
             }
           }
@@ -111,11 +111,13 @@ export default {
       let data = {
         language: this.lang,
       };
-      debugger;
+
       if (this.lang === "ar") {
+
         localStorage.setItem("isRTL", true);
         document.body.classList.add("rtl");
       } else {
+
         localStorage.setItem("isRTL", false);
         document.body.classList.remove("rtl");
       } // Check if the new language is RTL

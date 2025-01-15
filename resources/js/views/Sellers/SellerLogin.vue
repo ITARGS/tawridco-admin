@@ -143,7 +143,7 @@ export default {
     //   axios
     //     .get(this.$apiUrl + "/system_languages", data)
     //     .then((response) => {
-    //       debugger;
+    //
     //       this.isLoading = false;
     //       let data = response.data;
     //       if (data && Array.isArray(data.data)) {
@@ -168,7 +168,7 @@ export default {
     //       }
     //     })
     //     .catch((error) => {
-    //       debugger;
+    //
     //       this.isLoading = false;
     //       console.error("Error fetching languages:", error);
     //     });

@@ -328,7 +328,6 @@ __webpack_require__.r(__webpack_exports__);
       return false;
     },
     setDirection: function setDirection(isRTL) {
-      debugger;
       var htmlElement = document.documentElement;
       htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
     },
@@ -340,7 +339,6 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         language: this.lang
       };
-      debugger;
       var isRTL = this.lang === "ar"; // Check if the new language is RTL
       this.setDirection(isRTL);
       localStorage.setItem("isRTL", isRTL);
@@ -983,13 +981,21 @@ __webpack_require__.r(__webpack_exports__);
     window.removeEventListener("DOMContentLoaded", this.onResize);
   },
   computed: {
-    isRTL: function isRTL() {
-      return localStorage.getItem("isRTL");
+    isRTL: {
+      // Getter
+      get: function get() {
+        return localStorage.getItem("isRTL"); // Example for RTL languages
+      },
+      // Setter
+      set: function set(value) {
+        // Update the underlying data based on the new value
+        localStorage.setItem("isRTL", value); // Example for RTL languages
+      }
     },
     mainStyle: function mainStyle() {
-      if (this.isRTL) {
+      if (this.isRTL === "true") {
         return this.isToggle == true ? " width:100%;transition:0.7s;position: relative;right:0rem;  " : " width:80%;transition:0.8s;position: relative;right:0rem; ";
-      } else {
+      } else if (this.isRTL === "false") {
         return this.isToggle == true ? " width:100%;transition:0.7s;position: relative; right:0rem;" : " width:80%;transition:0.8s;position: relative;right:-19rem;";
       }
     }
@@ -1035,35 +1041,69 @@ __webpack_require__.r(__webpack_exports__);
         // window.location.reload();
       }, 500);
     },
-    changeLanguage: function changeLanguage(event) {
+    setDirection: function setDirection(isRTL) {
+      var htmlElement = document.documentElement;
+      htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
+    },
+    getLanguage: function getLanguage() {
       var _this3 = this;
+      this.isLoading = true;
+      var data = {
+        params: {
+          system_type: 4
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/system_languages", data).then(function (response) {
+        _this3.isLoading = false;
+        var data = response.data;
+        if (data && Array.isArray(data.data)) {
+          _this3.languages = data.data;
+          _this3.totalRows = _this3.languages.length;
+        } else {
+          _this3.languages = [];
+          _this3.totalRows = 0;
+        }
+        if (!_this3.isRTL) {
+          // Find the default language and set it as the initial value of selectedLanguage
+          var defaultLanguage = _this3.languages.find(function (language) {
+            return language.is_default === 1;
+          });
+          if (defaultLanguage) {
+            _this3.selectedLanguage = defaultLanguage.code;
+            window.localStorage.setItem("lang", _this3.selectedLanguage);
+            var isRTL = defaultLanguage.code === "ar"; // Check if the new language is RTL
+
+            localStorage.setItem("isRTL", isRTL);
+          }
+        }
+      })["catch"](function (error) {
+        _this3.isLoading = false;
+        console.error("Error fetching languages:", error);
+      });
+    },
+    changeLanguage: function changeLanguage(event) {
+      var _this4 = this;
       // Update the selected language based on the change event
+
       this.lang = event.target.value;
       window.localStorage.setItem("lang", this.lang);
       this.isLoading = true;
       var data = {
         language: this.lang
       };
-      debugger;
       if (this.lang === "ar") {
-        this.isRTL = true;
+        localStorage.setItem("isRTL", true);
+        document.body.classList.add("rtl");
       } else {
-        this.isRTL = false;
+        localStorage.setItem("isRTL", false);
+        document.body.classList.remove("rtl");
       } // Check if the new language is RTL
       this.setDirection(this.isRTL);
-      localStorage.setItem("isRTL", this.isRTL);
       axios__WEBPACK_IMPORTED_MODULE_1___default().post(this.$apiUrl + "/change_language", data).then(function (response) {
-        _this3.isLoading = false;
-        debugger;
-        // Check if the selected language is Arabic, and add the 'rtl' class to the body
-        if (_this3.lang === "ar") {
-          document.body.classList.add("rtl");
-        } else {
-          // Remove 'rtl' class for other languages
-          document.body.classList.remove("rtl");
-        }
+        _this4.isLoading = false;
+
         // No need to reload the page, just update the default language
-        _this3.updateDefaultLanguage(_this3.lang);
+        _this4.updateDefaultLanguage(_this4.lang);
         window.location.reload();
       });
     },
@@ -1075,49 +1115,6 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           language.is_default = 0;
         }
-      });
-    },
-    setDirection: function setDirection(isRTL) {
-      var htmlElement = document.documentElement;
-      htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
-    },
-    getLanguage: function getLanguage() {
-      var _this4 = this;
-      this.isLoading = true;
-      var data = {
-        params: {
-          system_type: 4
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/system_languages", data).then(function (response) {
-        debugger;
-        var data = response.data;
-        if (data && Array.isArray(data.data)) {
-          _this4.languages = data.data;
-          _this4.totalRows = _this4.languages.length;
-        } else {
-          _this4.languages = [];
-          _this4.totalRows = 0;
-        }
-        _this4.isLoading = false;
-        var currentLang = window.localStorage.getItem("lang");
-        var currentLanguage = window.localStorage.getItem("language");
-        var currentRTL = window.localStorage.getItem("isRTL");
-        _this4.selectedLanguage = currentLang;
-        _this4.isRTL = currentRTL === "true";
-        if (currentLang || currentLanguage || currentRTL) {} else {
-          // Find the default language and set it as the initial value of selectedLanguage
-          var defaultLanguage = _this4.languages.find(function (language) {
-            return language.is_default === 1;
-          });
-          if (defaultLanguage) {
-            _this4.selectedLanguage = defaultLanguage.code;
-            window.localStorage.setItem("lang", _this4.selectedLanguage);
-          }
-        }
-      })["catch"](function (error) {
-        _this4.isLoading = false;
-        console.error("Error fetching languages:", error);
       });
     },
     getNotifications: function getNotifications(event) {

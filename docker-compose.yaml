@@ -5,8 +5,8 @@ services:
       image: mysql:8.0 # Use your preferred MySQL version
       container_name: mysql_tawridco_container
       restart: always
-      ports:
-        - "3306:3306"
+      #ports:
+      #  - "3306:3306"
       environment:
         MYSQL_ALLOW_EMPTY_PASSWORD: true
         MYSQL_DATABASE: default

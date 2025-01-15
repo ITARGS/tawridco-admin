@@ -70,6 +70,7 @@
         ],
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup",
         "serve:octane": [
+            "Composer\\Config::disableProcessTimeout",
             "@php artisan optimize",
             "@php artisan storage:link",
             "@php artisan migrate --force",
