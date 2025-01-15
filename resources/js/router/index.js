@@ -345,7 +345,7 @@ function configRoutes() {
     var roleAdmin = "Admin";
     var roleSeller = "Seller";
     var roleDeliveryBoy = "Delivery Boy";
-    var roleName = "Super Admin";
+    // var roleName = "Super Admin";
 
     var adminSuperadminRoles = [roleSuperAdmin, roleAdmin];
     var sellerRoles = [roleSeller];

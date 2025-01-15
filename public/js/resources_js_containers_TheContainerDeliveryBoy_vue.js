@@ -88,6 +88,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -95,7 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'TheContainerDeliveryBoy',
+  name: "TheContainerDeliveryBoy",
   components: {
     TheSidebar: _TheSidebar__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _TheFooter__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -105,12 +128,12 @@ __webpack_require__.r(__webpack_exports__);
     this.checkPermissions();
   },
   watch: {
-    '$route': 'checkPermissions'
+    $route: "checkPermissions"
   },
   mounted: function mounted() {
     //lang
-    if (window.localStorage.getItem('lang')) {
-      this.lang = window.localStorage.getItem('lang');
+    if (window.localStorage.getItem("lang")) {
+      this.lang = window.localStorage.getItem("lang");
     }
     function slideToggle(t, e, o) {
       0 === t.clientHeight ? j(t, e, o, !0) : j(t, e, o);
@@ -141,85 +164,85 @@ __webpack_require__.r(__webpack_exports__);
         i ? (t.style.height = g * f + "px", t.style.paddingTop = y * f + "px", t.style.paddingBottom = m * f + "px", t.style.marginTop = u * f + "px", t.style.marginBottom = h * f + "px") : (t.style.height = n - g * f + "px", t.style.paddingTop = a - y * f + "px", t.style.paddingBottom = s - m * f + "px", t.style.marginTop = r - u * f + "px", t.style.marginBottom = d - h * f + "px"), f >= e ? (t.style.height = "", t.style.paddingTop = "", t.style.paddingBottom = "", t.style.marginTop = "", t.style.marginBottom = "", t.style.overflow = "", i || (t.style.display = "none"), "function" == typeof o && o()) : window.requestAnimationFrame(l);
       });
     }
-    var sidebarItems = document.querySelectorAll('.sidebar-item.has-sub');
+    var sidebarItems = document.querySelectorAll(".sidebar-item.has-sub");
     var _loop = function _loop() {
       var sidebarItem = sidebarItems[i];
-      sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', function (e) {
+      sidebarItems[i].querySelector(".sidebar-link").addEventListener("click", function (e) {
         var _submenu$classList, _submenu$classList2, _submenu$classList3;
         e.preventDefault();
-        var submenu = sidebarItem.querySelector('.submenu');
-        if (submenu !== null && submenu !== void 0 && (_submenu$classList = submenu.classList) !== null && _submenu$classList !== void 0 && _submenu$classList.contains('active')) submenu.style.display = "block";
-        if (submenu.style.display == "none") submenu === null || submenu === void 0 ? void 0 : (_submenu$classList2 = submenu.classList) === null || _submenu$classList2 === void 0 ? void 0 : _submenu$classList2.add('active');else submenu === null || submenu === void 0 ? void 0 : (_submenu$classList3 = submenu.classList) === null || _submenu$classList3 === void 0 ? void 0 : _submenu$classList3.remove('active');
+        var submenu = sidebarItem.querySelector(".submenu");
+        if (submenu !== null && submenu !== void 0 && (_submenu$classList = submenu.classList) !== null && _submenu$classList !== void 0 && _submenu$classList.contains("active")) submenu.style.display = "block";
+        if (submenu.style.display == "none") submenu === null || submenu === void 0 ? void 0 : (_submenu$classList2 = submenu.classList) === null || _submenu$classList2 === void 0 ? void 0 : _submenu$classList2.add("active");else submenu === null || submenu === void 0 ? void 0 : (_submenu$classList3 = submenu.classList) === null || _submenu$classList3 === void 0 ? void 0 : _submenu$classList3.remove("active");
         slideToggle(submenu, 300);
       });
     };
     for (var i = 0; i < sidebarItems.length; i++) {
       _loop();
     }
-    window.addEventListener('DOMContentLoaded', function (event) {
+    window.addEventListener("DOMContentLoaded", function (event) {
       var w = window.innerWidth;
       if (w < 1200) {
         var _document$getElementB, _document$getElementB2;
-        (_document$getElementB = document.getElementById('sidebar')) === null || _document$getElementB === void 0 ? void 0 : (_document$getElementB2 = _document$getElementB.classList) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.remove('active');
+        (_document$getElementB = document.getElementById("sidebar")) === null || _document$getElementB === void 0 ? void 0 : (_document$getElementB2 = _document$getElementB.classList) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.remove("active");
       }
     });
-    window.addEventListener('resize', function (event) {
+    window.addEventListener("resize", function (event) {
       var w = window.innerWidth;
       if (w < 1200) {
         var _document$getElementB3, _document$getElementB4;
-        (_document$getElementB3 = document.getElementById('sidebar')) === null || _document$getElementB3 === void 0 ? void 0 : (_document$getElementB4 = _document$getElementB3.classList) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.remove('active');
+        (_document$getElementB3 = document.getElementById("sidebar")) === null || _document$getElementB3 === void 0 ? void 0 : (_document$getElementB4 = _document$getElementB3.classList) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.remove("active");
       } else {
         var _document$getElementB5, _document$getElementB6;
-        (_document$getElementB5 = document.getElementById('sidebar')) === null || _document$getElementB5 === void 0 ? void 0 : (_document$getElementB6 = _document$getElementB5.classList) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.add('active');
+        (_document$getElementB5 = document.getElementById("sidebar")) === null || _document$getElementB5 === void 0 ? void 0 : (_document$getElementB6 = _document$getElementB5.classList) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.add("active");
       }
     });
-    document.querySelector('.burger-btn').addEventListener('click', function () {
+    document.querySelector(".burger-btn").addEventListener("click", function () {
       var _document$getElementB7, _document$getElementB8;
-      (_document$getElementB7 = document.getElementById('sidebar')) === null || _document$getElementB7 === void 0 ? void 0 : (_document$getElementB8 = _document$getElementB7.classList) === null || _document$getElementB8 === void 0 ? void 0 : _document$getElementB8.toggle('active');
+      (_document$getElementB7 = document.getElementById("sidebar")) === null || _document$getElementB7 === void 0 ? void 0 : (_document$getElementB8 = _document$getElementB7.classList) === null || _document$getElementB8 === void 0 ? void 0 : _document$getElementB8.toggle("active");
     });
-    document.querySelector('.sidebar-hide').addEventListener('click', function () {
+    document.querySelector(".sidebar-hide").addEventListener("click", function () {
       var _document$getElementB9, _document$getElementB10;
-      (_document$getElementB9 = document.getElementById('sidebar')) === null || _document$getElementB9 === void 0 ? void 0 : (_document$getElementB10 = _document$getElementB9.classList) === null || _document$getElementB10 === void 0 ? void 0 : _document$getElementB10.toggle('active');
+      (_document$getElementB9 = document.getElementById("sidebar")) === null || _document$getElementB9 === void 0 ? void 0 : (_document$getElementB10 = _document$getElementB9.classList) === null || _document$getElementB10 === void 0 ? void 0 : _document$getElementB10.toggle("active");
     });
     // Perfect Scrollbar Init
-    if (typeof PerfectScrollbar["default"] == 'function') {
+    if (typeof PerfectScrollbar["default"] == "function") {
       var container = document.querySelector(".sidebar-wrapper");
       var ps = new PerfectScrollbar["default"](container, {
         wheelPropagation: false
       });
     }
     // Scroll into active sidebar
-    document.querySelector('.sidebar-item.active').scrollIntoView(false);
+    document.querySelector(".sidebar-item.active").scrollIntoView(false);
   },
   data: function data() {
     return {
-      lang: 'en',
+      lang: "en",
       sidebarItems: [{
-        name: __('dashboard'),
-        icon: 'tachometer-alt',
+        name: __("dashboard"),
+        icon: "tachometer-alt",
         // url:'/delivery_boy/dashboard',
-        url: '/delivery_boy',
-        permission: 'manage_dashboard'
+        url: "/delivery_boy",
+        permission: "manage_dashboard"
       }, {
-        name: __('orders'),
-        icon: 'shopping-cart',
-        url: '/delivery_boy/orders',
-        permission: 'order_list'
+        name: __("orders"),
+        icon: "shopping-cart",
+        url: "/delivery_boy/orders",
+        permission: "order_list"
       }, {
-        name: __('withdrawal_requests'),
-        icon: 'credit-card',
-        url: '/delivery_boy/withdrawal_requests',
-        permission: 'product_sales_reports'
+        name: __("withdrawal_requests"),
+        icon: "credit-card",
+        url: "/delivery_boy/withdrawal_requests",
+        permission: "product_sales_reports"
       }, {
-        name: __('fund_transfers'),
-        icon: 'exchange-alt',
-        url: '/delivery_boy/fund_transfers',
-        permission: 'order_list'
+        name: __("fund_transfers"),
+        icon: "exchange-alt",
+        url: "/delivery_boy/fund_transfers",
+        permission: "order_list"
       }, {
-        name: __('delivery_boy_cash'),
-        icon: 'money',
-        url: '/delivery_boy/cash_collection',
-        permission: 'order_list'
+        name: __("delivery_boy_cash"),
+        icon: "money",
+        url: "/delivery_boy/cash_collection",
+        permission: "order_list"
       }]
     };
   },
@@ -245,22 +268,31 @@ __webpack_require__.r(__webpack_exports__);
       }
       return false;
     },
+    setDirection: function setDirection(isRTL) {
+      debugger;
+      var htmlElement = document.documentElement;
+      htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
+    },
     changeLanguage: function changeLanguage(event) {
       var _this2 = this;
       this.lang = event.target.value;
-      window.localStorage.setItem('lang', this.lang);
+      window.localStorage.setItem("lang", this.lang);
       this.isLoading = true;
       var data = {
         language: this.lang
       };
-      axios__WEBPACK_IMPORTED_MODULE_4___default().post(this.$apiUrl + '/change_language', data).then(function (response) {
+      debugger;
+      var isRTL = this.lang === "ar"; // Check if the new language is RTL
+      this.setDirection(isRTL);
+      localStorage.setItem("isRTL", isRTL);
+      axios__WEBPACK_IMPORTED_MODULE_4___default().post(this.$apiUrl + "/change_language", data).then(function (response) {
         _this2.isLoading = false;
         window.location.reload();
       });
     },
     checkPermissions: function checkPermissions() {
       var current_path = this.$route.path;
-      var permission = '';
+      var permission = "";
       this.sidebarItems.forEach(function (menu) {
         //Only Main Categories
         if (menu.submenu && menu.submenu.length > 0) {
@@ -277,14 +309,14 @@ __webpack_require__.r(__webpack_exports__);
       });
       if (_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].check() && UserPermissions.length == 0) {
         //this.$router.push({path:'/login'});
-        if (window.localStorage.getItem('loginCheck') == 1) {
+        if (window.localStorage.getItem("loginCheck") == 1) {
           _Auth__WEBPACK_IMPORTED_MODULE_3__["default"].logout();
         }
-        window.localStorage.setItem('loginCheck', 1);
+        window.localStorage.setItem("loginCheck", 1);
         window.location.reload();
       } else if (_Auth__WEBPACK_IMPORTED_MODULE_3__["default"].check() && permission && !this.$can(permission)) {
         this.$router.push({
-          path: '/unauthorized'
+          path: "/unauthorized"
         });
       }
     }
@@ -371,7 +403,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'TheSidebar',
+  name: "TheSidebar",
   data: function data() {
     return {
       //minimize: false,
@@ -391,21 +423,21 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     dropdown: function dropdown(data) {
       var result = {
-        _name: 'CSidebarNavDropdown',
-        name: data['name'],
-        route: data['href'],
-        icon: data['icon'],
+        _name: "CSidebarNavDropdown",
+        name: data["name"],
+        route: data["href"],
+        icon: data["icon"],
         _children: []
       };
-      for (var i = 0; i < data['elements'].length; i++) {
-        if (data['elements'][i]['slug'] == 'dropdown') {
-          result._children.push(this.dropdown(data['elements'][i]));
+      for (var i = 0; i < data["elements"].length; i++) {
+        if (data["elements"][i]["slug"] == "dropdown") {
+          result._children.push(this.dropdown(data["elements"][i]));
         } else {
           result._children.push({
-            _name: 'CSidebarNavItem',
-            name: data['elements'][i]['name'],
-            to: data['elements'][i]['href'],
-            icon: data['elements'][i]['icon']
+            _name: "CSidebarNavItem",
+            name: data["elements"][i]["name"],
+            to: data["elements"][i]["href"],
+            icon: data["elements"][i]["icon"]
           });
         }
       }
@@ -413,36 +445,36 @@ __webpack_require__.r(__webpack_exports__);
     },
     rebuildData: function rebuildData(data) {
       this.buffor = [{
-        _name: 'CSidebarNav',
+        _name: "CSidebarNav",
         _children: []
       }];
       for (var k = 0; k < data.length; k++) {
-        switch (data[k]['slug']) {
-          case 'link':
-            if (data[k]['href'].indexOf('http') !== -1) {
+        switch (data[k]["slug"]) {
+          case "link":
+            if (data[k]["href"].indexOf("http") !== -1) {
               this.buffor[0]._children.push({
-                _name: 'CSidebarNavItem',
-                name: data[k]['name'],
-                href: data[k]['href'],
-                icon: data[k]['icon'],
-                target: '_blank'
+                _name: "CSidebarNavItem",
+                name: data[k]["name"],
+                href: data[k]["href"],
+                icon: data[k]["icon"],
+                target: "_blank"
               });
             } else {
               this.buffor[0]._children.push({
-                _name: 'CSidebarNavItem',
-                name: data[k]['name'],
-                to: data[k]['href'],
-                icon: data[k]['icon']
+                _name: "CSidebarNavItem",
+                name: data[k]["name"],
+                to: data[k]["href"],
+                icon: data[k]["icon"]
               });
             }
             break;
-          case 'title':
+          case "title":
             this.buffor[0]._children.push({
-              _name: 'CSidebarNavTitle',
-              _children: [data[k]['name']]
+              _name: "CSidebarNavTitle",
+              _children: [data[k]["name"]]
             });
             break;
-          case 'dropdown':
+          case "dropdown":
             this.buffor[0]._children.push(this.dropdown(data[k]));
             break;
         }
@@ -452,20 +484,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-    this.$root.$on('toggle-sidebar', function () {
-      var sidebarOpened = _this.show === true || _this.show === 'responsive';
-      _this.show = sidebarOpened ? false : 'responsive';
+    this.$root.$on("toggle-sidebar", function () {
+      var sidebarOpened = _this.show === true || _this.show === "responsive";
+      _this.show = sidebarOpened ? false : "responsive";
     });
-    this.$root.$on('toggle-sidebar-mobile', function () {
-      var sidebarClosed = _this.show === 'responsive' || _this.show === false;
-      _this.show = sidebarClosed ? true : 'responsive';
+    this.$root.$on("toggle-sidebar-mobile", function () {
+      var sidebarClosed = _this.show === "responsive" || _this.show === false;
+      _this.show = sidebarClosed ? true : "responsive";
     });
     var self = this;
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiAdress + '/api/menu?token=' + localStorage.getItem("api_token")).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiAdress + "/api/menu?token=" + localStorage.getItem("api_token")).then(function (response) {
       self.nav = self.rebuildData(response.data);
     })["catch"](function (error) {
       self.$router.push({
-        path: '/login'
+        path: "/login"
       });
     });
   }
@@ -713,16 +745,169 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      lang: 'en',
+      lang: "en",
+      languages: [],
       user: _Auth_js__WEBPACK_IMPORTED_MODULE_0__["default"].user,
       role: Role,
-      profile_url: this.$baseUrl + '/images/admin_logo.png',
+      profile_url: this.$baseUrl + "/images/admin_logo.png",
       notifications: [],
       userTheme: "theme-light",
       isToggle: false,
@@ -730,26 +915,38 @@ __webpack_require__.r(__webpack_exports__);
       isSystemRefreshing: false,
       windowHeight: window.innerHeight,
       windowWidth: window.innerWidth,
-      languages: [],
-      notifications_unread_count: 0
+      notifications_unread_count: 0,
+      selectedLanguage: {}
     };
   },
   beforeDestroy: function beforeDestroy() {
-    window.removeEventListener('resize', this.onResize);
-    window.removeEventListener('DOMContentLoaded', this.onResize);
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("DOMContentLoaded", this.onResize);
+  },
+  computed: {
+    isRTL: function isRTL() {
+      return localStorage.getItem("isRTL");
+    },
+    mainStyle: function mainStyle() {
+      if (this.isRTL) {
+        return this.isToggle == true ? " width:100%;transition:0.7s;position: relative;right:0rem;  " : " width:80%;transition:0.8s;position: relative;right:0rem; ";
+      } else {
+        return this.isToggle == true ? " width:100%;transition:0.7s;position: relative; right:0rem;" : " width:80%;transition:0.8s;position: relative;right:-19rem;";
+      }
+    }
   },
   mounted: function mounted() {
     var _this = this;
     this.$nextTick(function () {
-      window.addEventListener('resize', _this.onResize);
-      window.addEventListener('DOMContentLoaded', _this.onResize);
+      window.addEventListener("resize", _this.onResize);
+      window.addEventListener("DOMContentLoaded", _this.onResize);
     });
 
     //const initUserTheme = this.getMediaPreference() || this.getTheme();
     var initUserTheme = this.getTheme();
     this.setTheme(initUserTheme);
-    if (window.localStorage.getItem('lang')) {
-      this.lang = window.localStorage.getItem('lang');
+    if (window.localStorage.getItem("lang")) {
+      this.lang = window.localStorage.getItem("lang");
     }
     this.timer = setInterval(function () {
       _this.getNotifications();
@@ -761,17 +958,20 @@ __webpack_require__.r(__webpack_exports__);
     this.getNotifications();
   },
   methods: {
+    openBAR: function openBAR() {
+      this.isToggle = !this.isToggle;
+    },
     logout: function logout() {
       var _this2 = this;
       var role_id = _Auth_js__WEBPACK_IMPORTED_MODULE_0__["default"].user.role_id;
       _Auth_js__WEBPACK_IMPORTED_MODULE_0__["default"].logout();
       setTimeout(function () {
         if (role_id === 3) {
-          _this2.$router.push('/seller/login');
+          _this2.$router.push("/seller/login");
         } else if (role_id === 4) {
-          _this2.$router.push('/delivery_boy/login');
+          _this2.$router.push("/delivery_boy/login");
         } else {
-          _this2.$router.push('/login');
+          _this2.$router.push("/login");
         }
         // window.location.reload();
       }, 500);
@@ -780,19 +980,28 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
       // Update the selected language based on the change event
       this.lang = event.target.value;
-      window.localStorage.setItem('lang', this.lang);
+      window.localStorage.setItem("lang", this.lang);
       this.isLoading = true;
       var data = {
         language: this.lang
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post(this.$apiUrl + '/change_language', data).then(function (response) {
+      debugger;
+      if (this.lang === "ar") {
+        this.isRTL = true;
+      } else {
+        this.isRTL = false;
+      } // Check if the new language is RTL
+      this.setDirection(this.isRTL);
+      localStorage.setItem("isRTL", this.isRTL);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post(this.$apiUrl + "/change_language", data).then(function (response) {
         _this3.isLoading = false;
+        debugger;
         // Check if the selected language is Arabic, and add the 'rtl' class to the body
-        if (_this3.lang === 'ar') {
-          document.body.classList.add('rtl');
+        if (_this3.lang === "ar") {
+          document.body.classList.add("rtl");
         } else {
           // Remove 'rtl' class for other languages
-          document.body.classList.remove('rtl');
+          document.body.classList.remove("rtl");
         }
         // No need to reload the page, just update the default language
         _this3.updateDefaultLanguage(_this3.lang);
@@ -809,6 +1018,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    setDirection: function setDirection(isRTL) {
+      var htmlElement = document.documentElement;
+      htmlElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
+    },
     getLanguage: function getLanguage() {
       var _this4 = this;
       this.isLoading = true;
@@ -817,8 +1030,8 @@ __webpack_require__.r(__webpack_exports__);
           system_type: 4
         }
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/system_languages', data).then(function (response) {
-        _this4.isLoading = false;
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/system_languages", data).then(function (response) {
+        debugger;
         var data = response.data;
         if (data && Array.isArray(data.data)) {
           _this4.languages = data.data;
@@ -827,23 +1040,30 @@ __webpack_require__.r(__webpack_exports__);
           _this4.languages = [];
           _this4.totalRows = 0;
         }
-
-        // Find the default language and set it as the initial value of selectedLanguage
-        var defaultLanguage = _this4.languages.find(function (language) {
-          return language.is_default === 1;
-        });
-        if (defaultLanguage) {
-          _this4.selectedLanguage = defaultLanguage.code;
-          window.localStorage.setItem('lang', _this4.selectedLanguage);
+        _this4.isLoading = false;
+        var currentLang = window.localStorage.getItem("lang");
+        var currentLanguage = window.localStorage.getItem("language");
+        var currentRTL = window.localStorage.getItem("isRTL");
+        _this4.selectedLanguage = currentLang;
+        _this4.isRTL = currentRTL === "true";
+        if (currentLang || currentLanguage || currentRTL) {} else {
+          // Find the default language and set it as the initial value of selectedLanguage
+          var defaultLanguage = _this4.languages.find(function (language) {
+            return language.is_default === 1;
+          });
+          if (defaultLanguage) {
+            _this4.selectedLanguage = defaultLanguage.code;
+            window.localStorage.setItem("lang", _this4.selectedLanguage);
+          }
         }
       })["catch"](function (error) {
         _this4.isLoading = false;
-        console.error('Error fetching languages:', error);
+        console.error("Error fetching languages:", error);
       });
     },
     getNotifications: function getNotifications(event) {
       var _this5 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/get_top_notifications').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/get_top_notifications").then(function (response) {
         _this5.notifications = response.data.data.notifications;
         _this5.notifications_unread_count = response.data.data.unread;
       });
@@ -851,7 +1071,7 @@ __webpack_require__.r(__webpack_exports__);
     markAsReadNotification: function markAsReadNotification(notification) {
       var _this6 = this;
       if (notification.read_at == null) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/notification_read?id=' + notification.id).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/notification_read?id=" + notification.id).then(function (response) {
           _this6.getNotifications();
         });
       }
@@ -892,7 +1112,7 @@ __webpack_require__.r(__webpack_exports__);
     clearCache: function clearCache() {
       var vm = this;
       vm.isSystemRefreshing = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$baseUrl + '/clear').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$baseUrl + "/clear").then(function (response) {
         var data = response.data;
         if (data.status === 1) {
           setTimeout(function () {
@@ -913,7 +1133,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           vm.showError(error.message);
         } else {
-          vm.showError(__('something_went_wrong'));
+          vm.showError(__("something_went_wrong"));
         }
       });
     }
@@ -938,7 +1158,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-4dc25b2e],\n.fade-leave-active[data-v-4dc25b2e] {\n    transition: opacity 0.3s;\n}\n.fade-enter[data-v-4dc25b2e],\n.fade-leave-to[data-v-4dc25b2e] {\n    opacity: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-4dc25b2e],\n.fade-leave-active[data-v-4dc25b2e] {\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-4dc25b2e],\n.fade-leave-to[data-v-4dc25b2e] {\n  opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -961,7 +1181,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.switch-checkbox {\n    display: none;\n}\n:root {\n    --background-color-primary: #ebebeb;\n    --background-color-secondary: #fafafa;\n    --accent-color: #cacaca;\n    --text-primary-color: #222;\n    --element-size: 4rem; /* <- this is the base size of our element */\n}\n.switch-label {\n    /* for width, use the standard element-size */\n    width: var(--element-size);\n\n    /* for other dimensions, calculate values based on it */\n    border-radius: var(--element-size);\n    border: calc(var(--element-size) * 0.025) solid var(--accent-color);\n    padding: calc(var(--element-size) * 0.1);\n    font-size: calc(var(--element-size) * 0.3);\n    height: calc(var(--element-size) * 0.35);\n\n    align-items: center;\n    background: var(--text-primary-color);\n    cursor: pointer;\n    display: flex;\n    position: relative;\n    transition: background 0.5s ease;\n    justify-content: space-between;\n    z-index: 1;\n}\n.switch-toggle {\n    position: absolute;\n    background-color: var(--background-color-primary);\n    border-radius: 50%;\n    top: calc(var(--element-size) * 0.07);\n    left: calc(var(--element-size) * 0.07);\n    height: calc(var(--element-size) * 0.4);\n    width: calc(var(--element-size) * 0.4);\n    transform: translateX(0);\n    transition: transform 0.3s ease, background-color 0.5s ease;\n}\n.switch-toggle-checked {\n    transform: translateX(calc(var(--element-size) * 0.6)) !important;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.switch-checkbox {\n  display: none;\n}\n:root {\n  --background-color-primary: #ebebeb;\n  --background-color-secondary: #fafafa;\n  --accent-color: #cacaca;\n  --text-primary-color: #222;\n  --element-size: 4rem; /* <- this is the base size of our element */\n}\n.switch-label {\n  /* for width, use the standard element-size */\n  width: var(--element-size);\n\n  /* for other dimensions, calculate values based on it */\n  border-radius: var(--element-size);\n  border: calc(var(--element-size) * 0.025) solid var(--accent-color);\n  padding: calc(var(--element-size) * 0.1);\n  font-size: calc(var(--element-size) * 0.3);\n  height: calc(var(--element-size) * 0.35);\n\n  align-items: center;\n  background: var(--text-primary-color);\n  cursor: pointer;\n  display: flex;\n  position: relative;\n  transition: background 0.5s ease;\n  justify-content: space-between;\n  z-index: 1;\n}\n.switch-toggle {\n  position: absolute;\n  background-color: var(--background-color-primary);\n  border-radius: 50%;\n  top: calc(var(--element-size) * 0.07);\n  left: calc(var(--element-size) * 0.07);\n  height: calc(var(--element-size) * 0.4);\n  width: calc(var(--element-size) * 0.4);\n  transform: translateX(0);\n  transition: transform 0.3s ease, background-color 0.5s ease;\n}\n.switch-toggle-checked {\n  transform: translateX(calc(var(--element-size) * 0.6)) !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1386,9 +1606,9 @@ var render = function () {
                             },
                           }),
                       _vm._v(
-                        "\n                            " +
+                        "\n              " +
                           _vm._s(_vm.$appName) +
-                          "\n                        "
+                          "\n            "
                       ),
                     ]
                   ),
@@ -1416,6 +1636,7 @@ var render = function () {
                       ? _c(
                           "li",
                           {
+                            key: item.name,
                             staticClass: "sidebar-item",
                             class: {
                               active:
@@ -1456,9 +1677,9 @@ var render = function () {
                                                 { attrs: { to: sub.url } },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                " +
+                                                    "\n                        " +
                                                       _vm._s(sub.name) +
-                                                      "\n                                            "
+                                                      "\n                      "
                                                   ),
                                                 ]
                                               ),
@@ -1664,10 +1885,23 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "mb-3" }, [
+  return _c("header", { staticClass: "mb-3", style: _vm.mainStyle }, [
     _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _vm._m(0),
+        _c(
+          "a",
+          {
+            staticClass: "burger-btn d-block",
+            attrs: { href: "javascript:void(0)" },
+            on: { click: _vm.openBAR },
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-bars",
+              attrs: { "aria-hidden": "true" },
+            }),
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -1971,7 +2205,11 @@ var render = function () {
                                     "d-flex align-content-center justify-content-sm-between",
                                 },
                                 [
-                                  _c("span", [_vm._v(" Confirmation")]),
+                                  _c("span", [
+                                    _vm._v(
+                                      " " + _vm._s(_vm.__("confirmation"))
+                                    ),
+                                  ]),
                                   _vm._v(" "),
                                   _c(
                                     "button",
@@ -2009,25 +2247,25 @@ var render = function () {
                           fn: function () {
                             return [
                               _c("h6", [
-                                _vm._v("Are you sure you want to proceed?"),
+                                _vm._v(_vm._s(_vm.__("welcome_message"))),
                               ]),
                               _vm._v(" "),
-                              _c("span", [_vm._v("cache:clear")]),
-                              _vm._v(
-                                ",\n                                        "
-                              ),
-                              _c("span", [_vm._v("config:clear")]),
-                              _vm._v(
-                                ",\n                                        "
-                              ),
-                              _c("span", [_vm._v("route:clear")]),
-                              _vm._v(
-                                ",\n                                        "
-                              ),
-                              _c("span", [_vm._v("view:clear")]),
-                              _vm._v(
-                                ",\n\n                                        "
-                              ),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.__("cache_clear"))),
+                              ]),
+                              _vm._v(", "),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.__("config_clear"))),
+                              ]),
+                              _vm._v(", "),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.__("route_clear"))),
+                              ]),
+                              _vm._v(", "),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.__("view_clear"))),
+                              ]),
+                              _vm._v(",\n\n                  "),
                               _vm.isSystemRefreshing
                                 ? _c("b-spinner", {
                                     attrs: { small: "", label: "Spinning" },
@@ -2056,7 +2294,7 @@ var render = function () {
                                         },
                                       },
                                     },
-                                    [_vm._v("Cancel")]
+                                    [_vm._v(_vm._s(_vm.__("cancel")))]
                                   ),
                                   _vm._v(" "),
                                   _c(
@@ -2079,7 +2317,9 @@ var render = function () {
                                           })
                                         : _vm._e(),
                                       _vm._v(
-                                        "\n                                                Submit\n                                            "
+                                        "\n                      " +
+                                          _vm._s(_vm.__("submit")) +
+                                          "\n                    "
                                       ),
                                     ],
                                     1
@@ -2116,7 +2356,32 @@ var render = function () {
                   ])
                 : _vm._e(),
               _vm._v(" "),
-              _vm._m(1),
+              _c("li", { staticClass: "nav-item dropdown me-1" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "dropdown-menu dropdown-menu-lg-end",
+                    attrs: { "aria-labelledby": "dropdownMenuButton" },
+                  },
+                  [
+                    _c("li", [
+                      _c("h6", { staticClass: "dropdown-header" }, [
+                        _vm._v(_vm._s(_vm.__("messages"))),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c(
+                        "a",
+                        { staticClass: "dropdown-item", attrs: { href: "#" } },
+                        [_vm._v(_vm._s(_vm.__("no_new_message")))]
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _c("li", { staticClass: "nav-item dropdown me-1" }, [
                 _c(
@@ -2151,7 +2416,11 @@ var render = function () {
                     attrs: { "aria-labelledby": "dropdownMenuButton" },
                   },
                   [
-                    _vm._m(2),
+                    _c("li", [
+                      _c("h6", { staticClass: "dropdown-header" }, [
+                        _vm._v(_vm._s(_vm.__("notifications"))),
+                      ]),
+                    ]),
                     _vm._v(" "),
                     _vm._l(
                       _vm.notifications.slice(0, 4),
@@ -2195,7 +2464,7 @@ var render = function () {
                                           },
                                           [
                                             _vm._v(
-                                              " " +
+                                              "\n                        " +
                                                 _vm._s(notification.data.text)
                                             ),
                                           ]
@@ -2212,11 +2481,13 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.changeDateTime(
-                                              notification.created_at
-                                            )
-                                          )
+                                          "\n                      " +
+                                            _vm._s(
+                                              _vm.changeDateTime(
+                                                notification.created_at
+                                              )
+                                            ) +
+                                            "\n                    "
                                         ),
                                       ]
                                     ),
@@ -2238,7 +2509,7 @@ var render = function () {
                               _c(
                                 "router-link",
                                 { attrs: { to: "/notification_panel" } },
-                                [_vm._v("See all notification")]
+                                [_vm._v(_vm._s(_vm.__("all_notification")))]
                               ),
                             ],
                             1
@@ -2249,7 +2520,7 @@ var render = function () {
                     _c("li", [
                       _vm.notifications.length == 0
                         ? _c("a", { staticClass: "dropdown-item" }, [
-                            _vm._v("No notification available"),
+                            _vm._v(_vm._s(_vm.__("no_notification"))),
                           ])
                         : _vm._e(),
                     ]),
@@ -2297,7 +2568,7 @@ var render = function () {
                       _vm.languages.length === 0
                         ? [
                             _c("option", { attrs: { value: "en" } }, [
-                              _vm._v("English"),
+                              _vm._v(_vm._s(_vm.__("english"))),
                             ]),
                           ]
                         : _vm._l(_vm.languages, function (language) {
@@ -2311,7 +2582,13 @@ var render = function () {
                                     language.code === _vm.selectedLanguage,
                                 },
                               },
-                              [_vm._v(_vm._s(language.name))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(language.name) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           }),
                     ],
@@ -2359,13 +2636,19 @@ var render = function () {
               _c(
                 "ul",
                 {
-                  staticClass: "dropdown-menu dropdown-menu-lg-end",
+                  staticClass: "dropdown-menu dropdown-menu-lg-end mr-5",
+                  staticStyle: { "margin-right": "-7rem" },
                   attrs: { "aria-labelledby": "dropdownMenuButton" },
                 },
                 [
                   _c("li", [
                     _c("h6", { staticClass: "dropdown-header" }, [
-                      _vm._v("Hello, " + _vm._s(_vm.user.username) + "!"),
+                      _vm._v(
+                        _vm._s(_vm.__("hello")) +
+                          ", " +
+                          _vm._s(_vm.user.username) +
+                          "!"
+                      ),
                     ]),
                   ]),
                   _vm._v(" "),
@@ -2384,7 +2667,8 @@ var render = function () {
                                 staticClass: "icon-mid bi bi-person me-2",
                               }),
                               _vm._v(
-                                " My Profile\n                                "
+                                _vm._s(_vm.__("my_profile")) +
+                                  "\n              "
                               ),
                             ]
                           )
@@ -2402,7 +2686,8 @@ var render = function () {
                                 staticClass: "icon-mid bi bi-person me-2",
                               }),
                               _vm._v(
-                                " My Profile\n                                "
+                                _vm._s(_vm.__("my_profile")) +
+                                  "\n              "
                               ),
                             ]
                           )
@@ -2426,7 +2711,7 @@ var render = function () {
                                 staticClass: "icon-mid bi bi-gear me-2",
                               }),
                               _vm._v(
-                                "Settings\n                                "
+                                _vm._s(_vm.__("settings")) + "\n              "
                               ),
                             ]
                           )
@@ -2444,7 +2729,7 @@ var render = function () {
                                 staticClass: "icon-mid bi bi-gear me-2",
                               }),
                               _vm._v(
-                                "Settings\n                                "
+                                _vm._s(_vm.__("settings")) + "\n              "
                               ),
                             ]
                           )
@@ -2462,7 +2747,7 @@ var render = function () {
                                 staticClass: "icon-mid bi bi-gear me-2",
                               }),
                               _vm._v(
-                                "Settings\n                                "
+                                _vm._s(_vm.__("settings")) + "\n              "
                               ),
                             ]
                           )
@@ -2471,7 +2756,7 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c("li", [
                     _c(
@@ -2488,7 +2773,7 @@ var render = function () {
                         _c("i", {
                           staticClass: "icon-mid bi bi-box-arrow-left me-2",
                         }),
-                        _vm._v(" Logout"),
+                        _vm._v("\n                " + _vm._s(_vm.__("logout"))),
                       ]
                     ),
                   ]),
@@ -2509,57 +2794,15 @@ var staticRenderFns = [
     return _c(
       "a",
       {
-        staticClass: "burger-btn d-block",
-        attrs: { href: "javascript:void(0)" },
+        staticClass: "nav-link active dropdown-toggle",
+        attrs: {
+          href: "#",
+          "data-bs-toggle": "dropdown",
+          "aria-expanded": "false",
+        },
       },
-      [_c("i", { staticClass: "fa fa-bars", attrs: { "aria-hidden": "true" } })]
+      [_c("i", { staticClass: "bi bi-envelope fs-4 text-gray-600" })]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown me-1" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link active dropdown-toggle",
-          attrs: {
-            href: "#",
-            "data-bs-toggle": "dropdown",
-            "aria-expanded": "false",
-          },
-        },
-        [_c("i", { staticClass: "bi bi-envelope fs-4 text-gray-600" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "ul",
-        {
-          staticClass: "dropdown-menu dropdown-menu-lg-end",
-          attrs: { "aria-labelledby": "dropdownMenuButton" },
-        },
-        [
-          _c("li", [
-            _c("h6", { staticClass: "dropdown-header" }, [_vm._v("Messages")]),
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("No new message"),
-            ]),
-          ]),
-        ]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("h6", { staticClass: "dropdown-header" }, [_vm._v("Notifications")]),
-    ])
   },
   function () {
     var _vm = this

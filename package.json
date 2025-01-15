@@ -15,6 +15,7 @@
         "lodash": "^4.17.19",
         "moment": "^2.29.3",
         "resolve-url-loader": "^5.0.0",
+        "rtlcss": "^4.3.0",
         "sass": "^1.50.1",
         "sass-loader": "^12.1.0",
         "vue-loader": "^15.9.7",

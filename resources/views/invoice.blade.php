@@ -1,6 +1,7 @@
 @php
     use App\Models\Setting;use Carbon\Carbon;$appName = Setting::get_value('app_name');
     if($appName == "" || $appName == null){
+        
         $appName = "Tawridco";
     }
 

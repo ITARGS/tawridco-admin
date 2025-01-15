@@ -55,6 +55,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -63,16 +88,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       user: {
-        password: '',
-        password_confirmation: '',
-        token: ''
+        password: "",
+        password_confirmation: "",
+        token: ""
       },
       loggedUser: _Auth_js__WEBPACK_IMPORTED_MODULE_1__["default"].user
     };
   },
   mounted: function mounted() {
     if (this.loggedUser) {
-      this.$router.push('/dashboard');
+      this.$router.push("/dashboard");
     }
   },
   methods: {
@@ -81,14 +106,14 @@ __webpack_require__.r(__webpack_exports__);
       this.user.token = this.$route.query.token;
       var vm = this;
       this.isLoading = true;
-      var url = this.$apiUrl + '/reset-password';
+      var url = this.$apiUrl + "/reset-password";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, this.user).then(function (res) {
         vm.isLoading = false;
         var data = res.data;
         if (data.status === 1) {
           vm.showSuccess(data.message);
           setTimeout(function () {
-            _this.$router.push('/login');
+            _this.$router.push("/login");
           }, 1000);
         } else {
           vm.showError(data.message);
@@ -100,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     }
@@ -332,9 +357,7 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn",
                   },
                   [
-                    _vm._v(
-                      "\n                        Reset Password\n                        "
-                    ),
+                    _vm._v("\n            Reset Password\n            "),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -355,7 +378,9 @@ var render = function () {
                 },
                 [
                   _vm._v(
-                    " @ 2022 " + _vm._s(_vm.$appName) + ". All Right Reserved"
+                    "\n            @ 2022 " +
+                      _vm._s(_vm.$appName) +
+                      ". All Right Reserved"
                   ),
                 ]
               ),

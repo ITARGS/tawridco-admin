@@ -1,5 +1,10 @@
 <template>
-  <div class="auth" :style="{ backgroundImage: 'url(' + $panelLoginBackgroundImg + ')' }">
+  <div
+    class="auth"
+    :style="{
+      backgroundImage: 'url(' + $panelLoginBackgroundImg + ')',
+    }"
+  >
     <div class="login-wrapper">
       <div class="auth-section">
         <div class="auth-card">
@@ -23,52 +28,48 @@
               <h2 style="margin: 10px">{{ $appName }}</h2>
             </a>
           </div>
-          <h4>Welcome Back!</h4>
-          <p class="auth-subtitle text-primary">Please login to your Account</p>
+          <h4>{{ __("welcome") }}</h4>
+          <p class="auth-subtitle text-primary">
+            {{ __("Please_login_to_your_Account") }}
+          </p>
           <form @submit.prevent="loginCheck()">
-            <div class="form-group position-relative has-icon-left mb-4">
+            <div class="form-group position-relative mb-4">
               <input
                 type="email"
                 class="form-control form-control-xl"
-                placeholder="Email Address"
+                :placeholder="__('email_address')"
                 required
                 v-model="user.email"
               />
-              <div class="form-control-icon">
-                <i class="bi bi-person"></i>
-              </div>
             </div>
-            <div class="form-group position-relative has-icon-left">
+            <div class="form-group position-relative">
               <input
                 :type="showPassword ? 'text' : 'password'"
                 class="form-control form-control-xl"
-                placeholder="Password"
+                :placeholder="__('password')"
                 required
                 v-model="user.password"
               />
-              <div class="form-control-icon">
-                <i class="bi bi-shield-lock"></i>
-              </div>
 
               <button
                 type="button"
                 v-on:click="showPassword = !showPassword"
                 class="btn btn-sm btn-outline-light font-bold text-primary"
-                style="margin-top: -45px; position: absolute; right: 10px"
+                style="position: absolute; margin-top: -45px"
+                :style="isRTL === 'true' ? 'left: 10px;' : 'right: 10px;'"
               >
-                {{ showPassword ? "Hide" : "Show" }}
+                {{ showPassword ? __("hide") : __("show") }}
               </button>
             </div>
             <div class="mb-4 text-end" style="margin-top: 35px">
               <router-link class="font-bold" to="/forgot-password"
-                ><span>Forgot Password?</span></router-link
+                ><span>{{ __("forgot_password") }}</span></router-link
               >
             </div>
 
             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn">
-              Login
+              {{ __("login") }}
               <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
-              <span v-else class="bi bi-arrow-right"></span>
             </button>
 
             <hr />
@@ -76,13 +77,13 @@
               to="/seller/login"
               class="btn btn-primary btn-block btn-lg shadow-lg mt-2"
             >
-              Seller Panel</router-link
+              {{ __("seller_panel") }}</router-link
             >
             <router-link
               to="/delivery_boy/login"
               class="btn btn-primary btn-block btn-lg shadow-lg mt-2"
             >
-              Delivery Boy Panel</router-link
+              {{ __("delivery_boy_panel") }}</router-link
             >
           </form>
           <div class="auth-copyright">
@@ -95,17 +96,24 @@
         </div>
       </div>
     </div>
+    <lang />
   </div>
 </template>
 <script>
 import axios from "axios";
 import Auth from "../Auth.js";
+import Dashboard from "./Dashboard.vue";
+import lang from "./lang.vue";
 
 export default {
-  components: {},
+  components: {
+    lang,
+  },
   data: function () {
     return {
       isLoading: false,
+      lang: localStorage.getItem("lang"),
+      languages: [],
       user: {
         email: this.$isDemo === 1 || this.$isDemo === "1" ? "admin@gmail.com" : "",
         password: this.$isDemo === 1 || this.$isDemo === "1" ? "123456" : "",
@@ -117,6 +125,19 @@ export default {
       copyrightDetails: window.copyrightDetails,
     };
   },
+  computed: {
+    isRTL: {
+      // Getter
+      get() {
+        return localStorage.getItem("isRTL"); // Example for RTL languages
+      },
+      // Setter
+      set(value) {
+        // Update the underlying data based on the new value
+        localStorage.setItem("isRTL", value); // Example for RTL languages
+      },
+    },
+  },
 
   mounted() {
     if (this.loggedUser) {
@@ -127,10 +148,10 @@ export default {
     let user_theme = sessionStorage.getItem("user-theme");
     this.userTheme = user_theme;
     document.body.className = user_theme;
+    // this.getLanguage();
   },
   methods: {
     loginCheck: function () {
-      debugger;
       let vm = this;
       this.isLoading = true;
 

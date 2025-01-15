@@ -60,6 +60,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -84,9 +90,9 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       setTimeout(function () {
         var param = {
-          "page": _this.page
+          page: _this.page
         };
-        axios.get(_this.$apiUrl + '/panel_notification', {
+        axios.get(_this.$apiUrl + "/panel_notification", {
           params: param
         }).then(function (response) {
           _this.isLoading = false;
@@ -262,7 +268,10 @@ var render = function () {
                           _vm._l(_vm.notifications, function (notification) {
                             return _c(
                               "li",
-                              { staticClass: "list-group-item" },
+                              {
+                                key: notification.data.order_id,
+                                staticClass: "list-group-item",
+                              },
                               [
                                 _c(
                                   "router-link",
@@ -275,9 +284,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                        " +
+                                      "\n                    " +
                                         _vm._s(notification.data.text) +
-                                        "\n                                    "
+                                        "\n                  "
                                     ),
                                   ]
                                 ),
@@ -300,11 +309,7 @@ var render = function () {
                               _c(
                                 "span",
                                 { attrs: { slot: "no-more" }, slot: "no-more" },
-                                [
-                                  _vm._v(
-                                    "\n                                       There is no more notification.\n                                    "
-                                  ),
-                                ]
+                                [_vm._v(" There is no more notification. ")]
                               ),
                             ]
                           ),

@@ -1,5 +1,6 @@
 <template>
   <div class="auth" :style="{ backgroundImage: 'url(' + $panelLoginBackgroundImg + ')' }">
+    <lang />
     <div class="login-wrapper">
       <div class="detail-card">
         <div class="auth-logo">
@@ -22,48 +23,51 @@
             <h2 style="margin: 10px">{{ $appName }}</h2>
           </a>
         </div>
-        <h4>Seller Complete Profile</h4>
+        <h4>{{ __("register_message") }}</h4>
         <p class="auth-subtitle text-primary">
-          Please Complete the form to complete your registration
+          {{ __("seller_register_message") }}
         </p>
         <form ref="my-form" @submit.prevent="sellerRegister" novalidate>
           <div class="row">
             <div class="content">
               <div class="card-body">
-                <label><span class="text-danger text-xs">*</span> Required fields.</label>
+                <label
+                  ><span class="text-danger text-xs">*</span>
+                  {{ __("required_fields") }}.</label
+                >
 
                 <div class="row">
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>User Name <i class="text-danger">*</i></label>
+                      <label>{{ __("user_name") }} <i class="text-danger">*</i></label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="name"
-                        placeholder="Enter name."
+                        :placeholder="__('enter_name')"
                       />
                     </div>
                   </div>
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Email <i class="text-danger">*</i></label>
+                      <label>{{ __("email") }} <i class="text-danger">*</i></label>
                       <input
                         type="email"
                         class="form-control"
                         v-model="email"
-                        placeholder="Enter email."
+                        :placeholder="__('enter_email')"
                       />
                     </div>
                   </div>
 
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Mobile <i class="text-danger">*</i></label>
+                      <label>{{ __("mobile") }} <i class="text-danger">*</i></label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="mobile"
-                        placeholder="Enter mobile number"
+                        :placeholder="__('enter_mobile')"
                         inputmode="numeric"
                         @input="validateMobileNumber"
                       />
@@ -75,13 +79,16 @@
 
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Password <i v-if="!id" class="text-danger">*</i></label>
+                      <label
+                        >{{ __("password") }}
+                        <i v-if="!id" class="text-danger">*</i></label
+                      >
                       <div class="input-group">
                         <input
                           :type="showPassword ? 'text' : 'password'"
                           class="form-control"
                           v-model="password"
-                          placeholder="Enter password."
+                          :placeholder="__('enter_passord')"
                         />
                         <button
                           type="button"
@@ -102,14 +109,15 @@
                   <div class="form-group col-md-4">
                     <div class="form-group">
                       <label
-                        >Confirm Password <i v-if="!id" class="text-danger">*</i></label
+                        >{{ __("confirm_password") }}
+                        <i v-if="!id" class="text-danger">*</i></label
                       >
                       <div class="input-group">
                         <input
                           :type="showConfirmPassword ? 'text' : 'password'"
                           class="form-control"
                           v-model="confirm_password"
-                          placeholder="Enter confirm password."
+                          :placeholder="__('enter_confirm_password')"
                         />
                         <button
                           type="button"
@@ -129,51 +137,182 @@
 
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Categories <i class="text-danger">*</i></label>
+                      <label>{{ __("categories") }} <i class="text-danger">*</i></label>
                       <Select2
                         v-model="categories_ids"
-                        placeholder="Select Categories"
+                        :placeholder="__('select_categories')"
                         :options="categories_options"
                         :settings="{ multiple: 'multiple' }"
                       />
                     </div>
                   </div>
                 </div>
+                <!--
+                 <div class="row">
+                  <div class="form-group col-md-4">
+                    <label>{{ __("register_number") }}<i class="text-danger">*</i></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="record_number"
+                      :placeholder="__('register_number')"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label>
+                      {{ __("register_expiry_date") }} <i class="text-danger">*</i></label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      v-model="record_expiry_date"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label
+                      >{{ __("municipality_number") }}<i class="text-danger">*</i></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="municipality_license_number"
+                      :placeholder="__('municipality_number')"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label>
+                      {{ __("municipality_expire_number") }}
+                      <i class="text-danger">*</i></label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      v-model="municipality_license_expiry_date"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("register_coby") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      ref="file_record_image"
+                      v-on:change="handleFileRecordImage"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label>
+                      {{ __("municipality_copt") }} <i class="text-danger">*</i></label
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      ref="file_municipality_license_image"
+                      v-on:change="handleFileMunicipalityLicenseImage"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("tax_copy") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      ref="file_tax_certificate_image"
+                      v-on:change="handleFileTaxCertificateImage"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("addres_copy") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      ref="file_national_address_image"
+                      v-on:change="handleFileNationalAddressImage"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("iban_cer") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      ref="file_iban_certificate"
+                      v-on:change="handleFileIbanCertificate"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("store_owners") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      v-model="owner_birth_date"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label> {{ __("tax_name") }} <i class="text-danger">*</i></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="tax_name"
+                      :placeholder="__('tax_name')"
+                      required
+                    />
+                  </div>
+                </div>
+                 -->
 
                 <div class="row">
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Store Name <i class="text-danger">*</i></label>
+                      <label>{{ __("store_name") }} <i class="text-danger">*</i></label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="store_name"
                         required
-                        placeholder="Enter store name."
+                        :placeholder="__('enter_store-name')"
                       />
                     </div>
                   </div>
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Store URL </label>
+                      <label>{{ __("store_url") }}</label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="store_url"
-                        placeholder="Enter store URL."
+                        :placeholder="__('enter_store_url')"
                       />
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <label for="city_name"
-                      >Select or Search City <i class="text-danger">*</i></label
+                      >{{ __("select_or_search_city")
+                      }}<i class="text-danger">*</i></label
                     >
                     <multiselect
                       v-model="city"
                       :options="cities"
                       @close="setCityId"
-                      placeholder="Select & Search City"
+                      :placeholder="__('select_search')"
                       label="name"
                       track-by="name"
                       id="city_name"
@@ -195,12 +334,12 @@
                   </div>
                   <div class="form-group col-md-3">
                     <div class="form-group">
-                      <label>Tax Name </label>
+                      <label>{{ __("tax_name") }}</label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="tax_name"
-                        placeholder="Enter tax name."
+                        :placeholder="__('enter_tax')"
                         required
                       />
                     </div>
@@ -208,12 +347,12 @@
 
                   <div class="form-group col-md-3">
                     <div class="form-group">
-                      <label>Tax Number </label>
+                      <label>{{ __("tax_number") }}</label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="tax_number"
-                        placeholder="Enter tax number."
+                        :placeholder="__('enter_tax_number')"
                         required
                       />
                     </div>
@@ -221,24 +360,24 @@
 
                   <div class="form-group col-md-3">
                     <div class="form-group">
-                      <label>PAN Number <i class="text-danger">*</i></label>
+                      <label>{{ __("pan_number") }}<i class="text-danger">*</i></label>
                       <input
                         type="text"
                         class="form-control"
                         v-model="pan_number"
-                        placeholder="Enter PAN number."
+                        :placeholder="__('enter_pan_number')"
                         required
                       />
                     </div>
                   </div>
 
                   <div class="form-group col-md-3">
-                    <label>Commission (%) <i class="text-danger">*</i></label>
+                    <label>{{ __("commission") }} (%) <i class="text-danger">*</i></label>
                     <input
                       type="number"
                       class="form-control"
                       v-model="commission"
-                      placeholder="Enter commission (%)"
+                      :placeholder="__('enter_commission')"
                       readonly
                     />
                     <p v-if="commissionvalidationError" class="error">
@@ -248,7 +387,10 @@
 
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>National Identity Card <i class="text-danger">*</i></label>
+                      <label
+                        >{{ __("national_identity_card") }}
+                        <i class="text-danger">*</i></label
+                      >
 
                       <input
                         type="file"
@@ -266,7 +408,10 @@
                         @dragleave="$dragleaveFile"
                       >
                         <template v-if="national_id_card && national_id_card.name !== ''">
-                          <label>Selected file name:- {{ national_id_card.name }}</label>
+                          <label
+                            >{{ __("selected_file_name") }}:-
+                            {{ national_id_card.name }}</label
+                          >
                         </template>
                         <template v-else>
                           <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -289,7 +434,7 @@
                             :href="national_id_card_url"
                             class="badge bg-success"
                           >
-                            <i class="fa fa-eye"></i> Identity Card</a
+                            <i class="fa fa-eye"></i> {{ __("identity") }}</a
                           >
                         </div>
                       </div>
@@ -297,7 +442,9 @@
                   </div>
                   <div class="form-group col-md-4">
                     <div class="form-group">
-                      <label>Address Proof <i class="text-danger">*</i></label>
+                      <label
+                        >{{ __("address_proof") }} <i class="text-danger">*</i></label
+                      >
                       <input
                         type="file"
                         class="file-input"
@@ -318,7 +465,10 @@
                           <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                         </template>
                         <template v-else>
-                          <label>Selected file name:- {{ address_proof_name }}</label>
+                          <label
+                            >{{ __("selected_file_name") }}
+                            {{ address_proof_name }}</label
+                          >
                         </template>
                       </div>
 
@@ -337,7 +487,7 @@
                             :href="address_proof_url"
                             class="badge bg-success"
                           >
-                            <i class="fa fa-eye"></i> Address Proof</a
+                            <i class="fa fa-eye"></i> {{ __("address_proof") }}</a
                           >
                         </div>
                       </div>
@@ -345,7 +495,9 @@
                   </div>
 
                   <div class="form-group col-md-4">
-                    <label for="logo">Logo <i class="text-danger">*</i></label>
+                    <label for="logo"
+                      >{{ __("logo") }} <i class="text-danger">*</i></label
+                    >
                     <input
                       type="file"
                       id="logo"
@@ -363,7 +515,9 @@
                       @dragleave="$dragleaveFile"
                     >
                       <template v-if="store_logo && store_logo.name !== ''">
-                        <label>Selected file name:- {{ store_logo.name }}</label>
+                        <label>
+                          {{ __("selected_file_name") }} {{ store_logo.name }}</label
+                        >
                       </template>
                       <template v-else>
                         <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -382,9 +536,11 @@
                     </div>
                   </div>
                   <div class="form-group col-md-12">
-                    <label>Store Description : <i class="text-danger">*</i></label>
+                    <label
+                      >{{ __("store_description") }} : <i class="text-danger">*</i></label
+                    >
                     <editor
-                      placeholder="Enter store description"
+                      :placeholder="__('enter_store_desc')"
                       v-model="store_description"
                       :init="{
                         height: 200,
@@ -398,7 +554,7 @@
               </div>
             </div>
             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-1">
-              Complete
+              {{ __("complete") }}
               <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </button>
           </div>
@@ -418,6 +574,7 @@ import { VuejsDatatableFactory } from "vuejs-datatable";
 import Select2 from "v-select2-component";
 import Multiselect from "vue-multiselect";
 import Editor from "@tinymce/tinymce-vue";
+import lang from "../lang.vue";
 
 export default {
   components: {
@@ -425,6 +582,7 @@ export default {
     Select2,
     Multiselect,
     editor: Editor,
+    lang,
   },
   delimiters: ["${", "}"], // Avoid Twig conflicts
   data: function () {

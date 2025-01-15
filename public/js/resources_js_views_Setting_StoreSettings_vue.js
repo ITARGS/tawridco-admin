@@ -1896,6 +1896,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3599,6 +3600,7 @@ var render = function () {
                                                 ? _c(
                                                     "option",
                                                     {
+                                                      key: code.currencyCode,
                                                       domProps: {
                                                         value:
                                                           code.currencyCode,
