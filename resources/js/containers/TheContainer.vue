@@ -46,7 +46,7 @@
 
             <template v-for="item in filteredSidebarItems">
               <li
-                v-bind:key="item"
+                v-bind:key="item.name"
                 class="sidebar-item"
                 :class="{
                   active: isActive(item.url) || subIsActive(item),
@@ -59,9 +59,10 @@
                     : item.permission && $can(item.permission)
                 "
               >
+                <!-- list of items has sub list -->
                 <template v-if="isHasSub(item)">
-                  <a class="sidebar-link">
-                    <i :class="`fa fa-${item.icon}`"></i>
+                  <a class="sidebar-link main-dir">
+                    <i :class="`fa fa-${item.icon} p-2 `"></i>
                     <span>{{ item.name }}</span>
                   </a>
                   <ul class="submenu" :class="{ active: subIsActive(item) }">
@@ -84,14 +85,14 @@
                     </template>
                   </ul>
                 </template>
-
+                <!-- list of items without sub list -->
                 <template v-else>
                   <router-link
                     class="sidebar-link"
                     :to="item.url"
                     @click="closeSideBarMenu()"
                   >
-                    <i :class="`fa fa-${item.icon}`"></i>
+                    <i :class="`fa fa-${item.icon} p-2`"></i>
                     <span>{{ item.name }}</span>
                   </router-link>
                 </template>
@@ -964,5 +965,14 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+.main-dir::after {
+  color: #ccc;
+
+  display: block;
+  position: absolute;
+  left: 15px !important;
+  right: 0 !important;
+  top: 17px !important;
 }
 </style>

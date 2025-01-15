@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const RTLCSS = require('rtlcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,3 +16,7 @@ mix.js('resources/js/app.js', 'public/js').vue();
 //.postCss('resources/css/app.css', 'public/css', []
 //mix.sass('resources/sass/app.scss', 'public/css/app.css');
 mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.postCss('resources/css/app.css', 'public/css', [
+    RTLCSS() // Add RTLCSS plugin
+]);

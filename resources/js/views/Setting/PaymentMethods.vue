@@ -13,7 +13,7 @@
             >
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <router-link to="/dashboard">{{ __("dashboard") }}</router-link>
+                  <router-link to="/dashboard">{{ __("dashboard") }} </router-link>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   {{ __("payment_gateways_methods_settings") }}

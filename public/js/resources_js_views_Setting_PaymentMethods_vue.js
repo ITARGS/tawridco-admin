@@ -1394,7 +1394,7 @@ var render = function () {
                     { staticClass: "breadcrumb-item" },
                     [
                       _c("router-link", { attrs: { to: "/dashboard" } }, [
-                        _vm._v(_vm._s(_vm.__("dashboard"))),
+                        _vm._v(_vm._s(_vm.__("dashboard")) + " "),
                       ]),
                     ],
                     1

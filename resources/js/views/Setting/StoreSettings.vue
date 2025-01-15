@@ -389,6 +389,7 @@
                               >
                                 <option value="">Select Country Currency Code</option>
                                 <option
+                                  :key="code.currencyCode"
                                   v-for="code in currency_codes"
                                   v-if="code.currencyCode !== ''"
                                   :value="code.currencyCode"
