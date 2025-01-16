@@ -19,6 +19,7 @@ COPY database/ database/
 COPY package.json package-lock.json ./
 
 RUN  npm install
+RUN  npm run prod
 RUN  composer install --no-scripts
 
 COPY --chown=www-data:www-data . .
