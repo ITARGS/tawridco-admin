@@ -1,6 +1,20 @@
+http://admin.tawridco.com {
+        reverse_proxy admin {
+                header_up X-Forwarded-Proto https
+                header_up X-Forwarded-For {header.CF-Connecting-IP}
+        }
+}
+
+# Vendor subdomain
+http://vendor.tawridco.com {
+        #       rewrite * /seller/login
+
+        reverse_proxy admin {
+                header_up X-Forwarded-Proto https
+                header_up X-Forwarded-For {header.CF-Connecting-IP}
+        }
+}
+
 http://tawridco.com {
-	reverse_proxy admin:80  {
-		header_up X-Forwarded-Proto http
-		header_up X-Forwarded-For {header.CF-Connecting-IP}
-	}
+        reverse_proxy 159.203.131.240:8080
 }
