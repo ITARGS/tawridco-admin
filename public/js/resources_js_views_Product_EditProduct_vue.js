@@ -11,7 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
@@ -693,7 +692,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
+// import Vue from 'vue';
 // import InputTag from 'vue-input-tag';
 
 
@@ -946,7 +945,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     variantImagesChanges: function variantImagesChanges(index) {
       var tempImages = [];
-      vue__WEBPACK_IMPORTED_MODULE_5__["default"].set(this.variantImages, index, []);
+      Vue.set(this.variantImages, index, []);
       if (this.type === 'packet') {
         var validExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more valid extensions as needed
         var maxSizeInBytes = 5 * 1024 * 1024; // 5 MB (adjust the size limit as needed)
@@ -970,7 +969,7 @@ __webpack_require__.r(__webpack_exports__);
           image.url = URL.createObjectURL(file);
           image.name = file.name;
           tempImages.push(image);
-          vue__WEBPACK_IMPORTED_MODULE_5__["default"].set(this.variantImages, index, tempImages);
+          Vue.set(this.variantImages, index, tempImages);
         }
       } else {
         for (var i = 0; i < this.$refs['loose_variant_images_' + index][0].files.length; i++) {
@@ -979,7 +978,7 @@ __webpack_require__.r(__webpack_exports__);
           _image.url = URL.createObjectURL(_file);
           _image.name = _file.name;
           tempImages.push(_image);
-          vue__WEBPACK_IMPORTED_MODULE_5__["default"].set(this.variantImages, index, tempImages);
+          Vue.set(this.variantImages, index, tempImages);
         }
       }
     },

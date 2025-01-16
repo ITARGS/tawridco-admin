@@ -76,7 +76,7 @@
 ?>
 
     <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" class="<?php echo e(app()->isLocale('ar') ? 'rtl' : 'ltr'); ?>">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" class="<?php echo e(app()->isLocale('ar') ? 'rtl' : ''); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

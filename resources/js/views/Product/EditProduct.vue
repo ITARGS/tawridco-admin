@@ -3,7 +3,7 @@
         <div class="page-heading">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3> 
+                    <h3>
                          <template v-if="clone">
                           {{ __('clone') }}
                             </template>
@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item" v-else>
                                 <router-link to="/manage_products">{{__('manage_products') }}</router-link>
                             </li>
-                           
+
                             <li class="breadcrumb-item active" aria-current="page">
                                  <template v-if="clone">
                                     {{ __('clone') }}
@@ -77,7 +77,7 @@
                                         <input type="text" class="form-control" :placeholder="__('enter_product_name')" v-model="name" v-on:keyup="createSlug" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>{{ __('slug') }}</label> 
+                                        <label>{{ __('slug') }}</label>
                                         <i class="text-danger">*</i>
                                         <input type="text" class="form-control" :placeholder="__('enter_product_slug')" v-model="slug">
                                     </div>
@@ -107,15 +107,15 @@
                                   <div class="col-md-6">
                                     <div class="form-group">
                                     <label for="tags" class="control-label">{{ __('tags') }} ( {{ __('these_tags_help_you_in_search_result') }} )</label>
-                                  
+
                                             <Select2 v-model="tag_ids"
                              placeholder="Select Tags"
                              no-add-on-enter
                              :options="tagsOptions"
                              separator=" ,;"
-                             :settings="{ tags: true, 
-                                multiple: true, 
-                                width: '100%', 
+                             :settings="{ tags: true,
+                                multiple: true,
+                                width: '100%',
                                 dropdownParent: '#mymodal',
                                 tokenSeparators: [',', ';'],
                                 placeholder: __('enter_product_tag'), }" />
@@ -151,7 +151,7 @@
                                             <editor
                                                 :placeholder="__('enter_product_description')"
                                                 v-model="description"
-                                                
+
                                                 :init="{
                                                     height:400,
                                                     plugins: this.$editorPlugins ,
@@ -274,7 +274,7 @@
                                                        v-model="input.packet_measurement">
                                             </div>
                                         </div>
-                                     
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>{{ __('price') }} ( {{ $currency }} )</label> <i class="text-danger">*</i>
@@ -410,7 +410,7 @@
                                                     <span class="text text-primary">Please choose square image
                                                         of larger than 350px*350px &amp; smaller than
                                                         550px*550px.</span>
-                                                  
+
 
                                                     <div class="row">
                                                         <div class="col-md-2 image-container" v-if="input.loose_images.length !== 0" v-for="(image, index) in input.loose_images">
@@ -493,7 +493,7 @@
 
                                         </div>
                                     </div>
-                                  
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>{{ __('product_type') }} </label>
@@ -525,7 +525,7 @@
                                                 </template>
                                                 <template slot="option" slot-scope="props">
                                                     <div class="option__desc">
-                                                        
+
                                                         <span class="option__title">{{ props.option.name }}</span>
                                                         <span class="option__small">[{{ props.option.code }}]</span>
                                                     </div>
@@ -534,7 +534,7 @@
 
                                         </div>
                                     </div>
-                               
+
 
                                     <div class="col-md-6">
                                         <div class="row">
@@ -544,7 +544,7 @@
                                                     <input type="text" class="form-control" :placeholder="__('fssai_lic_no')" v-model="fssai_lic_no" @input="validateFSSAINumber">
                                                     <p style="color:red" v-if="validationMessage">{{ validationMessage }}</p>
                                                     <p style="color:green" v-else-if="isValid">FSSAI License Number is valid!</p>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -607,7 +607,7 @@
                                                     <input type="text" class="form-control" :placeholder="__('barcode')" v-model="barcode" @input="validateBarcode">
                                                     <p style="color:red" v-if="validationBarcodeMessage">{{ validationBarcodeMessage }}</p>
                                                     <p style="color:green" v-else-if="isBarcodeValid">Barcode is valid!</p>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -624,7 +624,7 @@
                                                     ></b-form-radio-group>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>{{ __('total_allowed_quantity') }}  </label>
@@ -637,7 +637,7 @@
                                     <div class="col-md-6">
                                         <template v-if="this.$roleSeller == login_user.role.name">
                                             <input type="hidden" v-model="is_approved">
-                                           
+
                                         </template>
                                         <template v-else>
                                             <div class="form-group">
@@ -672,7 +672,7 @@
     </div>
 </template>
 <script>
-import Vue from 'vue';
+// import Vue from 'vue';
 // import InputTag from 'vue-input-tag';
 import axios from "axios";
 import Multiselect from 'vue-multiselect'
@@ -765,14 +765,14 @@ export default {
     selectedTags() {
     return this.tags.filter(tag => this.tag_ids.includes(tag.id));
   },
-   
-        
+
+
     },
-    
+
     created: function () {
         this.id = this.$route.params.id;
         this.clone = this.$route.params.clone;
-       
+
         this.getSellers();
         this.getTaxes();
         this.getUnits();
@@ -782,13 +782,13 @@ export default {
         this.getOrderStatus();
         if(this.$roleSeller == this.login_user.role.name){
             this.seller_id = this.login_user.seller.id;
-            this.getSeller();            
-            this.getSellerCategories();    
+            this.getSeller();
+            this.getSellerCategories();
         }
         if (this.id) {
             this.getProduct();
         }
-        
+
     },
     methods: {
         createSlug(){
@@ -847,7 +847,7 @@ export default {
                 this.inputs.splice(index, 1)
             }
         },
-      
+
         dropFile(event) {
             event.preventDefault();
             this.$refs.file_image.files = event.dataTransfer.files;
@@ -859,7 +859,7 @@ export default {
 
         fileImage() {
             const file = this.$refs.file_image.files[0];
-      
+
             // Reset previous error message
             this.mainImageerror = null;
 
@@ -919,8 +919,8 @@ export default {
                     this.images.push(image);
                 }
 
-                
-                
+
+
             }
         },
 
@@ -1003,12 +1003,12 @@ export default {
                     this.isLoading = false
                     let data = response.data;
                     this.categoryOptions = `<option value="">--Select Category--</option>` + data
-                    
+
                 });
         },
         getSellers() {
             this.isLoading = true
-            axios.get(this.$apiUrl + '/sellers') 
+            axios.get(this.$apiUrl + '/sellers')
                 .then((response) => {
                     this.isLoading = false
                     let data = response.data;
@@ -1325,10 +1325,10 @@ export default {
 
             let url = this.$apiUrl + '/products/save';
             if (this.clone) {
-           
+
                 url = this.$apiUrl + '/products/save';
             }else if (this.id) {
-                url = this.$apiUrl + '/products/update'; 
+                url = this.$apiUrl + '/products/update';
             }
 
             axios.post(url, formData, {
@@ -1339,7 +1339,7 @@ export default {
                 let data = res.data;
 
                 if (data.status === 1) {
-                 
+
                     this.showMessage("success", data.message);
                     setTimeout(
                         function () {
@@ -1351,7 +1351,7 @@ export default {
                                 vm.$router.push({path: '/manage_products'});
                             }
 
-                          
+
 
                         }, 2000);
                 } else {

@@ -22,6 +22,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "vue-loader": "^15.9.7",
         "@ckeditor/ckeditor5-build-classic": "^34.0.0",
         "@ckeditor/ckeditor5-vue2": "^3.0.1",
         "@tinymce/tinymce-vue": "^3.2.8",
