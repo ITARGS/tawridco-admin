@@ -77,7 +77,9 @@ class CategoryApiController extends Controller
     public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name' => 'required_without_all:name_en,name_ar',
+            'name_en' => 'required_without_all:name,name_ar',
+            'name_ar' => 'required_without_all:name,name_en',
             'subtitle' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
@@ -86,7 +88,7 @@ class CategoryApiController extends Controller
         }
 
         // Generate slug from the title
-        $slug = Str::slug($request->name);
+        $slug = Str::slug($request->name_en ?? $request->name);
 
         // Check for uniqueness
         $count = Category::where('slug', $slug)->count();
@@ -95,8 +97,15 @@ class CategoryApiController extends Controller
         }
 
         $category = new Category();
-        $category->name = $request->name;
-        $category->subtitle = $request->subtitle;
+
+        if (app()->getLocale() == 'en') {
+            $category->name_en = $request->name_en ?? $request->name;
+            $category->subtitle_en = $request->subtitle_en ?? $request->subtitle;
+        } else {
+            $category->name_ar = $request->name_ar ?? $request->name;
+            $category->subtitle_ar = $request->subtitle_ar ?? $request->subtitle;
+        }
+
         $category->slug = $slug;
         $image = '';
         if ($request->hasFile('image')) {
