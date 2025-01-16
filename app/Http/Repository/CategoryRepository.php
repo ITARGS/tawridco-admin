@@ -5,7 +5,6 @@ namespace App\Http\Repository;
 
 use App\Helpers\CategoryHelper;
 use App\Models\Category;
-use App\Models\Product;
 
 class CategoryRepository
 {
@@ -15,7 +14,7 @@ class CategoryRepository
         $categories = array();
 
         $result = Category::where('parent_id', $parent_id)
-            ->where('status',1)
+            ->where('status', 1)
             ->orderBy('row_order')
             ->get();
 
@@ -30,8 +29,8 @@ class CategoryRepository
 
             $category = array();
             $category['id'] = $mainCategory->id;
-            $category['name'] = $mainCategory->name;
-            $category['subtitle'] = $mainCategory->subtitle;
+            $category['name'] = app()->getLocale() == 'en' ? $mainCategory->name_en : $mainCategory->name_ar;
+            $category['subtitle'] = app()->getLocale() == 'en' ? $mainCategory->subtitle_en : $mainCategory->subtitle_ar;
             $category['image_url'] = $mainCategory->image_url;
             $category['parent_id'] = $mainCategory->parent_id;
             $category['level'] = $level;
