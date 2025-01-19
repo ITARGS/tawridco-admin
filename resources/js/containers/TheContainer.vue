@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="sidebar" class="active">
+    <div id="sidebar" class="SideBarStyle active">
       <div class="sidebar-wrapper active">
         <div class="sidebar-header">
           <div class="d-flex flex-row justify-content-center">
@@ -957,6 +957,10 @@ export default {
 </script>
 
 <style scoped>
+.SideBarStyle {
+  position: fixed;
+  z-index: 1;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -968,7 +972,6 @@ export default {
 }
 .main-dir::after {
   color: #ccc;
-
   display: block;
   position: absolute;
   left: 15px !important;

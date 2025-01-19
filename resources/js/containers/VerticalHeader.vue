@@ -421,13 +421,11 @@ export default {
       },
     },
     mainStyle() {
-
       if (this.isRTL === "true") {
         return this.isToggle == true
-          ? " width:100%;transition:0.7s;position: relative;right:0rem;  "
-          : " width:80%;transition:0.8s;position: relative;right:0rem; ";
+          ? " width:100%;transition:0.7s;position: relative;right:0rem;"
+          : " width:80%;transition:0.8s;position: relative;right:0rem;";
       } else if (this.isRTL === "false") {
-
         return this.isToggle == true
           ? " width:100%;transition:0.7s;position: relative; right:0rem;"
           : " width:80%;transition:0.8s;position: relative;right:-19rem;";
@@ -531,11 +529,9 @@ export default {
       };
 
       if (this.lang === "ar") {
-
         localStorage.setItem("isRTL", true);
         document.body.classList.add("rtl");
       } else {
-
         localStorage.setItem("isRTL", false);
         document.body.classList.remove("rtl");
       } // Check if the new language is RTL
