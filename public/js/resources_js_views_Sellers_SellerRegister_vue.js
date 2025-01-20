@@ -589,6 +589,289 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -619,14 +902,14 @@ __webpack_require__.r(__webpack_exports__);
       confirm_password: "",
       showConfirmPassword: false,
       store_name: "",
-      categories_ids: [],
-      tax_name: "",
+      company_name: "",
+      record_expiry_date: "",
+      record_number: "",
+      municipality_license_number: "",
+      municipality_license_expiry_date: "",
       tax_number: "",
-      pan_number: "",
-      store_description: "",
-      status: 0,
-      store_logo: "",
-      store_logo_url: "",
+      national_address: "",
+      iban_number: "",
       national_id_card: "",
       national_id_card_url: "",
       address_proof: "",
@@ -642,7 +925,17 @@ __webpack_require__.r(__webpack_exports__);
       cities: [],
       city_id: "",
       commission: "",
-      commissionvalidationError: null
+      commissionvalidationError: null,
+      municipality_photo: null,
+      municipality_photo_url: "",
+      commercial_photo: null,
+      commercial_photo_url: "",
+      tax_photo: null,
+      tax_photo_url: "",
+      national_photo: null,
+      national_photo_url: "",
+      iban_photo: null,
+      iban_photo_url: ""
     };
   },
   created: function created() {
@@ -650,29 +943,12 @@ __webpack_require__.r(__webpack_exports__);
     this.getCities();
     this.getSellerCommission();
   },
-  mounted: function mounted() {},
-  computed: {
-    categories_options: function categories_options() {
-      var temp = [];
-      this.categories.forEach(function (category) {
-        //Only Main Categories
-        if (category.parent_id == 0) {
-          temp.push({
-            id: category.id,
-            text: category.name
-          });
-        }
-      });
-      return temp;
-    }
-  },
   methods: {
     getCategories: function getCategories() {
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + "/categories").then(function (response) {
         var data = response.data;
         _this.categories = data.data;
-        console.log(_this.categories);
       });
     },
     getSellerCommission: function getSellerCommission() {
@@ -685,46 +961,64 @@ __webpack_require__.r(__webpack_exports__);
     validateMobileNumber: function validateMobileNumber() {
       var mobileNumber = this.mobile;
       if (!/^\d{1,16}$/.test(mobileNumber)) {
-        this.mobilevalidationError = "Mobile Number must be maximum 16 digits numbers.";
+        this.mobilevalidationError = __("error_message");
         this.mobile = null;
       } else {
         this.mobilevalidationError = null;
       }
     },
-    handleFileStoreLogo: function handleFileStoreLogo() {
-      this.store_logo = this.$refs.file_store_logo.files[0];
-      this.store_logo_url = URL.createObjectURL(this.store_logo);
+    handleFileMunicipalityPhoto: function handleFileMunicipalityPhoto() {
+      this.municipality_photo = this.$refs.file_municipality_photo.files[0];
+      this.municipality_photo_url = URL.createObjectURL(this.municipality_photo);
     },
-    dropFileStoreLogo: function dropFileStoreLogo(event) {
+    dropFileMunicipalityPhoto: function dropFileMunicipalityPhoto(event) {
       event.preventDefault();
-      this.$refs.file_store_logo.files = event.dataTransfer.files;
-      this.handleFileStoreLogo(); // Trigger the onChange event manually
-      // Clean up
+      this.$refs.file_municipality_photo.files = event.dataTransfer.files;
+      this.handleFileMunicipalityPhoto();
       event.currentTarget.classList.add("bg-gray-100");
       event.currentTarget.classList.remove("bg-green-300");
     },
-    handleFileNationalIdCard: function handleFileNationalIdCard() {
-      this.national_id_card = this.$refs.file_national_id_card.files[0];
-      this.national_id_card_url = URL.createObjectURL(this.national_id_card);
+    handleFileCommercialPhoto: function handleFileCommercialPhoto() {
+      this.commercial_photo = this.$refs.file_commercial_photo.files[0];
+      this.commercial_photo_url = URL.createObjectURL(this.commercial_photo);
     },
-    dropFileNationalIdCard: function dropFileNationalIdCard(event) {
+    dropFileCommercialPhoto: function dropFileCommercialPhoto(event) {
       event.preventDefault();
-      this.$refs.file_national_id_card.files = event.dataTransfer.files;
-      this.handleFileNationalIdCard(); // Trigger the onChange event manually
-      // Clean up
+      this.$refs.file_commercial_photo.files = event.dataTransfer.files;
+      this.handleFileCommercialPhoto();
       event.currentTarget.classList.add("bg-gray-100");
       event.currentTarget.classList.remove("bg-green-300");
     },
-    handleFileAddressProof: function handleFileAddressProof() {
-      this.address_proof = this.$refs.file_address_proof.files[0];
-      this.address_proof_url = URL.createObjectURL(this.address_proof);
-      this.address_proof_name = this.address_proof.name;
+    handleFileTaxPhoto: function handleFileTaxPhoto() {
+      this.tax_photo = this.$refs.file_tax_photo.files[0];
+      this.tax_photo_url = URL.createObjectURL(this.tax_photo);
     },
-    dropFileAddressProof: function dropFileAddressProof(event) {
+    dropFileTaxPhoto: function dropFileTaxPhoto(event) {
       event.preventDefault();
-      this.$refs.file_address_proof.files = event.dataTransfer.files;
-      this.handleFileAddressProof(); // Trigger the onChange event manually
-      // Clean up
+      this.$refs.file_tax_photo.files = event.dataTransfer.files;
+      this.handleFileTaxPhoto();
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
+    },
+    handleFileNationalPhoto: function handleFileNationalPhoto() {
+      this.national_photo = this.$refs.file_national_photo.files[0];
+      this.national_photo_url = URL.createObjectURL(this.national_photo);
+    },
+    dropFileNationalPhoto: function dropFileNationalPhoto(event) {
+      event.preventDefault();
+      this.$refs.file_national_photo.files = event.dataTransfer.files;
+      this.handleFileNationalPhoto();
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
+    },
+    handleFileIbanPhoto: function handleFileIbanPhoto() {
+      this.iban_photo = this.$refs.file_iban_photo.files[0];
+      this.iban_photo_url = URL.createObjectURL(this.iban_photo);
+    },
+    dropFileIbanPhoto: function dropFileIbanPhoto(event) {
+      event.preventDefault();
+      this.$refs.file_iban_photo.files = event.dataTransfer.files;
+      this.handleFileIbanPhoto();
       event.currentTarget.classList.add("bg-gray-100");
       event.currentTarget.classList.remove("bg-green-300");
     },
@@ -762,6 +1056,19 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("address_proof", this.address_proof);
       formData.append("city_id", this.city_id);
       formData.append("commission", this.commission);
+      formData.append("record_number", this.record_number);
+      formData.append("company_name", this.company_name);
+      formData.append("record_expiry_date", this.record_expiry_date);
+      formData.append("municipality_license_number", this.municipality_license_number);
+      formData.append("municipality_license_expiry_date", this.municipality_license_expiry_date);
+      formData.append("tax_number", this.tax_number);
+      formData.append("national_address", this.national_address);
+      formData.append("iban_number", this.iban_number);
+      formData.append("municipality_photo", this.municipality_photo);
+      formData.append("commercial_photo", this.commercial_photo);
+      formData.append("tax_photo", this.tax_photo);
+      formData.append("national_photo", this.national_photo);
+      formData.append("iban_photo", this.iban_photo);
       var url = this.$apiUrl + "/seller/register";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
@@ -773,7 +1080,6 @@ __webpack_require__.r(__webpack_exports__);
           _this4.showMessage("success", data.message);
           setTimeout(function () {
             vm.$swal.close();
-            //Auth.logout();
             vm.$router.push({
               path: "/seller/login"
             });
@@ -972,7 +1278,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948] {\n  overflow: auto !important;\n}\n.auth[data-v-e3df3948] {\n  overflow-x: hidden !important;\n}\n.auth-logo[data-v-e3df3948] {\n  padding-bottom: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948] {\n    overflow: auto !important;\n}\n.auth[data-v-e3df3948] {\n    overflow-x: hidden !important;\n}\n.auth-logo[data-v-e3df3948] {\n    padding-bottom: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1258,9 +1564,9 @@ var render = function () {
           _vm._v(" "),
           _c("p", { staticClass: "auth-subtitle text-primary" }, [
             _vm._v(
-              "\n        " +
+              "\n                " +
                 _vm._s(_vm.__("seller_register_message")) +
-                "\n      "
+                "\n            "
             ),
           ]),
           _vm._v(" "),
@@ -1285,7 +1591,7 @@ var render = function () {
                         _vm._v("*"),
                       ]),
                       _vm._v(
-                        "\n                " +
+                        "\n                                " +
                           _vm._s(_vm.__("required_fields")) +
                           "."
                       ),
@@ -1295,7 +1601,10 @@ var render = function () {
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("user_name")) + " "),
+                            _vm._v(
+                              _vm._s(_vm.__("user_name")) +
+                                "\n                                            "
+                            ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
                             ]),
@@ -1317,6 +1626,7 @@ var render = function () {
                             },
                             domProps: { value: _vm.name },
                             on: {
+                              change: _vm.validateName,
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
@@ -1331,7 +1641,10 @@ var render = function () {
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("email")) + " "),
+                            _vm._v(
+                              _vm._s(_vm.__("email")) +
+                                "\n                                            "
+                            ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
                             ]),
@@ -1353,6 +1666,7 @@ var render = function () {
                             },
                             domProps: { value: _vm.email },
                             on: {
+                              change: _vm.validateEmail,
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
@@ -1367,7 +1681,10 @@ var render = function () {
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("mobile")) + " "),
+                            _vm._v(
+                              _vm._s(_vm.__("mobile")) +
+                                "\n                                            "
+                            ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
                             ]),
@@ -1415,7 +1732,7 @@ var render = function () {
                           _c("label", [
                             _vm._v(
                               _vm._s(_vm.__("password")) +
-                                "\n                      "
+                                "\n                                            "
                             ),
                             !_vm.id
                               ? _c("i", { staticClass: "text-danger" }, [
@@ -1447,26 +1764,29 @@ var render = function () {
                                       : _vm.password,
                                   },
                                   on: {
-                                    change: function ($event) {
-                                      var $$a = _vm.password,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = null,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            (_vm.password = $$a.concat([$$v]))
+                                    change: [
+                                      function ($event) {
+                                        var $$a = _vm.password,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              (_vm.password = $$a.concat([$$v]))
+                                          } else {
+                                            $$i > -1 &&
+                                              (_vm.password = $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1)))
+                                          }
                                         } else {
-                                          $$i > -1 &&
-                                            (_vm.password = $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1)))
+                                          _vm.password = $$c
                                         }
-                                      } else {
-                                        _vm.password = $$c
-                                      }
-                                    },
+                                      },
+                                      _vm.validatePassword,
+                                    ],
                                   },
                                 })
                               : (_vm.showPassword ? "text" : "password") ===
@@ -1489,9 +1809,12 @@ var render = function () {
                                     checked: _vm._q(_vm.password, null),
                                   },
                                   on: {
-                                    change: function ($event) {
-                                      _vm.password = null
-                                    },
+                                    change: [
+                                      function ($event) {
+                                        _vm.password = null
+                                      },
+                                      _vm.validatePassword,
+                                    ],
                                   },
                                 })
                               : _c("input", {
@@ -1512,6 +1835,7 @@ var render = function () {
                                   },
                                   domProps: { value: _vm.password },
                                   on: {
+                                    change: _vm.validatePassword,
                                     input: function ($event) {
                                       if ($event.target.composing) {
                                         return
@@ -1553,7 +1877,7 @@ var render = function () {
                           _c("label", [
                             _vm._v(
                               _vm._s(_vm.__("confirm_password")) +
-                                "\n                      "
+                                "\n                                            "
                             ),
                             !_vm.id
                               ? _c("i", { staticClass: "text-danger" }, [
@@ -1587,28 +1911,30 @@ var render = function () {
                                       : _vm.confirm_password,
                                   },
                                   on: {
-                                    change: function ($event) {
-                                      var $$a = _vm.confirm_password,
-                                        $$el = $event.target,
-                                        $$c = $$el.checked ? true : false
-                                      if (Array.isArray($$a)) {
-                                        var $$v = null,
-                                          $$i = _vm._i($$a, $$v)
-                                        if ($$el.checked) {
-                                          $$i < 0 &&
-                                            (_vm.confirm_password = $$a.concat([
-                                              $$v,
-                                            ]))
+                                    change: [
+                                      function ($event) {
+                                        var $$a = _vm.confirm_password,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? true : false
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              (_vm.confirm_password =
+                                                $$a.concat([$$v]))
+                                          } else {
+                                            $$i > -1 &&
+                                              (_vm.confirm_password = $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1)))
+                                          }
                                         } else {
-                                          $$i > -1 &&
-                                            (_vm.confirm_password = $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1)))
+                                          _vm.confirm_password = $$c
                                         }
-                                      } else {
-                                        _vm.confirm_password = $$c
-                                      }
-                                    },
+                                      },
+                                      _vm.validateConfirmPassword,
+                                    ],
                                   },
                                 })
                               : (_vm.showConfirmPassword
@@ -1634,9 +1960,12 @@ var render = function () {
                                     checked: _vm._q(_vm.confirm_password, null),
                                   },
                                   on: {
-                                    change: function ($event) {
-                                      _vm.confirm_password = null
-                                    },
+                                    change: [
+                                      function ($event) {
+                                        _vm.confirm_password = null
+                                      },
+                                      _vm.validateConfirmPassword,
+                                    ],
                                   },
                                 })
                               : _c("input", {
@@ -1659,6 +1988,7 @@ var render = function () {
                                   },
                                   domProps: { value: _vm.confirm_password },
                                   on: {
+                                    change: _vm.validateConfirmPassword,
                                     input: function ($event) {
                                       if ($event.target.composing) {
                                         return
@@ -1697,212 +2027,192 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("label", [
-                              _vm._v(_vm._s(_vm.__("categories")) + " "),
-                              _c("i", { staticClass: "text-danger" }, [
-                                _vm._v("*"),
-                              ]),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(_vm.__("name_company")) +
+                                "\n                                            "
+                            ),
+                            _c("i", { staticClass: "text-danger" }, [
+                              _vm._v("*"),
                             ]),
-                            _vm._v(" "),
-                            _c("Select2", {
-                              attrs: {
-                                placeholder: _vm.__("select_categories"),
-                                options: _vm.categories_options,
-                                settings: { multiple: "multiple" },
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.company_name,
+                                expression: "company_name",
                               },
-                              model: {
-                                value: _vm.categories_ids,
-                                callback: function ($$v) {
-                                  _vm.categories_ids = $$v
-                                },
-                                expression: "categories_ids",
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: _vm.__("enter_name"),
+                            },
+                            domProps: { value: _vm.company_name },
+                            on: {
+                              change: _vm.validateCompanyName,
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.company_name = $event.target.value
                               },
-                            }),
-                          ],
-                          1
-                        ),
+                            },
+                          }),
+                        ]),
                       ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [
-                            _vm._v(_vm._s(_vm.__("store_name")) + " "),
-                            _c("i", { staticClass: "text-danger" }, [
-                              _vm._v("*"),
-                            ]),
+                        _c("label", [
+                          _vm._v(_vm._s(_vm.__("register_number"))),
+                          _c("i", { staticClass: "text-danger" }, [
+                            _vm._v("*"),
                           ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.store_name,
-                                expression: "store_name",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              required: "",
-                              placeholder: _vm.__("enter_store-name"),
-                            },
-                            domProps: { value: _vm.store_name },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.store_name = $event.target.value
-                              },
-                            },
-                          }),
                         ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.record_number,
+                              expression: "record_number",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: _vm.__("register_number"),
+                            required: "",
+                          },
+                          domProps: { value: _vm.record_number },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.record_number = $event.target.value
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v(_vm._s(_vm.__("store_url")))]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.store_url,
-                                expression: "store_url",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: _vm.__("enter_store_url"),
-                            },
-                            domProps: { value: _vm.store_url },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.store_url = $event.target.value
-                              },
-                            },
-                          }),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-md-4" },
-                        [
-                          _c("label", { attrs: { for: "city_name" } }, [
-                            _vm._v(_vm._s(_vm.__("select_or_search_city"))),
-                            _c("i", { staticClass: "text-danger" }, [
-                              _vm._v("*"),
-                            ]),
+                        _c("label", [
+                          _vm._v(
+                            _vm._s(_vm.__("register_expiry_date")) +
+                              "\n                                        "
+                          ),
+                          _c("i", { staticClass: "text-danger" }, [
+                            _vm._v("*"),
                           ]),
-                          _vm._v(" "),
-                          _c("multiselect", {
-                            attrs: {
-                              options: _vm.cities,
-                              placeholder: _vm.__("select_search"),
-                              label: "name",
-                              "track-by": "name",
-                              id: "city_name",
-                              required: "",
-                            },
-                            on: { close: _vm.setCityId },
-                            scopedSlots: _vm._u([
-                              {
-                                key: "singleLabel",
-                                fn: function (props) {
-                                  return [
-                                    _c(
-                                      "span",
-                                      { staticClass: "option__desc" },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "option__title" },
-                                          [_vm._v(_vm._s(props.option.name))]
-                                        ),
-                                      ]
-                                    ),
-                                  ]
-                                },
-                              },
-                              {
-                                key: "option",
-                                fn: function (props) {
-                                  return [
-                                    _c("div", { staticClass: "option__desc" }, [
-                                      _c(
-                                        "span",
-                                        { staticClass: "option__title" },
-                                        [
-                                          _vm._v(
-                                            _vm._s(
-                                              props.option.formatted_address
-                                            )
-                                          ),
-                                        ]
-                                      ),
-                                    ]),
-                                  ]
-                                },
-                              },
-                            ]),
-                            model: {
-                              value: _vm.city,
-                              callback: function ($$v) {
-                                _vm.city = $$v
-                              },
-                              expression: "city",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group col-md-3" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v(_vm._s(_vm.__("tax_name")))]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.tax_name,
-                                expression: "tax_name",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: _vm.__("enter_tax"),
-                              required: "",
-                            },
-                            domProps: { value: _vm.tax_name },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.tax_name = $event.target.value
-                              },
-                            },
-                          }),
                         ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.record_expiry_date,
+                              expression: "record_expiry_date",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date", required: "" },
+                          domProps: { value: _vm.record_expiry_date },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.record_expiry_date = $event.target.value
+                            },
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "form-group col-md-3" }, [
+                      _c("div", { staticClass: "form-group col-md-4" }, [
+                        _c("label", [
+                          _vm._v(_vm._s(_vm.__("municipality_number"))),
+                          _c("i", { staticClass: "text-danger" }, [
+                            _vm._v("*"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.municipality_license_number,
+                              expression:
+                                "\n                                            municipality_license_number\n                                        ",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: _vm.__("municipality_number"),
+                            required: "",
+                          },
+                          domProps: { value: _vm.municipality_license_number },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.municipality_license_number =
+                                $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-4" }, [
+                        _c("label", [
+                          _vm._v(
+                            _vm._s(_vm.__("municipality_expire_number")) +
+                              "\n                                        "
+                          ),
+                          _c("i", { staticClass: "text-danger" }, [
+                            _vm._v("*"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.municipality_license_expiry_date,
+                              expression:
+                                "\n                                            municipality_license_expiry_date\n                                        ",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date", required: "" },
+                          domProps: {
+                            value: _vm.municipality_license_expiry_date,
+                          },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.municipality_license_expiry_date =
+                                $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [_vm._v(_vm._s(_vm.__("tax_number")))]),
                           _vm._v(" "),
@@ -1934,13 +2244,10 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "form-group col-md-3" }, [
+                      _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("pan_number"))),
-                            _c("i", { staticClass: "text-danger" }, [
-                              _vm._v("*"),
-                            ]),
+                            _vm._v(_vm._s(_vm.__("national_address"))),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -1948,80 +2255,67 @@ var render = function () {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.pan_number,
-                                expression: "pan_number",
+                                value: _vm.national_address,
+                                expression: "national_address",
                               },
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: _vm.__("enter_pan_number"),
+                              placeholder: _vm.__("national_address"),
                               required: "",
                             },
-                            domProps: { value: _vm.pan_number },
+                            domProps: { value: _vm.national_address },
                             on: {
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.pan_number = $event.target.value
+                                _vm.national_address = $event.target.value
                               },
                             },
                           }),
                         ]),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "form-group col-md-3" }, [
-                        _c("label", [
-                          _vm._v(_vm._s(_vm.__("commission")) + " (%) "),
-                          _c("i", { staticClass: "text-danger" }, [
-                            _vm._v("*"),
-                          ]),
+                      _c("div", { staticClass: "form-group col-md-4" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v(_vm._s(_vm.__("iban_number")))]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.iban_number,
+                                expression: "iban_number",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: _vm.__("iban_number"),
+                              required: "",
+                            },
+                            domProps: { value: _vm.iban_number },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.iban_number = $event.target.value
+                              },
+                            },
+                          }),
                         ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.commission,
-                              expression: "commission",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "number",
-                            placeholder: _vm.__("enter_commission"),
-                            readonly: "",
-                          },
-                          domProps: { value: _vm.commission },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.commission = $event.target.value
-                            },
-                          },
-                        }),
-                        _vm._v(" "),
-                        _vm.commissionvalidationError
-                          ? _c("p", { staticClass: "error" }, [
-                              _vm._v(
-                                "\n                    " +
-                                  _vm._s(_vm.commissionvalidationError) +
-                                  "\n                  "
-                              ),
-                            ])
-                          : _vm._e(),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
                             _vm._v(
-                              _vm._s(_vm.__("national_identity_card")) +
-                                "\n                      "
+                              _vm._s(_vm.__("municipality_photo")) +
+                                "\n                                            "
                             ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
@@ -2029,10 +2323,10 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("input", {
-                            ref: "file_national_id_card",
+                            ref: "file_municipality_photo",
                             staticClass: "file-input",
                             attrs: { type: "file", required: "" },
-                            on: { change: _vm.handleFileNationalIdCard },
+                            on: { change: _vm.handleFileMunicipalityPhoto },
                           }),
                           _vm._v(" "),
                           _c(
@@ -2041,22 +2335,22 @@ var render = function () {
                               staticClass: "file-input-div bg-gray-100",
                               on: {
                                 click: function ($event) {
-                                  return _vm.$refs.file_national_id_card.click()
+                                  return _vm.$refs.file_municipality_photo.click()
                                 },
-                                drop: _vm.dropFileNationalIdCard,
+                                drop: _vm.dropFileMunicipalityPhoto,
                                 dragover: _vm.$dragoverFile,
                                 dragleave: _vm.$dragleaveFile,
                               },
                             },
                             [
-                              _vm.national_id_card &&
-                              _vm.national_id_card.name !== ""
+                              _vm.municipality_photo &&
+                              _vm.municipality_photo.name !== ""
                                 ? [
                                     _c("label", [
                                       _vm._v(
                                         _vm._s(_vm.__("selected_file_name")) +
-                                          ":-\n                          " +
-                                          _vm._s(_vm.national_id_card.name)
+                                          ":-\n                                                    " +
+                                          _vm._s(_vm.municipality_photo.name)
                                       ),
                                     ]),
                                   ]
@@ -2077,16 +2371,16 @@ var render = function () {
                             2
                           ),
                           _vm._v(" "),
-                          _vm.national_id_card_url
+                          _vm.municipality_photo_url
                             ? _c("div", { staticClass: "row" }, [
-                                _vm.isImage(_vm.national_id_card_url)
+                                _vm.isImage(_vm.municipality_photo_url)
                                   ? _c("div", { staticClass: "col-md-2" }, [
                                       _c("img", {
                                         staticClass: "custom-image",
                                         attrs: {
-                                          src: _vm.national_id_card_url,
-                                          title: "Identity Card",
-                                          alt: "Identity Card",
+                                          src: _vm.municipality_photo_url,
+                                          title: "Municipality Photo",
+                                          alt: "Municipality Photo",
                                         },
                                       }),
                                     ])
@@ -2100,7 +2394,7 @@ var render = function () {
                                             staticClass: "badge bg-success",
                                             attrs: {
                                               target: "_blank",
-                                              href: _vm.national_id_card_url,
+                                              href: _vm.municipality_photo_url,
                                             },
                                           },
                                           [
@@ -2108,7 +2402,11 @@ var render = function () {
                                               staticClass: "fa fa-eye",
                                             }),
                                             _vm._v(
-                                              " " + _vm._s(_vm.__("identity"))
+                                              "\n                                                    " +
+                                                _vm._s(
+                                                  _vm.__("municipality_photo")
+                                                ) +
+                                                "\n                                                "
                                             ),
                                           ]
                                         ),
@@ -2122,17 +2420,20 @@ var render = function () {
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("address_proof")) + " "),
+                            _vm._v(
+                              _vm._s(_vm.__("commercial_photo")) +
+                                "\n                                            "
+                            ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
                             ]),
                           ]),
                           _vm._v(" "),
                           _c("input", {
-                            ref: "file_address_proof",
+                            ref: "file_commercial_photo",
                             staticClass: "file-input",
                             attrs: { type: "file", required: "" },
-                            on: { change: _vm.handleFileAddressProof },
+                            on: { change: _vm.handleFileCommercialPhoto },
                           }),
                           _vm._v(" "),
                           _c(
@@ -2141,16 +2442,26 @@ var render = function () {
                               staticClass: "file-input-div bg-gray-100",
                               on: {
                                 click: function ($event) {
-                                  return _vm.$refs.file_address_proof.click()
+                                  return _vm.$refs.file_commercial_photo.click()
                                 },
-                                drop: _vm.dropFileAddressProof,
+                                drop: _vm.dropFileCommercialPhoto,
                                 dragover: _vm.$dragoverFile,
                                 dragleave: _vm.$dragleaveFile,
                               },
                             },
                             [
-                              _vm.address_proof_name == ""
+                              _vm.commercial_photo &&
+                              _vm.commercial_photo.name !== ""
                                 ? [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(_vm.__("selected_file_name")) +
+                                          ":-\n                                                    " +
+                                          _vm._s(_vm.commercial_photo.name)
+                                      ),
+                                    ]),
+                                  ]
+                                : [
                                     _vm._m(1),
                                     _vm._v(" "),
                                     _c("label", [
@@ -2162,30 +2473,21 @@ var render = function () {
                                         )
                                       ),
                                     ]),
-                                  ]
-                                : [
-                                    _c("label", [
-                                      _vm._v(
-                                        _vm._s(_vm.__("selected_file_name")) +
-                                          "\n                          " +
-                                          _vm._s(_vm.address_proof_name)
-                                      ),
-                                    ]),
                                   ],
                             ],
                             2
                           ),
                           _vm._v(" "),
-                          _vm.address_proof_url
+                          _vm.commercial_photo_url
                             ? _c("div", { staticClass: "row" }, [
-                                _vm.isImage(_vm.address_proof_url)
+                                _vm.isImage(_vm.commercial_photo_url)
                                   ? _c("div", { staticClass: "col-md-2" }, [
                                       _c("img", {
                                         staticClass: "custom-image",
                                         attrs: {
-                                          src: _vm.address_proof_url,
-                                          title: "Address Proof",
-                                          alt: "Address Proof",
+                                          src: _vm.commercial_photo_url,
+                                          title: "Commercial Photo",
+                                          alt: "Commercial Photo",
                                         },
                                       }),
                                     ])
@@ -2199,7 +2501,7 @@ var render = function () {
                                             staticClass: "badge bg-success",
                                             attrs: {
                                               target: "_blank",
-                                              href: _vm.address_proof_url,
+                                              href: _vm.commercial_photo_url,
                                             },
                                           },
                                           [
@@ -2207,8 +2509,11 @@ var render = function () {
                                               staticClass: "fa fa-eye",
                                             }),
                                             _vm._v(
-                                              " " +
-                                                _vm._s(_vm.__("address_proof"))
+                                              "\n                                                    " +
+                                                _vm._s(
+                                                  _vm.__("commercial_photo")
+                                                ) +
+                                                "\n                                                "
                                             ),
                                           ]
                                         ),
@@ -2220,140 +2525,345 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c("label", { attrs: { for: "logo" } }, [
-                          _vm._v(_vm._s(_vm.__("logo")) + " "),
-                          _c("i", { staticClass: "text-danger" }, [
-                            _vm._v("*"),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          ref: "file_store_logo",
-                          staticClass: "file-input",
-                          attrs: {
-                            type: "file",
-                            id: "logo",
-                            accept: "image/*",
-                            required: "",
-                          },
-                          on: { change: _vm.handleFileStoreLogo },
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "file-input-div bg-gray-100",
-                            on: {
-                              click: function ($event) {
-                                return _vm.$refs.file_store_logo.click()
-                              },
-                              drop: _vm.dropFileStoreLogo,
-                              dragover: _vm.$dragoverFile,
-                              dragleave: _vm.$dragleaveFile,
-                            },
-                          },
-                          [
-                            _vm.store_logo && _vm.store_logo.name !== ""
-                              ? [
-                                  _c("label", [
-                                    _vm._v(
-                                      "\n                        " +
-                                        _vm._s(_vm.__("selected_file_name")) +
-                                        " " +
-                                        _vm._s(_vm.store_logo.name)
-                                    ),
-                                  ]),
-                                ]
-                              : [
-                                  _vm._m(2),
-                                  _vm._v(" "),
-                                  _c("label", [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.__(
-                                          "drop_files_here_or_click_to_upload"
-                                        )
-                                      )
-                                    ),
-                                  ]),
-                                ],
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _vm.store_logo_url
-                          ? _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-md-2" }, [
-                                _c("img", {
-                                  staticClass: "custom-image",
-                                  attrs: {
-                                    src: _vm.store_logo_url,
-                                    title: "Store Logo",
-                                    alt: "Store Logo",
-                                  },
-                                }),
-                              ]),
-                            ])
-                          : _vm._e(),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-group col-md-12" },
-                        [
+                        _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(_vm._s(_vm.__("store_description")) + " : "),
+                            _vm._v(
+                              _vm._s(_vm.__("tax_number_photo")) +
+                                "\n                                            "
+                            ),
                             _c("i", { staticClass: "text-danger" }, [
                               _vm._v("*"),
                             ]),
                           ]),
                           _vm._v(" "),
-                          _c("editor", {
-                            attrs: {
-                              placeholder: _vm.__("enter_store_desc"),
-                              init: {
-                                height: 200,
-                                plugins: this.$editorPlugins,
-                                toolbar: this.$editorToolbar,
-                                font_size_formats:
-                                  this.$editorFont_size_formats,
-                              },
-                            },
-                            model: {
-                              value: _vm.store_description,
-                              callback: function ($$v) {
-                                _vm.store_description = $$v
-                              },
-                              expression: "store_description",
-                            },
+                          _c("input", {
+                            ref: "file_tax_photo",
+                            staticClass: "file-input",
+                            attrs: { type: "file", required: "" },
+                            on: { change: _vm.handleFileTaxPhoto },
                           }),
-                        ],
-                        1
-                      ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "file-input-div bg-gray-100",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$refs.file_tax_photo.click()
+                                },
+                                drop: _vm.dropFileTaxPhoto,
+                                dragover: _vm.$dragoverFile,
+                                dragleave: _vm.$dragleaveFile,
+                              },
+                            },
+                            [
+                              _vm.tax_photo && _vm.tax_photo.name !== ""
+                                ? [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(_vm.__("selected_file_name")) +
+                                          ":-\n                                                    " +
+                                          _vm._s(_vm.tax_photo.name)
+                                      ),
+                                    ]),
+                                  ]
+                                : [
+                                    _vm._m(2),
+                                    _vm._v(" "),
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.__(
+                                            "drop_files_here_or_click_to_upload"
+                                          )
+                                        )
+                                      ),
+                                    ]),
+                                  ],
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _vm.tax_photo_url
+                            ? _c("div", { staticClass: "row" }, [
+                                _vm.isImage(_vm.tax_photo_url)
+                                  ? _c("div", { staticClass: "col-md-2" }, [
+                                      _c("img", {
+                                        staticClass: "custom-image",
+                                        attrs: {
+                                          src: _vm.tax_photo_url,
+                                          title: "Tax Photo",
+                                          alt: "Tax Photo",
+                                        },
+                                      }),
+                                    ])
+                                  : _c(
+                                      "div",
+                                      { staticClass: "col-md-2 mt-2" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "badge bg-success",
+                                            attrs: {
+                                              target: "_blank",
+                                              href: _vm.tax_photo_url,
+                                            },
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-eye",
+                                            }),
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(
+                                                  _vm.__("tax_number_photo")
+                                                ) +
+                                                "\n                                                "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-4" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(_vm.__("national_photo")) +
+                                "\n                                            "
+                            ),
+                            _c("i", { staticClass: "text-danger" }, [
+                              _vm._v("*"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            ref: "file_national_photo",
+                            staticClass: "file-input",
+                            attrs: { type: "file", required: "" },
+                            on: { change: _vm.handleFileNationalPhoto },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "file-input-div bg-gray-100",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$refs.file_national_photo.click()
+                                },
+                                drop: _vm.dropFileNationalPhoto,
+                                dragover: _vm.$dragoverFile,
+                                dragleave: _vm.$dragleaveFile,
+                              },
+                            },
+                            [
+                              _vm.national_photo &&
+                              _vm.national_photo.name !== ""
+                                ? [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(_vm.__("selected_file_name")) +
+                                          ":-\n                                                    " +
+                                          _vm._s(_vm.national_photo.name)
+                                      ),
+                                    ]),
+                                  ]
+                                : [
+                                    _vm._m(3),
+                                    _vm._v(" "),
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.__(
+                                            "drop_files_here_or_click_to_upload"
+                                          )
+                                        )
+                                      ),
+                                    ]),
+                                  ],
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _vm.national_photo_url
+                            ? _c("div", { staticClass: "row" }, [
+                                _vm.isImage(_vm.national_photo_url)
+                                  ? _c("div", { staticClass: "col-md-2" }, [
+                                      _c("img", {
+                                        staticClass: "custom-image",
+                                        attrs: {
+                                          src: _vm.national_photo_url,
+                                          title: "National Photo",
+                                          alt: "National Photo",
+                                        },
+                                      }),
+                                    ])
+                                  : _c(
+                                      "div",
+                                      { staticClass: "col-md-2 mt-2" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "badge bg-success",
+                                            attrs: {
+                                              target: "_blank",
+                                              href: _vm.national_photo_url,
+                                            },
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-eye",
+                                            }),
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(
+                                                  _vm.__("national_photo")
+                                                ) +
+                                                "\n                                                "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group col-md-4" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [
+                            _vm._v(
+                              _vm._s(_vm.__("iban_photo")) +
+                                "\n                                            "
+                            ),
+                            _c("i", { staticClass: "text-danger" }, [
+                              _vm._v("*"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            ref: "file_iban_photo",
+                            staticClass: "file-input",
+                            attrs: { type: "file", required: "" },
+                            on: { change: _vm.handleFileIbanPhoto },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "file-input-div bg-gray-100",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$refs.file_iban_photo.click()
+                                },
+                                drop: _vm.dropFileIbanPhoto,
+                                dragover: _vm.$dragoverFile,
+                                dragleave: _vm.$dragleaveFile,
+                              },
+                            },
+                            [
+                              _vm.iban_photo && _vm.iban_photo.name !== ""
+                                ? [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(_vm.__("selected_file_name")) +
+                                          ":-\n                                                    " +
+                                          _vm._s(_vm.iban_photo.name)
+                                      ),
+                                    ]),
+                                  ]
+                                : [
+                                    _vm._m(4),
+                                    _vm._v(" "),
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.__(
+                                            "drop_files_here_or_click_to_upload"
+                                          )
+                                        )
+                                      ),
+                                    ]),
+                                  ],
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _vm.iban_photo_url
+                            ? _c("div", { staticClass: "row" }, [
+                                _vm.isImage(_vm.iban_photo_url)
+                                  ? _c("div", { staticClass: "col-md-2" }, [
+                                      _c("img", {
+                                        staticClass: "custom-image",
+                                        attrs: {
+                                          src: _vm.iban_photo_url,
+                                          title: "IBAN Photo",
+                                          alt: "IBAN Photo",
+                                        },
+                                      }),
+                                    ])
+                                  : _c(
+                                      "div",
+                                      { staticClass: "col-md-2 mt-2" },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            staticClass: "badge bg-success",
+                                            attrs: {
+                                              target: "_blank",
+                                              href: _vm.iban_photo_url,
+                                            },
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-eye",
+                                            }),
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(_vm.__("iban_photo")) +
+                                                "\n                                                "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                              ])
+                            : _vm._e(),
+                        ]),
+                      ]),
                     ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-primary btn-block btn-lg shadow-lg mt-1",
+                      },
+                      [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.__("complete")) +
+                            "\n                                "
+                        ),
+                        _vm.isLoading
+                          ? _c("b-spinner", {
+                              attrs: { small: "", label: "Spinning" },
+                            })
+                          : _vm._e(),
+                      ],
+                      1
+                    ),
                   ]),
                 ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-primary btn-block btn-lg shadow-lg mt-1",
-                  },
-                  [
-                    _vm._v(
-                      "\n            " +
-                        _vm._s(_vm.__("complete")) +
-                        "\n            "
-                    ),
-                    _vm.isLoading
-                      ? _c("b-spinner", {
-                          attrs: { small: "", label: "Spinning" },
-                        })
-                      : _vm._e(),
-                  ],
-                  1
-                ),
               ]),
             ]
           ),
@@ -2365,7 +2875,7 @@ var render = function () {
                 staticClass: "text-primary font-weight-normal",
                 attrs: { href: "javascript:void(0)" },
               },
-              [_vm._v("\n          " + _vm._s(_vm.$copyrightDetails))]
+              [_vm._v(_vm._s(_vm.$copyrightDetails))]
             ),
           ]),
         ]),
@@ -2375,6 +2885,22 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
