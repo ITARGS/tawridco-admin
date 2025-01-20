@@ -77,10 +77,10 @@ class CategoryApiController extends Controller
     public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required_without_all:name_en,name_ar',
-            'name_en' => 'required_without_all:name,name_ar',
-            'name_ar' => 'required_without_all:name,name_en',
-            'subtitle' => 'required',
+            'name_en' => 'required',
+            'name_ar' => 'required',
+            'subtitle_en' => 'required',
+            'subtitle_ar' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
         if ($validator->fails()) {
@@ -88,7 +88,7 @@ class CategoryApiController extends Controller
         }
 
         // Generate slug from the title
-        $slug = Str::slug($request->name_en ?? $request->name);
+        $slug = Str::slug($request->name_en ?? $request->name_ar);
 
         // Check for uniqueness
         $count = Category::where('slug', $slug)->count();
@@ -98,13 +98,10 @@ class CategoryApiController extends Controller
 
         $category = new Category();
 
-        if (app()->getLocale() == 'en') {
-            $category->name_en = $request->name_en ?? $request->name;
-            $category->subtitle_en = $request->subtitle_en ?? $request->subtitle;
-        } else {
-            $category->name_ar = $request->name_ar ?? $request->name;
-            $category->subtitle_ar = $request->subtitle_ar ?? $request->subtitle;
-        }
+        $category->name_en = $request->name_en;
+        $category->subtitle_en = $request->subtitle_en;
+        $category->name_ar = $request->name_ar;
+        $category->subtitle_ar = $request->subtitle_ar;
 
         $category->slug = $slug;
         $image = '';
@@ -124,8 +121,10 @@ class CategoryApiController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'subtitle' => 'required',
+            'name_en' => 'required',
+            'name_ar' => 'required',
+            'subtitle_en' => 'required',
+            'subtitle_ar' => 'required',
         ]);
         if ($validator->fails()) {
             return CommonHelper::responseError($validator->errors()->first());
@@ -133,20 +132,17 @@ class CategoryApiController extends Controller
         if (isset($request->id)) {
             $category = Category::find($request->id);
 
-            $newSlug = Str::slug($request->name);
+            $newSlug = Str::slug($request->name_en ?? $request->name_ar);
             $count = Category::where('slug', $newSlug)->where('id', '!=', $category->id)->count();
 
             if ($count > 0) {
                 $newSlug .= '-' . ($count + 1);
             }
 
-            if (app()->getLocale() == 'en') {
-                $category->name_en = $request->name_en ?? $request->name;
-                $category->subtitle_en = $request->subtitle_en ?? $request->subtitle;
-            } else {
-                $category->name_ar = $request->name_ar ?? $request->name;
-                $category->subtitle_ar = $request->subtitle_ar ?? $request->subtitle;
-            }
+            $category->name_en = $request->name_en ?? $request->name;
+            $category->subtitle_en = $request->subtitle_en ?? $request->subtitle;
+            $category->name_ar = $request->name_ar ?? $request->name;
+            $category->subtitle_ar = $request->subtitle_ar ?? $request->subtitle;
 
             $category->status = $request->status;
             $category->slug = $newSlug;
@@ -199,8 +195,15 @@ class CategoryApiController extends Controller
 
     public function countProductCategoryWise()
     {
-        $categories = Category::select('id', 'name', DB::raw('(SELECT count(id) from `products` WHERE products.category_id = categories.id) AS product_count'))
+        if (app()->getLocale() == 'en') {
+            $name = 'name_en';
+        } else {
+            $name = 'name_ar';
+        }
+
+        $categories = Category::select('id', $name, DB::raw('(SELECT count(id) from `products` WHERE products.category_id = categories.id) AS product_count'))
             ->orderBy('id', 'ASC')->get();
+
         return CommonHelper::responseWithData($categories);
     }
 

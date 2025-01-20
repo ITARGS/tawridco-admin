@@ -1,5 +1,6 @@
 <template>
-    <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" scrollable no-close-on-backdrop no-fade static>
+    <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" scrollable no-close-on-backdrop no-fade
+             static>
         <div slot="modal-footer">
             <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">{{ __('save') }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
@@ -11,28 +12,43 @@
                 <div class="form-group">
                     <label>{{ __("parent_category") }}</label>
                     <select v-model="parent_id" class="form-control form-select" v-html="parent_categories"></select>
-                    <span class="text-danger" v-if="id">{{ __('parent_category_note') }}</span>      
+                    <span class="text-danger" v-if="id">{{ __('parent_category_note') }}</span>
                 </div>
                 <div class="form-group">
-                    <label>{{ __('category_name') }}</label>
-                    <input type="text" class="form-control" required v-model="name" :placeholder="__('enter_category_name')"  v-on:keyup="createSlug">
+                    <label>{{ __('category_name_en') }}</label>
+                    <input type="text" class="form-control" required v-model="name_en"
+                           :placeholder="__('enter_category_name')" v-on:keyup="createSlug">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
+                    <label>{{ __('category_name_ar') }}</label>
+                    <input type="text" class="form-control" required v-model="name_ar"
+                           :placeholder="__('enter_category_name')" v-on:keyup="createSlug">
+                </div>
+                <div class="form-group">
                     <label>{{ __('slug') }}</label>
                     <i class="text-danger">*</i>
                     <input type="text" class="form-control" :placeholder="__('enter_category_slug')" v-model="slug">
                 </div>
                 <div class="form-group">
-                    <label>{{ __('category_subtitle') }}</label>
-                    <input type="text" class="form-control" required v-model="subtitle" :placeholder="__('enter_category_subtitle')">
+                    <label>{{ __('category_subtitle_en') }}</label>
+                    <input type="text" class="form-control" required v-model="subtitle_en"
+                           :placeholder="__('enter_category_subtitle')">
+                </div>
+                <div class="form-group">
+                    <label>{{ __('category_subtitle_ar') }}</label>
+                    <input type="text" class="form-control" required v-model="subtitle_ar"
+                           :placeholder="__('enter_category_subtitle')">
                 </div>
                 <div class="form-group">
                     <label>{{ __('image') }}</label>
-                    <p class="text-muted">Please choose square image of larger than 350px*350px &amp; smaller than 550px*550px.</p>
+                    <p class="text-muted">Please choose square image of larger than 350px*350px &amp; smaller than
+                        550px*550px.</p>
                     <span v-if="error" class="error">{{ error }}</span>
 
-                    <input type="file" name="category_image" accept="image/*" v-on:change="handleFileUpload" ref="file_image" class="file-input">
-                    <div class="file-input-div bg-gray-100" @click="$refs.file_image.click()" @drop="dropFile" @dragover="$dragoverFile" @dragleave="$dragleaveFile">
+                    <input type="file" name="category_image" accept="image/*" v-on:change="handleFileUpload"
+                           ref="file_image" class="file-input">
+                    <div class="file-input-div bg-gray-100" @click="$refs.file_image.click()" @drop="dropFile"
+                         @dragover="$dragoverFile" @dragleave="$dragleaveFile">
 
                         <template v-if="image && image.name !== ''">
                             <label>Selected file name:- {{ image.name }}</label>
@@ -82,67 +98,71 @@ export default {
 
             id: this.record ? this.record.id : null,
             name: this.record ? this.record.name : null,
-            slug:  this.record ? this.record.slug : null,
+            name_en: this.record ? this.record.name_en : null,
+            name_ar: this.record ? this.record.name_ar : null,
+            slug: this.record ? this.record.slug : null,
             subtitle: this.record ? this.record.subtitle : null,
+            subtitle_en: this.record ? this.record.subtitle_en : null,
+            subtitle_ar: this.record ? this.record.subtitle_ar : null,
             image_url: this.record ? this.record.image_url : null,
             status: this.record ? this.record.status : 1,
             parent_id: this.record ? this.record.parent_id : 0,
             error: null,
-           
-      editedCategoryId: null, // ID of the category being edited
-       selectedCategories: [],
-       parent_categories: null
-       
+
+            editedCategoryId: null, // ID of the category being edited
+            selectedCategories: [],
+            parent_categories: null
+
         };
     },
-     watch: {
-    editedCategoryId(newVal) {
-      // Set the selectedParentId to the ID of the category being edited
-      this.selectedParentId = newVal;
+    watch: {
+        editedCategoryId(newVal) {
+            // Set the selectedParentId to the ID of the category being edited
+            this.selectedParentId = newVal;
+        },
     },
-  },
-  created: function() {
+    created: function () {
         this.getParentCategories();
-        
+
     },
     computed: {
         modal_title: function () {
             let title = this.id ? __('edit_category') : __('add_category');
             return title;
         },
-         
-    },
-  
-    methods: {
-            createSlug() {
-                if (this.name !== "") {
-                    let slug = this.name.toLowerCase()
-                        .replace(/[^\w ]+/g, '')
-                        .replace(/ +/g, '-');
 
-                    // Check for uniqueness
-                    axios.get(this.$apiUrl +`/categories/check-slug/${slug}`)
-                        .then(response => {
-                            if (response.data.unique) {
-                                this.slug = slug;
-                            } else {
-                                this.slug = slug + '-' + response.data.count;
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error checking slug uniqueness: ' + error);
-                        });
-                }
-            },
-            getParentCategories() {
+    },
+
+    methods: {
+        createSlug() {
+            if (this.name_en !== "") {
+                let slug = this.name_en.toLowerCase()
+                    .replace(/[^\w ]+/g, '')
+                    .replace(/ +/g, '-');
+
+                // Check for uniqueness
+                axios.get(this.$apiUrl + `/categories/check-slug/${slug}`)
+                    .then(response => {
+                        if (response.data.unique) {
+                            this.slug = slug;
+                        } else {
+                            this.slug = slug + '-' + response.data.count;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error checking slug uniqueness: ' + error);
+                    });
+            }
+        },
+        getParentCategories() {
             axios.get(this.$apiUrl + '/categories/options', {
-        params: {
-            exclude_id: this.record ? this.record.id : 0
-        }
+                params: {
+                    exclude_id: this.record ? this.record.id : 0
+                }
             })
                 .then((response) => {
-                   this.parent_categories = response.data;
-                   
+                    this.parent_categories = response.data;
+
                 });
         },
         showModal() {
@@ -151,7 +171,7 @@ export default {
         hideModal() {
             this.$refs['my-modal'].hide()
         },
-       
+
         dropFile(event) {
             event.preventDefault();
             this.$refs.file_image.files = event.dataTransfer.files;
@@ -162,9 +182,9 @@ export default {
         },
 
         handleFileUpload() {
-   
+
             const file = this.$refs.file_image.files[0];
-      
+
             // Reset previous error message
             this.error = null;
 
@@ -192,15 +212,17 @@ export default {
         saveRecord: function () {
             let vm = this;
             this.isLoading = true;
-           
+
 
             let formData = new FormData();
             if (this.id) {
                 formData.append('id', this.id);
             }
-            formData.append('name', this.name);
+            formData.append('name_en', this.name_en);
+            formData.append('name_ar', this.name_ar);
             formData.append('slug', this.slug);
-            formData.append('subtitle', this.subtitle);
+            formData.append('subtitle_en', this.subtitle_en);
+            formData.append('subtitle_ar', this.subtitle_ar);
             formData.append('image', this.image);
             formData.append('status', this.status);
             formData.append('parent_id', this.parent_id);
@@ -217,11 +239,11 @@ export default {
             }).then(res => {
                 let data = res.data;
                 if (data.status === 1) {
-                   
+
                     vm.$eventBus.$emit('categorySaved', data.message);
                     vm.hideModal();
                     vm.$router.push({path: '/manage_categories'});
-                  
+
 
                 } else {
                     vm.showError(data.message);
@@ -231,7 +253,7 @@ export default {
                 vm.isLoading = false;
                 if (error.request.statusText) {
                     this.showError(error.request.statusText);
-                }else if (error.message) {
+                } else if (error.message) {
                     this.showError(error.message);
                 } else {
                     this.showError(__('something_went_wrong'));
