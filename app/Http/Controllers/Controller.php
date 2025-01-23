@@ -71,7 +71,14 @@ class Controller extends BaseController
             ->get();
 
         $parents = Category::get()->pluck('parent_id')->toArray();
-        $data['top_categories'] = OrderItem::select('product_variants.product_id', 'product_variants.id', 'products.name as product_name', 'products.category_id', 'products.seller_id', 'categories.name as category_name',
+
+        if (app()->getLocale() == 'en') {
+            $categoryNameField = 'categories.name_en as category_name_en';
+        } else {
+            $categoryNameField = 'categories.name_ar as category_name_ar';
+        }
+
+        $data['top_categories'] = OrderItem::select('product_variants.product_id', 'product_variants.id', 'products.name as product_name', 'products.category_id', 'products.seller_id', $categoryNameField,
             'product_variants.measurement', 'order_items.product_name', 'order_items.variant_name', DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue"))
             ->leftJoin('orders', 'order_items.order_id', '=', 'orders.id')
             ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
@@ -84,7 +91,6 @@ class Controller extends BaseController
             ->groupBy('products.category_id')
             ->orderBy('order_items.id', 'DESC')
             ->get();
-
 
         $data['status_order_count'] = CommonHelper::getStatusOrderCount();
 
