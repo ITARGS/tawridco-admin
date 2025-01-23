@@ -3846,7 +3846,6 @@ function getWindowScrollingElement() {
     return document.documentElement;
   }
 }
-<<<<<<< HEAD
 /**
  * Returns the "bounding client rect" of given element
  * @param  {HTMLElement} el                       The element whose boundingClientRect is wanted
@@ -3855,16 +3854,6 @@ function getWindowScrollingElement() {
  * @param  {[Boolean]} undoScale                  Whether the container's scale() should be undone
  * @param  {[HTMLElement]} container              The parent the element will be placed in
  * @return {Object}                               The boundingClientRect of el, with specified adjustments
-=======
-/**
- * Returns the "bounding client rect" of given element
- * @param  {HTMLElement} el                       The element whose boundingClientRect is wanted
- * @param  {[Boolean]} relativeToContainingBlock  Whether the rect should be relative to the containing block of (including) the container
- * @param  {[Boolean]} relativeToNonStaticParent  Whether the rect should be relative to the relative parent of (including) the contaienr
- * @param  {[Boolean]} undoScale                  Whether the container's scale() should be undone
- * @param  {[HTMLElement]} container              The parent the element will be placed in
- * @return {Object}                               The boundingClientRect of el, with specified adjustments
->>>>>>> feature/translate-categories
  */
 
 
@@ -3936,21 +3925,12 @@ function getRect(el, relativeToContainingBlock, relativeToNonStaticParent, undoS
     height: height
   };
 }
-<<<<<<< HEAD
 /**
  * Checks if a side of an element is scrolled past a side of its parents
  * @param  {HTMLElement}  el           The element who's side being scrolled out of view is in question
  * @param  {String}       elSide       Side of the element in question ('top', 'left', 'right', 'bottom')
  * @param  {String}       parentSide   Side of the parent in question ('top', 'left', 'right', 'bottom')
  * @return {HTMLElement}               The parent scroll element that the el's side is scrolled past, or null if there is no such element
-=======
-/**
- * Checks if a side of an element is scrolled past a side of its parents
- * @param  {HTMLElement}  el           The element who's side being scrolled out of view is in question
- * @param  {String}       elSide       Side of the element in question ('top', 'left', 'right', 'bottom')
- * @param  {String}       parentSide   Side of the parent in question ('top', 'left', 'right', 'bottom')
- * @return {HTMLElement}               The parent scroll element that the el's side is scrolled past, or null if there is no such element
->>>>>>> feature/translate-categories
  */
 
 
@@ -3976,7 +3956,6 @@ function isScrolledPast(el, elSide, parentSide) {
 
   return false;
 }
-<<<<<<< HEAD
 /**
  * Gets nth child of el, ignoring hidden children, sortable's elements (does not ignore clone if it's visible)
  * and non-draggable elements
@@ -3984,15 +3963,6 @@ function isScrolledPast(el, elSide, parentSide) {
  * @param  {Number} childNum      The index of the child
  * @param  {Object} options       Parent Sortable's options
  * @return {HTMLElement}          The child at index childNum, or null if not found
-=======
-/**
- * Gets nth child of el, ignoring hidden children, sortable's elements (does not ignore clone if it's visible)
- * and non-draggable elements
- * @param  {HTMLElement} el       The parent element
- * @param  {Number} childNum      The index of the child
- * @param  {Object} options       Parent Sortable's options
- * @return {HTMLElement}          The child at index childNum, or null if not found
->>>>>>> feature/translate-categories
  */
 
 
@@ -4015,19 +3985,11 @@ function getChild(el, childNum, options) {
 
   return null;
 }
-<<<<<<< HEAD
 /**
  * Gets the last child in the el, ignoring ghostEl or invisible elements (clones)
  * @param  {HTMLElement} el       Parent element
  * @param  {selector} selector    Any other elements that should be ignored
  * @return {HTMLElement}          The last child, ignoring ghostEl
-=======
-/**
- * Gets the last child in the el, ignoring ghostEl or invisible elements (clones)
- * @param  {HTMLElement} el       Parent element
- * @param  {selector} selector    Any other elements that should be ignored
- * @return {HTMLElement}          The last child, ignoring ghostEl
->>>>>>> feature/translate-categories
  */
 
 
@@ -4040,21 +4002,12 @@ function lastChild(el, selector) {
 
   return last || null;
 }
-<<<<<<< HEAD
 /**
  * Returns the index of an element within its parent for a selected set of
  * elements
  * @param  {HTMLElement} el
  * @param  {selector} selector
  * @return {number}
-=======
-/**
- * Returns the index of an element within its parent for a selected set of
- * elements
- * @param  {HTMLElement} el
- * @param  {selector} selector
- * @return {number}
->>>>>>> feature/translate-categories
  */
 
 
@@ -4075,19 +4028,11 @@ function index(el, selector) {
 
   return index;
 }
-<<<<<<< HEAD
 /**
  * Returns the scroll offset of the given element, added with all the scroll offsets of parent elements.
  * The value is returned in real pixels.
  * @param  {HTMLElement} el
  * @return {Array}             Offsets in the format of [left, top]
-=======
-/**
- * Returns the scroll offset of the given element, added with all the scroll offsets of parent elements.
- * The value is returned in real pixels.
- * @param  {HTMLElement} el
- * @return {Array}             Offsets in the format of [left, top]
->>>>>>> feature/translate-categories
  */
 
 
@@ -4108,19 +4053,11 @@ function getRelativeScrollOffset(el) {
 
   return [offsetLeft, offsetTop];
 }
-<<<<<<< HEAD
 /**
  * Returns the index of the object within the given array
  * @param  {Array} arr   Array that may or may not hold the object
  * @param  {Object} obj  An object that has a key-value pair unique to and identical to a key-value pair in the object you want to find
  * @return {Number}      The index of the object in the array, or -1
-=======
-/**
- * Returns the index of the object within the given array
- * @param  {Array} arr   Array that may or may not hold the object
- * @param  {Object} obj  An object that has a key-value pair unique to and identical to a key-value pair in the object you want to find
- * @return {Number}      The index of the object in the array, or -1
->>>>>>> feature/translate-categories
  */
 
 
@@ -7192,15 +7129,9 @@ function MultiDragPlugin() {
     // Static methods & properties
     pluginName: 'multiDrag',
     utils: {
-<<<<<<< HEAD
       /**
        * Selects the provided multi-drag item
        * @param  {HTMLElement} el    The element to be selected
-=======
-      /**
-       * Selects the provided multi-drag item
-       * @param  {HTMLElement} el    The element to be selected
->>>>>>> feature/translate-categories
        */
       select: function select(el) {
         var sortable = el.parentNode[expando];
@@ -7216,15 +7147,9 @@ function MultiDragPlugin() {
         multiDragElements.push(el);
       },
 
-<<<<<<< HEAD
       /**
        * Deselects the provided multi-drag item
        * @param  {HTMLElement} el    The element to be deselected
-=======
-      /**
-       * Deselects the provided multi-drag item
-       * @param  {HTMLElement} el    The element to be deselected
->>>>>>> feature/translate-categories
        */
       deselect: function deselect(el) {
         var sortable = el.parentNode[expando],
@@ -7294,17 +7219,10 @@ function insertMultiDragElements(clonesInserted, rootEl) {
     }
   });
 }
-<<<<<<< HEAD
 /**
  * Insert multi-drag clones
  * @param  {[Boolean]} elementsInserted  Whether the multi-drag elements are inserted
  * @param  {HTMLElement} rootEl
-=======
-/**
- * Insert multi-drag clones
- * @param  {[Boolean]} elementsInserted  Whether the multi-drag elements are inserted
- * @param  {HTMLElement} rootEl
->>>>>>> feature/translate-categories
  */
 
 

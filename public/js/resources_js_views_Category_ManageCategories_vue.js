@@ -85,8 +85,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -103,7 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
->>>>>>> feature/translate-categories
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -114,17 +111,12 @@ __webpack_require__.r(__webpack_exports__);
       image: null,
       id: this.record ? this.record.id : null,
       name: this.record ? this.record.name : null,
-<<<<<<< HEAD
-      slug: this.record ? this.record.slug : null,
-      subtitle: this.record ? this.record.subtitle : null,
-=======
       name_en: this.record ? this.record.name_en : null,
       name_ar: this.record ? this.record.name_ar : null,
       slug: this.record ? this.record.slug : null,
       subtitle: this.record ? this.record.subtitle : null,
       subtitle_en: this.record ? this.record.subtitle_en : null,
       subtitle_ar: this.record ? this.record.subtitle_ar : null,
->>>>>>> feature/translate-categories
       image_url: this.record ? this.record.image_url : null,
       status: this.record ? this.record.status : 1,
       parent_id: this.record ? this.record.parent_id : 0,
@@ -153,13 +145,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     createSlug: function createSlug() {
       var _this = this;
-<<<<<<< HEAD
-      if (this.name !== "") {
-        var slug = this.name.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
-=======
       if (this.name_en !== "") {
         var slug = this.name_en.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
->>>>>>> feature/translate-categories
 
         // Check for uniqueness
         axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories/check-slug/".concat(slug)).then(function (response) {
@@ -231,17 +218,11 @@ __webpack_require__.r(__webpack_exports__);
       if (this.id) {
         formData.append('id', this.id);
       }
-<<<<<<< HEAD
-      formData.append('name', this.name);
-      formData.append('slug', this.slug);
-      formData.append('subtitle', this.subtitle);
-=======
       formData.append('name_en', this.name_en);
       formData.append('name_ar', this.name_ar);
       formData.append('slug', this.slug);
       formData.append('subtitle_en', this.subtitle_en);
       formData.append('subtitle_ar', this.subtitle_ar);
->>>>>>> feature/translate-categories
       formData.append('image', this.image);
       formData.append('status', this.status);
       formData.append('parent_id', this.parent_id);
@@ -913,24 +894,15 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-<<<<<<< HEAD
-              _c("label", [_vm._v(_vm._s(_vm.__("category_name")))]),
-=======
               _c("label", [_vm._v(_vm._s(_vm.__("category_name_en")))]),
->>>>>>> feature/translate-categories
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-<<<<<<< HEAD
-                    value: _vm.name,
-                    expression: "name",
-=======
                     value: _vm.name_en,
                     expression: "name_en",
->>>>>>> feature/translate-categories
                   },
                 ],
                 staticClass: "form-control",
@@ -939,20 +911,13 @@ var render = function () {
                   required: "",
                   placeholder: _vm.__("enter_category_name"),
                 },
-<<<<<<< HEAD
-                domProps: { value: _vm.name },
-=======
                 domProps: { value: _vm.name_en },
->>>>>>> feature/translate-categories
                 on: {
                   keyup: _vm.createSlug,
                   input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
-<<<<<<< HEAD
-                    _vm.name = $event.target.value
-=======
                     _vm.name_en = $event.target.value
                   },
                 },
@@ -985,7 +950,6 @@ var render = function () {
                       return
                     }
                     _vm.name_ar = $event.target.value
->>>>>>> feature/translate-categories
                   },
                 },
               }),
@@ -1023,24 +987,15 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-<<<<<<< HEAD
-              _c("label", [_vm._v(_vm._s(_vm.__("category_subtitle")))]),
-=======
               _c("label", [_vm._v(_vm._s(_vm.__("category_subtitle_en")))]),
->>>>>>> feature/translate-categories
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-<<<<<<< HEAD
-                    value: _vm.subtitle,
-                    expression: "subtitle",
-=======
                     value: _vm.subtitle_en,
                     expression: "subtitle_en",
->>>>>>> feature/translate-categories
                   },
                 ],
                 staticClass: "form-control",
@@ -1049,19 +1004,12 @@ var render = function () {
                   required: "",
                   placeholder: _vm.__("enter_category_subtitle"),
                 },
-<<<<<<< HEAD
-                domProps: { value: _vm.subtitle },
-=======
                 domProps: { value: _vm.subtitle_en },
->>>>>>> feature/translate-categories
                 on: {
                   input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
-<<<<<<< HEAD
-                    _vm.subtitle = $event.target.value
-=======
                     _vm.subtitle_en = $event.target.value
                   },
                 },
@@ -1093,7 +1041,6 @@ var render = function () {
                       return
                     }
                     _vm.subtitle_ar = $event.target.value
->>>>>>> feature/translate-categories
                   },
                 },
               }),
@@ -1104,11 +1051,7 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-<<<<<<< HEAD
-                  "Please choose square image of larger than 350px*350px & smaller than 550px*550px."
-=======
                   "Please choose square image of larger than 350px*350px & smaller than\n                    550px*550px."
->>>>>>> feature/translate-categories
                 ),
               ]),
               _vm._v(" "),

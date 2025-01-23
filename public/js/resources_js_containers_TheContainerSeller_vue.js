@@ -994,11 +994,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     mainStyle: function mainStyle() {
       if (this.isRTL === "true") {
-<<<<<<< HEAD
         return this.isToggle == true ? " width:100%;transition:0.7s;position: relative;right:0rem;" : " width:80%;transition:0.8s;position: relative;right:0rem;";
-=======
-        return this.isToggle == true ? " width:100%;transition:0.7s;position: relative;right:0rem;  " : " width:80%;transition:0.8s;position: relative;right:0rem; ";
->>>>>>> feature/translate-categories
       } else if (this.isRTL === "false") {
         return this.isToggle == true ? " width:100%;transition:0.7s;position: relative; right:0rem;" : " width:80%;transition:0.8s;position: relative;right:-19rem;";
       }
@@ -1218,11 +1214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.SideBarStyle[data-v-0baa285e] {\n  position: fixed;\n  z-index: 1;\n}\n.fade-enter-active[data-v-0baa285e],\n.fade-leave-active[data-v-0baa285e] {\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-0baa285e],\n.fade-leave-to[data-v-0baa285e] {\n  opacity: 0;\n}\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-0baa285e],\n.fade-leave-active[data-v-0baa285e] {\n  transition: opacity 0.3s;\n}\n.fade-enter[data-v-0baa285e],\n.fade-leave-to[data-v-0baa285e] {\n  opacity: 0;\n}\n", ""]);
->>>>>>> feature/translate-categories
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1633,7 +1625,6 @@ var render = function () {
     "div",
     { attrs: { id: "app" } },
     [
-<<<<<<< HEAD
       _c(
         "div",
         { staticClass: "SideBarStyle active", attrs: { id: "sidebar" } },
@@ -1794,159 +1785,6 @@ var render = function () {
           ]),
         ]
       ),
-=======
-      _c("div", { staticClass: "active", attrs: { id: "sidebar" } }, [
-        _c("div", { staticClass: "sidebar-wrapper active" }, [
-          _c("div", { staticClass: "sidebar-header" }, [
-            _c("div", { staticClass: "d-flex justify-content-between" }, [
-              _c(
-                "div",
-                { staticClass: "logo" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticStyle: {
-                        display: "flex",
-                        "align-items": "center",
-                        "justify-content": "flex-start",
-                      },
-                      attrs: { to: "/seller" },
-                    },
-                    [
-                      _vm.$appLogo != ""
-                        ? _c("img", {
-                            staticClass: "container-logo",
-                            attrs: {
-                              src: _vm.$storageUrl + _vm.$appLogo,
-                              alt: "Logo",
-                              srcset: "",
-                            },
-                          })
-                        : _c("img", {
-                            staticClass: "container-logo",
-                            attrs: {
-                              src: _vm.$baseUrl + "/images/logo.png",
-                              alt: "Logo",
-                              srcset: "",
-                            },
-                          }),
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.$appName) +
-                          "\n            "
-                      ),
-                    ]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(0),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "sidebar-menu" }, [
-            _c(
-              "ul",
-              { staticClass: "menu" },
-              [
-                _vm._l(_vm.sidebarItems, function (item) {
-                  return [
-                    (
-                      item.role == true
-                        ? _vm.$role("Super Admin") &&
-                          (item.name == "Role" || item.name == "System Users")
-                        : item.permission && _vm.$can(item.permission)
-                    )
-                      ? _c(
-                          "li",
-                          {
-                            key: item.name,
-                            staticClass: "sidebar-item",
-                            class: {
-                              active:
-                                _vm.isActive(item.url) || _vm.subIsActive(item),
-                              "has-sub": _vm.isHasSub(item),
-                            },
-                          },
-                          [
-                            _vm.isHasSub(item)
-                              ? [
-                                  _c("a", { staticClass: "sidebar-link" }, [
-                                    _c("i", { class: "fa fa-" + item.icon }),
-                                    _vm._v(" "),
-                                    _c("span", [_vm._v(_vm._s(item.name))]),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "ul",
-                                    {
-                                      staticClass: "submenu",
-                                      class: { active: _vm.subIsActive(item) },
-                                    },
-                                    [
-                                      _vm._l(item.submenu, function (sub) {
-                                        return [
-                                          _c(
-                                            "li",
-                                            {
-                                              key: sub.key,
-                                              staticClass: "submenu-item",
-                                              class: {
-                                                active: _vm.isActive(sub.url),
-                                              },
-                                            },
-                                            [
-                                              _c(
-                                                "router-link",
-                                                { attrs: { to: sub.url } },
-                                                [
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(sub.name) +
-                                                      "\n                      "
-                                                  ),
-                                                ]
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                        ]
-                                      }),
-                                    ],
-                                    2
-                                  ),
-                                ]
-                              : [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass: "sidebar-link",
-                                      attrs: { to: item.url },
-                                    },
-                                    [
-                                      _c("i", { class: "fa fa-" + item.icon }),
-                                      _vm._v(" "),
-                                      _c("span", [_vm._v(_vm._s(item.name))]),
-                                    ]
-                                  ),
-                                ],
-                          ],
-                          2
-                        )
-                      : _vm._e(),
-                  ]
-                }),
-              ],
-              2
-            ),
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-        ]),
-      ]),
->>>>>>> feature/translate-categories
       _vm._v(" "),
       _c("vertical-header"),
       _vm._v(" "),
