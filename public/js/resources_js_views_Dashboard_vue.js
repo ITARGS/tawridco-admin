@@ -644,6 +644,169 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -651,7 +814,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Chart',
+  name: "Chart",
   components: {
     GChart: vue_google_charts_legacy__WEBPACK_IMPORTED_MODULE_2__.GChart,
     apexcharts: (vue_apexcharts__WEBPACK_IMPORTED_MODULE_4___default()),
@@ -671,119 +834,119 @@ __webpack_require__.r(__webpack_exports__);
         endDate: null
       },
       customRanges: {
-        'Today': this.getTodayRange(),
-        'Yesterday': this.getYesterdayRange(),
-        'This Week': this.getThisWeekRange(),
-        'This Month': this.getThisMonthRange(),
-        'This Year': this.getThisYearRange(),
-        'Last Month': this.getLastMonthRange()
+        Today: this.getTodayRange(),
+        Yesterday: this.getYesterdayRange(),
+        "This Week": this.getThisWeekRange(),
+        "This Month": this.getThisMonthRange(),
+        "This Year": this.getThisYearRange(),
+        "Last Month": this.getLastMonthRange()
       },
       maxDate: new Date(),
       isLoading: false,
       record: [],
       currentMonth: "",
       sellerFields: [{
-        key: 'seller_id',
-        label: __('id'),
+        key: "seller_id",
+        label: __("id"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'seller_name',
-        label: __('sellers'),
+        key: "seller_name",
+        label: __("sellers"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'store_name',
-        label: __('store_name'),
+        key: "store_name",
+        label: __("store_name"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'total_revenue',
-        label: __('total_revenue'),
+        key: "total_revenue",
+        label: __("total_revenue"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
         key: "actions",
-        label: __('actions')
+        label: __("actions")
       }],
       categoryFields: [{
-        key: 'category_id',
-        label: __('id'),
+        key: "category_id",
+        label: __("id"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'category_name',
-        label: __('category'),
+        key: "category_name",
+        label: __("category"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'product_name',
-        label: __('product'),
+        key: "product_name",
+        label: __("product"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'total_revenue',
-        label: __('total_revenue'),
+        key: "total_revenue",
+        label: __("total_revenue"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
         key: "actions",
-        label: __('actions')
+        label: __("actions")
       }],
       orderFields: [{
-        key: 'id',
-        label: __('oid'),
+        key: "id",
+        label: __("oid"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'user_name',
-        label: __('user'),
+        key: "user_name",
+        label: __("user"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'mobile',
-        label: __('mobile'),
+        key: "mobile",
+        label: __("mobile"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'total',
-        label: __('total') + '(' + this.$currency + ')',
+        key: "total",
+        label: __("total") + "(" + this.$currency + ")",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'delivery_charge',
-        label: __('dcharges') + '(' + this.$currency + ')',
+        key: "delivery_charge",
+        label: __("dcharges") + "(" + this.$currency + ")",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'final_total',
-        label: __('ftotal') + '(' + this.$currency + ')',
+        key: "final_total",
+        label: __("ftotal") + "(" + this.$currency + ")",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'payment_method',
-        label: __('p_method'),
+        key: "payment_method",
+        label: __("p_method"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'delivery_time',
-        label: __('d_time'),
+        key: "delivery_time",
+        label: __("d_time"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
         key: "actions",
-        label: __('actions')
+        label: __("actions")
       }],
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       orderFilter: null,
       sellerFilter: null,
       categoryFilter: null,
       filterOn: [],
       page: 1,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       sellers: [],
@@ -809,13 +972,13 @@ __webpack_require__.r(__webpack_exports__);
       options: {
         chart: {
           height: 500,
-          type: 'bar'
+          type: "bar"
         },
         plotOptions: {
           bar: {
             borderRadius: 2,
             dataLabels: {
-              position: 'top' // top, center, bottom
+              position: "top" // top, center, bottom
             }
           }
         },
@@ -823,16 +986,16 @@ __webpack_require__.r(__webpack_exports__);
           enabled: true,
           offsetY: -20,
           style: {
-            fontSize: '12px',
+            fontSize: "12px",
             colors: ["#304758"]
           }
         },
         fill: {
-          colors: ['#25B076']
+          colors: ["#25B076"]
         },
         xaxis: {
           categories: [],
-          position: 'top',
+          position: "top",
           axisBorder: {
             show: false
           },
@@ -841,10 +1004,10 @@ __webpack_require__.r(__webpack_exports__);
           },
           crosshairs: {
             fill: {
-              type: 'gradient',
+              type: "gradient",
               gradient: {
-                colorFrom: '#000',
-                colorTo: '#000',
+                colorFrom: "#000",
+                colorTo: "#000",
                 stops: [0, 100],
                 opacityFrom: 0.4,
                 opacityTo: 0.5
@@ -868,21 +1031,21 @@ __webpack_require__.r(__webpack_exports__);
         },
         noData: {
           text: "No Data Found",
-          align: 'center'
+          align: "center"
         }
       },
       series: [{
-        name: 'Total Sale',
+        name: "Total Sale",
         data: []
       }],
       options2: {
         chart: {
           width: 380,
-          type: 'pie'
+          type: "pie"
         },
         legend: {
           show: true,
-          position: 'bottom'
+          position: "bottom"
         },
         labels: [],
         responsive: [{
@@ -892,7 +1055,7 @@ __webpack_require__.r(__webpack_exports__);
               width: 300
             },
             legend: {
-              position: 'bottom'
+              position: "bottom"
             }
           }
         }]
@@ -909,7 +1072,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.barChart();
     this.pieChart();
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var now = new Date();
     this.currentMonth = months[now.getMonth()];
     this.getRecord();
@@ -991,10 +1154,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     barChart: function barChart() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/orders/weekly_sales').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/orders/weekly_sales").then(function (response) {
         _this.graphOrders = response.data.data;
         _this.graphOrders.forEach(function (order) {
-          _this.options.xaxis.categories.push(moment__WEBPACK_IMPORTED_MODULE_3___default()(order.order_date).format('DD-MMM'));
+          _this.options.xaxis.categories.push(moment__WEBPACK_IMPORTED_MODULE_3___default()(order.order_date).format("DD-MMM"));
           _this.series[0].data.push(order.total_sale);
         });
         _this.$refs.apexBarChart.updateSeries([{
@@ -1004,7 +1167,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     pieChart: function pieChart() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/categories/product_count').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/categories/product_count").then(function (response) {
         _this2.graphCategories = response.data.data;
         _this2.graphCategories.forEach(function (category) {
           if (category.product_count !== 0) {
@@ -1018,7 +1181,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
       var vm = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/dashboard').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/dashboard").then(function (res) {
         vm.isLoading = false;
         var data = res.data;
         if (data.status === 1) {
@@ -1035,7 +1198,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this3.showError(error.message);
         } else {
-          _this3.showError(__('something_went_wrong'));
+          _this3.showError(__("something_went_wrong"));
         }
       });
     },
@@ -1043,7 +1206,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
       var vm = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/set_seller_wallet_transaction').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/set_seller_wallet_transaction").then(function (res) {
         vm.isLoading = false;
         var data = res.data;
         if (data.status === 1) {
@@ -1060,14 +1223,14 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this4.showError(error.message);
         } else {
-          _this4.showError(__('something_went_wrong'));
+          _this4.showError(__("something_went_wrong"));
         }
       });
     },
     getOrderStatus: function getOrderStatus() {
       var _this5 = this;
       var vm = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/order_statuses').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/order_statuses").then(function (response) {
         _this5.isLoading = false;
         _this5.statuses = response.data.data;
       })["catch"](function (error) {
@@ -1077,7 +1240,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this5.showError(error.message);
         } else {
-          _this5.showError(__('something_went_wrong'));
+          _this5.showError(__("something_went_wrong"));
         }
       });
     },
@@ -1086,14 +1249,14 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var vm = this;
       var param = {
-        "startDate": this.dateRange.startDate != null ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.dateRange.startDate).format('YYYY-MM-DD') : "",
-        "endDate": this.dateRange.endDate != null ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.dateRange.endDate).format('YYYY-MM-DD') : "",
-        "seller": this.seller,
-        "status": this.status,
-        startDeliveryDate: this.deliveryDateRange.startDate ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.deliveryDateRange.startDate).format('YYYY-MM-DD') : '',
-        endDeliveryDate: this.deliveryDateRange.endDate ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.deliveryDateRange.endDate).format('YYYY-MM-DD') : ''
+        startDate: this.dateRange.startDate != null ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.dateRange.startDate).format("YYYY-MM-DD") : "",
+        endDate: this.dateRange.endDate != null ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.dateRange.endDate).format("YYYY-MM-DD") : "",
+        seller: this.seller,
+        status: this.status,
+        startDeliveryDate: this.deliveryDateRange.startDate ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.deliveryDateRange.startDate).format("YYYY-MM-DD") : "",
+        endDeliveryDate: this.deliveryDateRange.endDate ? moment__WEBPACK_IMPORTED_MODULE_3___default()(this.deliveryDateRange.endDate).format("YYYY-MM-DD") : ""
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/orders', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/orders", {
         params: param
       }).then(function (response) {
         var data = response.data;
@@ -1110,7 +1273,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this6.showError(error.message);
         } else {
-          _this6.showError(__('something_went_wrong'));
+          _this6.showError(__("something_went_wrong"));
         }
       });
     },
@@ -1121,17 +1284,17 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this7.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this7.$apiUrl + '/orders/delete', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this7.$apiUrl + "/orders/delete", postData).then(function (response) {
             _this7.isLoading = false;
             var data = response.data;
             _this7.orders.splice(index, 1);
@@ -1165,7 +1328,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue2_daterange_picker_dist_vue2_daterange_picker_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.vue-daterange-picker[data-v-1ebd09d2][data-v-1f79daf6] {\n    min-width: 80%;\n}\n@media only screen and (min-width: 600px) {\n.vue-daterange-picker[data-v-1ebd09d2][data-v-1f79daf6] {\n        min-width: 90%;\n}\n}\n.btn_product_count[data-v-1f79daf6]{\n    margin-bottom: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.vue-daterange-picker[data-v-1ebd09d2][data-v-1f79daf6] {\n  min-width: 80%;\n}\n@media only screen and (min-width: 600px) {\n.vue-daterange-picker[data-v-1ebd09d2][data-v-1f79daf6] {\n    min-width: 90%;\n}\n}\n.btn_product_count[data-v-1f79daf6] {\n  margin-bottom: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1621,7 +1784,7 @@ var render = function () {
                             "div",
                             {
                               staticClass:
-                                "row d-flex flex-column justify-content-center ",
+                                "row d-flex flex-column justify-content-center",
                             },
                             [
                               _c(
@@ -1855,7 +2018,7 @@ var render = function () {
                               "div",
                               {
                                 staticClass:
-                                  "row d-flex flex-column justify-content-center ",
+                                  "row d-flex flex-column justify-content-center",
                               },
                               [
                                 _c(
@@ -2125,12 +2288,13 @@ var render = function () {
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    _vm._s(_vm.__("total_sale_in_last_week")) +
+                    "\n                " +
+                      _vm._s(_vm.__("total_sale_in_last_week")) +
                       " (" +
                       _vm._s(_vm.__("month")) +
-                      ": " +
+                      ":\n                " +
                       _vm._s(_vm.currentMonth) +
-                      ")"
+                      ")\n              "
                   ),
                 ]),
               ]),
@@ -2163,9 +2327,7 @@ var render = function () {
                 _c("div", { staticClass: "col-12 col-lg-6 col-md-6" }, [
                   _c("div", { staticClass: "card" }, [
                     _c("div", { staticClass: "card-header text-center" }, [
-                      _c("h6", [
-                        _vm._v(" " + _vm._s(_vm.__("packet_products")) + " "),
-                      ]),
+                      _c("h6", [_vm._v(_vm._s(_vm.__("packet_products")))]),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -2191,7 +2353,7 @@ var render = function () {
                           [
                             _vm._v(
                               _vm._s(_vm.__("more_info")) +
-                                "\n                                    "
+                                "\n                  "
                             ),
                           ]
                         ),
@@ -2204,9 +2366,7 @@ var render = function () {
                 _c("div", { staticClass: "col-12 col-lg-6 col-md-6" }, [
                   _c("div", { staticClass: "card" }, [
                     _c("div", { staticClass: "card-header text-center" }, [
-                      _c("h6", [
-                        _vm._v(" " + _vm._s(_vm.__("loose_products")) + " "),
-                      ]),
+                      _c("h6", [_vm._v(_vm._s(_vm.__("loose_products")))]),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -2231,9 +2391,9 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n                                        " +
+                              "\n                    " +
                                 _vm._s(_vm.__("more_info")) +
-                                "\n                                    "
+                                "\n                  "
                             ),
                           ]
                         ),
@@ -2248,9 +2408,7 @@ var render = function () {
                 _c("div", { staticClass: "col-12 col-lg-6 col-md-6" }, [
                   _c("div", { staticClass: "card" }, [
                     _c("div", { staticClass: "card-header text-center" }, [
-                      _c("h6", [
-                        _vm._v(" " + _vm._s(_vm.__("products_sold_out")) + " "),
-                      ]),
+                      _c("h6", [_vm._v(_vm._s(_vm.__("products_sold_out")))]),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -2276,7 +2434,7 @@ var render = function () {
                           [
                             _vm._v(
                               _vm._s(_vm.__("more_info")) +
-                                "\n                                    "
+                                "\n                  "
                             ),
                           ]
                         ),
@@ -2290,9 +2448,7 @@ var render = function () {
                   _c("div", { staticClass: "card" }, [
                     _c("div", { staticClass: "card-header text-center" }, [
                       _c("h6", [
-                        _vm._v(
-                          " " + _vm._s(_vm.__("products_in_low_stock")) + " "
-                        ),
+                        _vm._v(_vm._s(_vm.__("products_in_low_stock"))),
                       ]),
                     ]),
                     _vm._v(" "),
@@ -2318,9 +2474,9 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n                                        " +
+                              "\n                    " +
                                 _vm._s(_vm.__("more_info")) +
-                                "\n                                    "
+                                "\n                  "
                             ),
                           ]
                         ),
@@ -2338,7 +2494,7 @@ var render = function () {
           "div",
           { staticClass: "row" },
           [
-            _c("h5", [_vm._v(" " + _vm._s(_vm.__("order_out_lines")) + " ")]),
+            _c("h5", [_vm._v(_vm._s(_vm.__("order_out_lines")))]),
             _vm._v(" "),
             _vm._l(_vm.record.status_order_count, function (status) {
               return _c("div", { staticClass: "col-6 col-lg-3 col-md-3" }, [
@@ -2444,7 +2600,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("payment_pending")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("payment_pending")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2452,7 +2614,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("received")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("received")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2460,7 +2628,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("processed")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("processed")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2468,7 +2642,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("shipped")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("shipped")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2476,7 +2656,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("outForDelivery")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("outForDelivery")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2484,7 +2670,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("delivered")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("delivered")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2492,7 +2684,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("cancelled")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("cancelled")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2500,7 +2698,13 @@ var render = function () {
                           ? _c(
                               "h6",
                               { staticClass: "text-muted font-semibold" },
-                              [_vm._v(_vm._s(_vm.__("returned")))]
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(_vm.__("returned")) +
+                                    "\n                  "
+                                ),
+                              ]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -2577,9 +2781,9 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "\n                                            " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("clear")) +
-                                    "\n                                        "
+                                    "\n                    "
                                 ),
                               ]
                             ),
@@ -2646,7 +2850,13 @@ var render = function () {
                                 return _c(
                                   "option",
                                   { domProps: { value: status.id } },
-                                  [_vm._v(_vm._s(status.status))]
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(status.status) +
+                                        "\n                      "
+                                    ),
+                                  ]
                                 )
                               }),
                             ],
@@ -2713,7 +2923,13 @@ var render = function () {
                                 return _c(
                                   "option",
                                   { domProps: { value: seller.id } },
-                                  [_vm._v(_vm._s(seller.name))]
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(seller.name) +
+                                        "\n                      "
+                                    ),
+                                  ]
                                 )
                               }),
                             ],
@@ -2765,9 +2981,9 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "\n                                            " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("clear")) +
-                                    "\n                                        "
+                                    "\n                    "
                                 ),
                               ]
                             ),
@@ -2876,14 +3092,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("total") +
                                         " (" +
                                         _vm.$currency +
                                         ")"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2893,14 +3109,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("dcharges") +
                                         " (" +
                                         _vm.$currency +
                                         ")"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2910,14 +3126,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("tax") +
                                         " (" +
                                         _vm.$currency +
                                         ") (%)"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2927,14 +3143,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("disc") +
                                         " (" +
                                         _vm.$currency +
                                         ") (%)"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2944,14 +3160,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("promo_disc") +
                                         " (" +
                                         _vm.$currency +
                                         ")"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2961,14 +3177,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("wallet_used") +
                                         " (" +
                                         _vm.$currency +
                                         ")"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2978,14 +3194,14 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm.__("ftotal") +
                                         " (" +
                                         _vm.$currency +
                                         ")"
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -2995,11 +3211,11 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       _vm._f("mobileMask")(row.item.mobile)
                                     ) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
@@ -3204,14 +3420,14 @@ var render = function () {
                               fn: function (row) {
                                 return [
                                   _vm._v(
-                                    "\n                                            " +
+                                    "\n                      " +
                                       _vm._s(
                                         _vm.__("total_revenue") +
                                           "(" +
                                           _vm.$currency +
                                           ")"
                                       ) +
-                                      "\n                                        "
+                                      "\n                    "
                                   ),
                                 ]
                               },
@@ -3385,14 +3601,14 @@ var render = function () {
                               fn: function (row) {
                                 return [
                                   _vm._v(
-                                    "\n                                            " +
+                                    "\n                      " +
                                       _vm._s(
                                         _vm.__("total_revenue") +
                                           " (" +
                                           _vm.$currency +
                                           ")"
                                       ) +
-                                      "\n                                        "
+                                      "\n                    "
                                   ),
                                 ]
                               },

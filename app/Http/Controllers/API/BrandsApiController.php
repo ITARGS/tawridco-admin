@@ -21,26 +21,31 @@ class BrandsApiController extends Controller
         $brands = Brand::orderBy('id', 'DESC');
         if ($filter) {
             $brands = $brands->where(function($query) use ($filter) {
-                $query->where('name', 'like', "%{$filter}%");
+                $query->where('name_en', 'like', "%{$filter}%")
+                ->orWhere('name_ar', 'like', "%{$filter}%");
             });
         }
 
         $total = $brands->count();
         $brands = $brands->skip($offset)->take($limit)->get();
+        // dd($brand);
         return CommonHelper::responseWithData($brands, $total);
+
     }
 
     public function save(Request $request){
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
+            'name_en' => 'required',
+            'name_ar' => 'required',
         ]);
 
         if ($validator->fails()) {
             return CommonHelper::responseError($validator->errors()->first());
         }
         $brand = new Brand();
-        $brand->name = $request->name;
+        $brand->name_en = $request->name_en;
+        $brand->name_ar = $request->name_ar;
         $brand->status = 1;
         $image = '';
         if($request->hasFile('image')){
@@ -56,7 +61,8 @@ class BrandsApiController extends Controller
     public function update(Request $request){
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
+            'name_en' => 'required',
+            'name_ar' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -66,7 +72,8 @@ class BrandsApiController extends Controller
         if(isset($request->id)){
 
             $brand = Brand::find($request->id);
-            $brand->name = $request->name;
+            $brand->name_en = $request->name_en;
+            $brand->name_ar = $request->name_ar;
             $brand->status = $request->status;
 
             if($request->hasFile('image')&&$brand->image){
