@@ -30,9 +30,12 @@ class Controller extends BaseController
 {
     public function index()
     {
+
+
         $data = array();
         $data['order_count'] = Order::get()->count();
         $data['product_count'] = Product::get()->count();
+
         $data['customer_count'] = User::where('status', '!=', 2)->get()->count();
         $data['seller_count'] = Seller::where('status', 1)->get()->count();
         $data['category_count'] = Category::get()->count();
@@ -74,11 +77,15 @@ class Controller extends BaseController
 
         if (app()->getLocale() == 'en') {
             $categoryNameField = 'categories.name_en as category_name_en';
+            $productNameField = 'products.name_en as product_name';
         } else {
             $categoryNameField = 'categories.name_ar as category_name_ar';
+            $productNameField = 'products.name_ar as product_name';
         }
 
-        $data['top_categories'] = OrderItem::select('product_variants.product_id', 'product_variants.id', 'products.name as product_name', 'products.category_id', 'products.seller_id', $categoryNameField,
+
+
+        $data['top_categories'] = OrderItem::select('product_variants.product_id', 'product_variants.id', $productNameField, 'products.category_id', 'products.seller_id', $categoryNameField,
             'product_variants.measurement', 'order_items.product_name', 'order_items.variant_name', DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue"))
             ->leftJoin('orders', 'order_items.order_id', '=', 'orders.id')
             ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')

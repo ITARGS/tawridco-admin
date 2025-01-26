@@ -144,47 +144,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     VuejsDatatableFactory: vuejs_datatable__WEBPACK_IMPORTED_MODULE_0__.VuejsDatatableFactory,
-    'app-edit-record': _Edit_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "app-edit-record": _Edit_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: __('id'),
-        "class": 'text-center',
+        key: "id",
+        label: __("id"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'name',
-        label: __('name'),
-        "class": 'text-center'
+        key: "name",
+        label: __("name"),
+        "class": "text-center"
       }, {
-        key: 'image',
-        label: __('image'),
-        "class": 'text-center'
+        key: "image",
+        label: __("image"),
+        "class": "text-center"
       }, {
-        key: 'status',
-        label: __('status'),
-        "class": 'text-center'
+        key: "status",
+        label: __("status"),
+        "class": "text-center"
       }, {
-        key: 'actions',
-        label: __('actions')
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 0,
       currentPage: 1,
       perPage: this.$perPage || 10,
       pageOptions: this.$pageOptions || [5, 10, 15, 20],
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
-      filterOn: ['name'],
+      filterOn: ["name"],
       isLoading: false,
       brands: [],
       edit_record: null
@@ -192,8 +215,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
-    this.$eventBus.$on('recordSaved', function (message) {
-      _this.showMessage('success', message);
+    this.$eventBus.$on("recordSaved", function (message) {
+      _this.showMessage("success", message);
       _this.getRecords();
     });
     this.getRecords();
@@ -210,7 +233,7 @@ __webpack_require__.r(__webpack_exports__);
     getRecords: function getRecords() {
       var _this2 = this;
       this.isLoading = true;
-      axios.get(this.$apiUrl + '/products/brands', {
+      axios.get(this.$apiUrl + "/products/brands", {
         params: {
           page: this.currentPage,
           per_page: this.perPage,
@@ -221,7 +244,8 @@ __webpack_require__.r(__webpack_exports__);
         var data = response.data;
         _this2.brands = data.data;
         _this2.totalRows = data.total;
-      })["catch"](function () {
+      })["catch"](function (error) {
+        console.error(error);
         _this2.isLoading = false;
       });
     },
@@ -232,19 +256,19 @@ __webpack_require__.r(__webpack_exports__);
         text: "You won't be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this3.isLoading = true;
-          axios.post(_this3.$apiUrl + '/products/brands/delete', {
+          axios.post(_this3.$apiUrl + "/products/brands/delete", {
             id: id
           }).then(function (response) {
             _this3.isLoading = false;
             _this3.brands.splice(index, 1);
-            _this3.showMessage('success', response.data.message);
+            _this3.showMessage("success", response.data.message);
           })["catch"](function () {
             _this3.isLoading = false;
           });
@@ -324,16 +348,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record'],
+  props: ["record"],
   data: function data() {
     return {
       isLoading: false,
       image: "",
       id: this.record ? this.record.id : null,
-      name: this.record ? this.record.name : null,
+      name_en: this.record ? this.record.name_en : null,
+      name_ar: this.record ? this.record.name_ar : null,
       image_url: this.record ? this.record.image_url : "",
       status: this.record ? this.record.status : null,
       error: null
@@ -341,25 +417,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit_brand') : __('add_brand');
+      var title = this.id ? __("edit_brand") : __("add_brand");
       return title;
     }
   },
   created: function created() {},
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     dropFile: function dropFile(event) {
       event.preventDefault();
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       var file = this.$refs.file_image.files[0];
@@ -393,19 +469,20 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('name', this.name);
-      formData.append('image', this.image);
-      formData.append('status', this.status);
-      var url = this.$apiUrl + '/products/brands/save';
+      formData.append("name_en", this.name_en);
+      formData.append("name_ar", this.name_ar);
+      formData.append("image", this.image);
+      formData.append("status", this.status);
+      var url = this.$apiUrl + "/products/brands/save";
       if (this.id) {
-        url = this.$apiUrl + '/products/brands/update';
+        url = this.$apiUrl + "/products/brands/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this.$eventBus.$emit('recordSaved', data.message);
+          _this.$eventBus.$emit("recordSaved", data.message);
           _this.hideModal();
         } else {
           vm.showError(data.message);
@@ -446,7 +523,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-64f39104] {\n    margin-top: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-64f39104] {\n  margin-top: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -684,7 +761,13 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v(_vm._s(_vm.__("brands")))]
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.__("brands")) +
+                          "\n            "
+                      ),
+                    ]
                   ),
                 ]),
               ]
@@ -710,7 +793,13 @@ var render = function () {
                       },
                     },
                   },
-                  [_vm._v(_vm._s(_vm.__("add_brand")))]
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.__("add_brand")) +
+                        "\n            "
+                    ),
+                  ]
                 ),
               ]),
             ]),
@@ -844,9 +933,9 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(row.item.id) +
-                              "\n                        "
+                              "\n            "
                           ),
                         ]
                       },
@@ -1089,7 +1178,7 @@ var render = function () {
               },
             },
             [
-              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -1120,30 +1209,60 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v(_vm._s(_vm.__("name")))]),
+              _c("label", [_vm._v(_vm._s(_vm.__("name_en")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name",
+                    value: _vm.name_en,
+                    expression: "name_en",
                   },
                 ],
                 staticClass: "form-control",
                 attrs: {
                   type: "text",
                   required: "",
-                  placeholder: _vm.__("enter_name"),
+                  placeholder: _vm.__("enter_name_en"),
                 },
-                domProps: { value: _vm.name },
+                domProps: { value: _vm.name_en },
                 on: {
                   input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.name = $event.target.value
+                    _vm.name_en = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(_vm._s(_vm.__("name_ar")))]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name_ar,
+                    expression: "name_ar",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: _vm.__("enter_name_ar"),
+                },
+                domProps: { value: _vm.name_ar },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name_ar = $event.target.value
                   },
                 },
               }),
@@ -1156,7 +1275,7 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                  "\n          Please choose square image of larger than 350px*350px & smaller than\n          550px*550px.\n        "
                 ),
               ]),
               _vm._v(" "),

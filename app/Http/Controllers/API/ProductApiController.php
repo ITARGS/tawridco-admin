@@ -101,7 +101,7 @@ class ProductApiController extends Controller
             }
         }
 
-        $products = \DB::table('products as p')->select('p.id as id', 'p.id as product_id', 'p.name', 'p.seller_id', 'p.status', 'p.tax_id', 'p.image', 's.name as seller_name', 's.id as seller_id',
+        $products = \DB::table('products as p')->select('p.id as id', 'p.id as product_id',  app()->getLocale() == 'en'? 'p.name_en as name':'p.name_ar as name', 'p.name_en','p.name_ar', 'p.seller_id', 'p.status', 'p.tax_id', 'p.image', 's.name as seller_name', 's.id as seller_id',
             'p.indicator', 'p.manufacturer', 'p.made_in', 'p.return_status', 'p.cancelable_status', 'p.till_status', 'pv.id as product_variant_id', 'pv.price', 'pv.discounted_price', 'pv.measurement', 'pv.status as pv_status', 'pv.stock', 'pv.stock_unit_id', 'u.short_code', \DB::raw('(select short_code from units where units.id = pv.stock_unit_id) as stock_unit'))
             ->join('sellers as s', 'p.seller_id', '=', 's.id')
             ->join('product_variants as pv', 'p.id', '=', 'pv.product_id')
@@ -118,7 +118,7 @@ class ProductApiController extends Controller
         // Apply filter to all columns in all joined tables
         if ($filter) {
             $columns = [
-                'p.id', 'pv.id', 'p.name', 's.name', 'pv.price', 'pv.discounted_price', 'pv.measurement', 'pv.stock',
+                'p.id', 'pv.id', 'p.name_en','p.name_ar', 's.name', 'pv.price', 'pv.discounted_price', 'pv.measurement', 'pv.stock',
             ];
 
             $products = $products->where(function ($query) use ($filter, $columns) {
@@ -140,6 +140,8 @@ class ProductApiController extends Controller
         if (!isset($request->type)) {
             $data["sellers"] = $sellers;
         }
+
+
 
         return CommonHelper::responseWithData($data, $total);
     }
@@ -200,7 +202,7 @@ class ProductApiController extends Controller
 
             if (isset($request['search']) && $request['search'] != '') {
                 $search = $request['search'];
-                $where .= " AND ( p.`name` like '%" . $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
+                $where .= " AND ( p.`name_en` like '%". $search . "%' OR p.`name_ar` like '%" . $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
             }
 
             if (isset($request->section_id) && $request->section_id != "") {
@@ -309,7 +311,8 @@ class ProductApiController extends Controller
                 $search = $request->search;
 
                 $products = $products->where(function ($query) use ($search) {
-                    $query->where('p.name', 'like', '%' . $search . '%')
+                    $query->where('p.name_en', 'like', '%' . $search . '%')
+                        ->where('p.name_ar', 'like', '%' . $search . '%')
                         ->orWhere('p.slug', 'like', '%' . $search . '%')
                         ->orWhere('p.tags', 'like', '%' . $search . '%');
                 });
@@ -430,7 +433,12 @@ class ProductApiController extends Controller
     public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => ['required',
+            'name_en' => ['required',
+                Rule::unique('products')->where(function ($query) use ($request) {
+                    $query->where('seller_id', $request->seller_id);
+                })
+            ],
+             'name_ar' => ['required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id);
                 })
@@ -438,7 +446,8 @@ class ProductApiController extends Controller
             'seller_id' => 'required',
             'id' => 'nullable|integer',
             'image' => $request->id ? 'nullable' : 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'required',
+            'description_en' => 'required',
+            'description_ar' => 'required',
 
             'type' => 'required',
             'is_unlimited_stock' => 'required',
@@ -517,8 +526,9 @@ class ProductApiController extends Controller
         try {
             $row_order = Product::max('row_order') + 1;
             $product = new Product();
-            $product->name = $request->name;
-            $product->slug = Str::slug($request->name);
+            $product->name_en = $request->name_en;
+            $product->name_ar = $request->name_ar;
+            $product->slug = Str::slug($request->name_en);
             $product->row_order = $row_order;
             $product->tax_id = $request->tax_id ?? "";
             $product->brand_id = $request->brand_id ?? "";
@@ -536,7 +546,8 @@ class ProductApiController extends Controller
             $product->till_status = $request->till_status;
             $product->cod_allowed = $request->cod_allowed_status;
             $product->total_allowed_quantity = $max_allowed_quantity;
-            $product->description = $request->description;
+            $product->description_en = $request->description_en;
+            $product->description_ar = $request->description_ar;
             $product->is_unlimited_stock = $request->is_unlimited_stock;
             $require_products_approval = Seller::where('id', $product->seller_id)->pluck('require_products_approval')->first();
             if ($require_products_approval == 1) {
@@ -683,14 +694,20 @@ class ProductApiController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => ['required',
+            'name_en' => ['required',
+                Rule::unique('products')->where(function ($query) use ($request) {
+                    $query->where('seller_id', $request->seller_id)->where('id', '!=', $request->id);
+                })
+            ],
+            'name_ar' => ['required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id)->where('id', '!=', $request->id);
                 })
             ],
 
             'seller_id' => 'required',
-            'description' => 'required',
+            'description_en' => 'required',
+            'description_ar' => 'required',
 
             'type' => 'required',
             'is_unlimited_stock' => 'required',
@@ -714,7 +731,8 @@ class ProductApiController extends Controller
             'category_id' => 'required',
 
         ], [
-            'name.unique' => 'The product name has already been taken.',
+            'name_en.unique' => 'The product name has already been taken.',
+            'name_ar.unique' => 'The product name has already been taken.',
             'seller_id.required' => 'The seller name field is required.',
             'is_unlimited_stock.required' => 'The Stock Limit field is required.',
             'category_id.required' => 'The Category name field is required.',
@@ -780,7 +798,8 @@ class ProductApiController extends Controller
 
             $product = Product::find($request->id);
             $row_order = Product::max('row_order') + 1;
-            $product->name = $request->name;
+            $product->name_en = $request->name_en;
+            $product->name_ar = $request->name_ar;
 
             $product->slug = Str::slug($request->name);
 
@@ -800,7 +819,8 @@ class ProductApiController extends Controller
             $product->till_status = $request->till_status;
             $product->cod_allowed = $request->cod_allowed_status;
             $product->total_allowed_quantity = $max_allowed_quantity;
-            $product->description = $request->description;
+            $product->description_en = $request->description_en;
+            $product->description_ar = $request->description_ar;
             $product->is_unlimited_stock = $request->is_unlimited_stock;
             if (isset($request->is_approved)) {
                 $product->is_approved = $request->is_approved;
@@ -1027,6 +1047,8 @@ class ProductApiController extends Controller
         return CommonHelper::responseSuccess("Product Order Updated Successfully!");
     }
 
+
+    // Mark:- needs to be updated after adding the other language
     public function bulkUpload(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -1158,18 +1180,20 @@ class ProductApiController extends Controller
                     $seller = Seller::select('name', 'categories')->where('id', $emapData[11])->first();
                     $is_approved = isset($seller->require_products_approval) && $seller->require_products_approval == 0 ? 1 : 0;
 
-                    $product_name = $emapData[0]; // product name
-                    $category_id = $emapData[1]; // category id
+                    $product_name_en = $emapData[0]; // product name en
+                     $product_name_ar = $emapData[1]; // product name ar
+                    $category_id = $emapData[2]; // category id
                     $indicator = $emapData[3]; // indicator
                     $manufacturer = $emapData[4]; // manufacturer
                     $made_in = $emapData[5]; // made in
                     $return_status = !empty($emapData[6]) ? $emapData[6] : 0; // return status
                     $cancel_status = !empty($emapData[7]) ? $emapData[7] : 0; // cancel status
                     $till_status = $emapData[8]; // till status
-                    $description = $emapData[9]; // description
-                    $image = str_replace(' ', '-', strtolower($emapData[10])); // image
-                    $seller_id = $emapData[11]; // seller_id
-                    $is_approved = (!empty($emapData[12]) && $emapData[12] != "") ? $emapData[12] : 0; // is_approved
+                    $description_en = $emapData[9]; // description
+                    $description_ar = $emapData[10]; // description
+                    $image = str_replace(' ', '-', strtolower($emapData[11])); // image
+                    $seller_id = $emapData[12]; // seller_id
+                    $is_approved = (!empty($emapData[13]) && $emapData[13] != "") ? $emapData[13] : 0; // is_approved
                     $brand_id = (!empty($emapData[14]) && $emapData[14] != "") ? $emapData[14] : 0; // brand_id
                     $return_days = (!empty($emapData[15]) && $emapData[15] != "") ? $emapData[15] : "0"; // return_days
                     $tax_id = (!empty($emapData[16]) && $emapData[16] != "") ? $emapData[16] : "0"; // tax_id
@@ -1179,7 +1203,9 @@ class ProductApiController extends Controller
 
                     $row_order = Product::max('row_order') + 1;
                     $product = new Product();
-                    $product->name = $product_name; // product name
+                    $product->name_en = $product_name_en; // product name en
+                    $product->name_ar = $product_name_ar; // product name en
+
 
                     $product->row_order = $row_order; // row_order
                     $product->slug = CommonHelper::slugify($emapData[0]);
@@ -1195,7 +1221,9 @@ class ProductApiController extends Controller
                     $product->return_status = $return_status; // return status
                     $product->cancelable_status = $cancel_status; // cancel status
                     $product->till_status = $till_status; // till status
-                    $product->description = $description; // description
+                    $product->description_en = $description_en; // description en
+                    $product->description_ar = $description_ar; // description en
+
                     $product->image = $image; // image
                     $product->seller_id = $seller_id; // seller_id
                     $product->is_approved = $is_approved; // is_approved
@@ -1274,7 +1302,7 @@ class ProductApiController extends Controller
         $csvData = [];
 
         // Base header fields
-        $header = ['ID', 'Product Name', 'Category ID', 'Indicator', 'Manufacturer', 'Made in', 'Is Returnable?', 'Is cancel-able', 'Till which status', 'Description', 'image', 'Seller_id', 'Is_approved?', 'Brand_id', 'return_days', 'tax_id', 'Fssai No', 'Barcode'];
+        $header = ['ID', 'Product Name en', 'Product Name ar', 'Category ID', 'Indicator', 'Manufacturer', 'Made in', 'Is Returnable?', 'Is cancel-able', 'Till which status', 'Description_en','Description_ar', 'image', 'Seller_id', 'Is_approved?', 'Brand_id', 'return_days', 'tax_id', 'Fssai No', 'Barcode'];
 
         // Determine the maximum number of variants across all products
         $maxVariants = $products->map(function ($product) {
@@ -1300,7 +1328,8 @@ class ProductApiController extends Controller
             $description = str_replace(["\r", "\n"], ' ', $product->description);
             $row = [
                 $product->id,
-                $product->name,
+                $product->name_en,
+                $product->name_ar,
                 $product->category_id,
                 $product->indicator,
                 $product->manufacturer,
@@ -1393,7 +1422,8 @@ class ProductApiController extends Controller
                 $product = Product::updateOrCreate(
                     ['id' => $rowData['ID']],
                     [
-                        'name' => $rowData['Product Name'],
+                        'name_en' => $rowData['Product Name en'],
+                        'name_ar' => $rowData['Product Name ar'],
                         'category_id' => $rowData['Category ID'],
                         'indicator' => !empty($rowData['Indicator']) ? $rowData['Indicator'] : 0, // Set to 0 if empty
                         'manufacturer' => $rowData['Manufacturer'],
@@ -1401,7 +1431,8 @@ class ProductApiController extends Controller
                         'return_status' => $rowData['Is Returnable?'],
                         'cancelable_status' => $rowData['Is cancel-able'],
                         'till_status' => $rowData['Till which status'],
-                        'description' => $rowData['Description'],
+                        'description_en' => $rowData['Description en'],
+                        'description_ar' => $rowData['Description ar'],
                         'image' => $rowData['image'],
                         'seller_id' => $rowData['Seller_id'],
                         'is_approved' => $rowData['Is_approved?'],
@@ -1483,7 +1514,8 @@ class ProductApiController extends Controller
             ->select(
                 'p.id as id',
                 'p.id as product_id',
-                'p.name',
+                'p.name_en',
+                'p.name_ar',
                 'p.seller_id',
                 'p.status',
                 'p.tax_id',
@@ -1513,7 +1545,7 @@ class ProductApiController extends Controller
         if ($request->has('search')) {
             $search = $request->input('search');
             $rawProducts = $rawProducts->where(function ($query) use ($search) {
-                $query->where('p.name', 'LIKE', "%$search%")->orWhere('s.name', 'LIKE', "%$search%")->orWhere('pv.id', 'LIKE', "%$search%")->orWhere('pv.stock', 'LIKE', "%$search%");
+                $query->where('p.name_en', 'LIKE', "%$search%")->where('p.name_ar', 'LIKE', "%$search%")->orWhere('s.name', 'LIKE', "%$search%")->orWhere('pv.id', 'LIKE', "%$search%")->orWhere('pv.stock', 'LIKE', "%$search%");
             });
         }
 
@@ -1545,7 +1577,8 @@ class ProductApiController extends Controller
                     $groupedProducts[$product->product_id] = [
                         'id' => $product->id,
                         'product_id' => $product->product_id,
-                        'name' => $product->name,
+                        'name_en' => $product->name_en,
+                        'name_ar' => $product->name_ar,
                         'seller_id' => $product->seller_id,
                         'seller_name' => $product->seller_name,
                         'status' => $product->status,
@@ -1572,7 +1605,8 @@ class ProductApiController extends Controller
                 $groupedProducts[$product->product_variant_id] = [
                     'id' => $product->id,
                     'product_id' => $product->product_id,
-                    'name' => $product->name,
+                    'name_en' => $product->name_en,
+                    'name_en' => $product->name_ar,
                     'seller_id' => $product->seller_id,
                     'seller_name' => $product->seller_name,
                     'status' => $product->status,

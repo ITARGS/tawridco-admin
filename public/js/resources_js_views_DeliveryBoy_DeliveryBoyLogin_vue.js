@@ -227,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isLoading: false,
-      lang: localStorage.getItem("lang"),
+      lang: "",
       languages: [],
       showPassword: false,
       loggedUser: _Auth_js__WEBPACK_IMPORTED_MODULE_0__["default"].user,
@@ -265,6 +265,7 @@ __webpack_require__.r(__webpack_exports__);
           system_type: 4
         }
       };
+      this.lang = localStorage.getItem("lang");
       axios.get(this.$apiUrl + "/system_languages", data).then(function (response) {
         _this.isLoading = false;
         var data = response.data;

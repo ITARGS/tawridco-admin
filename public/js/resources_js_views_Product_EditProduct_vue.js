@@ -691,6 +691,438 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // import Vue from 'vue';
 // import InputTag from 'vue-input-tag';
@@ -701,38 +1133,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // register the component
-  props: ['id', 'clone', 'record'],
+  props: ["id", "clone", "record"],
   components: {
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default()),
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    editor: _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
       login_user: _Auth_js__WEBPACK_IMPORTED_MODULE_4__["default"].user,
       isLoading: false,
-      name: '',
-      slug: '',
+      name_en: "",
+      name_ar: "",
+      slug: "",
       seller_id: 0,
       tags: [],
-      tag_ids: '',
+      tag_ids: "",
       tagSuggestions: [],
       brand: null,
       tax_id: 0,
-      type: 'packet',
-      category_id: '',
-      product_type: '',
-      manufacturer: '',
-      made_in: '',
-      tag: '',
-      fssai_lic_no: '',
+      type: "packet",
+      category_id: "",
+      product_type: "",
+      manufacturer: "",
+      made_in: "",
+      tag: "",
+      fssai_lic_no: "",
       return_status: 0,
       return_days: 0,
       cancelable_status: 0,
       till_status: "",
       cod_allowed_status: 0,
       max_allowed_quantity: 0,
-      description: '',
+      description_en: "",
+      description_ar: "",
       require_products_approval: 0,
       is_approved: 1,
       loose_stock: 0,
@@ -749,9 +1183,9 @@ __webpack_require__.r(__webpack_exports__);
       categories: null,
       order_status: null,
       inputs: [{
-        'name': '',
-        'packet_status': '',
-        'packet_stock_unit_id': ''
+        name: "",
+        packet_status: "",
+        packet_stock_unit_id: ""
       }],
       image: null,
       main_image_path: "",
@@ -761,12 +1195,12 @@ __webpack_require__.r(__webpack_exports__);
       variantImages: {},
       id: null,
       record: null,
-      categoryOptions: "<option value=\"\">--Select Category--</option>",
+      categoryOptions: '<option value="">--Select Category--</option>',
       deleteImageIds: [],
       loggedUser: _Auth_js__WEBPACK_IMPORTED_MODULE_4__["default"].user,
-      validationMessage: '',
-      isValid: '',
-      isBarcodeValid: '',
+      validationMessage: "",
+      isValid: "",
+      isBarcodeValid: "",
       input: [],
       mainImageerror: null,
       otherImageerror: null,
@@ -777,7 +1211,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isSellerRoute: function isSellerRoute() {
       // Use this.$route to access the current route
-      return this.$route.path.startsWith('/seller/');
+      return this.$route.path.startsWith("/seller/");
     },
     tagsOptions: function tagsOptions() {
       return this.tags.length ? this.tags.map(function (tag) {
@@ -815,14 +1249,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     createSlug: function createSlug() {
-      if (this.name !== "") {
-        this.slug = this.name.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+      if (this.name_en !== "") {
+        this.slug = this.name_en.toLowerCase().replace(/[^\w ]+/g, "").replace(/ +/g, "-");
       }
     },
     fetchTags: function fetchTags(query) {
       var _this2 = this;
       if (query.length > 1) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/tags', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/tags", {
           params: {
             search: query
           }
@@ -834,15 +1268,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     addRow: function addRow() {
-      if (this.type === 'packet') {
+      if (this.type === "packet") {
         this.inputs.push({
-          'name': '',
-          'packet_status': '',
-          'packet_stock_unit_id': ''
+          name: "",
+          packet_status: "",
+          packet_stock_unit_id: ""
         });
       } else {
         this.inputs.push({
-          'name': ''
+          name: ""
         });
       }
     },
@@ -855,16 +1289,16 @@ __webpack_require__.r(__webpack_exports__);
           text: "You want be able to revert this",
           confirmButtonText: "Yes, Sure",
           cancelButtonText: "Cancel",
-          icon: 'warning',
+          icon: "warning",
           showCancelButton: true,
-          confirmButtonColor: '#37a279',
-          cancelButtonColor: '#d33'
+          confirmButtonColor: "#37a279",
+          cancelButtonColor: "#d33"
         }).then(function (result) {
           if (result.value) {
             var postData = {
               id: variant_id
             };
-            axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this3.$apiUrl + '/products/delete', postData).then(function (response) {
+            axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this3.$apiUrl + "/products/delete", postData).then(function (response) {
               var data = response.data;
               _this3.inputs.splice(index, 1);
               _this3.showSuccess(data.message);
@@ -880,8 +1314,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_image.files = event.dataTransfer.files;
       this.fileImage(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     fileImage: function fileImage() {
       var file = this.$refs.file_image.files[0];
@@ -919,8 +1353,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_other_images.files = event.dataTransfer.files;
       this.otherImage(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     removeOtherImage: function removeOtherImage(index) {
       this.images.splice(index, 1);
@@ -932,7 +1366,7 @@ __webpack_require__.r(__webpack_exports__);
         var file = files[i];
 
         // Check if the file is an image (you can extend the list of allowed file types)
-        if (!file.type.startsWith('image/')) {
+        if (!file.type.startsWith("image/")) {
           this.otherImageerror = "Invalid file type. Please upload a JPEG, PNG, JPG,  GIF or WEBP image.";
           file = "";
         } else {
@@ -946,14 +1380,14 @@ __webpack_require__.r(__webpack_exports__);
     variantImagesChanges: function variantImagesChanges(index) {
       var tempImages = [];
       Vue.set(this.variantImages, index, []);
-      if (this.type === 'packet') {
-        var validExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Add more valid extensions as needed
+      if (this.type === "packet") {
+        var validExtensions = ["jpg", "jpeg", "png", "gif"]; // Add more valid extensions as needed
         var maxSizeInBytes = 5 * 1024 * 1024; // 5 MB (adjust the size limit as needed)
 
-        for (var i = 0; i < this.$refs['packet_variant_images_' + index][0].files.length; i++) {
+        for (var i = 0; i < this.$refs["packet_variant_images_" + index][0].files.length; i++) {
           var image = {};
-          var file = this.$refs['packet_variant_images_' + index][0].files[i];
-          var extension = file.name.split('.').pop().toLowerCase();
+          var file = this.$refs["packet_variant_images_" + index][0].files[i];
+          var extension = file.name.split(".").pop().toLowerCase();
 
           // Check if the file extension is valid
           if (!validExtensions.includes(extension)) {
@@ -972,9 +1406,9 @@ __webpack_require__.r(__webpack_exports__);
           Vue.set(this.variantImages, index, tempImages);
         }
       } else {
-        for (var i = 0; i < this.$refs['loose_variant_images_' + index][0].files.length; i++) {
+        for (var i = 0; i < this.$refs["loose_variant_images_" + index][0].files.length; i++) {
           var _image = {};
-          var _file = this.$refs['loose_variant_images_' + index][0].files[i];
+          var _file = this.$refs["loose_variant_images_" + index][0].files[i];
           _image.url = URL.createObjectURL(_file);
           _image.name = _file.name;
           tempImages.push(_image);
@@ -987,9 +1421,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.seller_id !== 0 && this.seller_id !== "") {
         this.isLoading = true;
         var param = {
-          "seller_id": this.seller_id
+          seller_id: this.seller_id
         };
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories/seller_categories', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories/seller_categories", {
           params: param
         }).then(function (response) {
           _this4.isLoading = false;
@@ -1003,9 +1437,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.seller_id !== 0 && this.seller_id !== "" && !this.id) {
         this.isLoading = true;
         var param = {
-          "seller_id": this.seller_id
+          seller_id: this.seller_id
         };
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/sellers/edit/' + this.seller_id, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/sellers/edit/" + this.seller_id, {
           params: param
         }).then(function (response) {
           _this5.isLoading = false, _this5.require_products_approval = response.data.data.require_products_approval;
@@ -1016,7 +1450,7 @@ __webpack_require__.r(__webpack_exports__);
     getCategories: function getCategories() {
       var _this6 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories/options').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories/options").then(function (response) {
         _this6.isLoading = false;
         var data = response.data;
         _this6.categoryOptions = "<option value=\"\">--Select Category--</option>" + data;
@@ -1025,7 +1459,7 @@ __webpack_require__.r(__webpack_exports__);
     getSellers: function getSellers() {
       var _this7 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/sellers').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/sellers").then(function (response) {
         _this7.isLoading = false;
         var data = response.data;
         _this7.sellers = data.data;
@@ -1034,7 +1468,7 @@ __webpack_require__.r(__webpack_exports__);
     getTaxes: function getTaxes() {
       var _this8 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/taxes').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/taxes").then(function (response) {
         _this8.isLoading = false;
         var data = response.data;
         _this8.taxes = data.data;
@@ -1043,7 +1477,7 @@ __webpack_require__.r(__webpack_exports__);
     getUnits: function getUnits() {
       var _this9 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/units/get').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/units/get").then(function (response) {
         _this9.isLoading = false;
         var data = response.data;
         _this9.units = data.data;
@@ -1052,7 +1486,7 @@ __webpack_require__.r(__webpack_exports__);
     getBrands: function getBrands() {
       var _this10 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/brands/get').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/brands/get").then(function (response) {
         _this10.isLoading = false;
         var data = response.data;
         _this10.brands = data.data;
@@ -1061,7 +1495,7 @@ __webpack_require__.r(__webpack_exports__);
     getCountries: function getCountries() {
       var _this11 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/countries/active').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/countries/active").then(function (response) {
         _this11.isLoading = false;
         var data = response.data;
         _this11.countries = data.data;
@@ -1070,7 +1504,7 @@ __webpack_require__.r(__webpack_exports__);
     getTags: function getTags() {
       var _this12 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/tags').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/tags").then(function (response) {
         _this12.isLoading = false;
         var data = response.data;
         _this12.tags = data.data;
@@ -1079,7 +1513,7 @@ __webpack_require__.r(__webpack_exports__);
     getOrderStatus: function getOrderStatus() {
       var _this13 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/order_statuses').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/order_statuses").then(function (response) {
         _this13.isLoading = false;
         var data = response.data;
         var statusesToRemoveIds = [6, 7, 8];
@@ -1091,20 +1525,20 @@ __webpack_require__.r(__webpack_exports__);
     validateFSSAINumber: function validateFSSAINumber() {
       var fssaiRegex = /^[0-9]{14}$/;
       if (fssaiRegex.test(this.fssai_lic_no)) {
-        this.validationMessage = '';
+        this.validationMessage = "";
         this.isValid = true;
       } else {
-        this.validationMessage = 'Invalid FSSAI Number.';
+        this.validationMessage = "Invalid FSSAI Number.";
         this.isValid = false;
       }
     },
     validateBarcode: function validateBarcode() {
       var barcodePattern = /^[A-Za-z0-9-]+$/;
       if (barcodePattern.test(this.barcode)) {
-        this.validationBarcodeMessage = '';
+        this.validationBarcodeMessage = "";
         this.isBarcodeValid = true;
       } else {
-        this.validationBarcodeMessage = 'Invalid Barcode Number.';
+        this.validationBarcodeMessage = "Invalid Barcode Number.";
         this.isBarcodeValid = false;
       }
     },
@@ -1131,14 +1565,15 @@ __webpack_require__.r(__webpack_exports__);
     getProduct: function getProduct() {
       var _this14 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/edit/' + this.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/edit/" + this.id).then(function (response) {
         var data = response.data;
         if (data.status === 1) {
           var _this14$record$indica;
           _this14.record = data.data;
 
           //Fill Data
-          _this14.name = _this14.record.name;
+          _this14.name_en = _this14.record.name_en;
+          _this14.name_ar = _this14.record.name_ar;
           _this14.slug = _this14.record.slug;
           _this14.seller_id = _this14.record.seller_id;
           _this14.getSellerCategories();
@@ -1164,7 +1599,8 @@ __webpack_require__.r(__webpack_exports__);
           _this14.till_status = _this14.record.till_status;
           _this14.cod_allowed_status = _this14.record.cod_allowed;
           _this14.max_allowed_quantity = _this14.record.total_allowed_quantity;
-          _this14.description = _this14.record.description;
+          _this14.description_en = _this14.record.description_en;
+          _this14.description_ar = _this14.record.description_ar;
           _this14.is_approved = _this14.record.is_approved;
           _this14.status = _this14.record.status;
           _this14.is_unlimited_stock = _this14.record.is_unlimited_stock;
@@ -1174,23 +1610,23 @@ __webpack_require__.r(__webpack_exports__);
           _this14.image = _this14.record.image;
           _this14.barcode = _this14.record.barcode;
           var vm = _this14;
-          if (_this14.type == 'packet') {
+          if (_this14.type == "packet") {
             _this14.inputs = [];
             _this14.record.variants.forEach(function (item) {
               var variantData = {
-                'id': item.id ? item.id : "",
-                'packet_measurement': item.measurement,
-                'packet_price': item.price,
-                'discounted_price': item.discounted_price,
-                'packet_stock': item.stock,
-                'packet_stock_unit_id': item.stock_unit_id,
-                'packet_status': item.status,
-                'images': item.images
+                id: item.id ? item.id : "",
+                packet_measurement: item.measurement,
+                packet_price: item.price,
+                discounted_price: item.discounted_price,
+                packet_stock: item.stock,
+                packet_stock_unit_id: item.stock_unit_id,
+                packet_status: item.status,
+                images: item.images
               };
               vm.inputs.push(variantData);
             });
           }
-          if (_this14.type == 'loose') {
+          if (_this14.type == "loose") {
             var loose_stock = 0;
             var loose_stock_unit_id = 0;
             var status = 0;
@@ -1198,13 +1634,13 @@ __webpack_require__.r(__webpack_exports__);
             _this14.record.variants.forEach(function (item) {
               var _item$custom_title;
               var variantData = {
-                'id': item.id ? item.id : "",
-                'loose_measurement': item.measurement,
-                'loose_custom_title': (_item$custom_title = item.custom_title) !== null && _item$custom_title !== void 0 ? _item$custom_title : "",
-                'loose_price': item.price,
-                'loose_discounted_price': item.discounted_price,
-                'packet_stock': item.stock,
-                'loose_images': item.images
+                id: item.id ? item.id : "",
+                loose_measurement: item.measurement,
+                loose_custom_title: (_item$custom_title = item.custom_title) !== null && _item$custom_title !== void 0 ? _item$custom_title : "",
+                loose_price: item.price,
+                loose_discounted_price: item.discounted_price,
+                packet_stock: item.stock,
+                loose_images: item.images
               };
               vm.inputs.push(variantData);
               loose_stock = item.stock;
@@ -1238,88 +1674,90 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
-        formData.append('deleteImageIds', JSON.stringify(this.deleteImageIds));
+        formData.append("id", this.id);
+        formData.append("deleteImageIds", JSON.stringify(this.deleteImageIds));
       }
-      formData.append('name', this.name);
-      formData.append('slug', this.slug);
-      formData.append('seller_id', this.seller_id);
-      formData.append('tag_ids', this.tag_ids);
-      formData.append('tax_id', this.tax_id);
-      formData.append('brand_id', this.brand ? this.brand.id : 0);
-      formData.append('description', this.description);
-      formData.append('type', this.type);
-      formData.append('is_unlimited_stock', this.is_unlimited_stock);
-      formData.append('fssai_lic_no', this.fssai_lic_no);
-      formData.append('barcode', this.barcode);
+      formData.append("name_en", this.name_en);
+      formData.append("name_ar", this.name_ar);
+      formData.append("slug", this.slug);
+      formData.append("seller_id", this.seller_id);
+      formData.append("tag_ids", this.tag_ids);
+      formData.append("tax_id", this.tax_id);
+      formData.append("brand_id", this.brand ? this.brand.id : 0);
+      formData.append("description_en", this.description_en);
+      formData.append("description_ar", this.description_ar);
+      formData.append("type", this.type);
+      formData.append("is_unlimited_stock", this.is_unlimited_stock);
+      formData.append("fssai_lic_no", this.fssai_lic_no);
+      formData.append("barcode", this.barcode);
 
       /*packet*/
-      if (this.type === 'packet') {
+      if (this.type === "packet") {
         for (var _i = 0; _i < this.inputs.length; _i++) {
-          formData.append('variant_id[]', this.inputs[_i].id ? this.inputs[_i].id : "");
-          formData.append('packet_measurement[]', this.inputs[_i].packet_measurement);
-          formData.append('packet_price[]', this.inputs[_i].packet_price != undefined ? this.inputs[_i].packet_price : 0);
-          formData.append('discounted_price[]', this.inputs[_i].discounted_price != undefined ? this.inputs[_i].discounted_price : 0);
-          formData.append('packet_stock[]', this.inputs[_i].packet_stock != undefined ? this.inputs[_i].packet_stock : 0);
-          formData.append('packet_stock_unit_id[]', this.inputs[_i].packet_stock_unit_id != undefined ? this.inputs[_i].packet_stock_unit_id : 0);
-          formData.append('packet_status[]', this.inputs[_i].packet_status != undefined ? this.inputs[_i].packet_status : 0);
-          for (var j = 0; j < this.$refs['packet_variant_images_' + _i][0].files.length; j++) {
-            var file = this.$refs['packet_variant_images_' + _i][0].files[j];
-            formData.append('packet_variant_images_' + _i + '[]', file);
+          formData.append("variant_id[]", this.inputs[_i].id ? this.inputs[_i].id : "");
+          formData.append("packet_measurement[]", this.inputs[_i].packet_measurement);
+          formData.append("packet_price[]", this.inputs[_i].packet_price != undefined ? this.inputs[_i].packet_price : 0);
+          formData.append("discounted_price[]", this.inputs[_i].discounted_price != undefined ? this.inputs[_i].discounted_price : 0);
+          formData.append("packet_stock[]", this.inputs[_i].packet_stock != undefined ? this.inputs[_i].packet_stock : 0);
+          formData.append("packet_stock_unit_id[]", this.inputs[_i].packet_stock_unit_id != undefined ? this.inputs[_i].packet_stock_unit_id : 0);
+          formData.append("packet_status[]", this.inputs[_i].packet_status != undefined ? this.inputs[_i].packet_status : 0);
+          for (var j = 0; j < this.$refs["packet_variant_images_" + _i][0].files.length; j++) {
+            var file = this.$refs["packet_variant_images_" + _i][0].files[j];
+            formData.append("packet_variant_images_" + _i + "[]", file);
           }
         }
       }
 
       /*loose*/
-      if (this.type === 'loose') {
+      if (this.type === "loose") {
         for (var _i2 = 0; _i2 < this.inputs.length; _i2++) {
-          formData.append('variant_id[]', this.inputs[_i2].id ? this.inputs[_i2].id : "");
-          formData.append('loose_measurement[]', this.inputs[_i2].loose_measurement);
-          formData.append('loose_custom_title[]', this.inputs[_i2].loose_custom_title);
-          formData.append('loose_price[]', this.inputs[_i2].loose_price != undefined ? this.inputs[_i2].loose_price : 0);
-          formData.append('loose_discounted_price[]', this.inputs[_i2].loose_discounted_price != undefined ? this.inputs[_i2].loose_discounted_price : 0);
-          formData.append('packet_stock[]', this.inputs[_i2].packet_stock != undefined ? this.inputs[_i2].packet_stock : 0);
-          for (var j = 0; j < this.$refs['loose_variant_images_' + _i2][0].files.length; j++) {
-            var _file2 = this.$refs['loose_variant_images_' + _i2][0].files[j];
-            formData.append('loose_variant_images_' + _i2 + '[]', _file2);
+          formData.append("variant_id[]", this.inputs[_i2].id ? this.inputs[_i2].id : "");
+          formData.append("loose_measurement[]", this.inputs[_i2].loose_measurement);
+          formData.append("loose_custom_title[]", this.inputs[_i2].loose_custom_title);
+          formData.append("loose_price[]", this.inputs[_i2].loose_price != undefined ? this.inputs[_i2].loose_price : 0);
+          formData.append("loose_discounted_price[]", this.inputs[_i2].loose_discounted_price != undefined ? this.inputs[_i2].loose_discounted_price : 0);
+          formData.append("packet_stock[]", this.inputs[_i2].packet_stock != undefined ? this.inputs[_i2].packet_stock : 0);
+          for (var j = 0; j < this.$refs["loose_variant_images_" + _i2][0].files.length; j++) {
+            var _file2 = this.$refs["loose_variant_images_" + _i2][0].files[j];
+            formData.append("loose_variant_images_" + _i2 + "[]", _file2);
           }
         }
-        formData.append('loose_stock', this.loose_stock);
-        formData.append('loose_stock_unit_id', this.loose_stock_unit_id);
-        formData.append('status', this.status);
+        formData.append("loose_stock", this.loose_stock);
+        formData.append("loose_stock_unit_id", this.loose_stock_unit_id);
+        formData.append("status", this.status);
       }
-      formData.append('loose_stock', this.loose_stock != undefined ? this.loose_stock : 0);
-      formData.append('loose_stock_unit_id', this.loose_stock_unit_id != undefined ? this.loose_stock_unit_id : 0);
-      formData.append('status', this.status != undefined ? this.status : 0);
-      formData.append('category_id', this.category_id);
-      formData.append('product_type', this.product_type);
-      formData.append('manufacturer', this.manufacturer);
-      formData.append('made_in', this.made_in ? this.made_in.id : 0);
-      formData.append('shipping_type', this.shipping_type);
-      formData.append('pincode_ids_exc', this.pincode_ids_exc);
-      formData.append('return_status', this.return_status);
-      formData.append('return_days', this.return_days);
-      formData.append('cancelable_status', this.cancelable_status);
-      formData.append('till_status', this.till_status);
-      formData.append('cod_allowed_status', this.cod_allowed_status);
-      formData.append('max_allowed_quantity', this.max_allowed_quantity);
-      formData.append('is_approved', this.is_approved);
-      formData.append('tax_included_in_price', this.tax_included_in_price);
-      formData.append('image', this.image);
+      formData.append("loose_stock", this.loose_stock != undefined ? this.loose_stock : 0);
+      formData.append("loose_stock_unit_id", this.loose_stock_unit_id != undefined ? this.loose_stock_unit_id : 0);
+      formData.append("status", this.status != undefined ? this.status : 0);
+      formData.append("category_id", this.category_id);
+      formData.append("product_type", this.product_type);
+      formData.append("manufacturer", this.manufacturer);
+      formData.append("made_in", this.made_in ? this.made_in.id : 0);
+      formData.append("shipping_type", this.shipping_type);
+      formData.append("pincode_ids_exc", this.pincode_ids_exc);
+      formData.append("return_status", this.return_status);
+      formData.append("return_days", this.return_days);
+      formData.append("cancelable_status", this.cancelable_status);
+      formData.append("till_status", this.till_status);
+      formData.append("cod_allowed_status", this.cod_allowed_status);
+      formData.append("max_allowed_quantity", this.max_allowed_quantity);
+      formData.append("is_approved", this.is_approved);
+      formData.append("tax_included_in_price", this.tax_included_in_price);
+      formData.append("image", this.image);
       // Other Images
       for (var i = 0; i < this.$refs.file_other_images.files.length; i++) {
         var _file3 = this.$refs.file_other_images.files[i];
-        formData.append('other_images[]', _file3);
+        formData.append("other_images[]", _file3);
       }
-      var url = this.$apiUrl + '/products/save';
+      var url = this.$apiUrl + "/products/save";
       if (this.clone) {
-        url = this.$apiUrl + '/products/save';
+        url = this.$apiUrl + "/products/save";
       } else if (this.id) {
-        url = this.$apiUrl + '/products/update';
+        url = this.$apiUrl + "/products/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -1331,11 +1769,11 @@ __webpack_require__.r(__webpack_exports__);
             vm.isLoading = false;
             if (((_vm$loggedUser = vm.loggedUser) === null || _vm$loggedUser === void 0 ? void 0 : (_vm$loggedUser$role = _vm$loggedUser.role) === null || _vm$loggedUser$role === void 0 ? void 0 : _vm$loggedUser$role.name) === "Seller") {
               vm.$router.push({
-                path: '/seller/manage_products'
+                path: "/seller/manage_products"
               });
             } else {
               vm.$router.push({
-                path: '/manage_products'
+                path: "/manage_products"
               });
             }
           }, 2000);
@@ -1356,17 +1794,17 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this16.deleteImageIds.push(id);
           if (productImage) {
             _this16.other_images.splice(index, 1);
           } else {
-            if (_this16.type === 'packet') {
+            if (_this16.type === "packet") {
               _this16.inputs[key].images.splice(index, 1);
             } else {
               _this16.inputs[key].loose_images.splice(index, 1);
@@ -1575,29 +2013,25 @@ var render = function () {
               _vm.clone
                 ? [
                     _vm._v(
-                      "\n                          " +
+                      "\n            " +
                         _vm._s(_vm.__("clone")) +
-                        "\n                            "
+                        "\n          "
                     ),
                   ]
                 : _vm.id
                 ? [
                     _vm._v(
-                      "\n                                    " +
-                        _vm._s(_vm.__("edit")) +
-                        "\n                                "
+                      "\n            " + _vm._s(_vm.__("edit")) + "\n          "
                     ),
                   ]
                 : [
                     _vm._v(
-                      "\n                                    " +
+                      "\n            " +
                         _vm._s(_vm.__("create")) +
-                        "\n                                "
+                        "\n          "
                     ),
                   ],
-              _vm._v(
-                "\n                                " + _vm._s(_vm.__("product"))
-              ),
+              _vm._v("\n          " + _vm._s(_vm.__("product")) + "\n        "),
             ],
             2
           ),
@@ -1672,30 +2106,30 @@ var render = function () {
                     _vm.clone
                       ? [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                " +
                               _vm._s(_vm.__("clone")) +
-                              "\n                                "
+                              "\n              "
                           ),
                         ]
                       : _vm.id
                       ? [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                " +
                               _vm._s(_vm.__("edit")) +
-                              "\n                                "
+                              "\n              "
                           ),
                         ]
                       : [
                           _vm._v(
-                            "\n                                    " +
+                            "\n                " +
                               _vm._s(_vm.__("create")) +
-                              "\n                                "
+                              "\n              "
                           ),
                         ],
                     _vm._v(
-                      "\n                                " +
+                      "\n              " +
                         _vm._s(_vm.__("product")) +
-                        "\n                            "
+                        "\n            "
                     ),
                   ],
                   2
@@ -1745,7 +2179,9 @@ var render = function () {
                           : _vm.id
                           ? [_vm._v(_vm._s(_vm.__("edit")))]
                           : [_vm._v(_vm._s(_vm.__("create")))],
-                        _vm._v(" " + _vm._s(_vm.__("product"))),
+                        _vm._v(
+                          " " + _vm._s(_vm.__("product")) + "\n              "
+                        ),
                       ],
                       2
                     ),
@@ -1805,7 +2241,9 @@ var render = function () {
                       _c("span", { staticClass: "text-danger text-xs" }, [
                         _vm._v("*"),
                       ]),
-                      _vm._v(" " + _vm._s(_vm.__("required_fields"))),
+                      _vm._v(
+                        "\n                " + _vm._s(_vm.__("required_fields"))
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "divider" }, [
@@ -1819,7 +2257,9 @@ var render = function () {
                       { staticClass: "row" },
                       [
                         _c("div", { staticClass: "col-md-6" }, [
-                          _c("label", [_vm._v(_vm._s(_vm.__("product_name")))]),
+                          _c("label", [
+                            _vm._v(_vm._s(_vm.__("product_name_en"))),
+                          ]),
                           _vm._v(" "),
                           _c("i", { staticClass: "text-danger" }, [
                             _vm._v("*"),
@@ -1830,24 +2270,61 @@ var render = function () {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.name,
-                                expression: "name",
+                                value: _vm.name_en,
+                                expression: "name_en",
                               },
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: _vm.__("enter_product_name"),
+                              placeholder: _vm.__("enter_product_name_en"),
                               required: "",
                             },
-                            domProps: { value: _vm.name },
+                            domProps: { value: _vm.name_en },
                             on: {
                               keyup: _vm.createSlug,
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.name = $event.target.value
+                                _vm.name_en = $event.target.value
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("label", [
+                            _vm._v(_vm._s(_vm.__("product_name_ar"))),
+                          ]),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "text-danger" }, [
+                            _vm._v("*"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.name_ar,
+                                expression: "name_ar",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: _vm.__("enter_product_name_ar"),
+                              required: "",
+                            },
+                            domProps: { value: _vm.name_ar },
+                            on: {
+                              keyup: _vm.createSlug,
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.name_ar = $event.target.value
                               },
                             },
                           }),
@@ -1978,11 +2455,15 @@ var render = function () {
                                     _vm._l(_vm.sellers, function (seller) {
                                       return _c(
                                         "option",
-                                        { domProps: { value: seller.id } },
+                                        {
+                                          key: seller.id,
+                                          domProps: { value: seller.id },
+                                        },
                                         [
                                           _vm._v(
-                                            _vm._s(seller.name) +
-                                              "\n                                                "
+                                            "\n                        " +
+                                              _vm._s(seller.name) +
+                                              "\n                      "
                                           ),
                                         ]
                                       )
@@ -2041,13 +2522,14 @@ var render = function () {
                               _vm._l(_vm.taxes, function (tax) {
                                 return _c(
                                   "option",
-                                  { domProps: { value: tax.id } },
+                                  { key: tax.id, domProps: { value: tax.id } },
                                   [
                                     _vm._v(
-                                      _vm._s(tax.title) +
+                                      "\n                      " +
+                                        _vm._s(tax.title) +
                                         " (" +
                                         _vm._s(tax.percentage) +
-                                        " %)"
+                                        " %)\n                    "
                                     ),
                                   ]
                                 )
@@ -2071,7 +2553,7 @@ var render = function () {
                                 [
                                   _vm._v(
                                     _vm._s(_vm.__("tags")) +
-                                      " ( " +
+                                      " (\n                      " +
                                       _vm._s(
                                         _vm.__(
                                           "these_tags_help_you_in_search_result"
@@ -2209,7 +2691,7 @@ var render = function () {
                             { staticClass: "form-group" },
                             [
                               _c("label", [
-                                _vm._v(_vm._s(_vm.__("description")) + " "),
+                                _vm._v(_vm._s(_vm.__("description_en")) + " "),
                                 _c("i", { staticClass: "text-danger" }, [
                                   _vm._v("*"),
                                 ]),
@@ -2218,7 +2700,7 @@ var render = function () {
                               _c("editor", {
                                 attrs: {
                                   placeholder: _vm.__(
-                                    "enter_product_description"
+                                    "enter_product_description_en"
                                   ),
                                   init: {
                                     height: 400,
@@ -2229,11 +2711,49 @@ var render = function () {
                                   },
                                 },
                                 model: {
-                                  value: _vm.description,
+                                  value: _vm.description_en,
                                   callback: function ($$v) {
-                                    _vm.description = $$v
+                                    _vm.description_en = $$v
                                   },
-                                  expression: "description",
+                                  expression: "description_en",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-12" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", [
+                                _vm._v(_vm._s(_vm.__("description_ar")) + " "),
+                                _c("i", { staticClass: "text-danger" }, [
+                                  _vm._v("*"),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("editor", {
+                                attrs: {
+                                  placeholder: _vm.__(
+                                    "enter_product_description_ar"
+                                  ),
+                                  init: {
+                                    height: 400,
+                                    plugins: this.$editorPlugins,
+                                    toolbar: this.$editorToolbar,
+                                    font_size_formats:
+                                      this.$editorFont_size_formats,
+                                  },
+                                },
+                                model: {
+                                  value: _vm.description_ar,
+                                  callback: function ($$v) {
+                                    _vm.description_ar = $$v
+                                  },
+                                  expression: "description_ar",
                                 },
                               }),
                             ],
@@ -2303,7 +2823,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("span", { staticClass: "text text-primary" }, [
                               _vm._v(
-                                " *Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                                "\n                      *Please choose square image of larger than 350px*350px &\n                      smaller than 550px*550px."
                               ),
                             ]),
                             _vm._v(" "),
@@ -2402,11 +2922,16 @@ var render = function () {
                                               _vm._l(
                                                 _vm.images,
                                                 function (image) {
-                                                  return _c("small", [
-                                                    _vm._v(
-                                                      _vm._s(image.name) + ", "
-                                                    ),
-                                                  ])
+                                                  return _c(
+                                                    "small",
+                                                    { key: image },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(image.name) +
+                                                          ",\n                            "
+                                                      ),
+                                                    ]
+                                                  )
                                                 }
                                               ),
                                               0
@@ -2419,7 +2944,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("span", { staticClass: "text text-primary" }, [
                               _vm._v(
-                                " *Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                                "\n                      *Please choose square image of larger than 350px*350px &\n                      smaller than 550px*550px."
                               ),
                             ]),
                             _vm._v(" "),
@@ -2430,81 +2955,85 @@ var render = function () {
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.images && _vm.images.length !== 0
-                              ? _c(
-                                  "div",
-                                  { staticClass: "row" },
-                                  [
-                                    _c("h6", { staticClass: "mt-3" }, [
-                                      _vm._v("Seleted Other Image List."),
-                                    ]),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.images, function (image, index) {
-                                      return _vm.images.length !== 0
-                                        ? _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "col-md-4 image-container",
-                                            },
-                                            [
-                                              _c("img", {
+                              ? _c("div", { staticClass: "row" }, [
+                                  _c("h6", { staticClass: "mt-3" }, [
+                                    _vm._v("Seleted Other Image List."),
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.images.length !== 0
+                                    ? _c(
+                                        "div",
+                                        _vm._l(
+                                          _vm.images,
+                                          function (image, index) {
+                                            return _c(
+                                              "div",
+                                              {
+                                                key: index,
                                                 staticClass:
-                                                  "img-thumbnail custom-image",
-                                                attrs: {
-                                                  src: image.url,
-                                                  title: "Selected Other Image",
-                                                  alt: "Selected Other Image",
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _c(
-                                                "button",
-                                                {
+                                                  "col-md-4 image-container",
+                                              },
+                                              [
+                                                _c("img", {
                                                   staticClass:
-                                                    "btn btn-sm btn-danger btn-remove",
-                                                  attrs: { type: "button" },
-                                                  on: {
-                                                    click: function ($event) {
-                                                      _vm.removeOtherImage(
-                                                        _vm.images.indexOf(
-                                                          image
+                                                    "img-thumbnail custom-image",
+                                                  attrs: {
+                                                    src: image.url,
+                                                    title:
+                                                      "Selected Other Image",
+                                                    alt: "Selected Other Image",
+                                                  },
+                                                }),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-sm btn-danger btn-remove",
+                                                    attrs: { type: "button" },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        _vm.removeOtherImage(
+                                                          _vm.images.indexOf(
+                                                            image
+                                                          )
                                                         )
-                                                      )
+                                                      },
                                                     },
                                                   },
-                                                },
-                                                [
-                                                  _c("i", {
-                                                    staticClass:
-                                                      "fa fa-times-circle",
-                                                  }),
-                                                ]
-                                              ),
-                                            ]
-                                          )
-                                        : _vm._e()
-                                    }),
-                                  ],
-                                  2
-                                )
+                                                  [
+                                                    _c("i", {
+                                                      staticClass:
+                                                        "fa fa-times-circle",
+                                                    }),
+                                                  ]
+                                                ),
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      )
+                                    : _vm._e(),
+                                ])
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.other_images && _vm.other_images.length !== 0
-                              ? _c(
-                                  "div",
-                                  { staticClass: "row" },
-                                  [
-                                    _c("h6", { staticClass: "mt-3" }, [
-                                      _vm._v("Uploaded Other Image List."),
-                                    ]),
-                                    _vm._v(" "),
-                                    _vm._l(
-                                      _vm.other_images,
-                                      function (image, index) {
-                                        return _vm.other_images.length !== 0
-                                          ? _c(
+                              ? _c("div", { staticClass: "row" }, [
+                                  _c("h6", { staticClass: "mt-3" }, [
+                                    _vm._v("Uploaded Other Image List."),
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm.other_images.length !== 0
+                                    ? _c(
+                                        "div",
+                                        _vm._l(
+                                          _vm.other_images,
+                                          function (image, index) {
+                                            return _c(
                                               "div",
                                               {
+                                                key: index,
                                                 staticClass:
                                                   "col-md-4 image-container",
                                               },
@@ -2546,12 +3075,12 @@ var render = function () {
                                                 ),
                                               ]
                                             )
-                                          : _vm._e()
-                                      }
-                                    ),
-                                  ],
-                                  2
-                                )
+                                          }
+                                        ),
+                                        0
+                                      )
+                                    : _vm._e(),
+                                ])
                               : _vm._e(),
                           ]),
                         ]),
@@ -2940,7 +3469,9 @@ var render = function () {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    _vm._s(unit.short_code)
+                                                    "\n                          " +
+                                                      _vm._s(unit.short_code) +
+                                                      "\n                        "
                                                   ),
                                                 ]
                                               )
@@ -3096,7 +3627,7 @@ var render = function () {
                                           { staticClass: "text text-primary" },
                                           [
                                             _vm._v(
-                                              "Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                                              "Please choose square image of larger than 350px*350px &\n                        smaller than 550px*550px."
                                             ),
                                           ]
                                         ),
@@ -3104,7 +3635,11 @@ var render = function () {
                                         _vm.variantImageerror
                                           ? _c("p", { staticClass: "error" }, [
                                               _vm._v(
-                                                _vm._s(_vm.variantImageerror)
+                                                "\n                        " +
+                                                  _vm._s(
+                                                    _vm.variantImageerror
+                                                  ) +
+                                                  "\n                      "
                                               ),
                                             ])
                                           : _vm._e(),
@@ -3242,7 +3777,7 @@ var render = function () {
                                                   _vm._s(
                                                     _vm.__("add_variant")
                                                   ) +
-                                                  "\n                                            "
+                                                  "\n                    "
                                               ),
                                             ]
                                           ),
@@ -3291,7 +3826,7 @@ var render = function () {
                                                   _vm._s(
                                                     _vm.__("remove_variant")
                                                   ) +
-                                                  "\n                                            "
+                                                  "\n                    "
                                               ),
                                             ]
                                           ),
@@ -3594,7 +4129,7 @@ var render = function () {
                                               },
                                               [
                                                 _vm._v(
-                                                  "Please choose square image\n                                                        of larger than 350px*350px & smaller than\n                                                        550px*550px."
+                                                  "Please choose square image of larger than 350px*350px &\n                          smaller than 550px*550px."
                                                 ),
                                               ]
                                             ),
@@ -3740,7 +4275,7 @@ var render = function () {
                                                     _vm._s(
                                                       _vm.__("add_variant")
                                                     ) +
-                                                    "\n                                                "
+                                                    "\n                      "
                                                 ),
                                               ]
                                             ),
@@ -3790,7 +4325,7 @@ var render = function () {
                                                     _vm._s(
                                                       _vm.__("remove_variant")
                                                     ) +
-                                                    "\n                                                "
+                                                    "\n                      "
                                                 ),
                                               ]
                                             ),
@@ -3911,7 +4446,13 @@ var render = function () {
                                         return _c(
                                           "option",
                                           { domProps: { value: unit.id } },
-                                          [_vm._v(_vm._s(unit.short_code))]
+                                          [
+                                            _vm._v(
+                                              "\n                        " +
+                                                _vm._s(unit.short_code) +
+                                                "\n                      "
+                                            ),
+                                          ]
                                         )
                                       }),
                                     ],
@@ -4241,11 +4782,17 @@ var render = function () {
                               _vm._v(" "),
                               _vm.validationMessage
                                 ? _c("p", { staticStyle: { color: "red" } }, [
-                                    _vm._v(_vm._s(_vm.validationMessage)),
+                                    _vm._v(
+                                      "\n                          " +
+                                        _vm._s(_vm.validationMessage) +
+                                        "\n                        "
+                                    ),
                                   ])
                                 : _vm.isValid
                                 ? _c("p", { staticStyle: { color: "green" } }, [
-                                    _vm._v("FSSAI License Number is valid!"),
+                                    _vm._v(
+                                      "\n                          FSSAI License Number is valid!\n                        "
+                                    ),
                                   ])
                                 : _vm._e(),
                             ]),
@@ -4455,8 +5002,9 @@ var render = function () {
                                               },
                                               [
                                                 _vm._v(
-                                                  _vm._s(status.status) +
-                                                    "\n                                                "
+                                                  "\n                            " +
+                                                    _vm._s(status.status) +
+                                                    "\n                          "
                                                 ),
                                               ]
                                             )
@@ -4511,12 +5059,16 @@ var render = function () {
                               _vm.validationBarcodeMessage
                                 ? _c("p", { staticStyle: { color: "red" } }, [
                                     _vm._v(
-                                      _vm._s(_vm.validationBarcodeMessage)
+                                      "\n                          " +
+                                        _vm._s(_vm.validationBarcodeMessage) +
+                                        "\n                        "
                                     ),
                                   ])
                                 : _vm.isBarcodeValid
                                 ? _c("p", { staticStyle: { color: "green" } }, [
-                                    _vm._v("Barcode is valid!"),
+                                    _vm._v(
+                                      "\n                          Barcode is valid!\n                        "
+                                    ),
                                   ])
                                 : _vm._e(),
                             ]),
@@ -4558,8 +5110,7 @@ var render = function () {
                             _c("div", { staticClass: "form-group" }, [
                               _c("label", [
                                 _vm._v(
-                                  _vm._s(_vm.__("total_allowed_quantity")) +
-                                    "  "
+                                  _vm._s(_vm.__("total_allowed_quantity")) + " "
                                 ),
                               ]),
                               _vm._v(" "),
@@ -4676,7 +5227,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(
-                                            " Approved\n                                                    "
+                                            "\n                          Approved\n                        "
                                           ),
                                         ]
                                       ),
@@ -4718,7 +5269,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(
-                                            "\n                                                        Not-Approved\n                                                    "
+                                            "\n                          Not-Approved\n                        "
                                           ),
                                         ]
                                       ),
@@ -4764,9 +5315,9 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            " " +
+                            "\n                " +
                               _vm._s(_vm.__("save")) +
-                              "\n                                    "
+                              "\n                "
                           ),
                           _vm.isLoading
                             ? _c("b-spinner", {
