@@ -1231,7 +1231,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Not-Approved"),
+                            _vm._v(_vm._s(_vm.__("not-approved"))),
                           ]),
                         ]
                       ),
@@ -1912,7 +1912,7 @@ var render = function () {
                                 ? _c(
                                     "span",
                                     { staticClass: "badge bg-success" },
-                                    [_vm._v("Approved")]
+                                    [_vm._v(_vm._s(_vm.__("approve")))]
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
@@ -1920,7 +1920,7 @@ var render = function () {
                                 ? _c(
                                     "span",
                                     { staticClass: "badge bg-danger" },
-                                    [_vm._v("Not-Approved")]
+                                    [_vm._v(_vm._s(_vm.__("not-approved")))]
                                   )
                                 : _vm._e(),
                             ]

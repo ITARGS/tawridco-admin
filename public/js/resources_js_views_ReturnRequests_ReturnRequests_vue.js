@@ -363,7 +363,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: 'actions',
-        label: 'Action'
+        label: __('actions')
       }],
       totalRows: 1,
       currentPage: 1,
@@ -950,7 +950,11 @@ var render = function () {
       _c("div", { staticClass: "page-heading" }, [
         _c("div", { staticClass: "page-title" }, [
           _c("div", { staticClass: "row" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "col-12 col-md-6 order-md-1 order-last" },
+              [_c("h3", [_vm._v(_vm._s(_vm.__("return_requests")))])]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -981,7 +985,7 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Return Requests")]
+                        [_vm._v(_vm._s(_vm.__("return_requests")))]
                       ),
                     ]),
                   ]
@@ -993,7 +997,11 @@ var render = function () {
         _vm._v(" "),
         _c("section", { staticClass: "section" }, [
           _c("div", { staticClass: "card" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.__("return_requests"))),
+              ]),
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -1327,24 +1335,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Return Requests")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Return Requests")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

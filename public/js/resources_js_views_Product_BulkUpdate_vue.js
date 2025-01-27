@@ -87,6 +87,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -94,15 +129,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isLoading: false,
       isLoadingDownload: false,
-      sampleFileurl: this.$baseUrl + '/sample-file/products.csv',
-      instructionsFileurl: this.$baseUrl + '/sample-file/products.txt',
+      sampleFileurl: this.$baseUrl + "/sample-file/products.csv",
+      instructionsFileurl: this.$baseUrl + "/sample-file/products.txt",
       file: null
     };
   },
   computed: {
     isSellerRoute: function isSellerRoute() {
       // Use this.$route to access the current route
-      return this.$route.path.startsWith('/seller/');
+      return this.$route.path.startsWith("/seller/");
     }
   },
   created: function created() {},
@@ -114,15 +149,15 @@ __webpack_require__.r(__webpack_exports__);
     downloadProductDataExcel: function downloadProductDataExcel() {
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
-        url: this.$apiUrl + '/products/download_product_data_excel',
-        method: 'get',
-        responseType: 'blob'
+        url: this.$apiUrl + "/products/download_product_data_excel",
+        method: "get",
+        responseType: "blob"
       }).then(function (response) {
         _this.isLoadingDownload = false;
         var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement('a');
+        var link = document.createElement("a");
         link.href = url;
-        link.setAttribute('download', 'products_data.csv'); // Set the download file name
+        link.setAttribute("download", "products_data.csv"); // Set the download file name
         document.body.appendChild(link);
         link.click();
         link.parentNode.removeChild(link);
@@ -142,11 +177,11 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       this.isLoading = true;
       var formData = new FormData();
-      formData.append('file', this.file);
-      var url = this.$apiUrl + '/products/bulk_update';
+      formData.append("file", this.file);
+      var url = this.$apiUrl + "/products/bulk_update";
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -307,9 +342,9 @@ var render = function () {
                   },
                   [
                     _vm._v(
-                      "\n                            " +
+                      "\n              " +
                         _vm._s(_vm.__("bulk_update")) +
-                        "\n                        "
+                        "\n            "
                     ),
                   ]
                 ),
@@ -327,7 +362,42 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "alert alert-info" }, [
+                _c("p", [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(
+                        _vm.__(
+                          "always_download_and_use_new_sample_file_if_you_did_updated_admin_panel_version"
+                        )
+                      ) +
+                      "\n              "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.__(
+                        "read_and_follow_instructions_carefully_before_proceed"
+                      )
+                    )
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("b", [_vm._v(_vm._s(_vm.__("instruction")) + ":")]),
+                ]),
+                _vm._v(
+                  "\n              -- " + _vm._s(_vm.__("download_product"))
+                ),
+                _c("br"),
+                _vm._v(
+                  "\n              -- " +
+                    _vm._s(_vm.__("change_product")) +
+                    "\n            "
+                ),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c(
@@ -383,7 +453,7 @@ var render = function () {
                           _vm._v(
                             " " +
                               _vm._s(_vm.__("update")) +
-                              "\n                                        "
+                              "\n                    "
                           ),
                           _vm.isLoading
                             ? _c("b-spinner", {
@@ -408,7 +478,7 @@ var render = function () {
                           _vm._v(
                             " " +
                               _vm._s(_vm.__("clear")) +
-                              "\n                                    "
+                              "\n                  "
                           ),
                         ]
                       ),
@@ -436,18 +506,16 @@ var render = function () {
                                 _c("b-spinner", {
                                   attrs: { small: "", label: "Spinning" },
                                 }),
-                                _vm._v(
-                                  " Downloading...\n                                        "
-                                ),
+                                _vm._v(" Downloading...\n                    "),
                               ]
                             : [
                                 _c("i", { staticClass: "fa fa-download" }),
                                 _vm._v(
-                                  " " +
+                                  "\n                      " +
                                     _vm._s(
                                       _vm.__("download_product_data_file")
                                     ) +
-                                    "\n                                        "
+                                    "\n                    "
                                 ),
                               ],
                         ],
@@ -464,33 +532,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "alert alert-info" }, [
-      _c("p", [
-        _vm._v(
-          "Always download and use new sample file if you did updated admin panel version."
-        ),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Read and follow instructions carefully before proceed."),
-      ]),
-      _vm._v(" "),
-      _c("p", [_c("b", [_vm._v("Instruction:")])]),
-      _vm._v(
-        "\n                            -- Download Product Data file as CSV. "
-      ),
-      _c("br"),
-      _vm._v(
-        "\n                            -- Change product name, price, stock relate information and update.\n                        "
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

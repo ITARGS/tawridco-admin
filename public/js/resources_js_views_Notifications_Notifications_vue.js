@@ -121,11 +121,101 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record', 'users', 'categories', 'products'],
+  props: ["record", "users", "categories", "products"],
   components: {
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -148,9 +238,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit') : __('add');
+      var title = this.id ? __("edit") : __("add");
       title += " ";
-      title += __('notification');
+      title += __("notification");
       return title;
     },
     users_options: function users_options() {
@@ -166,18 +256,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     dropFile: function dropFile(event) {
       event.preventDefault();
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       this.image = this.$refs.file_image.files[0];
@@ -189,23 +279,23 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('type', this.type);
-      formData.append('type_ids', this.type_ids);
-      formData.append('type_id', this.type_id);
-      formData.append('type_link', this.type_link);
-      formData.append('title', this.title);
-      formData.append('message', this.message);
-      formData.append('include_image', this.include_image);
-      formData.append('image', this.image);
-      var url = this.$apiUrl + '/notifications/save';
+      formData.append("type", this.type);
+      formData.append("type_ids", this.type_ids);
+      formData.append("type_id", this.type_id);
+      formData.append("type_link", this.type_link);
+      formData.append("title", this.title);
+      formData.append("message", this.message);
+      formData.append("include_image", this.include_image);
+      formData.append("image", this.image);
+      var url = this.$apiUrl + "/notifications/save";
       if (this.id) {
-        url = this.$apiUrl + '/notifications/update';
+        url = this.$apiUrl + "/notifications/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -216,11 +306,11 @@ __webpack_require__.r(__webpack_exports__);
             _this.notificationErrorMessage = notification.message;
           }
           setTimeout(function () {
-            vm.$eventBus.$emit('notificationSaved', data.message);
+            vm.$eventBus.$emit("notificationSaved", data.message);
             vm.hideModal();
             vm.$swal.close();
             vm.$router.push({
-              path: '/notifications'
+              path: "/notifications"
             });
           }, 2000);
         } else {
@@ -231,7 +321,7 @@ __webpack_require__.r(__webpack_exports__);
         vm.isLoading = false;
         if (error.message) {
           _this.showError(error.message);
-        } else if (error.request.statusText && error.request.statusText !== "" && typeof error.request.statusText !== 'undefined') {
+        } else if (error.request.statusText && error.request.statusText !== "" && typeof error.request.statusText !== "undefined") {
           _this.showError(error.request.statusText);
         } else {
           _this.showError("Something went wrong!");
@@ -719,7 +809,7 @@ var render = function () {
               },
             },
             [
-              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -762,9 +852,9 @@ var render = function () {
                     _vm._v(" " + _vm._s(_vm.__("warning"))),
                   ]),
                   _vm._v(
-                    "\n            " +
+                    "\n      " +
                       _vm._s(_vm.notificationErrorMessage) +
-                      "\n            "
+                      "\n      "
                   ),
                   _c("button", {
                     staticClass: "btn-close",
@@ -815,27 +905,27 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("select_type"))),
+                    _vm._v(_vm._s(_vm.__("select_type"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "default" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("default"))),
+                    _vm._v(_vm._s(_vm.__("default"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "category" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("category"))),
+                    _vm._v(_vm._s(_vm.__("category"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "product" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("product"))),
+                    _vm._v(_vm._s(_vm.__("product"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "user" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("customer"))),
+                    _vm._v(_vm._s(_vm.__("customer"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "url" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("url"))),
+                    _vm._v(_vm._s(_vm.__("url"))),
                   ]),
                 ]
               ),
@@ -875,7 +965,7 @@ var render = function () {
                   { staticClass: "form-group" },
                   [
                     _c("label", [
-                      _vm._v(" " + _vm._s(_vm.__("customer"))),
+                      _vm._v("\n          " + _vm._s(_vm.__("customer"))),
                       _c(
                         "small",
                         [
@@ -948,13 +1038,21 @@ var render = function () {
                       },
                     },
                     [
-                      _c("option", [_vm._v("Select Category")]),
+                      _c("option", [
+                        _vm._v(_vm._s(_vm.__("select_categories"))),
+                      ]),
                       _vm._v(" "),
                       _vm._l(_vm.categories, function (category) {
                         return _c(
                           "option",
                           { domProps: { value: category.id } },
-                          [_vm._v(_vm._s(category.name))]
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(category.name) +
+                                "\n          "
+                            ),
+                          ]
                         )
                       }),
                     ],
@@ -1005,7 +1103,13 @@ var render = function () {
                         return _c(
                           "option",
                           { domProps: { value: product.id } },
-                          [_vm._v(_vm._s(product.name))]
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(product.name) +
+                                "\n          "
+                            ),
+                          ]
                         )
                       }),
                     ],

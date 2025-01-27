@@ -264,13 +264,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    editor: _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -288,7 +338,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isSellerRoute: function isSellerRoute() {
       // Use this.$route to access the current route
-      return this.$route.path.startsWith('/seller/');
+      return this.$route.path.startsWith("/seller/");
     }
   },
   created: function created() {
@@ -301,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
     getProduct: function getProduct() {
       var _this = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/edit/' + this.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/edit/" + this.id).then(function (response) {
         _this.isLoading = false;
         var data = response.data;
         if (data.status === 1) {
@@ -332,16 +382,16 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           var postData = {
             id: variant_id
           };
-          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.$apiUrl + '/products/delete', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.$apiUrl + "/products/delete", postData).then(function (response) {
             var data = response.data;
             _this2.getProduct();
             //this.showSuccess(data.message);
@@ -372,7 +422,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.th-width[data-v-696efafb] {\n    width: 170px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.th-width[data-v-696efafb] {\n  width: 170px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -582,11 +632,7 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [
-                    _vm._v(
-                      "\n                            Product Details\n                        "
-                    ),
-                  ]
+                  [_vm._v("Product Details")]
                 ),
               ]),
             ]
@@ -684,11 +730,11 @@ var render = function () {
                               _vm.record.tax
                                 ? [
                                     _vm._v(
-                                      "\n                                                " +
+                                      "\n                          " +
                                         _vm._s(_vm.record.tax.title) +
                                         " " +
                                         _vm._s(_vm.record.tax.percentage) +
-                                        "%\n                                            "
+                                        "%\n                        "
                                     ),
                                   ]
                                 : _vm._e(),
@@ -706,11 +752,11 @@ var render = function () {
                               _vm.record.made_in_country
                                 ? [
                                     _vm._v(
-                                      "\n                                                " +
+                                      "\n                          " +
                                         _vm._s(
                                           _vm.record.made_in_country.name
                                         ) +
-                                        "\n                                            "
+                                        "\n                        "
                                     ),
                                   ]
                                 : _vm._e(),
@@ -768,9 +814,9 @@ var render = function () {
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(
-                              "\n                                            " +
+                              "\n                        " +
                                 _vm._s(_vm.record.manufacturer) +
-                                "\n                                        "
+                                "\n                      "
                             ),
                           ]),
                           _vm._v(" "),
@@ -829,13 +875,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Approved")]
+                                  [_vm._v(_vm._s(_vm.__("approve")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.record.is_approved === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Approved"),
+                                  _vm._v(_vm._s(_vm.__("not-approved"))),
                                 ])
                               : _vm._e(),
                           ]),
@@ -887,9 +933,9 @@ var render = function () {
                               _vm.record.category
                                 ? [
                                     _vm._v(
-                                      "\n                                                " +
+                                      "\n                          " +
                                         _vm._s(_vm.record.category.name) +
-                                        "\n                                            "
+                                        "\n                        "
                                     ),
                                   ]
                                 : _vm._e(),
@@ -977,9 +1023,9 @@ var render = function () {
                 _vm._l(_vm.record.variants, function (variant) {
                   return _c(
                     "div",
-                    { staticClass: "col-md-12 table-responsive  " },
+                    { staticClass: "col-md-12 table-responsive" },
                     [
-                      _c("table", { staticClass: "table table-bordered " }, [
+                      _c("table", { staticClass: "table table-bordered" }, [
                         _c("tbody", [
                           _c("tr", [
                             _c("th", { staticClass: "th-width" }, [
@@ -1018,7 +1064,7 @@ var render = function () {
                                 variant.unit
                                   ? [
                                       _vm._v(
-                                        "\n                                                " +
+                                        "\n                          " +
                                           _vm._s(
                                             _vm.record.name +
                                               " " +
@@ -1026,18 +1072,18 @@ var render = function () {
                                               " " +
                                               variant.unit.short_code
                                           ) +
-                                          "\n                                            "
+                                          "\n                        "
                                       ),
                                     ]
                                   : [
                                       _vm._v(
-                                        "\n                                                " +
+                                        "\n                          " +
                                           _vm._s(
                                             _vm.record.name +
                                               " " +
                                               variant.measurement
                                           ) +
-                                          "\n                                            "
+                                          "\n                        "
                                       ),
                                     ],
                               ],
@@ -1052,20 +1098,20 @@ var render = function () {
                                 variant.unit
                                   ? [
                                       _vm._v(
-                                        "\n                                                " +
+                                        "\n                          " +
                                           _vm._s(
                                             variant.measurement +
                                               " " +
                                               variant.unit.short_code
                                           ) +
-                                          "\n                                            "
+                                          "\n                        "
                                       ),
                                     ]
                                   : [
                                       _vm._v(
-                                        "\n                                                " +
+                                        "\n                          " +
                                           _vm._s(variant.measurement) +
-                                          "\n                                            "
+                                          "\n                        "
                                       ),
                                     ],
                               ],

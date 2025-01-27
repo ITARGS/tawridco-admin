@@ -73,7 +73,7 @@
 
                                     stacked="md"
                                     show-empty
-                                    small
+                                    small 
                                     empty-text="There are no cities to show"
                                     :key="cities.length"
                                 >
@@ -192,7 +192,7 @@ export default {
         }
     },
     mounted() {
-       
+
 
     },
     created: function () {

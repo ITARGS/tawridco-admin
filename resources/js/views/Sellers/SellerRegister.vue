@@ -148,135 +148,135 @@
                   </div>
                 </div>
                 <!--
-                 <div class="row">
-                  <div class="form-group col-md-4">
-                    <label>{{ __("register_number") }}<i class="text-danger">*</i></label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="record_number"
-                      :placeholder="__('register_number')"
-                      required
-                    />
-                  </div>
+                                 <div class="row">
+                                  <div class="form-group col-md-4">
+                                    <label>{{ __("register_number") }}<i class="text-danger">*</i></label>
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      v-model="record_number"
+                                      :placeholder="__('register_number')"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label>
-                      {{ __("register_expiry_date") }} <i class="text-danger">*</i></label
-                    >
-                    <input
-                      type="date"
-                      class="form-control"
-                      v-model="record_expiry_date"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label>
+                                      {{ __("register_expiry_date") }} <i class="text-danger">*</i></label
+                                    >
+                                    <input
+                                      type="date"
+                                      class="form-control"
+                                      v-model="record_expiry_date"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label
-                      >{{ __("municipality_number") }}<i class="text-danger">*</i></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="municipality_license_number"
-                      :placeholder="__('municipality_number')"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label
+                                      >{{ __("municipality_number") }}<i class="text-danger">*</i></label
+                                    >
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      v-model="municipality_license_number"
+                                      :placeholder="__('municipality_number')"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label>
-                      {{ __("municipality_expire_number") }}
-                      <i class="text-danger">*</i></label
-                    >
-                    <input
-                      type="date"
-                      class="form-control"
-                      v-model="municipality_license_expiry_date"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label>
+                                      {{ __("municipality_expire_number") }}
+                                      <i class="text-danger">*</i></label
+                                    >
+                                    <input
+                                      type="date"
+                                      class="form-control"
+                                      v-model="municipality_license_expiry_date"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("register_coby") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      ref="file_record_image"
-                      v-on:change="handleFileRecordImage"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("register_coby") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="file"
+                                      class="form-control"
+                                      ref="file_record_image"
+                                      v-on:change="handleFileRecordImage"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label>
-                      {{ __("municipality_copt") }} <i class="text-danger">*</i></label
-                    >
-                    <input
-                      type="file"
-                      class="form-control"
-                      ref="file_municipality_license_image"
-                      v-on:change="handleFileMunicipalityLicenseImage"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label>
+                                      {{ __("municipality_copt") }} <i class="text-danger">*</i></label
+                                    >
+                                    <input
+                                      type="file"
+                                      class="form-control"
+                                      ref="file_municipality_license_image"
+                                      v-on:change="handleFileMunicipalityLicenseImage"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("tax_copy") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      ref="file_tax_certificate_image"
-                      v-on:change="handleFileTaxCertificateImage"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("tax_copy") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="file"
+                                      class="form-control"
+                                      ref="file_tax_certificate_image"
+                                      v-on:change="handleFileTaxCertificateImage"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("addres_copy") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      ref="file_national_address_image"
-                      v-on:change="handleFileNationalAddressImage"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("addres_copy") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="file"
+                                      class="form-control"
+                                      ref="file_national_address_image"
+                                      v-on:change="handleFileNationalAddressImage"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("iban_cer") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      ref="file_iban_certificate"
-                      v-on:change="handleFileIbanCertificate"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("iban_cer") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="file"
+                                      class="form-control"
+                                      ref="file_iban_certificate"
+                                      v-on:change="handleFileIbanCertificate"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("store_owners") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      v-model="owner_birth_date"
-                      required
-                    />
-                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("store_owners") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="date"
+                                      class="form-control"
+                                      v-model="owner_birth_date"
+                                      required
+                                    />
+                                  </div>
 
-                  <div class="form-group col-md-4">
-                    <label> {{ __("tax_name") }} <i class="text-danger">*</i></label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="tax_name"
-                      :placeholder="__('tax_name')"
-                      required
-                    />
-                  </div>
-                </div>
-                 -->
+                                  <div class="form-group col-md-4">
+                                    <label> {{ __("tax_name") }} <i class="text-danger">*</i></label>
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      v-model="tax_name"
+                                      :placeholder="__('tax_name')"
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                                 -->
 
                 <div class="row">
                   <div class="form-group col-md-4">
@@ -332,22 +332,74 @@
                       </template>
                     </multiselect>
                   </div>
-                  <div class="form-group col-md-3">
+
+                  <!-- Commercial Registration number* -->
+                  <div class="form-group col-md-6">
                     <div class="form-group">
-                      <label>{{ __("tax_name") }}</label>
+                      <label
+                        >{{ __("commercial_registration_number")
+                        }}<i class="text-danger">*</i></label
+                      >
                       <input
                         type="text"
                         class="form-control"
-                        v-model="tax_name"
+                        v-model="commercial_registration_number"
+                        :placeholder="__('enter_commercial_registration_number')"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <!-- Commercial Registration Expiry Date* -->
+                  <div class="form-group col-md-6">
+                    <div class="form-group">
+                      <label
+                        >{{ __("commercial_registration_expire_date") }}
+                        <i class="text-danger">*</i></label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        v-model="commercial_registration_expire_date"
                         :placeholder="__('enter_tax')"
                         required
                       />
                     </div>
                   </div>
 
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-6">
                     <div class="form-group">
-                      <label>{{ __("tax_number") }}</label>
+                      <label
+                        >{{ __("license_number") }}<i class="text-danger">*</i></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="license_number"
+                        :placeholder="__('enter_license_number')"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <div class="form-group">
+                      <label
+                        >{{ __("license_number_expire_date")
+                        }}<i class="text-danger">*</i></label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        v-model="license_number_expire_date"
+                        :placeholder="__('enter_license_number_expire_date')"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <div class="form-group">
+                      <label>{{ __("tax_number") }}<i class="text-danger">*</i></label>
                       <input
                         type="text"
                         class="form-control"
@@ -357,22 +409,11 @@
                       />
                     </div>
                   </div>
-
                   <div class="form-group col-md-3">
-                    <div class="form-group">
-                      <label>{{ __("pan_number") }}<i class="text-danger">*</i></label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="pan_number"
-                        :placeholder="__('enter_pan_number')"
-                        required
-                      />
+                    <div class="row">
+                      <label>{{ __("commission") }}<i class="text-danger">*</i></label>
                     </div>
-                  </div>
 
-                  <div class="form-group col-md-3">
-                    <label>{{ __("commission") }} (%) <i class="text-danger">*</i></label>
                     <input
                       type="number"
                       class="form-control"
@@ -385,32 +426,35 @@
                     </p>
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <!-- Mark:- Municipality license image copy -->
+                  <div class="form-group col-md-6">
                     <div class="form-group">
                       <label
-                        >{{ __("national_identity_card") }}
+                        >{{ __("municipality_license_image") }}
                         <i class="text-danger">*</i></label
                       >
 
                       <input
                         type="file"
                         class="file-input"
-                        ref="file_national_id_card"
-                        v-on:change="handleFileNationalIdCard"
+                        ref="file_municipality_license"
+                        v-on:change="handleFileMunicipalityLicense"
                         required
                       />
 
                       <div
                         class="file-input-div bg-gray-100"
-                        @click="$refs.file_national_id_card.click()"
-                        @drop="dropFileNationalIdCard"
+                        @click="$refs.file_municipality_license.click()"
+                        @drop="dropFileMunicipalityLicense"
                         @dragover="$dragoverFile"
                         @dragleave="$dragleaveFile"
                       >
-                        <template v-if="national_id_card && national_id_card.name !== ''">
+                        <template
+                          v-if="municipality_license && municipality_license.name !== ''"
+                        >
                           <label
                             >{{ __("selected_file_name") }}:-
-                            {{ national_id_card.name }}</label
+                            {{ municipality_license.name }}</label
                           >
                         </template>
                         <template v-else>
@@ -419,11 +463,11 @@
                         </template>
                       </div>
 
-                      <div class="row" v-if="national_id_card_url">
-                        <div v-if="isImage(national_id_card_url)" class="col-md-2">
+                      <div class="row" v-if="municipality_license_url">
+                        <div v-if="isImage(municipality_license_url)" class="col-md-2">
                           <img
                             class="custom-image"
-                            :src="national_id_card_url"
+                            :src="municipality_license_url"
                             title="Identity Card"
                             alt="Identity Card"
                           />
@@ -431,52 +475,55 @@
                         <div v-else class="col-md-2 mt-2">
                           <a
                             target="_blank"
-                            :href="national_id_card_url"
+                            :href="municipality_license_url"
                             class="badge bg-success"
                           >
-                            <i class="fa fa-eye"></i> {{ __("identity") }}</a
+                            <i class="fa fa-eye"></i> {{ __("municipality_license") }}</a
                           >
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="form-group col-md-4">
+
+                  <!-- Mark:- Commercial Registration Image -->
+                  <div class="form-group col-md-6">
                     <div class="form-group">
                       <label
-                        >{{ __("address_proof") }} <i class="text-danger">*</i></label
+                        >{{ __("commercial_registration_image") }}
+                        <i class="text-danger">*</i></label
                       >
                       <input
                         type="file"
                         class="file-input"
-                        ref="file_address_proof"
-                        v-on:change="handleFileAddressProof"
+                        ref="file_commercial_registration"
+                        v-on:change="handleFileCommercialRegistration"
                         required
                       />
 
                       <div
                         class="file-input-div bg-gray-100"
-                        @click="$refs.file_address_proof.click()"
-                        @drop="dropFileAddressProof"
+                        @click="$refs.file_commercial_registration.click()"
+                        @drop="dropFileCommercialRegistration"
                         @dragover="$dragoverFile"
                         @dragleave="$dragleaveFile"
                       >
-                        <template v-if="address_proof_name == ''">
+                        <template v-if="commercial_registration == ''">
                           <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
                           <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                         </template>
                         <template v-else>
                           <label
                             >{{ __("selected_file_name") }}
-                            {{ address_proof_name }}</label
+                            {{ commercial_registration }}</label
                           >
                         </template>
                       </div>
 
-                      <div class="row" v-if="address_proof_url">
-                        <div v-if="isImage(address_proof_url)" class="col-md-2">
+                      <div class="row" v-if="commercial_registration_url">
+                        <div v-if="isImage(commercial_registration_url)" class="col-md-2">
                           <img
                             class="custom-image"
-                            :src="address_proof_url"
+                            :src="commercial_registration_url"
                             title="Address Proof"
                             alt="Address Proof"
                           />
@@ -484,16 +531,18 @@
                         <div v-else class="col-md-2 mt-2">
                           <a
                             target="_blank"
-                            :href="address_proof_url"
+                            :href="commercial_registration_url"
                             class="badge bg-success"
                           >
-                            <i class="fa fa-eye"></i> {{ __("address_proof") }}</a
+                            <i class="fa fa-eye"></i>
+                            {{ __("commercial_registration") }}</a
                           >
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  <!-- Mark:- Logo -->
                   <div class="form-group col-md-4">
                     <label for="logo"
                       >{{ __("logo") }} <i class="text-danger">*</i></label
@@ -535,6 +584,8 @@
                       </div>
                     </div>
                   </div>
+
+                  <!-- Mark:- Store description -->
                   <div class="form-group col-md-12">
                     <label
                       >{{ __("store_description") }} : <i class="text-danger">*</i></label
@@ -601,8 +652,11 @@ export default {
 
       categories_ids: [],
 
-      tax_name: "",
       tax_number: "",
+      commercial_registration_number: "",
+      commercial_registration_expire_date: "",
+      license_number: "",
+      license_number_expire_date: "",
       pan_number: "",
 
       store_description: "",
@@ -610,6 +664,10 @@ export default {
       status: 0,
       store_logo: "",
       store_logo_url: "",
+      municipality_license: "",
+      municipality_license_url: "",
+      commercial_registration: "",
+      commercial_registration_url: "",
       national_id_card: "",
       national_id_card_url: "",
       address_proof: "",
@@ -667,7 +725,7 @@ export default {
     validateMobileNumber() {
       const mobileNumber = this.mobile;
       if (!/^\d{1,16}$/.test(mobileNumber)) {
-        this.mobilevalidationError = "Mobile Number must be maximum 16 digits numbers.";
+        this.mobilevalidationError = __("error_message");
         this.mobile = null;
       } else {
         this.mobilevalidationError = null;
@@ -682,6 +740,34 @@ export default {
       event.preventDefault();
       this.$refs.file_store_logo.files = event.dataTransfer.files;
       this.handleFileStoreLogo(); // Trigger the onChange event manually
+      // Clean up
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
+    },
+
+    handleFileMunicipalityLicense() {
+      this.municipality_license = this.$refs.file_municipality_license.files[0];
+      this.municipality_license_url = URL.createObjectURL(this.municipality_license);
+    },
+    dropFileMunicipalityLicense(event) {
+      event.preventDefault();
+      this.$refs.file_municipality_license.files = event.dataTransfer.files;
+      this.handleFileMunicipalityLicense(); // Trigger the onChange event manually
+      // Clean up
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
+    },
+
+    handleFileCommercialRegistration() {
+      this.commercial_registration = this.$refs.file_commercial_registration.files[0];
+      this.commercial_registration_url = URL.createObjectURL(
+        this.commercial_registration
+      );
+    },
+    dropFileCommercialRegistration(event) {
+      event.preventDefault();
+      this.$refs.file_commercial_registration.files = event.dataTransfer.files;
+      this.handleFileCommercialRegistration(); // Trigger the onChange event manually
       // Clean up
       event.currentTarget.classList.add("bg-gray-100");
       event.currentTarget.classList.remove("bg-green-300");
@@ -739,11 +825,24 @@ export default {
       formData.append("confirm_password", this.confirm_password);
       formData.append("store_name", this.store_name);
       formData.append("categories_ids", this.categories_ids);
-      formData.append("tax_name", this.tax_name);
+      formData.append(
+        "commercial_registration_number",
+        this.commercial_registration_number
+      );
+      formData.append(
+        "commercial_registration_expire_date",
+        this.commercial_registration_expire_date
+      );
+      formData.append("license_number", this.license_number);
+      formData.append("license_number_expire_date", this.license_number_expire_date);
       formData.append("tax_number", this.tax_number);
       formData.append("pan_number", this.pan_number);
       formData.append("store_description", this.store_description);
+
       formData.append("store_logo", this.store_logo);
+      formData.append("municipality_license", this.municipality_license);
+      formData.append("commercial_registration", this.commercial_registration);
+
       formData.append("national_id_card", this.national_id_card);
       formData.append("address_proof", this.address_proof);
       formData.append("city_id", this.city_id);
@@ -787,12 +886,15 @@ export default {
 
 <style scoped>
 @import "../../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css";
+
 #auth {
   overflow: auto !important;
 }
+
 .auth {
   overflow-x: hidden !important;
 }
+
 .auth-logo {
   padding-bottom: 10px;
 }

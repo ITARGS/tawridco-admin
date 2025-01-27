@@ -364,89 +364,180 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'app-edit-record': _Commissions_Edit_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "app-edit-record": _Commissions_Edit_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: __('id'),
+        key: "id",
+        label: __("id"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'seller_info',
-        label: __('seller_info'),
-        "class": 'text-legt',
+        key: "seller_info",
+        label: __("seller_info"),
+        "class": "text-legt",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'store_info',
-        label: __('seller_info'),
-        "class": 'text-left',
+        key: "store_info",
+        label: __("seller_info"),
+        "class": "text-left",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'categories_array',
-        label: __('category'),
-        "class": 'text-center',
+        key: "categories_array",
+        label: __("category"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'city.formatted_address',
-        label: __('city'),
-        "class": 'text-center',
+        key: "city.formatted_address",
+        label: __("city"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'logo',
-        label: __('logo'),
-        "class": 'text-center',
+        key: "logo",
+        label: __("logo"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'other_info',
-        label: __('other_info'),
-        "class": 'text-left',
+        key: "other_info",
+        label: __("other_info"),
+        "class": "text-left",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'commission',
-        label: __('commission'),
-        "class": 'text-center',
+        key: "commission",
+        label: __("commission"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'created_at',
-        label: __('date'),
-        "class": 'text-center',
+        key: "created_at",
+        label: __("date"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'status',
-        label: __('status'),
-        "class": 'text-center',
+        key: "status",
+        label: __("status"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'actions',
-        label: __('action')
+        key: "actions",
+        label: __("action")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       records: [],
@@ -457,12 +548,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     var _this = this;
     this.category_id = this.$route.params.id;
-    this.$eventBus.$on('recordSaved', function (message) {
-      _this.showMessage('success', message);
+    this.$eventBus.$on("recordSaved", function (message) {
+      _this.showMessage("success", message);
       _this.getRecords();
     });
-    this.$eventBus.$on('commissionsSaved', function (message) {
-      _this.showMessage('success', message);
+    this.$eventBus.$on("commissionsSaved", function (message) {
+      _this.showMessage("success", message);
       _this.getRecords();
     });
     this.getRecords();
@@ -471,7 +562,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getRecords: function getRecords() {
       var _this2 = this;
       this.isLoading = true;
-      axios.get(this.$apiUrl + '/sellers', {
+      axios.get(this.$apiUrl + "/sellers", {
         params: {
           filterStatus: this.filterStatus
         }
@@ -489,10 +580,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then( /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(result) {
           var remarks, _yield$_this3$$swal$f, text, postData;
@@ -511,22 +602,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                   _context.next = 5;
                   return _this3.$swal.fire({
-                    title: 'Remarks',
-                    input: 'textarea',
+                    title: "Remarks",
+                    input: "textarea",
                     /*inputLabel: 'Remarks',*/
-                    inputPlaceholder: 'Type your remarks here...',
+                    inputPlaceholder: "Type your remarks here...",
                     inputAttributes: {
-                      'aria-label': 'Type your remarks here'
+                      "aria-label": "Type your remarks here"
                     },
                     confirmButtonText: "Submit",
                     cancelButtonText: "Cancel",
                     showCancelButton: true,
                     inputValidator: function inputValidator(value) {
                       return new Promise(function (resolve) {
-                        if (value !== '') {
+                        if (value !== "") {
                           resolve();
                         } else {
-                          resolve('The Remarks field is required');
+                          resolve("The Remarks field is required");
                         }
                       });
                     }
@@ -545,11 +636,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       status: selectedStatus,
                       remark: remarks
                     };
-                    axios.post(_this3.$apiUrl + '/sellers/update_status', postData).then(function (response) {
+                    axios.post(_this3.$apiUrl + "/sellers/update_status", postData).then(function (response) {
                       _this3.isLoading = false;
                       var data = response.data;
                       _this3.getRecords();
-                      _this3.showMessage('success', data.message);
+                      _this3.showMessage("success", data.message);
                     });
                   }
                 case 9:
@@ -571,17 +662,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this4.isLoading = true;
           var postData = {
             id: id
           };
-          axios.post(_this4.$apiUrl + '/sellers/delete', postData).then(function (response) {
+          axios.post(_this4.$apiUrl + "/sellers/delete", postData).then(function (response) {
             _this4.isLoading = false;
             var data = response.data;
             _this4.records.splice(index, 1);
@@ -597,14 +688,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this5.isLoading = true;
-          axios.get(_this5.$apiUrl + '/sellers/updateCommission').then(function (response) {
+          axios.get(_this5.$apiUrl + "/sellers/updateCommission").then(function (response) {
             var data = response.data;
             if (data.status === 1) {
               _this5.showSuccess(data.message);
@@ -621,6 +712,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#subPopover[data-v-9bfccb3e] {\n  width: 7rem !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_style_index_0_id_9bfccb3e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_style_index_0_id_9bfccb3e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_style_index_0_id_9bfccb3e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -672,23 +815,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisteredSellers.vue?vue&type=template&id=9bfccb3e */ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e");
+/* harmony import */ var _RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true */ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true");
 /* harmony import */ var _RegisteredSellers_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisteredSellers.vue?vue&type=script&lang=js */ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _RegisteredSellers_vue_vue_type_style_index_0_id_9bfccb3e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css */ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _RegisteredSellers_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__.render,
-  _RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "9bfccb3e",
   null
   
 )
@@ -730,6 +875,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_10_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_style_index_0_id_9bfccb3e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-10.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-10.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=style&index=0&id=9bfccb3e&scoped=true&lang=css");
+
+
+/***/ }),
+
 /***/ "./resources/js/views/Seller/Commissions/Edit.vue?vue&type=template&id=9c689d5c&scoped=true":
 /*!**************************************************************************************************!*\
   !*** ./resources/js/views/Seller/Commissions/Edit.vue?vue&type=template&id=9c689d5c&scoped=true ***!
@@ -746,18 +903,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e ***!
-  \***************************************************************************************/
+/***/ "./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisteredSellers.vue?vue&type=template&id=9bfccb3e */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisteredSellers_vue_vue_type_template_id_9bfccb3e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true");
 
 
 /***/ }),
@@ -928,10 +1085,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Seller/RegisteredSellers.vue?vue&type=template&id=9bfccb3e&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -949,7 +1106,7 @@ var render = function () {
       _c("div", { staticClass: "page-heading" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-            _c("h3", [_vm._v(" " + _vm._s(_vm.__("new_registered_sellers")))]),
+            _c("h3", [_vm._v(_vm._s(_vm.__("new_registered_sellers")))]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
@@ -978,7 +1135,13 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v(_vm._s(_vm.__("new_registered_sellers")))]
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.__("new_registered_sellers")) +
+                          "\n            "
+                      ),
+                    ]
                   ),
                 ]),
               ]
@@ -1127,11 +1290,11 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                  " +
                                     _vm._s(
                                       _vm._f("emailMask")(row.item.email)
                                     ) +
-                                    "\n                            "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1141,11 +1304,11 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                  " +
                                     _vm._s(
                                       _vm._f("mobileMask")(row.item.mobile)
                                     ) +
-                                    "\n                            "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1183,11 +1346,11 @@ var render = function () {
                                           fn: function () {
                                             return [
                                               _vm._v(
-                                                "\n                                       " +
+                                                "\n                      " +
                                                   _vm._s(
                                                     _vm.__("sellr_details")
                                                   ) +
-                                                  "\n                                    "
+                                                  "\n                    "
                                               ),
                                             ]
                                           },
@@ -1206,42 +1369,36 @@ var render = function () {
                                       [
                                         _c("tr", [
                                           _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("name"))
-                                            ),
+                                            _vm._v(_vm._s(_vm.__("name"))),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " + _vm._s(row.item.name)
+                                              ": " + _vm._s(row.item.name)
                                             ),
                                           ]),
                                         ]),
                                         _vm._v(" "),
                                         _c("tr", [
                                           _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("email"))
-                                            ),
+                                            _vm._v(_vm._s(_vm.__("email"))),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " + _vm._s(row.item.email)
+                                              ": " + _vm._s(row.item.email)
                                             ),
                                           ]),
                                         ]),
                                         _vm._v(" "),
                                         _c("tr", [
                                           _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("mobile"))
-                                            ),
+                                            _vm._v(_vm._s(_vm.__("mobile"))),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " + _vm._s(row.item.mobile)
+                                              ": " + _vm._s(row.item.mobile)
                                             ),
                                           ]),
                                         ]),
@@ -1250,9 +1407,9 @@ var render = function () {
                                   ]
                                 ),
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                  " +
                                     _vm._s(row.item.name) +
-                                    "\n                            "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1290,11 +1447,11 @@ var render = function () {
                                           fn: function () {
                                             return [
                                               _vm._v(
-                                                "\n                                        " +
+                                                "\n                      " +
                                                   _vm._s(
                                                     _vm.__("store_details")
                                                   ) +
-                                                  "\n                                    "
+                                                  "\n                    "
                                               ),
                                             ]
                                           },
@@ -1313,27 +1470,24 @@ var render = function () {
                                       [
                                         _c("tr", [
                                           _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("name"))
-                                            ),
+                                            _vm._v(_vm._s(_vm.__("name"))),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " +
-                                                _vm._s(row.item.store_name)
+                                              ": " + _vm._s(row.item.store_name)
                                             ),
                                           ]),
                                         ]),
                                         _vm._v(" "),
                                         _c("tr", [
                                           _c("th", [
-                                            _vm._v(" " + _vm._s(_vm.__("url"))),
+                                            _vm._v(_vm._s(_vm.__("url"))),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " + _vm._s(row.item.store_url)
+                                              ": " + _vm._s(row.item.store_url)
                                             ),
                                           ]),
                                         ]),
@@ -1341,14 +1495,13 @@ var render = function () {
                                         _c("tr", [
                                           _c("th", [
                                             _vm._v(
-                                              " " +
-                                                _vm._s(_vm.__("description"))
+                                              _vm._s(_vm.__("description"))
                                             ),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              " : " +
+                                              ": " +
                                                 _vm._s(
                                                   row.item.store_description
                                                 )
@@ -1360,9 +1513,9 @@ var render = function () {
                                   ]
                                 ),
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                  " +
                                     _vm._s(row.item.store_name) +
-                                    "\n                            "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1386,134 +1539,220 @@ var render = function () {
                                 ),
                                 _vm._v(" "),
                                 _c(
-                                  "b-popover",
-                                  {
-                                    attrs: {
-                                      target: "other" + row.item.id,
-                                      triggers: "hover",
-                                      placement: "left",
-                                    },
-                                    scopedSlots: _vm._u(
+                                  "div",
+                                  { staticClass: "mainPopover" },
+                                  [
+                                    _c(
+                                      "b-popover",
+                                      {
+                                        attrs: {
+                                          target: "other" + row.item.id,
+                                          triggers: "hover",
+                                          placement: "left",
+                                        },
+                                        scopedSlots: _vm._u(
+                                          [
+                                            {
+                                              key: "title",
+                                              fn: function () {
+                                                return [
+                                                  _vm._v(
+                                                    "\n                        " +
+                                                      _vm._s(
+                                                        _vm.__("store_details")
+                                                      ) +
+                                                      "\n                      "
+                                                  ),
+                                                ]
+                                              },
+                                              proxy: true,
+                                            },
+                                          ],
+                                          null,
+                                          true
+                                        ),
+                                      },
                                       [
-                                        {
-                                          key: "title",
-                                          fn: function () {
-                                            return [
-                                              _vm._v(
-                                                "\n                                         " +
+                                        _vm._v(" "),
+                                        _c(
+                                          "table",
+                                          {
+                                            staticClass:
+                                              "table table-borderless",
+                                          },
+                                          [
+                                            _c("tr", [
+                                              _c("th", [
+                                                _vm._v(
                                                   _vm._s(
-                                                    _vm.__("store_details")
-                                                  ) +
-                                                  "\n                                    "
+                                                    _vm.__(
+                                                      "commercial_registration"
+                                                    )
+                                                  )
+                                                ),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("td", [
+                                                _vm._v(
+                                                  ": " +
+                                                    _vm._s(
+                                                      row.item
+                                                        .commercial_registration_number
+                                                    )
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("tr", [
+                                              _c("th", [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "commercial_registration_expire_date"
+                                                    )
+                                                  )
+                                                ),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                { attrs: { id: "subPopover" } },
+                                                [
+                                                  _vm._v(
+                                                    "\n                            : " +
+                                                      _vm._s(
+                                                        row.item
+                                                          .commercial_registration_expire_date
+                                                      ) +
+                                                      "\n                          "
+                                                  ),
+                                                ]
+                                              ),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("tr", [
+                                              _c("th", [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "municipality_license"
+                                                    )
+                                                  )
+                                                ),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("td", [
+                                                _vm._v(
+                                                  ": " +
+                                                    _vm._s(
+                                                      row.item.license_number
+                                                    )
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("tr", [
+                                              _c("th", [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "municipality_expire_number"
+                                                    )
+                                                  )
+                                                ),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("td", [
+                                                _vm._v(
+                                                  ": " +
+                                                    _vm._s(
+                                                      row.item
+                                                        .license_number_expire_date
+                                                    )
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("tr", [
+                                              _c("th", [
+                                                _vm._v(
+                                                  _vm._s(_vm.__("tax_no"))
+                                                ),
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("td", [
+                                                _vm._v(
+                                                  ": " +
+                                                    _vm._s(row.item.tax_number)
+                                                ),
+                                              ]),
+                                            ]),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass: "badge bg-success",
+                                              attrs: {
+                                                target: "_blank",
+                                                href: row.item
+                                                  .municipality_license_url,
+                                              },
+                                            },
+                                            [
+                                              _c("i", {
+                                                staticClass: "fa fa-eye",
+                                              }),
+                                              _vm._v(
+                                                "\n                          " +
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "municipality_license_image"
+                                                    )
+                                                  )
                                               ),
                                             ]
-                                          },
-                                          proxy: true,
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                  },
-                                  [
-                                    _vm._v(" "),
-                                    _c(
-                                      "table",
-                                      { staticClass: "table table-borderless" },
-                                      [
-                                        _c("tr", [
-                                          _c("th", [
-                                            _vm._v(_vm._s(_vm.__("tax_name"))),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              " : " + _vm._s(row.item.tax_name)
-                                            ),
-                                          ]),
+                                          ),
                                         ]),
                                         _vm._v(" "),
-                                        _c("tr", [
-                                          _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("tax_no"))
-                                            ),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              " : " +
-                                                _vm._s(row.item.tax_number)
-                                            ),
-                                          ]),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("tr", [
-                                          _c("th", [
-                                            _vm._v(
-                                              " " + _vm._s(_vm.__("pan_no"))
-                                            ),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              " : " +
-                                                _vm._s(row.item.pan_number)
-                                            ),
-                                          ]),
+                                        _c("p", [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass: "badge bg-success",
+                                              attrs: {
+                                                target: "_blank",
+                                                href: row.item
+                                                  .commercial_registration_url,
+                                              },
+                                            },
+                                            [
+                                              _c("i", {
+                                                staticClass: "fa fa-eye",
+                                              }),
+                                              _vm._v(
+                                                "\n                          " +
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "commercial_registration_image"
+                                                    )
+                                                  ) +
+                                                  "\n                        "
+                                              ),
+                                            ]
+                                          ),
                                         ]),
                                       ]
                                     ),
-                                    _vm._v(" "),
-                                    _c("p", [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "badge bg-success",
-                                          attrs: {
-                                            target: "_blank",
-                                            href: row.item
-                                              .national_identity_card_url,
-                                          },
-                                        },
-                                        [
-                                          _c("i", { staticClass: "fa fa-eye" }),
-                                          _vm._v(
-                                            "  " +
-                                              _vm._s(
-                                                _vm.__("national_identity_card")
-                                              )
-                                          ),
-                                        ]
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("p", [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "badge bg-success",
-                                          attrs: {
-                                            target: "_blank",
-                                            href: row.item.address_proof_url,
-                                          },
-                                        },
-                                        [
-                                          _c("i", { staticClass: "fa fa-eye" }),
-                                          _vm._v(
-                                            "  " +
-                                              _vm._s(_vm.__("address_proof")) +
-                                              " "
-                                          ),
-                                        ]
-                                      ),
-                                    ]),
-                                  ]
+                                  ],
+                                  1
                                 ),
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n\n                  " +
                                     _vm._s(row.item.store_name) +
-                                    "\n                            "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1540,13 +1779,13 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                  " +
                                     _vm._s(
                                       new Date(
                                         row.item.created_at
                                       ).toLocaleDateString("en-GB")
                                     ) +
-                                    "\n                        "
+                                    "\n                "
                                 ),
                               ]
                             },
@@ -1580,13 +1819,13 @@ var render = function () {
                                   ? _c(
                                       "label",
                                       { staticClass: "badge bg-primary" },
-                                      [_vm._v("Registered")]
+                                      [_vm._v(_vm._s(_vm.__("registered")))]
                                     )
                                   : row.item.status == 1
                                   ? _c(
                                       "label",
                                       { staticClass: "badge bg-success" },
-                                      [_vm._v("Approved")]
+                                      [_vm._v(_vm._s(_vm.__("approve")))]
                                     )
                                   : row.item.status == 2
                                   ? _c(
@@ -1618,7 +1857,7 @@ var render = function () {
                                   ? _c(
                                       "label",
                                       { staticClass: "badge bg-success" },
-                                      [_vm._v("Yes")]
+                                      [_vm._v(_vm._s(_vm.__("yes")))]
                                     )
                                   : row.item.require_products_approval == 0
                                   ? _c(
@@ -1662,9 +1901,9 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                     " +
+                                          "\n                    " +
                                             _vm._s(_vm.__("approved")) +
-                                            "\n                                "
+                                            "\n                  "
                                         ),
                                       ]
                                     )
@@ -1698,9 +1937,9 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                     " +
+                                          "\n                    " +
                                             _vm._s(_vm.__("reject")) +
-                                            "\n                                "
+                                            "\n                  "
                                         ),
                                       ]
                                     )

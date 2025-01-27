@@ -10,21 +10,17 @@ use App\Models\DeliveryBoy;
 use App\Models\Role;
 use App\Models\Seller;
 use App\Models\SellerCommission;
-use App\Models\Setting;
 use App\Models\UserToken;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use App\Models\User;
-use Illuminate\Validation\Rule;
 
 class AdminAuthController extends Controller {
     public function login( Request $request ) {
@@ -117,7 +113,7 @@ class AdminAuthController extends Controller {
         return CommonHelper::responseWithData( $res );
     }
 
-    public function logout ( Request $request ) {
+    public function logout( Request $request ) {
         $token = $request->user()->token();
         $token->revoke();
         $response = [ 'message' => 'You have been successfully logged out!' ];
@@ -137,7 +133,7 @@ class AdminAuthController extends Controller {
             return CommonHelper::responseError( $validator->errors()->first() );
         }
 
-        $token = time().Str::random( 30 );
+        $token = time() . Str::random( 30 );
 
         DB::table( 'password_resets' )->insert( [
             'email' => $request->email,
@@ -176,7 +172,7 @@ class AdminAuthController extends Controller {
         $admin = Admin::where( 'email', $updatePassword->email )
         ->update( [ 'password' => bcrypt( $request->password ) ] );
 
-        DB::table( 'password_resets' )->where( [ 'email'=> $updatePassword->email ] )->delete();
+        DB::table( 'password_resets' )->where( [ 'email' => $updatePassword->email ] )->delete();
 
         return CommonHelper::responseSuccess( 'Password updated successfully!' );
     }
@@ -184,6 +180,7 @@ class AdminAuthController extends Controller {
     /*Seller*/
 
     public function sellerRegister( Request $request ) {
+
         $requestData = $request->all();
         $validator = Validator::make( $requestData, [
             'name' => 'required',
@@ -193,11 +190,18 @@ class AdminAuthController extends Controller {
             'categories_ids' => 'required',
             'store_name' => 'required',
             // 'store_url' => 'required',
+            'commercial_registration_number' => 'required|digits:10',
+            'commercial_registration_expire_date' => 'required',
+            'license_number' => 'required|digits:10',
+            'license_number_expire_date' => 'required',
+            'tax_number'=>'required|digits:10',
+
             'city_id' => 'required',
-            'pan_number' => 'required',
             'commission' => 'required',
-            'national_id_card' => 'required|mimes:jpeg,jpg,png,gif,pdf',
-            'address_proof' => 'required|mimes:jpeg,jpg,png,gif,pdf',
+
+            'municipality_license' => 'required|mimes:jpeg,jpg,png,gif,pdf',
+            'commercial_registration' => 'required|mimes:jpeg,jpg,png,gif,pdf',
+
             'store_logo' => 'required|mimes:jpeg,jpg,png,gif,pdf',
             'store_description' => 'required',
         ], [
@@ -211,8 +215,8 @@ class AdminAuthController extends Controller {
         DB::beginTransaction();
         try {
             $admin = Admin::create( [
-                'username' =>  $request->name,
-                'store_name' => $request->store_name??'',
+                'username' => $request->name,
+                'store_name' => $request->store_name ?? '',
                 'email' => $request->email,
                 'password' => bcrypt( $request->password ),
                 'role_id' => Role::$roleSeller,
@@ -221,7 +225,7 @@ class AdminAuthController extends Controller {
             $seller = new Seller();
             $seller->admin_id = $admin->id;
             $seller->name = $request->name;
-            $seller->slug = $request->store_name??'';
+            $seller->slug = $request->store_name ?? '';
             $seller->store_name = $request->store_name;
             $seller->email = $request->email;
             $seller->mobile = $request->mobile;
@@ -230,27 +234,45 @@ class AdminAuthController extends Controller {
             $seller->categories = $request->categories_ids;
             $seller->tax_name = $request->tax_name;
             $seller->tax_number = $request->tax_number;
+            $seller->commercial_registration_number = $request->commercial_registration_number;
+            $seller->commercial_registration_expire_date = $request->commercial_registration_expire_date;
+            $seller->license_number = $request->license_number;
+            $seller->license_number_expire_date = $request->license_number_expire_date;
             $seller->pan_number = $request->pan_number;
             $seller->city_id = $request->city_id;
             $seller->store_description = $request->store_description;
             $seller->commission = $request->commission;
             if ( $request->hasFile( 'store_logo' ) ) {
                 $file = $request->file( 'store_logo' );
-                $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
                 $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
                 $seller->logo = $image;
             }
 
+            if ( $request->hasFile( 'municipality_license' ) ) {
+                $file = $request->file( 'municipality_license' );
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
+                $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
+                $seller->municipality_license = $image;
+            }
+
+            if ( $request->hasFile( 'commercial_registration' ) ) {
+                $file = $request->file( 'commercial_registration' );
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
+                $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
+                $seller->commercial_registration = $image;
+            }
+
             if ( $request->hasFile( 'national_id_card' ) ) {
                 $file = $request->file( 'national_id_card' );
-                $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
                 $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
                 $seller->national_identity_card = $image;
             }
 
             if ( $request->hasFile( 'address_proof' ) ) {
                 $file = $request->file( 'address_proof' );
-                $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
                 $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
                 $seller->address_proof = $image;
             }
@@ -271,14 +293,14 @@ class AdminAuthController extends Controller {
             try {
 
                 CommonHelper::sendMailAdminStatus( 'seller', $seller, $seller->status, $request->email );
-            } catch ( \Exception $e ) {
+            } catch ( Exception $e ) {
                 Log::error( 'Register Seller status send mail error', [ $e->getMessage() ] );
             }
 
             DB::commit();
             return CommonHelper::responseSuccess( 'Seller Registration Successful! Your Request send to admin and will approve soon. Thank You!' );
 
-        } catch ( \Exception $e ) {
+        } catch ( Exception $e ) {
             Log::info( 'Seller Register Error : ', [ $e->getMessage() ] );
             DB::rollBack();
             return CommonHelper::responseError( 'Something went wrong!' );
@@ -294,14 +316,17 @@ class AdminAuthController extends Controller {
 
         $validator = Validator::make( $request->all(), [
             'name' => 'required',
-            'email' => 'email|required|unique:admins,email,'.auth()->user()->id,
+            'email' => 'email|required|unique:admins,email,' . auth()->user()->id,
 
             'store_url' => 'required',
             'store_name' => 'required',
 
-            'store_logo' => ( $record->store_logo == '' )?'required|':''.'mimes:jpeg,jpg,png,gif,pdf',
-            'national_id_card' => ( $record->national_id_card == '' )?'required|':''.'mimes:jpeg,jpg,png,gif,pdf',
-            'address_proof' => ( $record->address_proof == '' )?'required|':''.'mimes:jpeg,jpg,png,gif,pdf',
+            'store_logo' => ( $record->store_logo == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
+            'commercial_registration' => ( $record->commercial_registration == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
+            'municipality_license' => ( $record->municipality_license == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
+
+            'national_id_card' => ( $record->national_id_card == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
+            'address_proof' => ( $record->address_proof == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
 
             'street' => 'required',
             'city_id' => 'required',
@@ -329,7 +354,7 @@ class AdminAuthController extends Controller {
         $record->store_url = $request->store_url;
         $record->store_name = $request->store_name;
         $record->street = $request->street;
-        $record->pincode_id = ( $request->pincode_id )??0;
+        $record->pincode_id = ( $request->pincode_id ) ?? 0;
         $record->city_id = $request->city_id;
         $record->state = $request->state;
         $record->categories = $request->categories_ids;
@@ -338,7 +363,12 @@ class AdminAuthController extends Controller {
         $record->bank_name = $request->bank_name;
         $record->account_name = $request->account_name;
         $record->tax_name = $request->tax_name;
+
+        $record->commercial_registration_number = $request->commercial_registration_number;
+        $record->commercial_registration_expire_date = $request->commercial_registration_expire_date;
         $record->tax_number = $request->tax_number;
+        $record->license_number_expire_date = $request->license_number_expire_date;
+
         $record->pan_number = $request->pan_number;
         $record->latitude = $request->latitude;
         $record->longitude = $request->longitude;
@@ -356,21 +386,35 @@ class AdminAuthController extends Controller {
 
         if ( $request->hasFile( 'store_logo' ) ) {
             $file = $request->file( 'store_logo' );
-            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
             $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
             $record->logo = $image;
         }
 
+        if ( $request->hasFile( 'commercial_registration' ) ) {
+            $file = $request->file( 'commercial_registration' );
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
+            $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
+            $record->commercial_registration = $image;
+        }
+
+        if ( $request->hasFile( 'municipality_license' ) ) {
+            $file = $request->file( 'municipality_license' );
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
+            $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
+            $record->municipality_license = $image;
+        }
+
         if ( $request->hasFile( 'national_id_card' ) ) {
             $file = $request->file( 'national_id_card' );
-            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
             $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
             $record->national_identity_card = $image;
         }
 
         if ( $request->hasFile( 'address_proof' ) ) {
             $file = $request->file( 'address_proof' );
-            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
             $image = Storage::disk( 'public' )->putFileAs( 'sellers', $file, $fileName );
             $record->address_proof = $image;
         }
@@ -434,14 +478,14 @@ class AdminAuthController extends Controller {
             $deliveryBoy->address = '';
             $deliveryBoy->dob = $request->dob;
             $deliveryBoy->bonus_type = $request->bonus_type;
-            $deliveryBoy->bonus_percentage =  $request->bonus_percentage ?? 0;
+            $deliveryBoy->bonus_percentage = $request->bonus_percentage ?? 0;
 
             $deliveryBoy->status = DeliveryBoy::$statusRegistered;
 
             $driving_license = '';
             if ( $request->hasFile( 'driving_license' ) ) {
                 $file = $request->file( 'driving_license' );
-                $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
                 $driving_license = Storage::disk( 'public' )
                 ->putFileAs( 'delivery_boy/driving_license', $file, $fileName );
             }
@@ -449,7 +493,7 @@ class AdminAuthController extends Controller {
             $national_identity_card = '';
             if ( $request->hasFile( 'national_identity_card' ) ) {
                 $file = $request->file( 'national_identity_card' );
-                $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+                $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
                 $national_identity_card = Storage::disk( 'public' )
                 ->putFileAs( 'delivery_boy/national_identity_card', $file, $fileName );
             }
@@ -458,14 +502,14 @@ class AdminAuthController extends Controller {
 
             try {
                 CommonHelper::sendMailAdminStatus( 'delivery_boy', $deliveryBoy, $deliveryBoy->status, $request->email );
-            } catch ( \Exception $e ) {
+            } catch ( Exception $e ) {
                 Log::error( 'Register delivery_boy status send mail error', [ $e->getMessage() ] );
             }
 
             DB::commit();
             return CommonHelper::responseSuccess( 'Delivery Boy Registration Successful!' );
 
-        } catch ( \Exception $e ) {
+        } catch ( Exception $e ) {
             Log::info( 'Delivery Boy Register Error : ', [ $e->getMessage() ] );
             DB::rollBack();
             return CommonHelper::responseError( 'Something went wrong!' );
@@ -484,8 +528,8 @@ class AdminAuthController extends Controller {
             'name' => 'required',
             'mobile' => 'required',
             'dob' => 'required',
-            'driving_license' => ( $deliveryBoy->driving_license == '' )?'required|':''.'mimes:jpeg,jpg,png,gif,pdf',
-            'national_identity_card' => ( $deliveryBoy->national_identity_card == '' )?'required|':''.'mimes:jpeg,jpg,png,gif,pdf',
+            'driving_license' => ( $deliveryBoy->driving_license == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
+            'national_identity_card' => ( $deliveryBoy->national_identity_card == '' ) ? 'required|' : '' . 'mimes:jpeg,jpg,png,gif,pdf',
             'ifsc_code' => 'required',
             'bank_name' => 'required',
             'bank_account_number' => 'required',
@@ -506,7 +550,7 @@ class AdminAuthController extends Controller {
         $driving_license = '';
         if ( $request->hasFile( 'driving_license' ) ) {
             $file = $request->file( 'driving_license' );
-            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
             $driving_license = Storage::disk( 'public' )
             ->putFileAs( 'delivery_boy/driving_license', $file, $fileName );
         }
@@ -514,7 +558,7 @@ class AdminAuthController extends Controller {
         $national_identity_card = '';
         if ( $request->hasFile( 'national_identity_card' ) ) {
             $file = $request->file( 'national_identity_card' );
-            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $fileName = time() . '_' . rand( 1111, 99999 ) . '.' . $file->getClientOriginalExtension();
             $national_identity_card = Storage::disk( 'public' )
             ->putFileAs( 'delivery_boy/national_identity_card', $file, $fileName );
         }
