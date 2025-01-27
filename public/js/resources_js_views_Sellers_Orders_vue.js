@@ -330,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: "actions",
-        label: "Actions"
+        label: __('actions')
       }],
       totalOrderRows: 1,
       orderItemFields: [{
@@ -385,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: "actions",
-        label: "Actions"
+        label: __('actions')
       }],
       totalOrderItemRows: 1,
       currentPage: 1,

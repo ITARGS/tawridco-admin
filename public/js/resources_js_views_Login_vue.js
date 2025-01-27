@@ -1030,7 +1030,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         },
         noData: {
-          text: "No Data Found",
+          text: __("no_data_found"),
           align: "center"
         }
       },
@@ -1072,7 +1072,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.barChart();
     this.pieChart();
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var months = [__("january"), __("february"), __("march"), __("april"), __("may"), __("june"), __("july"), __("august"), __("september"), __("october"), __("november"), __("december")];
     var now = new Date();
     this.currentMonth = months[now.getMonth()];
     this.getRecord();

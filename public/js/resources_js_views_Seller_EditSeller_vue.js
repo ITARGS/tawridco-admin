@@ -585,6 +585,300 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -598,7 +892,7 @@ __webpack_require__.r(__webpack_exports__);
     VuejsDatatableFactory: vuejs_datatable__WEBPACK_IMPORTED_MODULE_0__.VuejsDatatableFactory,
     Select2: v_select2_component__WEBPACK_IMPORTED_MODULE_2__["default"],
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_3___default()),
-    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    editor: _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -620,7 +914,7 @@ __webpack_require__.r(__webpack_exports__);
           lng: 0
         },
         open: false,
-        template: ''
+        template: ""
       },
       city: "",
       cities: [],
@@ -710,7 +1004,7 @@ __webpack_require__.r(__webpack_exports__);
         this.cities.forEach(function (city) {
           temp.push({
             id: city.id,
-            text: city.name + '-' + city.zone
+            text: city.name + "-" + city.zone
           });
         });
       }
@@ -722,7 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
     getCities: function getCities() {
       var _this = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/cities").then(function (response) {
         _this.isLoading = false;
         var data = response.data;
         _this.cities = data.data;
@@ -734,14 +1028,14 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     },
     getCategories: function getCategories() {
       var _this2 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/categories/main').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/categories/main").then(function (response) {
         _this2.isLoading = false;
         var data = response.data;
         _this2.categories = data.data;
@@ -753,13 +1047,13 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this2.showError(error.message);
         } else {
-          _this2.showError(__('something_went_wrong'));
+          _this2.showError(__("something_went_wrong"));
         }
       });
     },
     getSellerCommission: function getSellerCommission() {
       var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$sellerApiUrl + '/seller_commission').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$sellerApiUrl + "/seller_commission").then(function (response) {
         var data = response.data;
         _this3.commission = data.data.value;
       });
@@ -817,9 +1111,9 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({
-        'location': latlng
+        location: latlng
       }, function (results, status) {
-        if (status === 'OK') {
+        if (status === "OK") {
           if (results[1]) {
             var clikedPlace = results[1];
             var addressArr = clikedPlace.formatted_address.split(",");
@@ -844,7 +1138,7 @@ __webpack_require__.r(__webpack_exports__);
             });
             vm.center = marker;
           } else {
-            console.warn('No results found');
+            console.warn("No results found");
           }
         }
       });
@@ -865,8 +1159,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_store_logo.files = event.dataTransfer.files;
       this.handleFileStoreLogo(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileNationalIdCard: function handleFileNationalIdCard() {
       this.national_id_card = this.$refs.file_national_id_card.files[0];
@@ -877,8 +1171,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_national_id_card.files = event.dataTransfer.files;
       this.handleFileNationalIdCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileAddressProof: function handleFileAddressProof() {
       this.address_proof = this.$refs.file_address_proof.files[0];
@@ -890,13 +1184,13 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_address_proof.files = event.dataTransfer.files;
       this.handleFileAddressProof(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     validateMobileNumber: function validateMobileNumber() {
       var mobileNumber = this.mobile;
       if (!/^\d{1,16}$/.test(mobileNumber)) {
-        this.mobilevalidationError = "Mobile Number must be maximum 16 digits numbers.";
+        this.mobilevalidationError = __("error_message");
         this.mobile = null;
       } else {
         this.mobilevalidationError = null;
@@ -920,7 +1214,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSeller: function getSeller() {
       var _this5 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/sellers/edit/' + this.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/sellers/edit/" + this.id).then(function (response) {
         _this5.isLoading = false;
         var data = response.data;
         if (data.status === 1) {
@@ -992,7 +1286,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this5.showError(error.message);
         } else {
-          _this5.showError(__('something_went_wrong'));
+          _this5.showError(__("something_went_wrong"));
         }
       });
     },
@@ -1002,51 +1296,51 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
-        formData.append('admin_id', this.admin_id);
+        formData.append("id", this.id);
+        formData.append("admin_id", this.admin_id);
       }
-      formData.append('name', this.name);
-      formData.append('email', this.email);
-      formData.append('mobile', this.mobile);
-      formData.append('store_url', this.store_url);
-      formData.append('password', this.password);
-      formData.append('confirm_password', this.confirm_password);
-      formData.append('store_name', this.store_name);
-      formData.append('street', this.street);
-      formData.append('pincode_id', this.pincode_id);
-      formData.append('city_id', this.city_id);
-      formData.append('categories_ids', this.categories_ids);
-      formData.append('state', this.state);
-      formData.append('remark', this.remark);
-      formData.append('account_number', this.account_number);
-      formData.append('ifsc_code', this.ifsc_code);
-      formData.append('bank_name', this.bank_name);
-      formData.append('account_name', this.account_name);
-      formData.append('commission', this.commission);
-      formData.append('tax_name', this.tax_name);
-      formData.append('tax_number', this.tax_number);
-      formData.append('pan_number', this.pan_number);
-      formData.append('latitude', this.latitude);
-      formData.append('longitude', this.longitude);
-      formData.append('place_name', this.place_name);
-      formData.append('formatted_address', this.formatted_address);
-      formData.append('store_description', this.store_description);
-      formData.append('require_products_approval', this.require_products_approval);
-      formData.append('customer_privacy', this.customer_privacy);
-      formData.append('view_order_otp', this.view_order_otp);
-      formData.append('assign_delivery_boy', this.assign_delivery_boy);
-      formData.append('change_order_status_delivered', this.change_order_status_delivered);
-      formData.append('status', this.status);
-      formData.append('store_logo', this.store_logo);
-      formData.append('national_id_card', this.national_id_card);
-      formData.append('address_proof', this.address_proof);
-      var url = this.$apiUrl + '/sellers/save';
+      formData.append("name", this.name);
+      formData.append("email", this.email);
+      formData.append("mobile", this.mobile);
+      formData.append("store_url", this.store_url);
+      formData.append("password", this.password);
+      formData.append("confirm_password", this.confirm_password);
+      formData.append("store_name", this.store_name);
+      formData.append("street", this.street);
+      formData.append("pincode_id", this.pincode_id);
+      formData.append("city_id", this.city_id);
+      formData.append("categories_ids", this.categories_ids);
+      formData.append("state", this.state);
+      formData.append("remark", this.remark);
+      formData.append("account_number", this.account_number);
+      formData.append("ifsc_code", this.ifsc_code);
+      formData.append("bank_name", this.bank_name);
+      formData.append("account_name", this.account_name);
+      formData.append("commission", this.commission);
+      formData.append("tax_name", this.tax_name);
+      formData.append("tax_number", this.tax_number);
+      formData.append("pan_number", this.pan_number);
+      formData.append("latitude", this.latitude);
+      formData.append("longitude", this.longitude);
+      formData.append("place_name", this.place_name);
+      formData.append("formatted_address", this.formatted_address);
+      formData.append("store_description", this.store_description);
+      formData.append("require_products_approval", this.require_products_approval);
+      formData.append("customer_privacy", this.customer_privacy);
+      formData.append("view_order_otp", this.view_order_otp);
+      formData.append("assign_delivery_boy", this.assign_delivery_boy);
+      formData.append("change_order_status_delivered", this.change_order_status_delivered);
+      formData.append("status", this.status);
+      formData.append("store_logo", this.store_logo);
+      formData.append("national_id_card", this.national_id_card);
+      formData.append("address_proof", this.address_proof);
+      var url = this.$apiUrl + "/sellers/save";
       if (this.id) {
-        url = this.$apiUrl + '/sellers/update';
+        url = this.$apiUrl + "/sellers/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_1___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -1055,11 +1349,11 @@ __webpack_require__.r(__webpack_exports__);
             vm.$swal.close();
             if (vm.$roleSeller === vm.login_user.role.name) {
               vm.$router.push({
-                path: '/seller/profile'
+                path: "/seller/profile"
               });
             } else {
               vm.$router.push({
-                path: '/sellers'
+                path: "/sellers"
               });
             }
             vm.isLoading = false;
@@ -1077,7 +1371,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this6.showError(error.message);
         } else {
-          _this6.showError(__('something_went_wrong'));
+          _this6.showError(__("something_went_wrong"));
         }
         vm.isLoading = false;
       });
@@ -1281,9 +1575,7 @@ var render = function () {
             this.$roleSeller === this.login_user.role.name
               ? _c("h3", [
                   _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.__("my_profile")) +
-                      "\n                "
+                    "\n          " + _vm._s(_vm.__("my_profile")) + "\n        "
                   ),
                 ])
               : _c(
@@ -1293,9 +1585,7 @@ var render = function () {
                       ? [_vm._v(_vm._s(_vm.__("edit")))]
                       : [_vm._v(_vm._s(_vm.__("create")))],
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.__("seller")) +
-                        "\n                "
+                      "\n          " + _vm._s(_vm.__("seller")) + "\n        "
                     ),
                   ],
                   2
@@ -1337,7 +1627,13 @@ var render = function () {
                               staticClass: "breadcrumb-item",
                               attrs: { "aria-current": "page" },
                             },
-                            [_vm._v(_vm._s(_vm.__("my_profile")))]
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(_vm.__("my_profile")) +
+                                  "\n              "
+                              ),
+                            ]
                           ),
                         ]
                       : [
@@ -1366,9 +1662,9 @@ var render = function () {
                                 ? [_vm._v(_vm._s(_vm.__("edit")))]
                                 : [_vm._v(_vm._s(_vm.__("create")))],
                               _vm._v(
-                                "\n                                " +
+                                "\n                " +
                                   _vm._s(_vm.__("seller")) +
-                                  "\n                            "
+                                  "\n              "
                               ),
                             ],
                             2
@@ -1398,9 +1694,7 @@ var render = function () {
               [
                 _c("div", { staticClass: "card" }, [
                   _c("div", { staticClass: "card-header" }, [
-                    _c("h4", [
-                      _vm._v(_vm._s(_vm.__("seller_information")) + " "),
-                    ]),
+                    _c("h4", [_vm._v(_vm._s(_vm.__("seller_information")))]),
                     _vm._v(" "),
                     this.$roleSeller !== this.login_user.role.name
                       ? _c(
@@ -1436,7 +1730,11 @@ var render = function () {
                       _c("span", { staticClass: "text-danger text-xs" }, [
                         _vm._v("*"),
                       ]),
-                      _vm._v(" " + _vm._s(_vm.__("required_fields")) + "."),
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.__("required_fields")) +
+                          "."
+                      ),
                     ]),
                     _vm._v(" "),
                     this.$roleSeller !== this.login_user.role.name
@@ -1467,7 +1765,10 @@ var render = function () {
                               },
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Enter name." },
+                            attrs: {
+                              type: "text",
+                              placeholder: _vm.__("enter_name"),
+                            },
                             domProps: { value: _vm.name },
                             on: {
                               input: function ($event) {
@@ -1502,7 +1803,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "email",
-                              placeholder: "Enter email.",
+                              placeholder: _vm.__("enter_email"),
                             },
                             domProps: { value: _vm.email },
                             on: {
@@ -1538,7 +1839,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Enter mobile number",
+                              placeholder: _vm.__("enter_mobile"),
                               inputmode: "numeric",
                             },
                             domProps: { value: _vm.mobile },
@@ -1567,7 +1868,10 @@ var render = function () {
                         ? _c("div", { staticClass: "form-group col-md-4" }, [
                             _c("div", { staticClass: "form-group" }, [
                               _c("label", [
-                                _vm._v(_vm._s(_vm.__("password")) + " "),
+                                _vm._v(
+                                  _vm._s(_vm.__("password")) +
+                                    "\n                      "
+                                ),
                                 !_vm.id
                                   ? _c("i", { staticClass: "text-danger" }, [
                                       _vm._v("*"),
@@ -1589,7 +1893,7 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter password.",
+                                        placeholder: _vm.__("enter_passord"),
                                         type: "checkbox",
                                       },
                                       domProps: {
@@ -1635,7 +1939,7 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter password.",
+                                        placeholder: _vm.__("enter_passord"),
                                         type: "radio",
                                       },
                                       domProps: {
@@ -1658,7 +1962,7 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter password.",
+                                        placeholder: _vm.__("enter_passord"),
                                         type: _vm.showPassword
                                           ? "text"
                                           : "password",
@@ -1729,7 +2033,9 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter confirm password.",
+                                        placeholder: _vm.__(
+                                          "enter_confirm_password"
+                                        ),
                                         type: "checkbox",
                                       },
                                       domProps: {
@@ -1778,7 +2084,9 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter confirm password.",
+                                        placeholder: _vm.__(
+                                          "enter_confirm_password"
+                                        ),
                                         type: "radio",
                                       },
                                       domProps: {
@@ -1804,7 +2112,9 @@ var render = function () {
                                       ],
                                       staticClass: "form-control",
                                       attrs: {
-                                        placeholder: "Enter confirm password.",
+                                        placeholder: _vm.__(
+                                          "enter_confirm_password"
+                                        ),
                                         type: _vm.showConfirmPassword
                                           ? "text"
                                           : "password",
@@ -1855,9 +2165,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "card" }, [
                   _c("div", { staticClass: "card-header" }, [
-                    _c("h4", [
-                      _vm._v(" " + _vm._s(_vm.__("store_information"))),
-                    ]),
+                    _c("h4", [_vm._v(_vm._s(_vm.__("store_information")))]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
@@ -1883,7 +2191,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Enter store name.",
+                              placeholder: _vm.__("enter_store-name"),
                             },
                             domProps: { value: _vm.store_name },
                             on: {
@@ -1909,16 +2217,12 @@ var render = function () {
                                 _vm._v("*"),
                               ]),
                               _vm._v(" "),
-                              _c("small", [
-                                _vm._v(
-                                  "( Ex : 100,205, 360 )\n                                        "
-                                ),
-                              ]),
+                              _c("small", [_vm._v("( Ex : 100,205, 360 ) ")]),
                             ]),
                             _vm._v(" "),
                             _c("Select2", {
                               attrs: {
-                                placeholder: "select categories",
+                                placeholder: _vm.__("select_categories"),
                                 options: _vm.categories_options,
                                 settings: { multiple: "multiple" },
                               },
@@ -1975,9 +2279,9 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  " " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("active")) +
-                                    "\n                                                "
+                                    "\n                    "
                                 ),
                               ]
                             ),
@@ -2012,9 +2316,9 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                                                    " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("deactive")) +
-                                    "\n                                                "
+                                    "\n                    "
                                 ),
                               ]
                             ),
@@ -2038,7 +2342,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Enter tax name.",
+                              placeholder: _vm.__("tax_name"),
                             },
                             domProps: { value: _vm.tax_name },
                             on: {
@@ -2069,7 +2373,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Enter tax number.",
+                              placeholder: _vm.__("tax_number"),
                             },
                             domProps: { value: _vm.tax_number },
                             on: {
@@ -2105,7 +2409,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Enter PAN number.",
+                              placeholder: _vm.__("pan_number"),
                             },
                             domProps: { value: _vm.pan_number },
                             on: {
@@ -2140,7 +2444,7 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "number",
-                            placeholder: "Enter commission (%)",
+                            placeholder: _vm.__("commission"),
                           },
                           domProps: { value: _vm.commission },
                           on: {
@@ -2158,7 +2462,11 @@ var render = function () {
                         _vm._v(" "),
                         _vm.commissionvalidationError
                           ? _c("p", { staticClass: "error" }, [
-                              _vm._v(_vm._s(_vm.commissionvalidationError)),
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(_vm.commissionvalidationError) +
+                                  "\n                  "
+                              ),
                             ])
                           : _vm._e(),
                         _vm._v(" "),
@@ -2179,7 +2487,7 @@ var render = function () {
                                   },
                                 },
                               },
-                              [_vm._v("How seller commission works?")]
+                              [_vm._v(_vm._s(_vm.__("how_seller")))]
                             ),
                           ]
                         ),
@@ -2191,7 +2499,8 @@ var render = function () {
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
                             _vm._v(
-                              " " + _vm._s(_vm.__("national_identity_card"))
+                              "\n                      " +
+                                _vm._s(_vm.__("national_identity_card"))
                             ),
                             !_vm.id
                               ? _c("i", { staticClass: "text-danger" }, [
@@ -2232,7 +2541,10 @@ var render = function () {
                                     ? [
                                         _c("label", [
                                           _vm._v(
-                                            "Selected file name:- " +
+                                            _vm._s(
+                                              _vm.__("selected_file_name")
+                                            ) +
+                                              ":- " +
                                               _vm._s(
                                                 _vm.__("selected_file_name")
                                               ) +
@@ -2288,7 +2600,9 @@ var render = function () {
                                             _c("i", {
                                               staticClass: "fa fa-eye",
                                             }),
-                                            _vm._v(" Identity Card"),
+                                            _vm._v(
+                                              " " + _vm._s(_vm.__("identity"))
+                                            ),
                                           ]
                                         ),
                                       ]
@@ -2301,7 +2615,10 @@ var render = function () {
                       _c("div", { staticClass: "form-group col-md-4" }, [
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [
-                            _vm._v(" " + _vm._s(_vm.__("address_proof"))),
+                            _vm._v(
+                              "\n                      " +
+                                _vm._s(_vm.__("address_proof"))
+                            ),
                             !_vm.id
                               ? _c("i", { staticClass: "text-danger" }, [
                                   _vm._v("*"),
@@ -2356,7 +2673,7 @@ var render = function () {
                                             _vm._s(
                                               _vm.__("selected_file_name")
                                             ) +
-                                              " " +
+                                              "\n                          " +
                                               _vm._s(_vm.address_proof_name)
                                           ),
                                         ]),
@@ -2396,7 +2713,10 @@ var render = function () {
                                             _c("i", {
                                               staticClass: "fa fa-eye",
                                             }),
-                                            _vm._v(" Address Proof"),
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(_vm.__("address_proofs"))
+                                            ),
                                           ]
                                         ),
                                       ]
@@ -2408,7 +2728,11 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-12" }, [
                         _c("label", { attrs: { for: "logo" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("logo")) + " "),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.__("logo")) +
+                              " "
+                          ),
                           !_vm.id
                             ? _c("i", { staticClass: "text-danger" }, [
                                 _vm._v("*"),
@@ -2495,7 +2819,9 @@ var render = function () {
                                     { staticClass: "control-label" },
                                     [
                                       _vm._v(
-                                        " " + _vm._s(_vm.__("status")) + " "
+                                        "\n                        " +
+                                          _vm._s(_vm.__("status")) +
+                                          " "
                                       ),
                                       _c("i", { staticClass: "text-danger" }, [
                                         _vm._v("*"),
@@ -2507,9 +2833,15 @@ var render = function () {
                                   _c("b-form-radio-group", {
                                     attrs: {
                                       options: [
-                                        { text: " Registered", value: 0 },
-                                        { text: " Approved", value: 1 },
-                                        { text: " Not-Approved", value: 2 },
+                                        {
+                                          text: _vm.__("registered"),
+                                          value: 0,
+                                        },
+                                        { text: _vm.__("approve"), value: 1 },
+                                        {
+                                          text: _vm.__("not-approved"),
+                                          value: 2,
+                                        },
                                         { text: " Deactive", value: 3 },
                                       ],
                                       buttons: "",
@@ -2533,7 +2865,20 @@ var render = function () {
                                     "div",
                                     { staticClass: "form-group col-md-4" },
                                     [
-                                      _vm._m(3),
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "remark" } },
+                                        [
+                                          _vm._v(
+                                            _vm._s(_vm.__("remark")) + " "
+                                          ),
+                                          _c(
+                                            "i",
+                                            { staticClass: "text-danger" },
+                                            [_vm._v("*")]
+                                          ),
+                                        ]
+                                      ),
                                       _vm._v(" "),
                                       _c(
                                         "div",
@@ -2553,8 +2898,7 @@ var render = function () {
                                               name: "remark",
                                               id: "remark",
                                               required: "",
-                                              placeholder:
-                                                "Add a remark of this status...",
+                                              placeholder: _vm.__("add_mark"),
                                               spellcheck: "true",
                                             },
                                             domProps: { value: _vm.remark },
@@ -2571,11 +2915,7 @@ var render = function () {
                                           _c(
                                             "label",
                                             { attrs: { for: "remark" } },
-                                            [
-                                              _vm._v(
-                                                "Add a remark of this status..."
-                                              ),
-                                            ]
+                                            [_vm._v(_vm._s(_vm.__("add_mark")))]
                                           ),
                                         ]
                                       ),
@@ -2623,9 +2963,7 @@ var render = function () {
                 _c("div", { staticClass: "card" }, [
                   _c("div", { staticClass: "card-header" }, [
                     _c("h4", [
-                      _vm._v(
-                        " " + _vm._s(_vm.__("store_location_information"))
-                      ),
+                      _vm._v(_vm._s(_vm.__("store_location_information"))),
                     ]),
                   ]),
                   _vm._v(" "),
@@ -2789,6 +3127,7 @@ var render = function () {
                                         fill: "none",
                                       },
                                     }),
+                                    _vm._v(" "),
                                     _c("path", {
                                       attrs: {
                                         d: "M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
@@ -2807,7 +3146,7 @@ var render = function () {
                           { staticClass: "text-danger d-block font-size-13" },
                           [
                             _vm._v(
-                              " " +
+                              "\n                    " +
                                 _vm._s(
                                   _vm.__(
                                     "only_search_location_when_update_is_necessary"
@@ -2822,7 +3161,7 @@ var render = function () {
                           { staticClass: "text text-primary font-size-13" },
                           [
                             _vm._v(
-                              " " +
+                              "\n                    " +
                                 _vm._s(
                                   _vm.__(
                                     "search_your_seller_name_and_you_will_get_the_location_points_latitude_longitude_below"
@@ -2911,11 +3250,13 @@ var render = function () {
                         _vm.formatted_address
                           ? _c("div", { staticClass: "text-danger" }, [
                               _vm._v(
-                                _vm._s(
-                                  _vm.__(
-                                    "draf_and_click_marker_to_your_shop_proper_location"
-                                  )
-                                )
+                                "\n                    " +
+                                  _vm._s(
+                                    _vm.__(
+                                      "draf_and_click_marker_to_your_shop_proper_location"
+                                    )
+                                  ) +
+                                  "\n                  "
                               ),
                             ])
                           : _vm._e(),
@@ -3028,9 +3369,9 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                " " +
+                                "\n                " +
                                   _vm._s(_vm.__("save")) +
-                                  "\n                                "
+                                  "\n                "
                               ),
                               _vm.isLoading
                                 ? _c("b-spinner", {
@@ -3052,7 +3393,7 @@ var render = function () {
                                 },
                               },
                             },
-                            [_vm._v("Back")]
+                            [_vm._v("\n                Back\n              ")]
                           ),
                         ],
                         1
@@ -3064,9 +3405,7 @@ var render = function () {
                   ? _c("div", { staticClass: "card" }, [
                       _c("div", { staticClass: "card-header" }, [
                         _c("h4", [
-                          _vm._v(
-                            " " + _vm._s(_vm.__("seller_bank_information"))
-                          ),
+                          _vm._v(_vm._s(_vm.__("seller_bank_information"))),
                         ]),
                       ]),
                       _vm._v(" "),
@@ -3112,7 +3451,10 @@ var render = function () {
                           _c("div", { staticClass: "form-group col-md-3" }, [
                             _c("div", { staticClass: "form-group" }, [
                               _c("label", [
-                                _vm._v(" " + _vm._s(_vm.__("account_number"))),
+                                _vm._v(
+                                  "\n                      " +
+                                    _vm._s(_vm.__("account_number"))
+                                ),
                                 _c("i", { staticClass: "text-danger" }, [
                                   _vm._v("*"),
                                 ]),
@@ -3198,7 +3540,8 @@ var render = function () {
                             _c("div", { staticClass: "form-group" }, [
                               _c("label", [
                                 _vm._v(
-                                  " " + _vm._s(_vm.__("bank_account_name"))
+                                  "\n                      " +
+                                    _vm._s(_vm.__("bank_account_name"))
                                 ),
                                 _c("i", { staticClass: "text-danger" }, [
                                   _vm._v("*"),
@@ -3252,7 +3595,7 @@ var render = function () {
                               [
                                 _c("label", { staticClass: "control-label" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                      " +
                                       _vm._s(_vm.__("require_product_approval"))
                                   ),
                                 ]),
@@ -3261,8 +3604,8 @@ var render = function () {
                                 _c("b-form-radio-group", {
                                   attrs: {
                                     options: [
-                                      { text: " Yes", value: 1 },
-                                      { text: " No", value: 0 },
+                                      { text: _vm.__("yes"), value: 1 },
+                                      { text: _vm.__("no"), value: 0 },
                                     ],
                                     buttons: "",
                                     "button-variant": "outline-primary",
@@ -3288,7 +3631,7 @@ var render = function () {
                               [
                                 _c("label", { staticClass: "control-label" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                      " +
                                       _vm._s(_vm.__("view_customer_details"))
                                   ),
                                 ]),
@@ -3297,8 +3640,8 @@ var render = function () {
                                 _c("b-form-radio-group", {
                                   attrs: {
                                     options: [
-                                      { text: " Yes", value: 1 },
-                                      { text: " No", value: 0 },
+                                      { text: _vm.__("yes"), value: 1 },
+                                      { text: _vm.__("no"), value: 0 },
                                     ],
                                     buttons: "",
                                     "button-variant": "outline-primary",
@@ -3336,9 +3679,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "  " +
+                                      "\n                  " +
                                         _vm._s(_vm.__("update")) +
-                                        "\n                                    "
+                                        "\n                  "
                                     ),
                                     _vm.isLoading
                                       ? _c("b-spinner", {
@@ -3364,9 +3707,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      " " +
+                                      "\n                  " +
                                         _vm._s(_vm.__("save")) +
-                                        "\n                                    "
+                                        "\n                  "
                                     ),
                                     _vm.isLoading
                                       ? _c("b-spinner", {
@@ -3386,7 +3729,7 @@ var render = function () {
                                     staticClass: "btn btn-danger",
                                     attrs: { type: "reset" },
                                   },
-                                  [_vm._v(" " + _vm._s(_vm.__("clear")))]
+                                  [_vm._v(_vm._s(_vm.__("clear")))]
                                 ),
                               ],
                         ],
@@ -3423,7 +3766,7 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("Close\n            ")]
+                    [_vm._v("Close\n      ")]
                   ),
                 ]
               },
@@ -3443,42 +3786,42 @@ var render = function () {
             _c("ol", [
               _c("li", [
                 _vm._v(
-                  "\n                    Formula for commision (Admin commission) is "
+                  "\n          Formula for commision (Admin commission) is\n          "
                 ),
                 _c("b", [
                   _vm._v(
-                    "Sub total (Excluding delivery charge) / 100 * \n                    commission percentage"
+                    "Sub total (Excluding delivery charge) / 100 * commission percentage"
                   ),
                 ]),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n                    For example sub total is 1378 and commission is 20% then 1378 / 100 X 20 = 275.6 so 1378\n                    - 275.6 = 1102.4 will get credited into seller's wallet.\n                "
+                  "\n          For example sub total is 1378 and commission is 20% then 1378 / 100 X 20 =\n          275.6 so 1378 - 275.6 = 1102.4 will get credited into seller's wallet.\n        "
                 ),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n                   275.6  is commission for Admin and 1102.4 is earning of seller .\n                "
+                  "275.6 is commission for Admin and 1102.4 is earning of seller ."
                 ),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n                    If Order status is delivered then only seller will get earning.\n                "
+                  "If Order status is delivered then only seller will get earning."
                 ),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n                    Ex - 1. Order placed on 11-Aug-21 and product return days are set to 0 so 11-Aug + 0 days =\n                    11-Aug seller earning will get credited when admin is logged in admin panel.\n                "
+                  "\n          Ex - 1. Order placed on 11-Aug-21 and product return days are set to 0 so\n          11-Aug + 0 days = 11-Aug seller earning will get credited when admin is logged\n          in admin panel.\n        "
                 ),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n                    Ex - 2. Order placed on 11-Aug-21 and product return days are set to 7 so 11-Aug + 7 days =\n                    18-Aug seller earning will get credited when admin is logged in admin panel.\n                "
+                  "\n          Ex - 2. Order placed on 11-Aug-21 and product return days are set to 7 so\n          11-Aug + 7 days = 18-Aug seller earning will get credited when admin is logged\n          in admin panel.\n        "
                 ),
               ]),
             ]),
@@ -3513,15 +3856,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "remark" } }, [
-      _vm._v("Remark "),
-      _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
   },
 ]

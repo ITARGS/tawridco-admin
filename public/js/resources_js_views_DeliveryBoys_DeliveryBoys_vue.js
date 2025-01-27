@@ -572,11 +572,194 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record'],
+  props: ["record"],
   components: {
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default())
   },
@@ -624,36 +807,34 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     handleFileUploadLicense: function handleFileUploadLicense() {
       this.deliveryBoys.driving_license = this.$refs.file_license.files[0];
       this.deliveryBoys.driving_license_url = URL.createObjectURL(this.deliveryBoys.driving_license);
-      ;
     },
     dropFileUploadLicense: function dropFileUploadLicense(event) {
       event.preventDefault();
       this.$refs.file_license.files = event.dataTransfer.files;
       this.handleFileUploadLicense(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUploadCard: function handleFileUploadCard() {
       this.deliveryBoys.national_identity_card = this.$refs.file_card.files[0];
       this.deliveryBoys.national_identity_card_url = URL.createObjectURL(this.deliveryBoys.national_identity_card);
-      ;
     },
     dropFileUploadCard: function dropFileUploadCard(event) {
       event.preventDefault();
       this.$refs.file_card.files = event.dataTransfer.files;
       this.handleFileUploadCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     validateDateOfBirth: function validateDateOfBirth() {
       var selectedDate = new Date(this.deliveryBoys.dob);
@@ -683,7 +864,7 @@ __webpack_require__.r(__webpack_exports__);
     getCities: function getCities() {
       var _this = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/cities").then(function (response) {
         _this.isLoading = false;
         var data = response.data;
         _this.cities = data.data;
@@ -706,18 +887,18 @@ __webpack_require__.r(__webpack_exports__);
       for (var key in formObject) {
         formData.append(key, formObject[key]);
       }
-      var url = this.$apiUrl + '/delivery_boys/save';
+      var url = this.$apiUrl + "/delivery_boys/save";
       if (this.deliveryBoys.id) {
-        url = this.$apiUrl + '/delivery_boys/update';
+        url = this.$apiUrl + "/delivery_boys/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this2.$eventBus.$emit('deliveryBoysSaved', data.message);
+          _this2.$eventBus.$emit("deliveryBoysSaved", data.message);
           _this2.hideModal();
         } else {
           vm.showError(data.message);
@@ -762,7 +943,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1725,7 +1906,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v("Save\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -2124,7 +2305,7 @@ var render = function () {
                       ? [
                           _c("label", [
                             _vm._v(
-                              "Selected file name:- " +
+                              "Selected file name:-\n                " +
                                 _vm._s(
                                   _vm.deliveryBoys.national_identity_card.name
                                 )
@@ -2530,9 +2711,9 @@ var render = function () {
                       _c("b-form-radio-group", {
                         attrs: {
                           options: [
-                            { text: " Registered", value: 0 },
+                            { text: _vm.__("registered"), value: 0 },
                             { text: " Activated", value: 1 },
-                            { text: " Not-Approved", value: 2 },
+                            { text: _vm.__("not-approved"), value: 2 },
                             { text: " Deactivated", value: 3 },
                           ],
                           buttons: "",

@@ -207,6 +207,110 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -214,105 +318,105 @@ __webpack_require__.r(__webpack_exports__);
     return {
       category: "",
       fields: [{
-        key: 'product_variant_id',
-        label: 'ID',
+        key: "product_variant_id",
+        label: "ID",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'product_id',
-        label: 'Product ID',
+        key: "product_id",
+        label: "Product ID",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'tax_id',
-        label: 'Tax ID',
+        key: "tax_id",
+        label: "Tax ID",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'seller_name',
-        label: 'Seller Name',
-        "class": 'text-center',
+        key: "seller_name",
+        label: "Seller Name",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'name',
-        label: 'Name',
+        key: "name",
+        label: "Name",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'image',
-        label: 'Image',
-        "class": 'text-center'
+        key: "image",
+        label: "Image",
+        "class": "text-center"
       }, {
-        key: 'price',
-        label: 'Price',
-        "class": 'text-center',
+        key: "price",
+        label: "Price",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'discounted_price',
-        label: 'D.Price',
-        "class": 'text-center',
+        key: "discounted_price",
+        label: "D.Price",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'measurement',
-        label: 'Measurement',
-        "class": 'text-center',
+        key: "measurement",
+        label: "Measurement",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'stock',
-        label: 'Stock',
-        "class": 'text-center',
+        key: "stock",
+        label: "Stock",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'status',
-        label: 'Availability',
-        "class": 'text-center',
+        key: "status",
+        label: "Availability",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'indicator',
-        label: 'Indicator',
-        "class": 'text-center',
+        key: "indicator",
+        label: "Indicator",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'is_approved',
-        label: 'Is Approved?',
-        "class": 'text-center',
+        key: "is_approved",
+        label: "Is Approved?",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'return_status',
-        label: 'Return',
-        "class": 'text-center',
+        key: "return_status",
+        label: "Return",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'cancelable_status',
-        label: 'Cancellation',
-        "class": 'text-center',
+        key: "cancelable_status",
+        label: "Cancellation",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'till_status',
-        label: 'Till Status',
-        "class": 'text-center',
+        key: "till_status",
+        label: "Till Status",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'status',
-        label: 'Status',
-        "class": 'text-center',
+        key: "status",
+        label: "Status",
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'actions',
-        label: __('actions')
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       products: null,
@@ -348,10 +452,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       this.isLoading = true;
       var param = {
-        "category": this.category,
-        "type": this.type
+        category: this.category,
+        type: this.type
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/product_info', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/products/product_info", {
         params: param
       }).then(function (response) {
         _this.isLoading = false;
@@ -367,17 +471,17 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this2.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.$apiUrl + '/products/delete', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this2.$apiUrl + "/products/delete", postData).then(function (response) {
             _this2.isLoading = false;
             var data = response.data;
             _this2.products.splice(index, 1);
@@ -393,17 +497,17 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want to change status.",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this3.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this3.$apiUrl + '/products/change', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post(_this3.$apiUrl + "/products/change", postData).then(function (response) {
             _this3.isLoading = false;
             _this3.getProducts();
             _this3.showSuccess(response.data.message);
@@ -549,7 +653,11 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Sold Out Products")]
+                        [
+                          _vm._v(
+                            "\n                Sold Out Products\n              "
+                          ),
+                        ]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -560,7 +668,11 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Low Stock Products")]
+                        [
+                          _vm._v(
+                            "\n                Low Stock Products\n              "
+                          ),
+                        ]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -571,7 +683,11 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Packet Products")]
+                        [
+                          _vm._v(
+                            "\n                Packet Products\n              "
+                          ),
+                        ]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -582,7 +698,11 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Loose Products")]
+                        [
+                          _vm._v(
+                            "\n                Loose Products\n              "
+                          ),
+                        ]
                       )
                     : _vm._e(),
                 ]),
@@ -603,19 +723,21 @@ var render = function () {
             _vm._v(" "),
             _vm.type === "low_stock"
               ? _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Low Stock Products List"),
+                  _vm._v("\n            Low Stock Products List\n          "),
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.type === "packet_products"
               ? _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Packet Stock Products List"),
+                  _vm._v(
+                    "\n            Packet Stock Products List\n          "
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.type === "loose_products"
               ? _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Loose Stock Products List"),
+                  _vm._v("\n            Loose Stock Products List\n          "),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -700,9 +822,9 @@ var render = function () {
                               { domProps: { value: category.id } },
                               [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(category.name) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             )
@@ -837,9 +959,9 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
+                              "\n                " +
                                 _vm._s(row.item.seller_name) +
-                                "\n                            "
+                                "\n              "
                             ),
                           ]
                         },
@@ -864,13 +986,13 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
+                              "\n                " +
                                 _vm._s(
                                   row.item.measurement +
                                     " " +
                                     row.item.short_code
                                 ) +
-                                "\n                            "
+                                "\n              "
                             ),
                           ]
                         },
@@ -883,9 +1005,9 @@ var render = function () {
                               ? _c("span", [_vm._v("Unlimited")])
                               : [
                                   _vm._v(
-                                    "\n                                    " +
+                                    "\n                  " +
                                       _vm._s(row.item.stock) +
-                                      " "
+                                      "\n                  "
                                   ),
                                   row.item.stock_unit
                                     ? _c("span", [
@@ -968,13 +1090,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Approved")]
+                                  [_vm._v(_vm._s(_vm.__("approve")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             row.item.is_approved === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Approved"),
+                                  _vm._v(_vm._s(_vm.__("not-approved"))),
                                 ])
                               : _vm._e(),
                           ]

@@ -146,6 +146,136 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -178,9 +308,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit') : __('add');
-      title += ' ';
-      title += __('promo_code');
+      var title = this.id ? __("edit") : __("add");
+      title += " ";
+      title += __("promo_code");
       return title;
     },
     isInvalidDiscount: function isInvalidDiscount() {
@@ -199,8 +329,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       var file = this.$refs.file_image.files[0];
@@ -231,10 +361,10 @@ __webpack_require__.r(__webpack_exports__);
     validateStartDate: function validateStartDate() {
       var today = new Date();
       var year = today.getFullYear();
-      var month = String(today.getMonth() + 1).padStart(2, '0');
-      var day = String(today.getDate()).padStart(2, '0');
+      var month = String(today.getMonth() + 1).padStart(2, "0");
+      var day = String(today.getDate()).padStart(2, "0");
       this.currentDate = "".concat(year, "-").concat(month, "-").concat(day);
-      console.log(this.start_date + ' ' + this.currentDate);
+      console.log(this.start_date + " " + this.currentDate);
       var startDate = new Date(this.start_date);
       var currentDate = new Date(this.currentDate);
       var endDate = new Date(this.end_date);
@@ -311,7 +441,7 @@ __webpack_require__.r(__webpack_exports__);
         if (data.status === 1) {
           _this.$eventBus.$emit("PromoCodeSaved", data.message);
           vm.$router.push({
-            path: '/promo_code'
+            path: "/promo_code"
           });
           _this.hideModal();
         } else {
@@ -325,7 +455,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     }
@@ -911,14 +1041,14 @@ var render = function () {
                 [
                   _c("strong", [
                     _c("i", { staticClass: "bi bi-exclamation-triangle" }),
-                    _vm._v("  " + _vm._s(_vm.__("error"))),
+                    _vm._v(" " + _vm._s(_vm.__("error"))),
                   ]),
                   _vm._v(
-                    "\n           " +
+                    "\n      " +
                       _vm._s(
                         _vm.__("discount_is_grater_than_minimun_order_amount")
                       ) +
-                      "\n          "
+                      "\n      "
                   ),
                   _c("button", {
                     staticClass: "btn-close",
@@ -940,7 +1070,7 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "divider mt-0" }, [
               _c("div", { staticClass: "divider-text" }, [
-                _vm._v(" " + _vm._s(_vm.__("promo_code_form"))),
+                _vm._v(_vm._s(_vm.__("promo_code_form"))),
               ]),
             ]),
             _vm._v(" "),
@@ -960,7 +1090,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Enter promo code." },
+                attrs: { type: "text", placeholder: _vm.__("enter_promo") },
                 domProps: { value: _vm.promo_code },
                 on: {
                   input: function ($event) {
@@ -989,7 +1119,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { type: "text", placeholder: "Enter message." },
+                attrs: { type: "text", placeholder: _vm.__("enter_message") },
                 domProps: { value: _vm.message },
                 on: {
                   input: function ($event) {
@@ -1018,7 +1148,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { type: "date", placeholder: "Enter start date." },
+                attrs: { type: "date", placeholder: _vm.__("enter_date") },
                 domProps: { value: _vm.start_date },
                 on: {
                   input: [
@@ -1056,7 +1186,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "form-control",
-                attrs: { type: "date", placeholder: "Enter end date." },
+                attrs: { type: "date", placeholder: _vm.__("Enter_end_date") },
                 domProps: { value: _vm.end_date },
                 on: {
                   input: [
@@ -1097,7 +1227,7 @@ var render = function () {
                 attrs: {
                   type: "number",
                   step: "1",
-                  placeholder: "Enter no. of users",
+                  placeholder: _vm.__("enter_users"),
                 },
                 domProps: { value: _vm.no_of_users },
                 on: {
@@ -1140,7 +1270,7 @@ var render = function () {
                   type: "number",
                   min: "0",
                   step: "0.01",
-                  placeholder: "Enter minimum order amount.",
+                  placeholder: _vm.__("enter_mount"),
                 },
                 domProps: { value: _vm.minimum_order_amount },
                 on: {
@@ -1194,11 +1324,11 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "percentage" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("percentage"))),
+                    _vm._v(_vm._s(_vm.__("percentage"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "amount" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("amount"))),
+                    _vm._v(_vm._s(_vm.__("amount"))),
                   ]),
                 ]
               ),
@@ -1228,7 +1358,7 @@ var render = function () {
                           min: "0.01",
                           max: "100",
                           step: "0.01",
-                          placeholder: "Enter discount percentage.",
+                          placeholder: _vm.__("enter_percentage"),
                         },
                         domProps: { value: _vm.discount },
                         on: {
@@ -1261,7 +1391,7 @@ var render = function () {
                           required: "",
                           min: "0",
                           step: "0.01",
-                          placeholder: "Enter discount amount.",
+                          placeholder: _vm.__("enter_discount_amount"),
                         },
                         domProps: { value: _vm.discount },
                         on: {
@@ -1277,7 +1407,11 @@ var render = function () {
                   _vm._v(" "),
                   _vm.discountPercentagevalidationError
                     ? _c("p", { staticClass: "error" }, [
-                        _vm._v(_vm._s(_vm.discountPercentagevalidationError)),
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(_vm.discountPercentagevalidationError) +
+                            "\n        "
+                        ),
                       ])
                     : _vm._e(),
                 ])
@@ -1301,7 +1435,7 @@ var render = function () {
                 staticClass: "form-control",
                 attrs: {
                   type: "number",
-                  placeholder: "Enter max discount amount.",
+                  placeholder: _vm.__("enter_max_discount_amount"),
                 },
                 domProps: { value: _vm.max_discount_amount },
                 on: {
@@ -1360,7 +1494,7 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("select"))),
+                    _vm._v(_vm._s(_vm.__("select"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "1" } }, [
@@ -1396,7 +1530,7 @@ var render = function () {
                       min: "0",
                       step: "1",
                       required: "",
-                      placeholder: "Enter no. of repeat user",
+                      placeholder: _vm.__("enter_user"),
                     },
                     domProps: { value: _vm.no_of_repeat_usage },
                     on: {
@@ -1426,11 +1560,13 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  _vm._s(
-                    _vm.__(
-                      "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
-                    )
-                  )
+                  "\n          " +
+                    _vm._s(
+                      _vm.__(
+                        "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                      )
+                    ) +
+                    "\n        "
                 ),
               ]),
               _vm._v(" "),
