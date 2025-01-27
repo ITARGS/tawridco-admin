@@ -297,8 +297,11 @@
                         </template>
                       </div>
                       <span class="text text-primary">
-                        *Please choose square image of larger than 350px*350px &amp;
-                        smaller than 550px*550px.</span
+                        *{{
+                          __(
+                            "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                          )
+                        }}</span
                       >
                       <p v-if="mainImageerror" class="error">{{ mainImageerror }}</p>
 
@@ -357,8 +360,11 @@
                         </template>
                       </div>
                       <span class="text text-primary">
-                        *Please choose square image of larger than 350px*350px &amp;
-                        smaller than 550px*550px.</span
+                        *{{
+                          __(
+                            "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                          )
+                        }}</span
                       >
                       <p v-if="otherImageerror" class="error">{{ otherImageerror }}</p>
 
@@ -430,8 +436,8 @@
                       <b-form-radio-group
                         v-model="type"
                         :options="[
-                          { text: ' Packet', value: 'packet' },
-                          { text: ' Loose', value: 'loose' },
+                          { text: __('packet'), value: 'packet' },
+                          { text: __('loose'), value: 'loose' },
                         ]"
                         buttons
                         button-variant="outline-primary"
@@ -444,8 +450,8 @@
                       <b-form-radio-group
                         v-model="is_unlimited_stock"
                         :options="[
-                          { text: ' Limited', value: 0 },
-                          { text: ' Unlimited', value: 1 },
+                          { text: __('limited'), value: 0 },
+                          { text: __('unlimited'), value: 1 },
                         ]"
                         buttons
                         button-variant="outline-primary"
@@ -577,10 +583,11 @@
                           <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                         </div>
 
-                        <span class="text text-primary"
-                          >Please choose square image of larger than 350px*350px &amp;
-                          smaller than 550px*550px.</span
-                        >
+                        <span class="text text-primary">{{
+                          __(
+                            "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                          )
+                        }}</span>
                         <p v-if="variantImageerror" class="error">
                           {{ variantImageerror }}
                         </p>
@@ -727,10 +734,11 @@
                             <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                           </div>
 
-                          <span class="text text-primary"
-                            >Please choose square image of larger than 350px*350px &amp;
-                            smaller than 550px*550px.</span
-                          >
+                          <span class="text text-primary">{{
+                            __(
+                              "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                            )
+                          }}</span>
 
                           <div class="row">
                             <div
@@ -937,8 +945,8 @@
                           <b-form-radio-group
                             v-model="return_status"
                             :options="[
-                              { text: ' No', value: 0 },
-                              { text: ' Yes', value: 1 },
+                              { text: __('no'), value: 0 },
+                              { text: __('yes'), value: 1 },
                             ]"
                             buttons
                             button-variant="outline-primary"
@@ -970,8 +978,8 @@
                           <b-form-radio-group
                             v-model="cancelable_status"
                             :options="[
-                              { text: ' No', value: 0 },
-                              { text: ' Yes', value: 1 },
+                              { text: __('no'), value: 0 },
+                              { text: __('yes'), value: 1 },
                             ]"
                             buttons
                             button-variant="outline-primary"
@@ -1028,8 +1036,8 @@
                           <b-form-radio-group
                             v-model="cod_allowed_status"
                             :options="[
-                              { text: ' No', value: 0 },
-                              { text: ' Yes', value: 1 },
+                              { text: __('no'), value: 0 },
+                              { text: __('yes'), value: 1 },
                             ]"
                             buttons
                             button-variant="outline-primary"
@@ -1068,7 +1076,7 @@
                             data-toggle-passive-class="btn-default"
                           >
                             <input type="radio" v-model="is_approved" value="1" />
-                            Approved
+                            {{ __("approve") }}
                           </label>
                           <label
                             class="btn btn-danger"
@@ -1076,7 +1084,7 @@
                             data-toggle-passive-class="btn-default"
                           >
                             <input type="radio" v-model="is_approved" value="0" />
-                            Not-Approved
+                            {{ __("not-approved") }}
                           </label>
                         </div>
                       </div>

@@ -173,6 +173,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -185,40 +225,40 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: __('id'),
-        "class": 'text-center',
+        key: "id",
+        label: __("id"),
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'user.name',
-        label: __('user'),
-        "class": 'text-center'
+        key: "user.name",
+        label: __("user"),
+        "class": "text-center"
       }, {
-        key: 'rate',
-        label: __('rate'),
-        "class": 'text-center',
+        key: "rate",
+        label: __("rate"),
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'review',
-        label: __('review'),
-        "class": 'text-center'
+        key: "review",
+        label: __("review"),
+        "class": "text-center"
       }, {
-        key: 'images',
-        label: __('image'),
-        "class": 'text-center'
+        key: "images",
+        label: __("image"),
+        "class": "text-center"
       }, {
-        key: 'updated_at',
-        label: __('date'),
-        "class": 'text-center'
+        key: "updated_at",
+        label: __("date"),
+        "class": "text-center"
       }],
       totalRows: 0,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: 'id',
+      sortBy: "id",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
@@ -265,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    $(document).on("click", '[data-toggle="lightbox"]', function (event) {
       event.preventDefault();
       $(this).ekkoLightbox();
     });
@@ -299,8 +339,8 @@ __webpack_require__.r(__webpack_exports__);
       var totalStars = 5;
       var filledStars = rate;
       var blankStars = totalStars - filledStars;
-      var starIconFilled = '⭐️';
-      var starIconBlank = '☆';
+      var starIconFilled = "⭐️";
+      var starIconBlank = "☆";
       var ratingString = starIconFilled.repeat(filledStars) + starIconBlank.repeat(blankStars);
       return ratingString;
     },
@@ -309,9 +349,9 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       this.product_id = this.product_id !== "" ? this.product_id : this.id;
       var param = {
-        "product_id": this.product_id
+        product_id: this.product_id
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$baseUrl + '/customer/products/ratings_list', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$baseUrl + "/customer/products/ratings_list", {
         params: param
       }).then(function (response) {
         _this2.isLoading = false;
@@ -321,7 +361,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getProducts: function getProducts() {
       var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/products/active').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/products/active").then(function (response) {
         _this3.products = response.data.data;
       });
     }
@@ -347,7 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.flip-list-move[data-v-e2ee2fb4] {\n    transition: transform 0.5s;\n}\n.no-move[data-v-e2ee2fb4] {\n    transition: transform 0s;\n}\n.ghost[data-v-e2ee2fb4] {\n    opacity: 0.5;\n    background: #c8ebfb;\n}\n.list-group[data-v-e2ee2fb4] {\n    min-height: 20px;\n}\n.list-group-item[data-v-e2ee2fb4] {\n    cursor: move;\n}\n.list-group-item i[data-v-e2ee2fb4] {\n    cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.flip-list-move[data-v-e2ee2fb4] {\n  transition: transform 0.5s;\n}\n.no-move[data-v-e2ee2fb4] {\n  transition: transform 0s;\n}\n.ghost[data-v-e2ee2fb4] {\n  opacity: 0.5;\n  background: #c8ebfb;\n}\n.list-group[data-v-e2ee2fb4] {\n  min-height: 20px;\n}\n.list-group-item[data-v-e2ee2fb4] {\n  cursor: move;\n}\n.list-group-item i[data-v-e2ee2fb4] {\n  cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -371,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Add some basic styling to the lightbox */\n#lightbox {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.7);\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  z-index: 999;\n}\n#lightbox-content {\n  position: relative;\n  max-width: 80%;\n  max-height: 80%;\n}\n.close {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  font-size: 30px;\n  color: #fff;\n  cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Add some basic styling to the lightbox */\n#lightbox {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.7);\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  z-index: 999;\n}\n#lightbox-content {\n  position: relative;\n  max-width: 80%;\n  max-height: 80%;\n}\n.close {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  font-size: 30px;\n  color: #fff;\n  cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -589,7 +629,13 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v(_vm._s(_vm.__("product_ratings")))]
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.__("product_ratings")) +
+                        "\n            "
+                    ),
+                  ]
                 ),
               ]),
             ]
@@ -663,9 +709,9 @@ var render = function () {
                                 { domProps: { value: product.id } },
                                 [
                                   _vm._v(
-                                    "\n                                            " +
+                                    "\n                      " +
                                       _vm._s(product.name) +
-                                      "\n                                        "
+                                      "\n                    "
                                   ),
                                 ]
                               )
@@ -799,9 +845,9 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                                " +
+                                "\n                  " +
                                   _vm._s(_vm.renderStarRating(row.item.rate)) +
-                                  "\n                            "
+                                  "\n                "
                               ),
                             ]
                           },
@@ -833,13 +879,13 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                                " +
+                                "\n                  " +
                                   _vm._s(
                                     new Date(
                                       row.item.updated_at
                                     ).toLocaleString()
                                   ) +
-                                  "\n                            "
+                                  "\n                "
                               ),
                             ]
                           },
@@ -1013,15 +1059,17 @@ var render = function () {
                           [
                             _c("label", [
                               _vm._v(
-                                "Total Ratings :- " +
+                                _vm._s(_vm.__("total_ratings")) +
+                                  " :- " +
                                   _vm._s(_vm.totalRows) +
-                                  "   , "
+                                  " , "
                               ),
                             ]),
                             _vm._v(" "),
                             _c("label", [
                               _vm._v(
-                                "Average Rating: " +
+                                _vm._s(_vm.__("average_rating")) +
+                                  ":\n                    " +
                                   _vm._s(
                                     _vm.calculateAverageRating().toFixed(2)
                                   )

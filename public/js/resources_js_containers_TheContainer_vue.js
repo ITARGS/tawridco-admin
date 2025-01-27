@@ -862,9 +862,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'TheFooter',
+  name: "TheFooter",
   data: function data() {
     return {
       copyrightDetails: window.copyrightDetails,
@@ -2404,7 +2408,7 @@ var render = function () {
       _vm.currentVersion !== ""
         ? _c("div", { staticClass: "float-end" }, [
             _c("p", [
-              _vm._v("\n              Version :- \n              "),
+              _vm._v("\n        " + _vm._s(_vm.__("version")) + ":-\n        "),
               _c("a", { attrs: { href: "javascript:void(0)" } }, [
                 _vm._v(_vm._s(_vm.$currentVersion)),
               ]),

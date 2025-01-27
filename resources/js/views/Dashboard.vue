@@ -1008,7 +1008,7 @@ export default {
           },
         },
         noData: {
-          text: "No Data Found",
+          text: __("no_data_found"),
           align: "center",
         },
       },
@@ -1057,18 +1057,18 @@ export default {
     this.pieChart();
 
     let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
+      __("january"),
+      __("february"),
+      __("march"),
+      __("april"),
+      __("may"),
+      __("june"),
+      __("july"),
+      __("august"),
+      __("september"),
+      __("october"),
+      __("november"),
+      __("december"),
     ];
     let now = new Date();
     this.currentMonth = months[now.getMonth()];

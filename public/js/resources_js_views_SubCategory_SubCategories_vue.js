@@ -56,10 +56,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record', 'categories'],
+  props: ["record", "categories"],
   data: function data() {
     return {
       isLoading: false,
@@ -87,10 +118,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     handleFileUpload: function handleFileUpload() {
       this.image = this.$refs.file_image.files[0];
@@ -101,24 +132,24 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('category_id', this.category_id);
-      formData.append('name', this.name);
-      formData.append('subtitle', this.subtitle);
-      formData.append('image', this.image);
-      var url = this.$apiUrl + '/subcategories/save';
+      formData.append("category_id", this.category_id);
+      formData.append("name", this.name);
+      formData.append("subtitle", this.subtitle);
+      formData.append("image", this.image);
+      var url = this.$apiUrl + "/subcategories/save";
       if (this.id) {
-        url = this.$apiUrl + '/subcategories/update';
+        url = this.$apiUrl + "/subcategories/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this.$eventBus.$emit('categorySaved', data.message);
+          _this.$eventBus.$emit("categorySaved", data.message);
           _this.hideModal();
         } else {
           vm.showError(data.message);
@@ -131,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     }
@@ -354,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-4b9375da]{\n    margin-top: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-4b9375da] {\n  margin-top: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -584,7 +615,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v("Save\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -647,7 +678,9 @@ var render = function () {
                 },
                 _vm._l(_vm.categories, function (category) {
                   return _c("option", { domProps: { value: category.id } }, [
-                    _vm._v(_vm._s(category.name)),
+                    _vm._v(
+                      "\n            " + _vm._s(category.name) + "\n          "
+                    ),
                   ])
                 }),
                 0
@@ -711,7 +744,13 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                  "\n          " +
+                    _vm._s(
+                      _vm.__(
+                        "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                      )
+                    ) +
+                    "\n        "
                 ),
               ]),
               _vm._v(" "),

@@ -355,6 +355,360 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -434,7 +788,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!file) return;
 
       // Perform image validation
-      var validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      var validTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif", "image/webp", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
       if (!validTypes.includes(file.type)) {
         this.drivingLicencevalidationerror = "Invalid file type. Please upload a JPEG, PNG, JPG, GIF, WEBP image or PDF or DOC file ";
         return;
@@ -452,8 +806,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.file_license.files = event.dataTransfer.files;
       this.handleFileUploadLicense(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUploadCard: function handleFileUploadCard() {
       var file = this.$refs.file_card.files[0];
@@ -465,7 +819,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!file) return;
 
       // Perform image validation
-      var validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      var validTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif", "image/webp", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
       if (!validTypes.includes(file.type)) {
         this.nationalIdentityCardvalidationerrorv = "Invalid file type. Please upload a JPEG, PNG, JPG, GIF, WEBP image or PDF or DOC file ";
         return;
@@ -477,15 +831,14 @@ __webpack_require__.r(__webpack_exports__);
       }
       this.deliveryBoys.national_identity_card = this.$refs.file_card.files[0];
       this.deliveryBoys.national_identity_card_url = URL.createObjectURL(this.deliveryBoys.national_identity_card);
-      ;
     },
     dropFileUploadCard: function dropFileUploadCard(event) {
       event.preventDefault();
       this.$refs.file_card.files = event.dataTransfer.files;
       this.handleFileUploadCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     validateDateOfBirth: function validateDateOfBirth() {
       var selectedDate = new Date(this.deliveryBoys.dob);
@@ -515,7 +868,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getBonusSettings: function getBonusSettings() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/delivery_boys/bonus_settings').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/delivery_boys/bonus_settings").then(function (response) {
         var data = response.data;
         _this.bonusSettings = data.data;
         if (_this.bonusSettings.delivery_boy_bonus_settings == 1) {
@@ -546,7 +899,7 @@ __webpack_require__.r(__webpack_exports__);
     getCities: function getCities() {
       var _this2 = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/cities").then(function (response) {
         var _this2$record;
         _this2.isLoading = false;
         var data = response.data;
@@ -563,7 +916,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getDeliveryBoy: function getDeliveryBoy() {
       var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/delivery_boys/edit/' + this.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/delivery_boys/edit/" + this.id).then(function (response) {
         _this3.isLoading = false;
         var data = response.data;
         if (data.status === 1) {
@@ -624,13 +977,13 @@ __webpack_require__.r(__webpack_exports__);
         var _formObject$key;
         formData.append(key, (_formObject$key = formObject[key]) !== null && _formObject$key !== void 0 ? _formObject$key : "");
       }
-      var url = this.$apiUrl + '/delivery_boys/save';
+      var url = this.$apiUrl + "/delivery_boys/save";
       if (this.deliveryBoys.id) {
-        url = this.$apiUrl + '/delivery_boys/update';
+        url = this.$apiUrl + "/delivery_boys/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_1___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
@@ -641,7 +994,7 @@ __webpack_require__.r(__webpack_exports__);
             vm.$swal.close();
             if (vm.$roleDeliveryBoy !== vm.login_user.role.name) {
               vm.$router.push({
-                path: '/delivery_boys'
+                path: "/delivery_boys"
               });
             } else {
               vm.getDeliveryBoy();
@@ -862,9 +1215,7 @@ var render = function () {
           this.$roleDeliveryBoy === this.login_user.role.name
             ? _c("h3", [
                 _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.__("my_profile")) +
-                    "\n                "
+                  "\n          " + _vm._s(_vm.__("my_profile")) + "\n        "
                 ),
               ])
             : _c(
@@ -874,9 +1225,9 @@ var render = function () {
                     ? [_vm._v(_vm._s(_vm.__("edit")))]
                     : [_vm._v(_vm._s(_vm.__("create")))],
                   _vm._v(
-                    "\n                    " +
+                    "\n          " +
                       _vm._s(_vm.__("delivery_boy")) +
-                      "\n                "
+                      "\n        "
                   ),
                 ],
                 2
@@ -920,7 +1271,13 @@ var render = function () {
                             staticClass: "breadcrumb-item",
                             attrs: { "aria-current": "page" },
                           },
-                          [_vm._v(_vm._s(_vm.__("my_profile")))]
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(_vm.__("my_profile")) +
+                                "\n              "
+                            ),
+                          ]
                         ),
                       ]
                     : [
@@ -951,9 +1308,9 @@ var render = function () {
                               ? [_vm._v(_vm._s(_vm.__("edit")))]
                               : [_vm._v(_vm._s(_vm.__("create")))],
                             _vm._v(
-                              "\n                                " +
+                              "\n                " +
                                 _vm._s(_vm.__("delivery_boy")) +
-                                "\n                            "
+                                "\n              "
                             ),
                           ],
                           2
@@ -1019,14 +1376,17 @@ var render = function () {
                     _c("span", { staticClass: "text-danger text-xs" }, [
                       _vm._v("*"),
                     ]),
-                    _vm._v(" " + _vm._s(_vm.__("required_fields"))),
+                    _vm._v(
+                      "\n                " + _vm._s(_vm.__("required_fields"))
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "divider" }, [
                     _c("div", { staticClass: "divider-text" }, [
                       _vm._v(
-                        _vm._s(_vm.__("new_delivery_boy_register_form")) +
-                          "New Delivery Boy Register Form"
+                        "\n                  " +
+                          _vm._s(_vm.__("new_delivery_boy_register_form")) +
+                          "New Delivery Boy Register\n                  Form\n                "
                       ),
                     ]),
                   ]),
@@ -1078,7 +1438,10 @@ var render = function () {
                     _c("div", { staticClass: "col-md-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "dob" } }, [
-                          _vm._v(_vm._s(_vm.__("date_of_birth")) + " "),
+                          _vm._v(
+                            _vm._s(_vm.__("date_of_birth")) +
+                              "\n                      "
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1226,7 +1589,10 @@ var render = function () {
                       ? _c("div", { staticClass: "col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "password" } }, [
-                              _vm._v(" " + _vm._s(_vm.__("password"))),
+                              _vm._v(
+                                "\n                      " +
+                                  _vm._s(_vm.__("password"))
+                              ),
                               _c(
                                 "span",
                                 { staticClass: "text-danger text-xs" },
@@ -1585,7 +1951,10 @@ var render = function () {
                     _c("div", { staticClass: "col-md-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "ifsc_code" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("bank_ifsc_code"))),
+                          _vm._v(
+                            "\n                      " +
+                              _vm._s(_vm.__("bank_ifsc_code"))
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1677,7 +2046,10 @@ var render = function () {
                     _c("div", { staticClass: "col-md-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "account_number" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("account_number"))),
+                          _vm._v(
+                            "\n                      " +
+                              _vm._s(_vm.__("account_number"))
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1782,7 +2154,10 @@ var render = function () {
                       { staticClass: "col-md-4" },
                       [
                         _c("label", { attrs: { for: "city_name" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("select_or_search_city"))),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.__("select_or_search_city"))
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1847,7 +2222,10 @@ var render = function () {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "address" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("address"))),
+                          _vm._v(
+                            "\n                      " +
+                              _vm._s(_vm.__("address"))
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1931,7 +2309,10 @@ var render = function () {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "driving_license" } }, [
-                          _vm._v(" " + _vm._s(_vm.__("driving_licence"))),
+                          _vm._v(
+                            "\n                      " +
+                              _vm._s(_vm.__("driving_licence"))
+                          ),
                           _c("span", { staticClass: "text-danger text-xs" }, [
                             _vm._v("*"),
                           ]),
@@ -1971,7 +2352,7 @@ var render = function () {
                                   ? [
                                       _c("label", [
                                         _vm._v(
-                                          " " +
+                                          "\n                          " +
                                             _vm._s(
                                               _vm.__("selected_file_name")
                                             ) +
@@ -2002,7 +2383,11 @@ var render = function () {
                         _vm._v(" "),
                         _vm.drivingLicencevalidationerror
                           ? _c("p", { staticClass: "error" }, [
-                              _vm._v(_vm._s(_vm.drivingLicencevalidationerror)),
+                              _vm._v(
+                                "\n                      " +
+                                  _vm._s(_vm.drivingLicencevalidationerror) +
+                                  "\n                    "
+                              ),
                             ])
                           : _vm._e(),
                         _vm._v(" "),
@@ -2036,7 +2421,7 @@ var render = function () {
                                         _vm._v(
                                           " " +
                                             _vm._s(_vm.__("identity_card")) +
-                                            "Identity Card"
+                                            "Identity\n                          Card"
                                         ),
                                       ]
                                     ),
@@ -2053,7 +2438,8 @@ var render = function () {
                           { attrs: { for: "national_identity_card" } },
                           [
                             _vm._v(
-                              " " + _vm._s(_vm.__("national_identity_card"))
+                              "\n                      " +
+                                _vm._s(_vm.__("national_identity_card"))
                             ),
                             _c("span", { staticClass: "text-danger text-xs" }, [
                               _vm._v("*"),
@@ -2096,7 +2482,7 @@ var render = function () {
                                   ? [
                                       _c("label", [
                                         _vm._v(
-                                          " " +
+                                          "\n                          " +
                                             _vm._s(
                                               _vm.__("selected_file_Name")
                                             ) +
@@ -2128,7 +2514,11 @@ var render = function () {
                         _vm.nationalIdentityCardvalidationerror
                           ? _c("p", { staticClass: "error" }, [
                               _vm._v(
-                                _vm._s(_vm.nationalIdentityCardvalidationerror)
+                                "\n                      " +
+                                  _vm._s(
+                                    _vm.nationalIdentityCardvalidationerror
+                                  ) +
+                                  "\n                    "
                               ),
                             ])
                           : _vm._e(),
@@ -2191,9 +2581,9 @@ var render = function () {
                               _c("b-form-radio-group", {
                                 attrs: {
                                   options: [
-                                    { text: " Registered", value: 0 },
+                                    { text: _vm.__("registered"), value: 0 },
                                     { text: " Activated", value: 1 },
-                                    { text: " Not-Approved", value: 2 },
+                                    { text: _vm.__("not-approved"), value: 2 },
                                     { text: " Deactivated", value: 3 },
                                   ],
                                   buttons: "",
@@ -2291,11 +2681,11 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                         " +
+                                            "\n                        " +
                                               _vm._s(
                                                 _vm.__("add_default_bonus")
                                               ) +
-                                              "\n                                    "
+                                              "\n                      "
                                           ),
                                         ]
                                       )
@@ -2310,9 +2700,9 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                    " +
+                                            "\n                        " +
                                               _vm._s(_vm.__("reset_bonus")) +
-                                              "\n                                    "
+                                              "\n                      "
                                           ),
                                         ]
                                       )
@@ -2407,7 +2797,7 @@ var render = function () {
                                       { attrs: { for: "bonus_percentage" } },
                                       [
                                         _vm._v(
-                                          " " +
+                                          "\n                          " +
                                             _vm._s(_vm.__("bonus_percentage"))
                                         ),
                                         _c(
@@ -2470,7 +2860,7 @@ var render = function () {
                                       { attrs: { for: "bonus_min_amount" } },
                                       [
                                         _vm._v(
-                                          " " +
+                                          "\n                          " +
                                             _vm._s(
                                               _vm.__("minimum_bonus_amount")
                                             )
@@ -2631,9 +3021,9 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                " " +
+                                "\n                  " +
                                   _vm._s(_vm.__("update")) +
-                                  "\n                                "
+                                  "\n                  "
                               ),
                               _vm.isLoading
                                 ? _c("b-spinner", {
@@ -2656,8 +3046,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                _vm._s(_vm.__("save")) +
-                                  "\n                                "
+                                _vm._s(_vm.__("save")) + "\n                  "
                               ),
                               _vm.isLoading
                                 ? _c("b-spinner", {
@@ -2675,7 +3064,13 @@ var render = function () {
                                   staticClass: "btn btn-danger",
                                   attrs: { type: "reset" },
                                 },
-                                [_vm._v(_vm._s(_vm.__("clear")))]
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.__("clear")) +
+                                      "\n                "
+                                  ),
+                                ]
                               )
                             : _c(
                                 "button",
@@ -2688,7 +3083,13 @@ var render = function () {
                                     },
                                   },
                                 },
-                                [_vm._v(_vm._s(_vm.__("back")))]
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(_vm.__("back")) +
+                                      "\n                "
+                                  ),
+                                ]
                               ),
                         ],
                   ],

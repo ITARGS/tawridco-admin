@@ -101,7 +101,7 @@
                   >
                     <option value="">{{ __("select_status") }}</option>
                     <option value="1">Approved</option>
-                    <option value="0">Not-Approved</option>
+                    <option value="0">{{ __("not-approved") }}</option>
                   </select>
                 </b-col>
 
@@ -308,12 +308,12 @@
                     >
                   </template>
                   <template #cell(is_approved)="row">
-                    <span class="badge bg-success" v-if="row.item.is_approved == 1"
-                      >Approved</span
-                    >
-                    <span class="badge bg-danger" v-if="row.item.is_approved == 0"
-                      >Not-Approved</span
-                    >
+                    <span class="badge bg-success" v-if="row.item.is_approved == 1">{{
+                      __("approve")
+                    }}</span>
+                    <span class="badge bg-danger" v-if="row.item.is_approved == 0">{{
+                      __("not-approved")
+                    }}</span>
                   </template>
                   <template #cell(return_status)="row">
                     <span class="badge bg-danger" v-if="row.item.return_status == 0"

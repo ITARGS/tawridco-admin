@@ -1123,6 +1123,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 // import Vue from 'vue';
 // import InputTag from 'vue-input-tag';
@@ -2823,7 +2831,12 @@ var render = function () {
                             _vm._v(" "),
                             _c("span", { staticClass: "text text-primary" }, [
                               _vm._v(
-                                "\n                      *Please choose square image of larger than 350px*350px &\n                      smaller than 550px*550px."
+                                "\n                      *" +
+                                  _vm._s(
+                                    _vm.__(
+                                      "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                                    )
+                                  )
                               ),
                             ]),
                             _vm._v(" "),
@@ -2944,7 +2957,12 @@ var render = function () {
                             _vm._v(" "),
                             _c("span", { staticClass: "text text-primary" }, [
                               _vm._v(
-                                "\n                      *Please choose square image of larger than 350px*350px &\n                      smaller than 550px*550px."
+                                "\n                      *" +
+                                  _vm._s(
+                                    _vm.__(
+                                      "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                                    )
+                                  )
                               ),
                             ]),
                             _vm._v(" "),
@@ -3114,8 +3132,8 @@ var render = function () {
                               _c("b-form-radio-group", {
                                 attrs: {
                                   options: [
-                                    { text: " Packet", value: "packet" },
-                                    { text: " Loose", value: "loose" },
+                                    { text: _vm.__("packet"), value: "packet" },
+                                    { text: _vm.__("loose"), value: "loose" },
                                   ],
                                   buttons: "",
                                   "button-variant": "outline-primary",
@@ -3147,8 +3165,8 @@ var render = function () {
                               _c("b-form-radio-group", {
                                 attrs: {
                                   options: [
-                                    { text: " Limited", value: 0 },
-                                    { text: " Unlimited", value: 1 },
+                                    { text: _vm.__("limited"), value: 0 },
+                                    { text: _vm.__("unlimited"), value: 1 },
                                   ],
                                   buttons: "",
                                   "button-variant": "outline-primary",
@@ -3627,7 +3645,11 @@ var render = function () {
                                           { staticClass: "text text-primary" },
                                           [
                                             _vm._v(
-                                              "Please choose square image of larger than 350px*350px &\n                        smaller than 550px*550px."
+                                              _vm._s(
+                                                _vm.__(
+                                                  "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                                                )
+                                              )
                                             ),
                                           ]
                                         ),
@@ -4129,7 +4151,11 @@ var render = function () {
                                               },
                                               [
                                                 _vm._v(
-                                                  "Please choose square image of larger than 350px*350px &\n                          smaller than 550px*550px."
+                                                  _vm._s(
+                                                    _vm.__(
+                                                      "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                                                    )
+                                                  )
                                                 ),
                                               ]
                                             ),
@@ -4811,8 +4837,8 @@ var render = function () {
                                 _c("b-form-radio-group", {
                                   attrs: {
                                     options: [
-                                      { text: " No", value: 0 },
-                                      { text: " Yes", value: 1 },
+                                      { text: _vm.__("no"), value: 0 },
+                                      { text: _vm.__("yes"), value: 1 },
                                     ],
                                     buttons: "",
                                     "button-variant": "outline-primary",
@@ -4901,8 +4927,8 @@ var render = function () {
                                 _c("b-form-radio-group", {
                                   attrs: {
                                     options: [
-                                      { text: " No", value: 0 },
-                                      { text: " Yes", value: 1 },
+                                      { text: _vm.__("no"), value: 0 },
+                                      { text: _vm.__("yes"), value: 1 },
                                     ],
                                     buttons: "",
                                     "button-variant": "outline-primary",
@@ -5087,8 +5113,8 @@ var render = function () {
                                 _c("b-form-radio-group", {
                                   attrs: {
                                     options: [
-                                      { text: " No", value: 0 },
-                                      { text: " Yes", value: 1 },
+                                      { text: _vm.__("no"), value: 0 },
+                                      { text: _vm.__("yes"), value: 1 },
                                     ],
                                     buttons: "",
                                     "button-variant": "outline-primary",
@@ -5227,7 +5253,9 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(
-                                            "\n                          Approved\n                        "
+                                            "\n                          " +
+                                              _vm._s(_vm.__("approve")) +
+                                              "\n                        "
                                           ),
                                         ]
                                       ),
@@ -5269,7 +5297,9 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(
-                                            "\n                          Not-Approved\n                        "
+                                            "\n                          " +
+                                              _vm._s(_vm.__("not-approved")) +
+                                              "\n                        "
                                           ),
                                         ]
                                       ),

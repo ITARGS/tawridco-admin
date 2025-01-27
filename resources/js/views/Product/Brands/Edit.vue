@@ -44,8 +44,11 @@
         <div class="form-group">
           <label for="image">{{ __("image") }}</label>
           <p class="text-muted">
-            Please choose square image of larger than 350px*350px &amp; smaller than
-            550px*550px.
+            {{
+              __(
+                "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+              )
+            }}
           </p>
           <span v-if="error" class="error">{{ error }}</span>
           <input
