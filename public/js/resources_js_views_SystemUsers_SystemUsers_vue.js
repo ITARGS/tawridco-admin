@@ -312,7 +312,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: 'actions',
-        label: 'Action'
+        label: __('actions')
       }],
       totalRows: 1,
       currentPage: 1,

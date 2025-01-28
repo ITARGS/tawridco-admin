@@ -76,7 +76,7 @@
                         <label>Categories</label>
                         <Select2
                           v-model="categories_ids"
-                          placeholder="Select Categories"
+                          :placeholder="__('select_categories')"
                           :options="categories_options"
                           :settings="{ multiple: 'multiple' }"
                         />

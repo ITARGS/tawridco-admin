@@ -96,15 +96,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record', 'sections', 'categories', 'products'],
+  props: ["record", "sections", "categories", "products"],
   data: function data() {
     return {
       isLoading: false,
       id: this.record ? this.record.id : null,
-      type: this.record ? this.record.type : 'default',
+      type: this.record ? this.record.type : "default",
       type_id: this.record ? this.record.type_id : "",
       offer_url: this.record ? this.record.offer_url : "",
       image: this.record ? this.record.image : "",
@@ -116,26 +173,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit') : __('add');
-      title += ' ';
-      title += __('offers_images');
+      var title = this.id ? __("edit") : __("add");
+      title += " ";
+      title += __("offers_images");
       return title;
     }
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     dropFile: function dropFile(event) {
       event.preventDefault();
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       var file = this.$refs.file_image.files[0];
@@ -169,28 +226,28 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('image', this.image);
-      formData.append('type', this.type);
-      formData.append('type_id', this.type_id);
-      formData.append('offer_url', this.offer_url);
-      formData.append('position', this.position);
-      formData.append('section_id', this.section_id);
-      var url = this.$apiUrl + '/offers/save';
+      formData.append("image", this.image);
+      formData.append("type", this.type);
+      formData.append("type_id", this.type_id);
+      formData.append("offer_url", this.offer_url);
+      formData.append("position", this.position);
+      formData.append("section_id", this.section_id);
+      var url = this.$apiUrl + "/offers/save";
       if (this.id) {
-        url = this.$apiUrl + '/offers/update';
+        url = this.$apiUrl + "/offers/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this.$eventBus.$emit('offerSaved', data.message);
+          _this.$eventBus.$emit("offerSaved", data.message);
           vm.$router.push({
-            path: '/offers'
+            path: "/offers"
           });
           _this.hideModal();
         } else {
@@ -204,7 +261,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     }
@@ -735,7 +792,7 @@ var render = function () {
               },
             },
             [
-              _vm._v(_vm._s(_vm.__("save")) + " \n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -798,19 +855,19 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "default" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("default"))),
+                    _vm._v(_vm._s(_vm.__("default"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "category" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("category"))),
+                    _vm._v(_vm._s(_vm.__("category"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "product" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("product"))),
+                    _vm._v(_vm._s(_vm.__("product"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "offer_url" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("offer_url"))),
+                    _vm._v(_vm._s(_vm.__("offer_url"))),
                   ]),
                 ]
               ),
@@ -858,7 +915,13 @@ var render = function () {
                         return _c(
                           "option",
                           { domProps: { value: category.id } },
-                          [_vm._v(_vm._s(category.name))]
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(category.name) +
+                                "\n          "
+                            ),
+                          ]
                         )
                       }),
                     ],
@@ -902,14 +965,20 @@ var render = function () {
                     },
                     [
                       _c("option", { attrs: { value: "" } }, [
-                        _vm._v(" " + _vm._s(_vm.__("select_product"))),
+                        _vm._v(_vm._s(_vm.__("select_product"))),
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.products, function (product) {
                         return _c(
                           "option",
                           { domProps: { value: product.id } },
-                          [_vm._v(_vm._s(product.name))]
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(product.name) +
+                                "\n          "
+                            ),
+                          ]
                         )
                       }),
                     ],
@@ -957,7 +1026,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
-                _vm._v("Image prefer size 1024px(width)*200px(height)."),
+                _vm._v(_vm._s(_vm.__("image_size"))),
               ]),
               _vm._v(" "),
               _vm.error
@@ -1073,19 +1142,19 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "top" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("top"))),
+                    _vm._v(_vm._s(_vm.__("top"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "below_slider" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("below_slider"))),
+                    _vm._v(_vm._s(_vm.__("below_slider"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "below_category" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("below_category"))),
+                    _vm._v(_vm._s(_vm.__("below_category"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "below_section" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("below_section"))),
+                    _vm._v(_vm._s(_vm.__("below_section"))),
                   ]),
                 ]
               ),
@@ -1094,7 +1163,7 @@ var render = function () {
             _vm.position === "below_section"
               ? _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "section_id" } }, [
-                    _vm._v(" " + _vm._s(_vm.__("section_position"))),
+                    _vm._v("\n          " + _vm._s(_vm.__("section_position"))),
                     _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
                   ]),
                   _vm._v(" "),
@@ -1129,14 +1198,20 @@ var render = function () {
                     },
                     [
                       _c("option", { attrs: { value: "" } }, [
-                        _vm._v(" " + _vm._s(_vm.__("select_section"))),
+                        _vm._v(_vm._s(_vm.__("select_section"))),
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.sections, function (section) {
                         return _c(
                           "option",
                           { domProps: { value: section.id } },
-                          [_vm._v(_vm._s(section.title))]
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(section.title) +
+                                "\n          "
+                            ),
+                          ]
                         )
                       }),
                     ],

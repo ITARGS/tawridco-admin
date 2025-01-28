@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Return Requests</h3>
+                        <h3>{{ __("return_requests") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><router-link to="/dashboard">{{ __('dashboard') }}</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Return Requests</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("return_requests") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -19,7 +19,7 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Return Requests</h4>
+                        <h4 class="card-title">{{ __("return_requests") }}</h4>
                     </div>
                     <div class="card-body">
 
@@ -142,7 +142,7 @@ export default {
                 { key: 'sub_total', label: 'Total', sortable: true,  class: 'text-center' },
                 { key: 'status', label: 'Status', sortable: true, class: 'text-center' },
                 { key: 'created_at', label: 'Date', sortable: true, class: 'text-center' },
-                { key: 'actions', label: 'Action' }
+                { key: 'actions', label: __('actions') }
             ],
             totalRows: 1,
             currentPage: 1,

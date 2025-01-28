@@ -174,6 +174,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -192,57 +235,57 @@ __webpack_require__.r(__webpack_exports__);
       seller: "",
       category: "",
       fields: [{
-        key: 'id',
-        label: 'Order Item ID',
+        key: "id",
+        label: "Order Item ID",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'user_name',
-        label: 'User',
+        key: "user_name",
+        label: "User",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'product_name',
-        label: 'Product',
+        key: "product_name",
+        label: "Product",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'mobile',
-        label: 'Mob.',
+        key: "mobile",
+        label: "Mob.",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'sub_total',
-        label: 'Total( ' + this.$currency + ' )',
+        key: "sub_total",
+        label: "Total( " + this.$currency + " )",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'added_date',
-        label: 'Date',
+        key: "added_date",
+        label: "Date",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       salesReports: [],
       final_total_sum: 0,
       sellers: null,
       categories: null,
-      deliveryBoy: '',
-      deliveryBoys: '',
-      payment_type: ''
+      deliveryBoy: "",
+      deliveryBoys: "",
+      payment_type: ""
     };
   },
   computed: {
@@ -270,14 +313,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       this.isLoading = true;
       var param = {
-        "startDate": this.dateRange.startDate != null ? moment__WEBPACK_IMPORTED_MODULE_1___default()(this.dateRange.startDate).format('YYYY-MM-DD') : "",
-        "endDate": this.dateRange.endDate != null ? moment__WEBPACK_IMPORTED_MODULE_1___default()(this.dateRange.endDate).format('YYYY-MM-DD') : "",
-        "seller": this.seller,
-        "category": this.category,
-        "deliveryBoy": this.deliveryBoy,
-        "payment_type": this.payment_type
+        startDate: this.dateRange.startDate != null ? moment__WEBPACK_IMPORTED_MODULE_1___default()(this.dateRange.startDate).format("YYYY-MM-DD") : "",
+        endDate: this.dateRange.endDate != null ? moment__WEBPACK_IMPORTED_MODULE_1___default()(this.dateRange.endDate).format("YYYY-MM-DD") : "",
+        seller: this.seller,
+        category: this.category,
+        deliveryBoy: this.deliveryBoy,
+        payment_type: this.payment_type
       };
-      axios.get(this.$apiUrl + '/sales_reports', {
+      axios.get(this.$apiUrl + "/sales_reports", {
         params: param
       }).then(function (response) {
         _this.isLoading = false;
@@ -318,7 +361,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue2_daterange_picker_dist_vue2_daterange_picker_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.vue-daterange-picker[data-v-1ebd09d2][data-v-9dd554bc] {\n    min-width: 80%;\n}\n@media only screen and (min-width: 600px) {\n.vue-daterange-picker[data-v-1ebd09d2][data-v-9dd554bc] {\n        min-width: 90%;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.vue-daterange-picker[data-v-1ebd09d2][data-v-9dd554bc] {\n  min-width: 80%;\n}\n@media only screen and (min-width: 600px) {\n.vue-daterange-picker[data-v-1ebd09d2][data-v-9dd554bc] {\n    min-width: 90%;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -577,9 +620,9 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n                                    " +
+                              "\n                  " +
                                 _vm._s(_vm.__("clear")) +
-                                "\n                                "
+                                "\n                "
                             ),
                           ]
                         ),
@@ -638,7 +681,13 @@ var render = function () {
                           return _c(
                             "option",
                             { domProps: { value: seller.id } },
-                            [_vm._v(_vm._s(seller.name))]
+                            [
+                              _vm._v(
+                                "\n                  " +
+                                  _vm._s(seller.name) +
+                                  "\n                "
+                              ),
+                            ]
                           )
                         }),
                       ],
@@ -650,7 +699,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Category ")]
+                      [_vm._v("Category")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -689,7 +738,7 @@ var render = function () {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Select Category"),
+                          _vm._v(_vm._s(_vm.__("select_categories"))),
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.categories, function (category) {
@@ -698,8 +747,9 @@ var render = function () {
                             { domProps: { value: category.id } },
                             [
                               _vm._v(
-                                _vm._s(category.name) +
-                                  "\n                                "
+                                "\n                  " +
+                                  _vm._s(category.name) +
+                                  "\n                "
                               ),
                             ]
                           )
@@ -713,7 +763,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Delivery Boys ")]
+                      [_vm._v("Delivery Boys")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -761,8 +811,9 @@ var render = function () {
                             { domProps: { value: deliveryBoy.id } },
                             [
                               _vm._v(
-                                _vm._s(deliveryBoy.name) +
-                                  "\n                                "
+                                "\n                  " +
+                                  _vm._s(deliveryBoy.name) +
+                                  "\n                "
                               ),
                             ]
                           )
@@ -776,7 +827,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Payment ")]
+                      [_vm._v("Payment")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -819,7 +870,7 @@ var render = function () {
                         ]),
                         _vm._v(" "),
                         _c("option", { domProps: { value: 1 } }, [
-                          _vm._v(" COD"),
+                          _vm._v("COD"),
                         ]),
                         _vm._v(" "),
                         _c("option", { domProps: { value: 2 } }, [
@@ -953,9 +1004,9 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
+                              "\n                " +
                                 _vm._s("Total (" + _vm.$currency + ")") +
-                                "\n                            "
+                                "\n              "
                             ),
                           ]
                         },
@@ -965,11 +1016,11 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
+                              "\n                " +
                                 _vm._s(
                                   new Date(row.item.created_at).toLocaleString()
                                 ) +
-                                "\n                            "
+                                "\n              "
                             ),
                           ]
                         },
@@ -983,10 +1034,11 @@ var render = function () {
               _c("b-row", [
                 _c("div", { staticClass: "col-md-4 text-success h6" }, [
                   _vm._v(
-                    "Total Amount :-  " +
+                    "\n              Total Amount :- " +
                       _vm._s(_vm.$currency) +
                       " " +
-                      _vm._s(_vm.final_total_sum.toFixed(2))
+                      _vm._s(_vm.final_total_sum.toFixed(2)) +
+                      "\n            "
                   ),
                 ]),
               ]),

@@ -33,7 +33,7 @@ export default {
   data: function () {
     return {
       isLoading: false,
-      lang: localStorage.getItem("lang"),
+      lang: "",
       languages: [],
       showPassword: false,
       loggedUser: Auth.user,
@@ -70,6 +70,7 @@ export default {
           system_type: 4,
         },
       };
+      this.lang = localStorage.getItem("lang");
       axios
         .get(this.$apiUrl + "/system_languages", data)
         .then((response) => {
@@ -113,11 +114,9 @@ export default {
       };
 
       if (this.lang === "ar") {
-
         localStorage.setItem("isRTL", true);
         document.body.classList.add("rtl");
       } else {
-
         localStorage.setItem("isRTL", false);
         document.body.classList.remove("rtl");
       } // Check if the new language is RTL

@@ -85,18 +85,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record'],
+  props: ["record"],
   data: function data() {
     return {
       isLoading: false,
       image: null,
       id: this.record ? this.record.id : null,
       name: this.record ? this.record.name : null,
+      name_en: this.record ? this.record.name_en : null,
+      name_ar: this.record ? this.record.name_ar : null,
       slug: this.record ? this.record.slug : null,
       subtitle: this.record ? this.record.subtitle : null,
+      subtitle_en: this.record ? this.record.subtitle_en : null,
+      subtitle_ar: this.record ? this.record.subtitle_ar : null,
       image_url: this.record ? this.record.image_url : null,
       status: this.record ? this.record.status : 1,
       parent_id: this.record ? this.record.parent_id : 0,
@@ -118,31 +199,31 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     modal_title: function modal_title() {
-      var title = this.id ? __('edit_category') : __('add_category');
+      var title = this.id ? __("edit_category") : __("add_category");
       return title;
     }
   },
   methods: {
     createSlug: function createSlug() {
       var _this = this;
-      if (this.name !== "") {
-        var slug = this.name.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+      if (this.name_en !== "") {
+        var slug = this.name_en.toLowerCase().replace(/[^\w ]+/g, "").replace(/ +/g, "-");
 
         // Check for uniqueness
         axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories/check-slug/".concat(slug)).then(function (response) {
           if (response.data.unique) {
             _this.slug = slug;
           } else {
-            _this.slug = slug + '-' + response.data.count;
+            _this.slug = slug + "-" + response.data.count;
           }
         })["catch"](function (error) {
-          console.error('Error checking slug uniqueness: ' + error);
+          console.error("Error checking slug uniqueness: " + error);
         });
       }
     },
     getParentCategories: function getParentCategories() {
       var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories/options', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/categories/options", {
         params: {
           exclude_id: this.record ? this.record.id : 0
         }
@@ -151,18 +232,18 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     dropFile: function dropFile(event) {
       event.preventDefault();
       this.$refs.file_image.files = event.dataTransfer.files;
       this.handleFileUpload(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUpload: function handleFileUpload() {
       var file = this.$refs.file_image.files[0];
@@ -196,29 +277,31 @@ __webpack_require__.r(__webpack_exports__);
       this.isLoading = true;
       var formData = new FormData();
       if (this.id) {
-        formData.append('id', this.id);
+        formData.append("id", this.id);
       }
-      formData.append('name', this.name);
-      formData.append('slug', this.slug);
-      formData.append('subtitle', this.subtitle);
-      formData.append('image', this.image);
-      formData.append('status', this.status);
-      formData.append('parent_id', this.parent_id);
-      var url = this.$apiUrl + '/categories/save';
+      formData.append("name_en", this.name_en);
+      formData.append("name_ar", this.name_ar);
+      formData.append("slug", this.slug);
+      formData.append("subtitle_en", this.subtitle_en);
+      formData.append("subtitle_ar", this.subtitle_ar);
+      formData.append("image", this.image);
+      formData.append("status", this.status);
+      formData.append("parent_id", this.parent_id);
+      var url = this.$apiUrl + "/categories/save";
       if (this.id) {
-        url = this.$apiUrl + '/categories/update';
+        url = this.$apiUrl + "/categories/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          vm.$eventBus.$emit('categorySaved', data.message);
+          vm.$eventBus.$emit("categorySaved", data.message);
           vm.hideModal();
           vm.$router.push({
-            path: '/manage_categories'
+            path: "/manage_categories"
           });
         } else {
           vm.showError(data.message);
@@ -231,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
         } else if (error.message) {
           _this3.showError(error.message);
         } else {
-          _this3.showError(__('something_went_wrong'));
+          _this3.showError(__("something_went_wrong"));
         }
       });
     }
@@ -567,7 +650,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-df3546e8] {\n    margin-top: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-df3546e8] {\n  margin-top: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -803,7 +886,7 @@ var render = function () {
               },
             },
             [
-              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -872,15 +955,15 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v(_vm._s(_vm.__("category_name")))]),
+              _c("label", [_vm._v(_vm._s(_vm.__("category_name_en")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name",
+                    value: _vm.name_en,
+                    expression: "name_en",
                   },
                 ],
                 staticClass: "form-control",
@@ -889,14 +972,45 @@ var render = function () {
                   required: "",
                   placeholder: _vm.__("enter_category_name"),
                 },
-                domProps: { value: _vm.name },
+                domProps: { value: _vm.name_en },
                 on: {
                   keyup: _vm.createSlug,
                   input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.name = $event.target.value
+                    _vm.name_en = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(_vm._s(_vm.__("category_name_ar")))]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name_ar,
+                    expression: "name_ar",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: _vm.__("enter_category_name"),
+                },
+                domProps: { value: _vm.name_ar },
+                on: {
+                  keyup: _vm.createSlug,
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name_ar = $event.target.value
                   },
                 },
               }),
@@ -934,15 +1048,15 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v(_vm._s(_vm.__("category_subtitle")))]),
+              _c("label", [_vm._v(_vm._s(_vm.__("category_subtitle_en")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.subtitle,
-                    expression: "subtitle",
+                    value: _vm.subtitle_en,
+                    expression: "subtitle_en",
                   },
                 ],
                 staticClass: "form-control",
@@ -951,13 +1065,43 @@ var render = function () {
                   required: "",
                   placeholder: _vm.__("enter_category_subtitle"),
                 },
-                domProps: { value: _vm.subtitle },
+                domProps: { value: _vm.subtitle_en },
                 on: {
                   input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.subtitle = $event.target.value
+                    _vm.subtitle_en = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v(_vm._s(_vm.__("category_subtitle_ar")))]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.subtitle_ar,
+                    expression: "subtitle_ar",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  required: "",
+                  placeholder: _vm.__("enter_category_subtitle"),
+                },
+                domProps: { value: _vm.subtitle_ar },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.subtitle_ar = $event.target.value
                   },
                 },
               }),
@@ -968,7 +1112,13 @@ var render = function () {
               _vm._v(" "),
               _c("p", { staticClass: "text-muted" }, [
                 _vm._v(
-                  "Please choose square image of larger than 350px*350px & smaller than 550px*550px."
+                  "\n          " +
+                    _vm._s(
+                      _vm.__(
+                        "please_choose_square_image_of_larger_than_350px_350px_and_smaller_than_550px_550px"
+                      )
+                    ) +
+                    "\n        "
                 ),
               ]),
               _vm._v(" "),

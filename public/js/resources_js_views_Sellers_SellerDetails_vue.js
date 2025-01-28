@@ -1248,7 +1248,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("Select2", {
                                 attrs: {
-                                  placeholder: "Select Categories",
+                                  placeholder: _vm.__("select_categories"),
                                   options: _vm.categories_options,
                                   settings: { multiple: "multiple" },
                                 },

@@ -136,7 +136,7 @@ export default {
                 { key: 'username', label: 'Username', sortable: true, class: 'text-center' },
                 { key: 'email', label: 'Email', sortable: true, class: 'text-center' },
                 { key: 'role', label: 'Role',  class: 'text-center' },
-                { key: 'actions', label: 'Action' }
+                { key: 'actions', label: __('actions') }
             ],
             totalRows: 1,
             currentPage: 1,

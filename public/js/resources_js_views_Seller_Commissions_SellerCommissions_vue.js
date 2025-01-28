@@ -239,53 +239,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'app-edit-record': _Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    "app-edit-record": _Edit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: 'ID',
+        key: "id",
+        label: "ID",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'seller_name',
-        label: 'Seller Name',
-        "class": 'text-center',
+        key: "seller_name",
+        label: "Seller Name",
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'category_name',
-        label: 'Category Name',
-        "class": 'text-center',
+        key: "category_name",
+        label: "Category Name",
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'commission',
-        label: 'Commi.(%)',
-        "class": 'text-center',
+        key: "commission",
+        label: "Commi.(%)",
+        "class": "text-center",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'actions',
-        label: 'Action'
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       records: [],
@@ -295,8 +312,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
     this.category_id = this.$route.params.id;
-    this.$eventBus.$on('commissionsSaved', function (message) {
-      _this.showMessage('success', message);
+    this.$eventBus.$on("commissionsSaved", function (message) {
+      _this.showMessage("success", message);
       _this.getRecords();
     });
     this.getRecords();
@@ -305,7 +322,7 @@ __webpack_require__.r(__webpack_exports__);
     getRecords: function getRecords() {
       var _this2 = this;
       this.isLoading = true;
-      axios.get(this.$apiUrl + '/seller_commissions/').then(function (response) {
+      axios.get(this.$apiUrl + "/seller_commissions/").then(function (response) {
         _this2.isLoading = false;
         var data = response.data;
         _this2.records = data.data;
@@ -672,7 +689,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Seller Commissions")]
+                    [_vm._v("\n              Seller Commissions\n            ")]
                   ),
                 ]),
               ]
@@ -962,7 +979,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Category wise seller commission list ")]),
+      _c("h4", [_vm._v("Category wise seller commission list")]),
     ])
   },
 ]

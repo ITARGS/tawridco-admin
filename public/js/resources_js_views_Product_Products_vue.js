@@ -362,6 +362,173 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -377,98 +544,98 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return {
       login_user: _Auth_js__WEBPACK_IMPORTED_MODULE_2__["default"].user,
       fields: [{
-        key: 'select',
-        label: '',
+        key: "select",
+        label: "",
         visible: true
       }, {
-        key: 'product_variant_id',
-        label: __('id'),
+        key: "product_variant_id",
+        label: __("id"),
         visible: true,
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'product_id',
-        label: __('product_id'),
+        key: "product_id",
+        label: __("product_id"),
         visible: true,
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'tax_id',
-        label: __('tax_id'),
+        key: "tax_id",
+        label: __("tax_id"),
         visible: false,
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'seller_name',
-        label: __('seller_name'),
+        key: "seller_name",
+        label: __("seller_name"),
         visible: true,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'name',
-        label: __('name'),
+        key: "name",
+        label: __("name"),
         visible: true,
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'image',
-        label: __('image'),
+        key: "image",
+        label: __("image"),
         visible: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'price',
-        label: __('price') + '(' + this.$currency + ')',
+        key: "price",
+        label: __("price") + "(" + this.$currency + ")",
         visible: true,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'discounted_price',
-        label: 'D.Price',
+        key: "discounted_price",
+        label: "D.Price",
         visible: true,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'indicator',
-        label: __('indicator'),
+        key: "indicator",
+        label: __("indicator"),
         visible: false,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'is_approved',
-        label: __('is_approved'),
+        key: "is_approved",
+        label: __("is_approved"),
         visible: false,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'return_status',
-        label: __('return'),
+        key: "return_status",
+        label: __("return"),
         visible: false,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'cancelable_status',
-        label: __('cancellation'),
+        key: "cancelable_status",
+        label: __("cancellation"),
         visible: false,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'till_status',
-        label: __('till_status'),
+        key: "till_status",
+        label: __("till_status"),
         visible: false,
-        "class": 'text-center',
+        "class": "text-center",
         sortable: true
       }, {
-        key: 'actions',
-        label: __('actions'),
+        key: "actions",
+        label: __("actions"),
         visible: true
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       categories: [],
@@ -478,7 +645,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       seller: _Auth_js__WEBPACK_IMPORTED_MODULE_2__["default"].user.seller !== null ? _Auth_js__WEBPACK_IMPORTED_MODULE_2__["default"].user.seller.id : "",
       is_approved: "",
       selectedItems: [],
-      select: '',
+      select: "",
       all_select: false,
       isLoading: false,
       toggler: false,
@@ -495,7 +662,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     isSellerRoute: function isSellerRoute() {
       // Use this.$route to access the current route
-      return this.$route.path.startsWith('/seller/');
+      return this.$route.path.startsWith("/seller/");
+    },
+    isSellerRole: function isSellerRole() {
+      return this.login_user.seller ? this.seller == this.login_user.seller.id : false;
     }
   },
   mounted: function mounted() {},
@@ -503,7 +673,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     var _this = this;
     if (this.$roleSeller === this.login_user.role.name) {
       this.fields.forEach(function (field, index) {
-        if (field.key === 'seller_name') {
+        if (field.key === "seller_name") {
           _this.fields.splice(index, 1);
         }
       });
@@ -531,14 +701,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var _this2 = this;
       this.isLoading = true;
       var param = {
-        "category": this.category,
-        "seller": this.seller,
-        "is_approved": this.is_approved,
+        category: this.category,
+        seller: this.seller,
+        is_approved: this.is_approved,
         page: this.currentPage,
         per_page: this.perPage,
         filter: this.filter
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/products', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/products", {
         params: param
       }).then(function (response) {
         _this2.isLoading = false;
@@ -551,9 +721,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     getSubCategories: function getSubCategories() {
       var _this3 = this;
       this.isLoading = true;
-      var url = this.$apiUrl + '/subcategories';
+      var url = this.$apiUrl + "/subcategories";
       if (this.category_id) {
-        url = this.$apiUrl + '/subcategories/' + this.category_id;
+        url = this.$apiUrl + "/subcategories/" + this.category_id;
       }
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(url).then(function (response) {
         _this3.isLoading = false;
@@ -568,17 +738,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this4.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this4.$apiUrl + '/products/delete', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this4.$apiUrl + "/products/delete", postData).then(function (response) {
             _this4.isLoading = false;
             var data = response.data;
             _this4.products.splice(index, 1);
@@ -595,17 +765,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         text: "You want to change status.",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this5.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this5.$apiUrl + '/products/change', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this5.$apiUrl + "/products/change", postData).then(function (response) {
             _this5.isLoading = false;
             _this5.getRecords();
             _this5.showMessage("success", response.data.message);
@@ -650,10 +820,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           text: "You want be able to revert this",
           confirmButtonText: "Yes, Sure",
           cancelButtonText: "Cancel",
-          icon: 'warning',
+          icon: "warning",
           showCancelButton: true,
-          confirmButtonColor: '#37a279',
-          cancelButtonColor: '#d33'
+          confirmButtonColor: "#37a279",
+          cancelButtonColor: "#d33"
         }).then(function (result) {
           if (result.value) {
             var ids = uniqueSelectedItems.toString();
@@ -661,7 +831,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             var postData = {
               ids: ids
             };
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this7.$apiUrl + '/products/multiple_delete', postData).then(function (response) {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this7.$apiUrl + "/products/multiple_delete", postData).then(function (response) {
               _this7.isLoading = false;
               var data = response.data;
               //this.products.splice(index, 1)
@@ -817,7 +987,13 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v(_vm._s(_vm.__("manage_products")))]
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.__("manage_products")) +
+                        "\n            "
+                    ),
+                  ]
                 ),
               ]),
             ]
@@ -920,7 +1096,7 @@ var render = function () {
                                 [
                                   _c("i", { staticClass: "fa fa-trash" }),
                                   _vm._v(
-                                    " " +
+                                    "\n                      " +
                                       _vm._s(_vm.__("delete_selected_products"))
                                   ),
                                 ]
@@ -987,12 +1163,15 @@ var render = function () {
                             _vm._l(_vm.categories, function (category) {
                               return _c(
                                 "option",
-                                { domProps: { value: category.id } },
+                                {
+                                  key: category.id,
+                                  domProps: { value: category.id },
+                                },
                                 [
                                   _vm._v(
-                                    "\n                                            " +
+                                    "\n                      " +
                                       _vm._s(category.name) +
-                                      "\n                                        "
+                                      "\n                    "
                                   ),
                                 ]
                               )
@@ -1005,9 +1184,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("b-col", { attrs: { md: "2" } }, [
                       _c("h6", { staticClass: "box-title" }, [
-                        _vm._v(
-                          _vm._s(_vm.__("filter_products_by_status")) + " "
-                        ),
+                        _vm._v(_vm._s(_vm.__("filter_products_by_status"))),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -1054,7 +1231,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Not-Approved"),
+                            _vm._v(_vm._s(_vm.__("not-approved"))),
                           ]),
                         ]
                       ),
@@ -1067,24 +1244,18 @@ var render = function () {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: (_vm.seller = _vm.login_user.seller.id),
-                                expression: "seller = login_user.seller.id",
+                                value: _vm.isSellerRole,
+                                expression: "isSellerRole",
                               },
                             ],
                             attrs: { type: "hidden" },
-                            domProps: {
-                              value: (_vm.seller = _vm.login_user.seller.id),
-                            },
+                            domProps: { value: _vm.isSellerRole },
                             on: {
                               input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.$set(
-                                  (_vm.seller = _vm.login_user.seller),
-                                  "id",
-                                  $event.target.value
-                                )
+                                _vm.isSellerRole = $event.target.value
                               },
                             },
                           }),
@@ -1093,8 +1264,7 @@ var render = function () {
                           _c("b-col", { attrs: { md: "3" } }, [
                             _c("h6", { staticClass: "box-title" }, [
                               _vm._v(
-                                _vm._s(_vm.__("filter_products_by_seller")) +
-                                  " "
+                                _vm._s(_vm.__("filter_products_by_seller"))
                               ),
                             ]),
                             _vm._v(" "),
@@ -1143,8 +1313,17 @@ var render = function () {
                                 _vm._l(_vm.sellers, function (seller) {
                                   return _c(
                                     "option",
-                                    { domProps: { value: seller.id } },
-                                    [_vm._v(_vm._s(seller.name))]
+                                    {
+                                      key: seller.id,
+                                      domProps: { value: seller.id },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                      " +
+                                          _vm._s(seller.name) +
+                                          "\n                    "
+                                      ),
+                                    ]
                                   )
                                 }),
                               ],
@@ -1372,7 +1551,7 @@ var render = function () {
                               [
                                 _c("p", [
                                   _vm._v(
-                                    "\n                                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis\n                                            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.\n                                        "
+                                    "\n                      Cras mattis consectetur purus sit amet fermentum. Cras justo odio,\n                      dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta\n                      ac consectetur ac, vestibulum at eros.\n                    "
                                   ),
                                 ]),
                                 _vm._v(" "),
@@ -1559,9 +1738,9 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                                    " +
+                                "\n                  " +
                                   _vm._s(row.item.seller_name) +
-                                  "\n                                "
+                                  "\n                "
                               ),
                             ]
                           },
@@ -1600,9 +1779,9 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n\n                                    " +
+                                "\n                  " +
                                   _vm._s(row.item.measurement) +
-                                  " "
+                                  "\n                  "
                               ),
                               row.item.stock_unit
                                 ? _c("span", [
@@ -1621,9 +1800,9 @@ var render = function () {
                                 ? _c("span", [_vm._v("Unlimited")])
                                 : [
                                     _vm._v(
-                                      "\n                                        " +
+                                      "\n                    " +
                                         _vm._s(Math.floor(row.item.stock)) +
-                                        "\n                                    "
+                                        "\n                  "
                                     ),
                                   ],
                             ]
@@ -1733,7 +1912,7 @@ var render = function () {
                                 ? _c(
                                     "span",
                                     { staticClass: "badge bg-success" },
-                                    [_vm._v("Approved")]
+                                    [_vm._v(_vm._s(_vm.__("approve")))]
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
@@ -1741,7 +1920,7 @@ var render = function () {
                                 ? _c(
                                     "span",
                                     { staticClass: "badge bg-danger" },
-                                    [_vm._v("Not-Approved")]
+                                    [_vm._v(_vm._s(_vm.__("not-approved")))]
                                   )
                                 : _vm._e(),
                             ]

@@ -216,11 +216,194 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['record'],
+  props: ["record"],
   components: {
     Multiselect: (vue_multiselect__WEBPACK_IMPORTED_MODULE_1___default())
   },
@@ -268,36 +451,34 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showModal: function showModal() {
-      this.$refs['my-modal'].show();
+      this.$refs["my-modal"].show();
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     handleFileUploadLicense: function handleFileUploadLicense() {
       this.deliveryBoys.driving_license = this.$refs.file_license.files[0];
       this.deliveryBoys.driving_license_url = URL.createObjectURL(this.deliveryBoys.driving_license);
-      ;
     },
     dropFileUploadLicense: function dropFileUploadLicense(event) {
       event.preventDefault();
       this.$refs.file_license.files = event.dataTransfer.files;
       this.handleFileUploadLicense(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     handleFileUploadCard: function handleFileUploadCard() {
       this.deliveryBoys.national_identity_card = this.$refs.file_card.files[0];
       this.deliveryBoys.national_identity_card_url = URL.createObjectURL(this.deliveryBoys.national_identity_card);
-      ;
     },
     dropFileUploadCard: function dropFileUploadCard(event) {
       event.preventDefault();
       this.$refs.file_card.files = event.dataTransfer.files;
       this.handleFileUploadCard(); // Trigger the onChange event manually
       // Clean up
-      event.currentTarget.classList.add('bg-gray-100');
-      event.currentTarget.classList.remove('bg-green-300');
+      event.currentTarget.classList.add("bg-gray-100");
+      event.currentTarget.classList.remove("bg-green-300");
     },
     validateDateOfBirth: function validateDateOfBirth() {
       var selectedDate = new Date(this.deliveryBoys.dob);
@@ -327,7 +508,7 @@ __webpack_require__.r(__webpack_exports__);
     getCities: function getCities() {
       var _this = this;
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/cities').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + "/cities").then(function (response) {
         _this.isLoading = false;
         var data = response.data;
         _this.cities = data.data;
@@ -350,18 +531,18 @@ __webpack_require__.r(__webpack_exports__);
       for (var key in formObject) {
         formData.append(key, formObject[key]);
       }
-      var url = this.$apiUrl + '/delivery_boys/save';
+      var url = this.$apiUrl + "/delivery_boys/save";
       if (this.deliveryBoys.id) {
-        url = this.$apiUrl + '/delivery_boys/update';
+        url = this.$apiUrl + "/delivery_boys/update";
       }
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
         var data = res.data;
         if (data.status === 1) {
-          _this2.$eventBus.$emit('deliveryBoysSaved', data.message);
+          _this2.$eventBus.$emit("deliveryBoysSaved", data.message);
           _this2.hideModal();
         } else {
           vm.showError(data.message);
@@ -587,79 +768,142 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'app-edit-record': _Edit__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "app-edit-record": _Edit__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: __('id'),
+        key: "id",
+        label: __("id"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'name',
-        label: __('name'),
+        key: "name",
+        label: __("name"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'mobile',
-        label: __('mobile'),
+        key: "mobile",
+        label: __("mobile"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'admin.email',
-        label: __('email'),
+        key: "admin.email",
+        label: __("email"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'bonus_percentage',
-        label: __('bonus'),
+        key: "bonus_percentage",
+        label: __("bonus"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'documents',
-        label: __('documents'),
+        key: "documents",
+        label: __("documents"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'dob',
-        label: __('date_of_birth'),
+        key: "dob",
+        label: __("date_of_birth"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'city.formatted_address',
+        key: "city.formatted_address",
         sortable: true,
-        label: __('city'),
-        "class": 'text-center'
+        label: __("city"),
+        "class": "text-center"
       }, {
-        key: 'status',
-        label: __('status'),
+        key: "status",
+        label: __("status"),
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'created_at',
-        label: __('date'),
-        "class": 'text-center'
+        key: "created_at",
+        label: __("date"),
+        "class": "text-center"
       }, {
-        key: 'actions',
-        label: __('actions')
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       create_new: null,
@@ -695,7 +939,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     var _this = this;
     this.showCreateModal();
-    this.$eventBus.$on('deliveryBoysSaved', function (message) {
+    this.$eventBus.$on("deliveryBoysSaved", function (message) {
       _this.showMessage("success", message);
       _this.getDeliveryBoys();
       _this.create_new = null;
@@ -706,7 +950,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getDeliveryBoys: function getDeliveryBoys() {
       var _this2 = this;
       this.isLoading = true;
-      axios.get(this.$apiUrl + '/delivery_boys', {
+      axios.get(this.$apiUrl + "/delivery_boys", {
         params: {
           filterStatus: this.filterStatus
         }
@@ -723,10 +967,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then( /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(result) {
           var remarks, _yield$_this3$$swal$f, text, postData;
@@ -745,21 +989,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                   _context.next = 5;
                   return _this3.$swal.fire({
-                    title: 'Remarks',
-                    input: 'textarea',
-                    inputPlaceholder: 'Type your remarks here...',
+                    title: "Remarks",
+                    input: "textarea",
+                    inputPlaceholder: "Type your remarks here...",
                     inputAttributes: {
-                      'aria-label': 'Type your remarks here'
+                      "aria-label": "Type your remarks here"
                     },
                     confirmButtonText: "Submit",
                     cancelButtonText: "Cancel",
                     showCancelButton: true,
                     inputValidator: function inputValidator(value) {
                       return new Promise(function (resolve) {
-                        if (value !== '') {
+                        if (value !== "") {
                           resolve();
                         } else {
-                          resolve('The Remarks field is required');
+                          resolve("The Remarks field is required");
                         }
                       });
                     }
@@ -778,11 +1022,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       status: selectedStatus,
                       remark: remarks
                     };
-                    axios.post(_this3.$apiUrl + '/delivery_boys/update-status', postData).then(function (response) {
+                    axios.post(_this3.$apiUrl + "/delivery_boys/update-status", postData).then(function (response) {
                       _this3.isLoading = false;
                       var data = response.data;
                       _this3.getDeliveryBoys();
-                      _this3.showMessage('success', data.message);
+                      _this3.showMessage("success", data.message);
                     });
                   }
                 case 9:
@@ -804,17 +1048,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this4.isLoading = true;
           var postData = {
             id: id
           };
-          axios.post(_this4.$apiUrl + '/delivery_boys/delete', postData).then(function (response) {
+          axios.post(_this4.$apiUrl + "/delivery_boys/delete", postData).then(function (response) {
             _this4.isLoading = false;
             _this4.deliveryBoys.splice(index, 1);
             _this4.showSuccess(response.data.message);
@@ -832,7 +1076,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.create_new = false;
       this.edit_record = false;
       this.$router.push({
-        path: '/delivery_boys'
+        path: "/delivery_boys"
       });
     }
   }
@@ -860,7 +1104,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1130,7 +1374,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v("Save\n      "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -1529,7 +1773,7 @@ var render = function () {
                       ? [
                           _c("label", [
                             _vm._v(
-                              "Selected file name:- " +
+                              "Selected file name:-\n                " +
                                 _vm._s(
                                   _vm.deliveryBoys.national_identity_card.name
                                 )
@@ -1935,9 +2179,9 @@ var render = function () {
                       _c("b-form-radio-group", {
                         attrs: {
                           options: [
-                            { text: " Registered", value: 0 },
+                            { text: _vm.__("registered"), value: 0 },
                             { text: " Activated", value: 1 },
-                            { text: " Not-Approved", value: 2 },
+                            { text: _vm.__("not-approved"), value: 2 },
                             { text: " Deactivated", value: 3 },
                           ],
                           buttons: "",
@@ -2073,7 +2317,13 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v(_vm._s(_vm.__("new_registered_delivery_boys")))]
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.__("new_registered_delivery_boys")) +
+                              "\n              "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -2223,11 +2473,11 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                            " +
+                                "\n                " +
                                   _vm._s(
                                     _vm._f("mobileMask")(row.item.mobile)
                                   ) +
-                                  "\n                        "
+                                  "\n              "
                               ),
                             ]
                           },
@@ -2317,11 +2567,11 @@ var render = function () {
                                         fn: function () {
                                           return [
                                             _vm._v(
-                                              "\n                                     " +
+                                              "\n                    " +
                                                 _vm._s(
                                                   _vm.__("bonus_details")
                                                 ) +
-                                                "\n                                "
+                                                "\n                  "
                                             ),
                                           ]
                                         },
@@ -2340,9 +2590,7 @@ var render = function () {
                                     [
                                       _c("tr", [
                                         _c("th", [
-                                          _vm._v(
-                                            " " + _vm._s(_vm.__("bonus_type"))
-                                          ),
+                                          _vm._v(_vm._s(_vm.__("bonus_type"))),
                                         ]),
                                         _vm._v(" "),
                                         _c(
@@ -2350,11 +2598,13 @@ var render = function () {
                                           { staticClass: "text-center" },
                                           [
                                             _vm._v(
-                                              _vm._s(
-                                                row.item.bonus_type === 1
-                                                  ? "Commission"
-                                                  : "Fixed/Salaried"
-                                              )
+                                              "\n                        " +
+                                                _vm._s(
+                                                  row.item.bonus_type === 1
+                                                    ? "Commission"
+                                                    : "Fixed/Salaried"
+                                                ) +
+                                                "\n                      "
                                             ),
                                           ]
                                         ),
@@ -2363,8 +2613,7 @@ var render = function () {
                                       _c("tr", [
                                         _c("th", [
                                           _vm._v(
-                                            "  " +
-                                              _vm._s(_vm.__("min_amount")) +
+                                            _vm._s(_vm.__("min_amount")) +
                                               "(" +
                                               _vm._s(_vm.$currency) +
                                               ")"
@@ -2381,8 +2630,7 @@ var render = function () {
                                       _c("tr", [
                                         _c("th", [
                                           _vm._v(
-                                            "  " +
-                                              _vm._s(_vm.__("max_amount")) +
+                                            _vm._s(_vm.__("max_amount")) +
                                               "(" +
                                               _vm._s(_vm.$currency) +
                                               ")"
@@ -2400,9 +2648,9 @@ var render = function () {
                                 ]
                               ),
                               _vm._v(
-                                "\n                            " +
+                                "\n                " +
                                   _vm._s(row.item.bonus_percentage) +
-                                  "\n                        "
+                                  "\n              "
                               ),
                             ]
                           },
@@ -2436,11 +2684,11 @@ var render = function () {
                                         fn: function () {
                                           return [
                                             _vm._v(
-                                              "\n                                         " +
+                                              "\n                    " +
                                                 _vm._s(
                                                   _vm.__("store_details")
                                                 ) +
-                                                "\n                                    "
+                                                "\n                  "
                                             ),
                                           ]
                                         },
@@ -2466,7 +2714,7 @@ var render = function () {
                                       [
                                         _c("i", { staticClass: "fa fa-eye" }),
                                         _vm._v(
-                                          "  " +
+                                          " " +
                                             _vm._s(_vm.__("driving_licence"))
                                         ),
                                       ]
@@ -2487,11 +2735,11 @@ var render = function () {
                                       [
                                         _c("i", { staticClass: "fa fa-eye" }),
                                         _vm._v(
-                                          "  " +
+                                          " " +
                                             _vm._s(
                                               _vm.__("national_identity_card")
                                             ) +
-                                            " "
+                                            "\n                    "
                                         ),
                                       ]
                                     ),
@@ -2499,9 +2747,9 @@ var render = function () {
                                 ]
                               ),
                               _vm._v(
-                                "\n                                " +
+                                "\n                " +
                                   _vm._s(row.item.store_name) +
-                                  "\n                            "
+                                  "\n              "
                               ),
                             ]
                           },
@@ -2511,13 +2759,13 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                            " +
+                                "\n                " +
                                   _vm._s(
                                     new Date(
                                       row.item.created_at
                                     ).toLocaleDateString("en-GB")
                                   ) +
-                                  "\n                        "
+                                  "\n              "
                               ),
                             ]
                           },
@@ -2527,13 +2775,13 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                           " +
+                                "\n                " +
                                   _vm._s(
                                     new Date(row.item.dob).toLocaleDateString(
                                       "en-GB"
                                     )
                                   ) +
-                                  "\n                        "
+                                  "\n              "
                               ),
                             ]
                           },
@@ -2570,7 +2818,9 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                Approved\n                            "
+                                        "\n                  " +
+                                          _vm._s(_vm.__("approve")) +
+                                          "\n                "
                                       ),
                                     ]
                                   )
@@ -2604,7 +2854,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                Reject\n                            "
+                                        "\n                  Reject\n                "
                                       ),
                                     ]
                                   )
