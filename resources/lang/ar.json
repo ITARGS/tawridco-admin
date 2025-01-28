@@ -317,6 +317,8 @@
     "parent_category": "القسم الرئيسي",
     "main_category": "الفئة الرئيسية",
     "category_name": "اسم الصنف",
+    "category_name_en": "اسم الصنف بالانجليزية",
+    "category_name_ar": "اسم الصنف بالعربية",
     "enter_category_name": "أدخل اسم الصنف.",
     "category_subtitle": "وصف الصنف",
     "enter_category_subtitle": "ادخل وصف الصنف",

@@ -303,80 +303,114 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'app-edit-record': _Edit__WEBPACK_IMPORTED_MODULE_0__["default"]
+    "app-edit-record": _Edit__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       fields: [{
-        key: 'id',
-        label: 'ID',
+        key: "id",
+        label: "ID",
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'user_id',
-        label: 'U.ID',
+        key: "user_id",
+        label: "U.ID",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'name',
-        label: 'Name',
+        key: "name",
+        label: "Name",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'product_name',
-        label: 'Product Name',
+        key: "product_name",
+        label: "Product Name",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'price',
-        label: 'Price',
+        key: "price",
+        label: "Price",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'discounted_price',
-        label: 'Discounted Price',
+        key: "discounted_price",
+        label: "Discounted Price",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'quantity',
-        label: 'Quantity',
+        key: "quantity",
+        label: "Quantity",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'sub_total',
-        label: 'Total',
+        key: "sub_total",
+        label: "Total",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'status',
-        label: 'Status',
+        key: "status",
+        label: "Status",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'created_at',
-        label: 'Date',
+        key: "created_at",
+        label: "Date",
         sortable: true,
-        "class": 'text-center'
+        "class": "text-center"
       }, {
-        key: 'actions',
-        label: __('actions')
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
-      sortBy: '',
+      sortBy: "",
       sortDesc: false,
-      sortDirection: 'asc',
+      sortDirection: "asc",
       filter: null,
       filterOn: [],
       page: 1,
       isLoading: false,
-      sectionStyle: 'style_1',
+      sectionStyle: "style_1",
       max_visible_units: 12,
       max_col_in_single_row: 3,
       create_new: null,
@@ -403,7 +437,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
-    this.$eventBus.$on('returnRequestSaved', function (message) {
+    this.$eventBus.$on("returnRequestSaved", function (message) {
       _this.showMessage("success", message);
       _this.getReturnRequests();
       _this.create_new = null;
@@ -414,7 +448,7 @@ __webpack_require__.r(__webpack_exports__);
     getReturnRequests: function getReturnRequests() {
       var _this2 = this;
       this.isLoading = true;
-      axios.get(this.$apiUrl + '/return_requests').then(function (response) {
+      axios.get(this.$apiUrl + "/return_requests").then(function (response) {
         _this2.returnRequests = response.data.data;
         _this2.totalRows = _this2.returnRequests.length;
         _this2.isLoading = false;
@@ -427,17 +461,17 @@ __webpack_require__.r(__webpack_exports__);
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this3.isLoading = true;
           var postData = {
             id: id
           };
-          axios.post(_this3.$apiUrl + '/return_requests/delete', postData).then(function (response) {
+          axios.post(_this3.$apiUrl + "/return_requests/delete", postData).then(function (response) {
             _this3.isLoading = false;
             _this3.returnRequests.splice(index, 1);
             _this3.showSuccess(response.data.message);
@@ -985,7 +1019,13 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v(_vm._s(_vm.__("return_requests")))]
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.__("return_requests")) +
+                              "\n              "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -1129,9 +1169,9 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s("Price (" + _vm.$currency + ")") +
-                              "\n                        "
+                              "\n            "
                           ),
                         ]
                       },
@@ -1141,11 +1181,11 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(
                                 "Discounted Price (" + _vm.$currency + ")"
                               ) +
-                              "\n                        "
+                              "\n            "
                           ),
                         ]
                       },
@@ -1177,11 +1217,11 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n                            " +
+                            "\n              " +
                               _vm._s(
                                 new Date(row.item.created_at).toLocaleString()
                               ) +
-                              "\n                        "
+                              "\n            "
                           ),
                         ]
                       },
