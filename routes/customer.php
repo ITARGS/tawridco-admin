@@ -10,7 +10,7 @@ Route::group(['middleware' => ['auth.customer']], function () {
 
     Route::post('send_sms',[\App\Http\Controllers\API\Customer\SmsApiController::class, 'store']);
     Route::post('verify_user',[\App\Http\Controllers\API\Customer\SmsApiController::class, 'verifyContact']);
-   
+
 
     Route::post('register', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'register']);
     Route::post('verify_email',[\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'verifyEmail']);
@@ -19,10 +19,10 @@ Route::group(['middleware' => ['auth.customer']], function () {
     Route::post('add_fcm_token', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'addFcmToken']);
     Route::post('forgot_password_otp', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'forgetPasswordOtp']);
     Route::post('forgot_password', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'forgotPassword']);
-   
+
 
     // Guest
-   
+
     Route::get('categories', [\App\Http\Controllers\API\Customer\BasicApiController::class, 'getCategories']);
     Route::get('shop', [\App\Http\Controllers\API\Customer\ShopApiController::class, 'getShopData']);
     Route::get('brands', [\App\Http\Controllers\API\Customer\BasicApiController::class, 'getBrands']);
@@ -79,7 +79,7 @@ Route::group(['middleware' => ['auth.customer']], function () {
         Route::post('upload_profile', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'uploadProfile']);
         Route::post('update_fcm_token', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'updateFcmToken']);
         Route::get('user_details', [\App\Http\Controllers\API\Customer\CustomerAuthController::class, 'getLoginUserDetails']);
-         
+
 
         // Transactions
         Route::get('get_user_transactions', [\App\Http\Controllers\API\Customer\BasicApiController::class, 'getUserTransactions']);
@@ -168,7 +168,7 @@ Route::group(['middleware' => ['auth.customer']], function () {
 
 
         //Paypal
-        
+
         //PayTm
         Route::get('paytm_checksum', [\App\Http\Controllers\API\Customer\OrderApiController::class, 'generatePaytmChecksum']);
         Route::get('paytm_txn_token', [\App\Http\Controllers\API\Customer\OrderApiController::class, 'generatePaytmTxnToken']);
@@ -193,7 +193,7 @@ Route::group(['middleware' => ['auth.customer']], function () {
     Route::post('ipn', [\App\Http\Controllers\API\Customer\OrderApiController::class, 'ipn']);
 
     Route::get('distance_test', [\App\Http\Controllers\API\Customer\BasicApiController::class, 'findGoogleMapDistanceTest']);
-    
+
 });
 
 // Guest Carts

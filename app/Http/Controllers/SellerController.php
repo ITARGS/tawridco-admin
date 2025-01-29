@@ -85,7 +85,7 @@ class SellerController extends BaseController
 
 
         if ($categoryIds != "") {
-         
+
             $categoryIdsArray = explode(',', $categoryIds);
 
              $categoryIds = Category::whereIn('id', $categoryIdsArray)
@@ -120,15 +120,15 @@ class SellerController extends BaseController
             DB::raw('(select count(orders.id) from orders where orders.active_status = order_status_lists.id and orders.id IN ('. $orderIdsString .')) AS order_count'))
             ->orderBy('order_status_lists.id','asc')
             ->get();
-       
+
         return CommonHelper::responseWithData($data);
     }
 
 
 
-    public function getProducts(Request $request){ 
+    public function getProducts(Request $request){
         $limit = $request->limit;
-        $offset = $request->offset; 
+        $offset = $request->offset;
         $seller_id = auth()->user()->seller->id;
 
         $join = "LEFT JOIN `categories` c ON c.id = p.category_id
@@ -140,7 +140,7 @@ class SellerController extends BaseController
         $where = " WHERE p.seller_id=".$seller_id;
 
         //here Sold Out as 0
-        if(isset($request->type) && $request->type === 'sold_out'){ 
+        if(isset($request->type) && $request->type === 'sold_out'){
             $where .= empty($where) ? " WHERE pv.stock <=0 AND pv.status = '0' AND p.is_unlimited_stock = '0' " : " AND pv.stock <=0 AND pv.status = '0' AND p.is_unlimited_stock = '0'";
         }
         //here Available as 1, low_stock_limit
@@ -156,15 +156,15 @@ class SellerController extends BaseController
         if(isset($request->type) && $request->type === 'loose_products'){
             $where .= empty($where) ? " WHERE p.type = 'loose'" : " AND p.type ='loose'";
         }
-      
-        $products = \DB::select("SELECT p.id AS product_id, p.*, p.name, p.seller_id, p.status, p.tax_id, p.image, 
+
+        $products = \DB::select("SELECT p.id AS product_id, p.*, p.name, p.seller_id, p.status, p.tax_id, p.image,
             CONCAT('" . asset('storage/') . "/', p.image) as image_url,
-            s.name as seller_name, p.indicator, p.manufacturer, p.made_in, p.return_status, 
+            s.name as seller_name, p.indicator, p.manufacturer, p.made_in, p.return_status,
             p.cancelable_status, p.till_status, osl.status as till_status_name, p.description,
-            pv.id as product_variant_id, pv.price, pv.discounted_price, pv.measurement, 
+            pv.id as product_variant_id, pv.price, pv.discounted_price, pv.measurement,
             pv.status as pv_status, pv.stock, pv.stock_unit_id, u.short_code,
             (select short_code from units where units.id = pv.stock_unit_id) as stock_unit
-            FROM `products` p $join $where 
+            FROM `products` p $join $where
             ORDER BY p.id DESC, pv.id ASC");
         $total = count($products);
         if(isset($request->limit)){
@@ -207,7 +207,7 @@ class SellerController extends BaseController
     public function doLanguageChange(Request $request)
     {
         Session::put('lang',$request->language);
-      
+
         return response()->json(['status' => true]);
     }
     public function createSlug($text){
@@ -239,7 +239,7 @@ class SellerController extends BaseController
     }
 
     public function getOrders(Request $request){
-        $seller_id = auth()->user()->seller->id; 
+        $seller_id = auth()->user()->seller->id;
 
         $limit = ($request->limit);
         $offset = ($request->offset)??0;
@@ -268,7 +268,7 @@ class SellerController extends BaseController
             // Convert start and end dates from request to Y-m-d format
             $startDeliveryDate = date('Y-m-d', strtotime($request->startDeliveryDate));
             $endDeliveryDate = date('Y-m-d', strtotime($request->endDeliveryDate));
-        
+
             // Define a callback function to extract and format the delivery_time date
             $orders = $orders->where(function($query) use ($startDeliveryDate, $endDeliveryDate) {
                 $query->whereRaw("STR_TO_DATE(SUBSTRING_INDEX(orders.delivery_time, ' ', 1), '%d-%m-%Y') BETWEEN ? AND ?", [$startDeliveryDate, $endDeliveryDate]);
@@ -286,7 +286,7 @@ class SellerController extends BaseController
                 'users.name', 'order_items.active_status', 'products.name'
                 // Add more columns as needed
             ];
-            
+
             $orders = $orders->where(function($query) use ($filter, $columns) {
                 foreach ($columns as $column) {
                     $query->orWhere($column, 'like', "%{$filter}%");
@@ -295,7 +295,7 @@ class SellerController extends BaseController
         }
 
         $totalOrder = $orders->groupBy('orders.id')->get()->count();
-       
+
         if(isset($limit) &&  $limit>0 ){
             $orders = $orders->groupBy('orders.id')->orderBy('orders.id','DESC')->skip($offset)->take($limit)->get();
         }else{
@@ -323,7 +323,7 @@ class SellerController extends BaseController
             // Convert start and end dates from request to Y-m-d format
             $startDeliveryDate = date('Y-m-d', strtotime($request->startDeliveryDate));
             $endDeliveryDate = date('Y-m-d', strtotime($request->endDeliveryDate));
-        
+
             // Define a callback function to extract and format the delivery_time date
             $order_items = $order_items->where(function($query) use ($startDeliveryDate, $endDeliveryDate) {
                 $query->whereRaw("STR_TO_DATE(SUBSTRING_INDEX(orders.delivery_time, ' ', 1), '%d-%m-%Y') BETWEEN ? AND ?", [$startDeliveryDate, $endDeliveryDate]);
@@ -340,14 +340,14 @@ class SellerController extends BaseController
                 'users.name', 'order_items.active_status', 'products.name', 'order_items.id', 'order_items.is_credited'
                 // Add more columns as needed
             ];
-            
+
             $order_items = $order_items->where(function($query) use ($filter, $columns) {
                 foreach ($columns as $column) {
                     $query->orWhere($column, 'like', "%{$filter}%");
                 }
             });
         }
-     
+
         $totalOrderItem = $order_items->count();
         if(isset($item_limit) &&  $item_limit>0 ){
             $order_items = $order_items->orderBy('order_items.id','DESC')->skip($item_offset)->take($item_limit)->get();
@@ -522,6 +522,7 @@ class SellerController extends BaseController
 
     public function getCities(){
         $cities = City::select('id','name','state','formatted_address','latitude','longitude')->orderBy('id','DESC')->get();
+
         if(empty($cities)){
             return  CommonHelper::responseError('Cities not found.');
         }
@@ -530,27 +531,27 @@ class SellerController extends BaseController
     public function getMainCategories(Request $request){
         $seller_id = auth()->user()->seller->id;
         $seller = Seller::where('id', $seller_id)->first();
-        
+
         $query = Category::orderBy('name', 'ASC');
-        
+
         if (isset($request->category_id) && $request->category_id !== 0) {
             $query->where("parent_id", $request->category_id);
         } else {
             $query->whereIn('id', explode(",", $seller->categories));
         }
-    
+
         if (isset($request->search) && !empty($request->search)) {
             $searchTerm = $request->search;
             $query->where('name', 'LIKE', '%' . $searchTerm . '%');
         }
-    
+
         $userCategories = $query->get();
         $total = $userCategories->count();
-        
+
         return CommonHelper::responseWithData($userCategories, $total);
     }
     public function deploy(){
-       
+
         exec("git pull");
         exec("composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev");
         exec("php artisan migrate");

@@ -38,6 +38,9 @@ class ShopApiController extends Controller
     public function getShopData(Request $request)
     {
 
+
+
+
         $validator = Validator::make($request->all(), [
             'latitude' => 'required',
             'longitude' => 'required',
@@ -49,12 +52,15 @@ class ShopApiController extends Controller
             return CommonHelper::responseError($validator->errors()->first());
         }
 
+
+
         $seller_ids = CommonHelper::getSellerIds($request->latitude, $request->longitude);
-        
+
         $user_id = $request->user('api-customers') ? $request->user('api-customers')->id : 0;
-         
+
+
         $sections = CommonHelper::getSectionWithProduct($seller_ids, $user_id);
-       
+
 
         $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->get();
         $sliders = $sliders->makeHidden(['image', 'product', 'category', 'created_at', 'updated_at', 'status']);
@@ -64,13 +70,15 @@ class ShopApiController extends Controller
             $sliders[$key]->type_id = $sliders[$key]->type_id ? intval($sliders[$key]->type_id) : 0;
         }
 
+
         $offers = Offer::orderBy('id', 'DESC')->get();
         $offers = $offers->makeHidden(['image']);
         $is_category_section_in_homepage = CommonHelper::getIsCategorySectionInHomepage();
-         
+
         $is_brand_section_in_homepage = CommonHelper::getIsBrandSectionInHomepage();
         $is_seller_section_in_homepage = CommonHelper::getIsSellerSectionInHomepage()['is_seller_section_in_homepage'];
         $is_country_section_in_homepage = CommonHelper::getIsCountrySectionInHomepage()['is_country_section_in_homepage'];
+
         $output = array(
             'sliders' => $sliders,
             'offers' => $offers,
@@ -80,20 +88,36 @@ class ShopApiController extends Controller
             'is_seller_section_in_homepage' => $is_seller_section_in_homepage,
             'is_country_section_in_homepage' => $is_country_section_in_homepage,
         );
-    
+
+        if (app()->getLocale() == 'en') {
+            $categoryNameField = 'name_en';
+            $subtileFiels = 'subtitle_en';
+        } else {
+            $categoryNameField = 'name_ar';
+            $subtileFiels = 'subtitle_ar';
+
+        }
+
+
         if($is_category_section_in_homepage && $is_category_section_in_homepage==1){
             $count_category_section_in_homepage = CommonHelper::getCountCategorySectionInHomepage();
+
             $categories = Category::where('status', 1)
             ->where('parent_id', 0)
             ->where('status', 1)
             ->orderBy('row_order', 'ASC')
             ->limit($count_category_section_in_homepage)
-            ->get(['id', 'name', 'subtitle', 'image', 'slug']);
+            ->get(['id', $categoryNameField, $subtileFiels, 'image', 'slug']);
+
         $categories = $categories->makeHidden(['image']);
+
+
+
         $output['categories'] = $categories->toArray();
         }
 
-        
+
+
         if($is_brand_section_in_homepage && $is_brand_section_in_homepage==1){
             $count_brand_section_in_homepage = CommonHelper::getCountBrandSectionInHomepage();
             $brands = Brand::orderBy('id','ASC')->where('status',1)->whereExists(function($query) {
@@ -105,6 +129,7 @@ class ShopApiController extends Controller
             $brands = $brands->makeHidden(['created_at','updated_at','image','status']);
             $output['brands'] = $brands->toArray();
         }
+
 
         if($is_seller_section_in_homepage && $is_seller_section_in_homepage==1){
             $count_seller_section_in_homepage = CommonHelper::getIsSellerSectionInHomepage()['count_seller_section_in_homepage'];
@@ -120,12 +145,14 @@ class ShopApiController extends Controller
             })
             ->whereIn('sellers.id', $seller_ids)
             ->orderBy('distance','asc')
-            ->limit($count_seller_section_in_homepage) 
+            ->limit($count_seller_section_in_homepage)
             ->get();
 
             $sellers = $sellers->makeHidden(['national_identity_card_url','address_proof_url','logo']);
             $output['sellers'] = $sellers->toArray();
         }
+
+
         if($is_country_section_in_homepage && $is_country_section_in_homepage==1){
             $count_country_section_in_homepage = CommonHelper::getIsCountrySectionInHomepage()['count_country_section_in_homepage'];
             $countries = Country::orderBy('id','ASC')->where('status',1)->whereExists(function($query) {
@@ -137,6 +164,8 @@ class ShopApiController extends Controller
             $countries = $countries->makeHidden(['created_at','updated_at','status']);
             $output['countries'] = $countries->toArray();
         }
+
+
         return CommonHelper::responseWithData($output);
     }
 }

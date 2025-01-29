@@ -173,6 +173,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -185,52 +194,52 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return {
       isLoading: false,
       fields: [{
-        key: 'id',
-        label: __('id'),
+        key: "id",
+        label: __("id"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'name',
-        label: __('name'),
+        key: "name",
+        label: __("name"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'zone',
-        label: __('zone'),
+        key: "zone",
+        label: __("zone"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'state',
-        label: __('state'),
+        key: "state",
+        label: __("state"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'latitude',
-        label: __('latitude'),
+        key: "latitude",
+        label: __("latitude"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'longitude',
-        label: __('longitude'),
+        key: "longitude",
+        label: __("longitude"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'geolocation_type',
-        label: __('geolocation_type'),
+        key: "geolocation_type",
+        label: __("geolocation_type"),
         sortable: true,
-        sortDirection: 'desc'
+        sortDirection: "desc"
       }, {
-        key: 'actions',
-        label: __('actions')
+        key: "actions",
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,
       perPage: this.$perPage,
       pageOptions: this.$pageOptions,
       offset: 0,
-      sortBy: 'id',
+      sortBy: "id",
       sortDesc: true,
-      sortDirection: 'desc',
+      sortDirection: "desc",
       filter: null,
       filterOn: [],
       cities: []
@@ -260,7 +269,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         limit: this.perPage,
         offset: this.offset
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + '/cities', {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(this.$apiUrl + "/cities", {
         params: param
       }).then(function (response) {
         _this.isLoading = false;
@@ -280,7 +289,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         } else if (error.message) {
           _this.showError(error.message);
         } else {
-          _this.showError(__('something_went_wrong'));
+          _this.showError(__("something_went_wrong"));
         }
       });
     },
@@ -291,21 +300,21 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         text: "You want be able to revert this",
         confirmButtonText: "Yes, Sure",
         cancelButtonText: "Cancel",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#37a279',
-        cancelButtonColor: '#d33'
+        confirmButtonColor: "#37a279",
+        cancelButtonColor: "#d33"
       }).then(function (result) {
         if (result.value) {
           _this2.isLoading = true;
           var postData = {
             id: id
           };
-          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this2.$apiUrl + '/cities/delete', postData).then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this2.$apiUrl + "/cities/delete", postData).then(function (response) {
             _this2.isLoading = false;
             var data = response.data;
             _this2.cities.splice(index, 1);
-            _this2.showMessage('success', data.message);
+            _this2.showMessage("success", data.message);
           });
         }
       });
@@ -436,7 +445,13 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v(_vm._s(_vm.__("manage_cities")))]
+                  [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.__("manage_cities")) +
+                        "\n            "
+                    ),
+                  ]
                 ),
               ]),
             ]
@@ -740,7 +755,7 @@ var render = function () {
                               _vm._s(_vm.totalRows)
                           ),
                         ]),
-                        _vm._v(",\n\n                                "),
+                        _vm._v(",\n\n                "),
                         _vm.totalRows > 0
                           ? _c("b-pagination", {
                               staticClass: "my-0",
