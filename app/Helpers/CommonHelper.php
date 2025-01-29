@@ -52,236 +52,222 @@ use Carbon\Carbon;
 use App\Notifications\OrderNotification;
 use App\Jobs\SendCartNotification;
 use App\Models\CartNotification;
-class CommonHelper
-{
 
-    public static function responseError($message)
-    {
-        return Response::json(array('status' => 0, 'message' => $message));
+class CommonHelper {
+
+    public static function responseError( $message ) {
+        return Response::json( array( 'status' => 0, 'message' => $message ) );
     }
-    public static function responseErrorWithData($message, $data)
-    {
-        return Response::json(array('status' => 0, 'message' => $message, 'data' => $data));
+    public static function responseErrorWithData( $message, $data ) {
+        return Response::json( array( 'status' => 0, 'message' => $message, 'data' => $data ) );
     }
 
-    public static function responseSuccess($message)
-    {
-        return Response::json(array('status' => 1, 'message' => $message));
+    public static function responseSuccess( $message ) {
+        return Response::json( array( 'status' => 1, 'message' => $message ) );
     }
 
-    public static function responseWithData($data,$total = null)
-    {
+    public static function responseWithData( $data, $total = null ) {
         $total = $total ?? 1;
-        return Response::json(array('status' => 1, 'message' => 'success','total'=> $total, 'data' => $data));
+        return Response::json( array( 'status' => 1, 'message' => 'success', 'total'=> $total, 'data' => $data ) ) ;
     }
 
-    public static function responseSuccessWithData($message, $data)
-    {
-        return Response::json(array('status' => 1, 'message' => $message, 'data' => $data));
+    public static function responseSuccessWithData( $message, $data ) {
+        return Response::json( array( 'status' => 1, 'message' => $message, 'data' => $data ) );
     }
 
-    public static function getColumnComment($tableName, $columnName){
+    public static function getColumnComment( $tableName, $columnName ) {
         $databaseName = \DB::connection()->getDatabaseName();
-        $comments = \DB::select("SELECT COLUMN_COMMENT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$databaseName' AND TABLE_NAME = '$tableName' AND COLUMN_NAME = '$columnName'");
-        return $comments[0]->COLUMN_COMMENT;
+        $comments = \DB::select( "SELECT COLUMN_COMMENT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$databaseName' AND TABLE_NAME = '$tableName' AND COLUMN_NAME = '$columnName'" );
+        return $comments[ 0 ]->COLUMN_COMMENT;
     }
 
-
-    public static function slugify($text, $table = 'products', $field = 'slug', $key = NULL, $value = NULL)
-    {
+    public static function slugify( $text, $table = 'products', $field = 'slug', $key = NULL, $value = NULL ) {
         // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+        $text = preg_replace( '~[^\pL\d]+~u', '-', $text );
         // transliterate
-        //   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-        // $text = iconv('utf-8', 'UTF-8//TRANSLIT', $text);
+        //   $text = iconv( 'utf-8', 'us-ascii//TRANSLIT', $text );
+        // $text = iconv( 'utf-8', 'UTF-8//TRANSLIT', $text );
 
         // remove unwanted characters
-        // $text = preg_replace('~[^-\w]+~', '', $text);
+        // $text = preg_replace( '~[^-\w]+~', '', $text );
         // echo $text;
         // trim
-        $text = trim($text, '-');
+        $text = trim( $text, '-' );
 
         // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
+        $text = preg_replace( '~-+~', '-', $text );
 
         // lowercase
-        $slug = strtolower($text);
+        $slug = strtolower( $text );
 
-        if (empty($slug)) {
+        if ( empty( $slug ) ) {
             return 'n-a';
         }
-        $total = \DB::select(\DB::raw("SELECT COUNT(id) AS total_slugs FROM $table WHERE $field  LIKE '$slug%'"));
+        $total = \DB::select( \DB::raw( "SELECT COUNT(id) AS total_slugs FROM $table WHERE $field  LIKE '$slug%'" ) );
 
-        return ($total[0]->total_slugs > 0) ? ($slug . '-' . $total[0]->total_slugs) : $slug;
+        return ( $total[ 0 ]->total_slugs > 0 ) ? ( $slug . '-' . $total[ 0 ]->total_slugs ) : $slug;
     }
 
-    public static function getTimezoneOptions()
-    {
+    public static function getTimezoneOptions() {
         $list = DateTimeZone::listAbbreviations();
         $idents = DateTimeZone::listIdentifiers();
 
         $data = $offset = $added = array();
-        foreach ($list as $abbr => $info) {
-            foreach ($info as $zone) {
+        foreach ( $list as $abbr => $info ) {
+            foreach ( $info as $zone ) {
                 if (
-                    !empty($zone['timezone_id'])
+                    !empty( $zone[ 'timezone_id' ] )
                     and
-                    !in_array($zone['timezone_id'], $added)
+                    !in_array( $zone[ 'timezone_id' ], $added )
                     and
-                    in_array($zone['timezone_id'], $idents)
+                    in_array( $zone[ 'timezone_id' ], $idents )
                 ) {
-                    $z = new DateTimeZone($zone['timezone_id']);
-                    $c = new DateTime(null, $z);
-                    $zone['time'] = $c->format('H:i a');
-                    $offset[] = $zone['offset'] = $z->getOffset($c);
+                    $z = new DateTimeZone( $zone[ 'timezone_id' ] );
+                    $c = new DateTime( null, $z );
+                    $zone[ 'time' ] = $c->format( 'H:i a' );
+                    $offset[] = $zone[ 'offset' ] = $z->getOffset( $c );
                     $data[] = $zone;
-                    $added[] = $zone['timezone_id'];
+                    $added[] = $zone[ 'timezone_id' ];
                 }
             }
         }
-        array_multisort($offset, SORT_ASC, $data);
+        array_multisort( $offset, SORT_ASC, $data );
         $i = 0;
         $temp = array();
-        foreach ($data as $key => $row) {
-            $temp[0] = $row['time'];
-            $temp[1] = self::formatOffset($row['offset']);
-            $temp[2] = $row['timezone_id'];
-            $options[$i++] = $temp;
+        foreach ( $data as $key => $row ) {
+            $temp[ 0 ] = $row[ 'time' ];
+            $temp[ 1 ] = self::formatOffset( $row[ 'offset' ] );
+            $temp[ 2 ] = $row[ 'timezone_id' ];
+            $options[ $i++ ] = $temp;
         }
         return $options;
     }
 
-    public static function formatOffset($offset)
-    {
+    public static function formatOffset( $offset ) {
         $hours = $offset / 3600;
         $remainder = $offset % 3600;
         $sign = $hours > 0 ? '+' : '-';
-        $hour = (int)abs($hours);
-        $minutes = (int)abs($remainder / 60);
+        $hour = ( int )abs( $hours );
+        $minutes = ( int )abs( $remainder / 60 );
 
-        if ($hour == 0 and $minutes == 0) {
+        if ( $hour == 0 and $minutes == 0 ) {
             $sign = ' ';
         }
-        return $sign . str_pad($hour, 2, '0', STR_PAD_LEFT) . ':' . str_pad($minutes, 2, '0');
+        return $sign . str_pad( $hour, 2, '0', STR_PAD_LEFT ) . ':' . str_pad( $minutes, 2, '0' );
     }
 
-    public static function convertSettingsInArray($settings): array
-    {
-        $imageArray = array("play_store_logo","ios_store_logo","favicon","web_logo","loading","logo","popup_image","placeholder_image");
+    public static function convertSettingsInArray( $settings ): array {
+        $imageArray = array( 'play_store_logo', 'ios_store_logo', 'favicon', 'web_logo', 'loading', 'logo', 'popup_image', 'placeholder_image' );
         $data = array();
-        foreach ($settings as $setting){
-            if(in_array($setting->variable,$imageArray)){
-                $data[$setting->variable] = self::getImage($setting->value);
-            }else{
-                $data[$setting->variable] = $setting->value;
+        foreach ( $settings as $setting ) {
+            if ( in_array( $setting->variable, $imageArray ) ) {
+                $data[ $setting->variable ] = self::getImage( $setting->value );
+            } else {
+                $data[ $setting->variable ] = $setting->value;
             }
         }
         return $data;
     }
 
-    public static function getSettings($variables){
-        $settings = Setting::whereIn('variable',$variables )->get();
-        return self::convertSettingsInArray($settings);
+    public static function getSettings( $variables ) {
+        $settings = Setting::whereIn( 'variable', $variables )->get();
+        return self::convertSettingsInArray( $settings );
     }
 
-    public static function getDefaultCity(){
-        $default_city_id = Setting::get_value('default_city_id');
-        return City::select('id','name','state','formatted_address','latitude','longitude')->where('id', $default_city_id)->first();
+    public static function getDefaultCity() {
+        $default_city_id = Setting::get_value( 'default_city_id' );
+        return City::select( 'id', 'name', 'state', 'formatted_address', 'latitude', 'longitude' )->where( 'id', $default_city_id )->first();
     }
 
-    public static function getDeliveryBoyBonusSettings(): array
-    {
-        $variablesArray = array("delivery_boy_bonus_settings", "delivery_boy_bonus_type", "delivery_boy_bonus_percentage", "delivery_boy_bonus_min_amount", "delivery_boy_bonus_max_amount");
-        $bonus =  self::getSettings($variablesArray);
-        //return array_map('floatval', $bonus);
-        //return array_map('intval', $bonus);
-        $bonus['delivery_boy_bonus_settings'] = intval($bonus['delivery_boy_bonus_settings']);
-        $bonus['delivery_boy_bonus_type'] = intval($bonus['delivery_boy_bonus_type']);
-        $bonus['delivery_boy_bonus_percentage'] = floatval($bonus['delivery_boy_bonus_percentage']);
-        $bonus['delivery_boy_bonus_min_amount'] = floatval($bonus['delivery_boy_bonus_min_amount']);
-        $bonus['delivery_boy_bonus_max_amount'] = floatval($bonus['delivery_boy_bonus_max_amount']);
+    public static function getDeliveryBoyBonusSettings(): array {
+        $variablesArray = array( 'delivery_boy_bonus_settings', 'delivery_boy_bonus_type', 'delivery_boy_bonus_percentage', 'delivery_boy_bonus_min_amount', 'delivery_boy_bonus_max_amount' );
+        $bonus =  self::getSettings( $variablesArray );
+        //return array_map( 'floatval', $bonus );
+        //return array_map( 'intval', $bonus );
+        $bonus[ 'delivery_boy_bonus_settings' ] = intval( $bonus[ 'delivery_boy_bonus_settings' ] );
+        $bonus[ 'delivery_boy_bonus_type' ] = intval( $bonus[ 'delivery_boy_bonus_type' ] );
+        $bonus[ 'delivery_boy_bonus_percentage' ] = floatval( $bonus[ 'delivery_boy_bonus_percentage' ] );
+        $bonus[ 'delivery_boy_bonus_min_amount' ] = floatval( $bonus[ 'delivery_boy_bonus_min_amount' ] );
+        $bonus[ 'delivery_boy_bonus_max_amount' ] = floatval( $bonus[ 'delivery_boy_bonus_max_amount' ] );
         return $bonus;
     }
 
-
-
-    public static function getMainCategories($request) {
+    public static function getMainCategories( $request ) {
         // Initialize the query to get main categories
-        $query = Category::orderBy('id', 'DESC')
-                        ->where(['parent_id' => 0, 'status' => 1]);
-    
+        $query = Category::orderBy( 'id', 'DESC' )
+        ->where( [ 'parent_id' => 0, 'status' => 1 ] );
+
         // If a search term is provided in the request, add a search condition
-        if (isset($request->search) && !empty($request->search)) {
+        if ( isset( $request->search ) && !empty( $request->search ) ) {
             $searchTerm = $request->search;
-            $query->where('name', 'LIKE', '%' . $searchTerm . '%');
+            $query->where( 'name', 'LIKE', '%' . $searchTerm . '%' );
         }
-    
+
         // Execute the query and return the results
         return $query->get();
     }
 
-    public static function categoryTree($parent_id = 0, $sub_mark = '', $default = NULL, $dont_include = array(), $only_last_selecatble = false, $multiple_default = array(), $exclude_id=0,$seller_id = 0)
-    {
-        if($seller_id != 0) {
-            $seller = Seller::where('id',$seller_id)->first();
-            $categories = Category::with('parent')->where('parent_id', $parent_id)->whereIn('id', explode(",", $seller->categories));
-        }else{
-            $categories = Category::with('parent')->where('parent_id', $parent_id);
+    public static function categoryTree( $parent_id = 0, $sub_mark = '', $default = NULL, $dont_include = array(), $only_last_selecatble = false, $multiple_default = array(), $exclude_id = 0, $seller_id = 0 ) {
+        if ( $seller_id != 0 ) {
+            $seller = Seller::where( 'id', $seller_id )->first();
+            $categories = Category::with( 'parent' )->where( 'parent_id', $parent_id )->whereIn( 'id', explode( ',', $seller->categories ) );
+        } else {
+            $categories = Category::with( 'parent' )->where( 'parent_id', $parent_id );
         }
 
-        if($exclude_id != 0){
-            $categories = $categories->where('id', '!=', $exclude_id);
+        if ( $exclude_id != 0 ) {
+            $categories = $categories->where( 'id', '!=', $exclude_id );
         }
 
-        if (count($dont_include) > 0) {
-            foreach ($dont_include as $dontInclude) {
-                $categories->where('id', '!=', $dontInclude);
-                $categories->where('parent_id', '!=', $dontInclude); 
+        if ( count( $dont_include ) > 0 ) {
+            foreach ( $dont_include as $dontInclude ) {
+                $categories->where( 'id', '!=', $dontInclude );
+                $categories->where( 'parent_id', '!=', $dontInclude );
+
             }
         }
 
         $categories = $categories->get();
 
-        if (count($categories) > 0) {
-            foreach ($categories as $category) {
+        if ( count( $categories ) > 0 ) {
+            foreach ( $categories as $category ) {
                 //$category->CategoryLocalName();
                 //for single selection
                 $selected = '';
-                if (isset($default) and $default == $category->id) {
+                if ( isset( $default ) and $default == $category->id ) {
                     $selected = 'selected';
                 }
 
                 //for multiple selection
                 $multiSelected = '';
-                if (isset($multiple_default) and in_array($category->id, $multiple_default)) {
+                if ( isset( $multiple_default ) and in_array( $category->id, $multiple_default ) ) {
                     $multiSelected = 'selected';
                 }
 
-                if ($only_last_selecatble) {
-                    if ($category->childs->count() == 0) {
+                if ( $only_last_selecatble ) {
+                    if ( $category->childs->count() == 0 ) {
                         echo '<option value="' . $category->id . '"  ' . $selected . ' ' . $multiSelected . ' >' . $sub_mark . $category->name . '</option>';
                     } else {
                         echo '<optgroup label="' . $sub_mark . $category->name . '">';
-                        self::categoryTree($category->id, $sub_mark . '&nbsp;&nbsp;', $default, $dont_include, $only_last_selecatble, $multiple_default);
+                        self::categoryTree( $category->id, $sub_mark . '&nbsp;&nbsp;', $default, $dont_include, $only_last_selecatble, $multiple_default );
                         echo '</optgroup>';
                     }
                 } else {
                     echo '<option value="' . $category->id . '"  ' . $selected . ' ' . $multiSelected . '>' . $sub_mark . $category->name . '</option>';
-                    self::categoryTree($category->id, $sub_mark . '&nbsp;&nbsp;', $default, $dont_include, $only_last_selecatble, $multiple_default);
+                    self::categoryTree( $category->id, $sub_mark . '&nbsp;&nbsp;', $default, $dont_include, $only_last_selecatble, $multiple_default );
                 }
             }
         }
 
     }
 
-    public static function uploadProductImages($images, $product_id, $variant_id = 0) 
-    {
-        foreach ($images as $file) {
-            $fileName = time().'_'.rand(1111,99999).'.'.$file->getClientOriginalExtension();
-            $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    public static function uploadProductImages( $images, $product_id, $variant_id = 0 ) {
+        foreach ( $images as $file ) {
+            $fileName = time().'_'.rand( 1111, 99999 ).'.'.$file->getClientOriginalExtension();
+            $allowedExtensions = [ 'jpg', 'jpeg', 'png', 'gif', 'webp' ];
             $extension = $file->getClientOriginalExtension();
-            if (in_array(strtolower($extension), $allowedExtensions)) {
-                $image = Storage::disk('public')->putFileAs('products', $file, $fileName);
+            if ( in_array( strtolower( $extension ), $allowedExtensions ) ) {
+                $image = Storage::disk( 'public' )->putFileAs( 'products', $file, $fileName );
                 $productImages = new ProductImages();
                 $productImages->product_id = $product_id;
                 $productImages->product_variant_id = $variant_id;
@@ -291,75 +277,74 @@ class CommonHelper
         }
     }
 
-    public static function validatePromoCode($user_id, $promo_code, $total)
-    {
-        $code = PromoCode::where('promo_code', $promo_code)->first();
+    public static function validatePromoCode( $user_id, $promo_code, $total ) {
+        $code = PromoCode::where( 'promo_code', $promo_code )->first();
         $promo_code_id = $code->id;
-        if (empty($code)) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "Invalid promo code.";
+        if ( empty( $code ) ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = 'Invalid promo code.';
             return $response;
         }
-        if ($code->status == 0) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "This promo code is either expired / invalid.";
+        if ( $code->status == 0 ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = 'This promo code is either expired / invalid.';
             return $response;
         }
         $user = auth()->user();
-        if (empty($user)) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "Invalid user data.";
+        if ( empty( $user ) ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = 'Invalid user data.';
             return $response;
         }
         $start_date = $code->start_date;
         $end_date = $code->end_date;
-        $date = date('Y-m-d h:i:s a');
-        if ($date < $start_date) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "This promo code can't be used before " . date('d-m-Y', strtotime($start_date));
+        $date = date( 'Y-m-d h:i:s a' );
+        if ( $date < $start_date ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = "This promo code can't be used before " . date( 'd-m-Y', strtotime( $start_date ) );
             return $response;
         }
-        if ($date > $end_date) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "This promo code can't be used after " . date('d-m-Y', strtotime($end_date));
+        if ( $date > $end_date ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = "This promo code can't be used after " . date( 'd-m-Y', strtotime( $end_date ) );
             return $response;
         }
-        if ($total < $code->minimum_order_amount) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "This promo code is applicable only for order amount greater than or equal to " . $code->minimum_order_amount;
+        if ( $total < $code->minimum_order_amount ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = 'This promo code is applicable only for order amount greater than or equal to ' . $code->minimum_order_amount;
             return $response;
         }
         //check how many users have used this promo code and no of users used this promo code crossed max users or not
-        $order = Order::select('id')->where('promo_code_id', $promo_code_id)->groupBy('user_id')->get()->toArray();
-        if (count($order) >= $code->no_of_users) {
-            $response['is_applicable'] = 0;
-            $response['message'] = "This promo code is applicable only for first " . $code->no_of_users . " users.";
+        $order = Order::select( 'id' )->where( 'promo_code_id', $promo_code_id )->groupBy( 'user_id' )->get()->toArray();
+        if ( count( $order ) >= $code->no_of_users ) {
+            $response[ 'is_applicable' ] = 0;
+            $response[ 'message' ] = 'This promo code is applicable only for first ' . $code->no_of_users . ' users.';
             return $response;
         }
         //check how many times user have used this promo code and count crossed max limit or not
-        if ($code->repeat_usage == 1) {
-            $order = Order::select('id')->where('user_id', $user_id)->where('promo_code_id', $promo_code_id)->groupBy('user_id')->get()->toArray();
-            $total_usage = count($order);
-            if ($total_usage >= $code->no_of_repeat_usage && $code->no_of_repeat_usage != 0) {
-                $response['is_applicable'] = 0;
-                $response['message'] = "This promo code is applicable only for " . $code->no_of_repeat_usage . " times.";
+        if ( $code->repeat_usage == 1 ) {
+            $order = Order::select( 'id' )->where( 'user_id', $user_id )->where( 'promo_code_id', $promo_code_id )->groupBy( 'user_id' )->get()->toArray();
+            $total_usage = count( $order );
+            if ( $total_usage >= $code->no_of_repeat_usage && $code->no_of_repeat_usage != 0 ) {
+                $response[ 'is_applicable' ] = 0;
+                $response[ 'message' ] = 'This promo code is applicable only for ' . $code->no_of_repeat_usage . ' times.';
                 return $response;
             }
         }
         //check if repeat usage is not allowed and user have already used this promo code
-        if ($code->repeat_usage == 0) {
-            $order = Order::select('id')->where('user_id', $user_id)->where('promo_code_id', $promo_code_id)->groupBy('user_id')->get()->toArray();
-            $total_usage = count($order);
-            if ($total_usage >= 1) {
-                $response['is_applicable'] = 0;
-                $response['message'] = "This promo code is applicable only for 1 time.";
+        if ( $code->repeat_usage == 0 ) {
+            $order = Order::select( 'id' )->where( 'user_id', $user_id )->where( 'promo_code_id', $promo_code_id )->groupBy( 'user_id' )->get()->toArray();
+            $total_usage = count( $order );
+            if ( $total_usage >= 1 ) {
+                $response[ 'is_applicable' ] = 0;
+                $response[ 'message' ] = 'This promo code is applicable only for 1 time.';
                 return $response;
             }
         }
-        if ($code->discount_type == 'percentage') {
+        if ( $code->discount_type == 'percentage' ) {
             $percentage = $code->discount;
             $discount = $total / 100 * $percentage;
-            if ($discount > $code->max_discount_amount) {
+            if ( $discount > $code->max_discount_amount ) {
                 $discount = $code->max_discount_amount;
             }
         } else {
@@ -367,172 +352,183 @@ class CommonHelper
         }
         $discounted_amount = $total - $discount;
 
-        $response['promo_code_id'] = $code->id;
-        $response['is_applicable'] = 1;
-        $response['message'] = "Promo code applied successfully.";
-        $response['promo_code'] = $promo_code;
-        $response['image_url'] = $code->image_url;
-        $response['promo_code_message'] = $code->message;
-        $response['total'] = $total;
-        $response['discount'] = $discount;
-        $response['discounted_amount'] = $discounted_amount;
-        //$response['status'] = $code->status;
+        $response[ 'promo_code_id' ] = $code->id;
+        $response[ 'is_applicable' ] = 1;
+        $response[ 'message' ] = 'Promo code applied successfully.';
+        $response[ 'promo_code' ] = $promo_code;
+        $response[ 'image_url' ] = $code->image_url;
+        $response[ 'promo_code_message' ] = $code->message;
+        $response[ 'total' ] = $total;
+        $response[ 'discount' ] = $discount;
+        $response[ 'discounted_amount' ] = $discounted_amount;
+        //$response[ 'status' ] = $code->status;
         return $response;
     }
 
-    public static function getValidatedPromoCode($promocode_id, $total, $user_id){
-        $code = PromoCode::find($promocode_id);
-        /*if (empty($code)) {
-            return CommonHelper::responseError("Promo code not found!");
-        }*/
-
-        if (!empty($code)) {
-            return self::validatePromoCode($user_id, $code->promo_code, $total);
-        }
+    public static function getValidatedPromoCode( $promocode_id, $total, $user_id ) {
+        $code = PromoCode::find( $promocode_id );
+        /*if ( empty( $code ) ) {
+        return CommonHelper::responseError( 'Promo code not found!' );
     }
+    */
 
-    public static function getDeliverableCity($latitude, $longitude){
-        // $city = city::select('cities.*', DB::raw("6371 * acos(cos(radians(" . $latitude . "))
+    if ( !empty( $code ) ) {
+        return self::validatePromoCode( $user_id, $code->promo_code, $total );
+    }
+}
+
+public static function getDeliverableCity( $latitude, $longitude ) {
+    // $city = city::select( 'cities.*', DB::raw( '6371 * acos(cos(radians(' . $latitude . "))
         //                         * cos(radians(sellers.latitude)) * cos(radians(sellers.longitude) - radians(" . $longitude . "))
-        //                         + sin(radians(" .$latitude. ")) * sin(radians(sellers.latitude))) AS distance"), 'cities.max_deliverable_distance')
-        //     ->leftJoin("sellers", "sellers.city_id", "cities.id")
-        //     ->havingRaw("distance < cities.max_deliverable_distance")
-        //     ->first();
-            
-            $point = ['lat' => $latitude, 'lng' => $longitude];
+        //                         + sin(radians(" .$latitude. ')) * sin(radians(sellers.latitude))) AS distance' ), 'cities.max_deliverable_distance' )
+    //     ->leftJoin( 'sellers', 'sellers.city_id', 'cities.id' )
+    //     ->havingRaw( 'distance < cities.max_deliverable_distance' )
+    //     ->first();
 
-        // Retrieve cities with boundary points
-        $cities = City::all();
-      
-        $cityIds = '';
-    
-        foreach ($cities as $city) {
-            if($city->geolocation_type == 'polygon'){
-                $polygon = json_decode($city->boundary_points, true);
-        
-                if (is_array($polygon) && !empty($polygon) && self::isPointInPolygon($point, $polygon)) {
+    $point = [ 'lat' => $latitude, 'lng' => $longitude ];
+
+    // Retrieve cities with boundary points
+    $cities = City::all();
+
+    $cityIds = '';
+
+    foreach ( $cities as $city ) {
+        if ( $city->geolocation_type == 'polygon' ) {
+            $polygon = json_decode( $city->boundary_points, true );
+
+            if ( is_array( $polygon ) && !empty( $polygon ) && self::isPointInPolygon( $point, $polygon ) ) {
+                $cityIds = $city->id;
+            }
+        } elseif ( $city->geolocation_type == 'circle' ) {
+            $boundaryPoints  = json_decode( $city->boundary_points, true );
+            $radius = $city->radius;
+            // Assuming radius is stored in meters
+
+            if ( is_array( $boundaryPoints ) && !empty( $boundaryPoints ) ) {
+                $center = $boundaryPoints[ 0 ];
+                // Assuming the first element is the center point
+                if ( self::isPointInCircle( $point, $center, $radius ) ) {
                     $cityIds = $city->id;
                 }
-            }elseif($city->geolocation_type == 'circle'){
-                $boundaryPoints  = json_decode($city->boundary_points, true);
-                $radius = $city->radius; // Assuming radius is stored in meters
-        
-                if (is_array($boundaryPoints) && !empty($boundaryPoints)) {
-                    $center = $boundaryPoints[0]; // Assuming the first element is the center point
-                    if (self::isPointInCircle($point, $center, $radius)) {
-                        $cityIds = $city->id;
-                    }
-                }
-            }   
+            }
         }
-        
-        $city = city::select('cities.*')
-            ->leftJoin("sellers", "sellers.city_id", "cities.id")
-            ->where("cities.id",$cityIds)
-            ->first();
-        return $city;
-    }
-    function boundaryPointsToPolygon($boundaryPoints) {
-        $pointsArray = json_decode($boundaryPoints, true);
-        $wkt = 'POLYGON((' . implode(',', array_map(function ($point) {
-            return "{$point['lng']} {$point['lat']}";
-        }, $pointsArray)) . '))';
-        return $wkt;
+
     }
 
-    public static function getSellerIds($latitude, $longitude){
+    $city = city::select( 'cities.*' )
+    ->leftJoin( 'sellers', 'sellers.city_id', 'cities.id' )
+    ->where( 'cities.id', $cityIds )
+    ->first();
+    return $city;
+}
 
-        // Helper function to convert boundary points to polygon WKT
-        $point = ['lat' => $latitude, 'lng' => $longitude];
+function boundaryPointsToPolygon( $boundaryPoints ) {
+    $pointsArray = json_decode( $boundaryPoints, true );
+    $wkt = 'POLYGON((' . implode( ',', array_map( function ( $point ) {
+        return "{$point['lng']} {$point['lat']}";
+    }
+    , $pointsArray ) ) . '))';
+    return $wkt;
+}
 
-        // Retrieve cities with boundary points
-        $cities = City::all();
-      
-        $cityIds = [];
-    
-        foreach ($cities as $city) {
-            if($city->geolocation_type == 'polygon'){
-                $polygon = json_decode($city->boundary_points, true);
-        
-                if (is_array($polygon) && !empty($polygon) && self::isPointInPolygon($point, $polygon)) {
+public static function getSellerIds( $latitude, $longitude ) {
+
+    // Helper function to convert boundary points to polygon WKT
+    $point = [ 'lat' => $latitude, 'lng' => $longitude ];
+
+    // Retrieve cities with boundary points
+    $cities = City::all();
+
+    $cityIds = [];
+
+    foreach ( $cities as $city ) {
+        if ( $city->geolocation_type == 'polygon' ) {
+            $polygon = json_decode( $city->boundary_points, true );
+
+            if ( is_array( $polygon ) && !empty( $polygon ) && self::isPointInPolygon( $point, $polygon ) ) {
+                $cityIds[] = $city->id;
+            }
+        } elseif ( $city->geolocation_type == 'circle' ) {
+            $boundaryPoints  = json_decode( $city->boundary_points, true );
+            $radius = $city->radius;
+            // Assuming radius is stored in meters
+
+            if ( is_array( $boundaryPoints ) && !empty( $boundaryPoints ) ) {
+                $center = $boundaryPoints[ 0 ];
+                // Assuming the first element is the center point
+                if ( self::isPointInCircle( $point, $center, $radius ) ) {
                     $cityIds[] = $city->id;
                 }
-            }elseif($city->geolocation_type == 'circle'){
-                $boundaryPoints  = json_decode($city->boundary_points, true);
-                $radius = $city->radius; // Assuming radius is stored in meters
-        
-                if (is_array($boundaryPoints) && !empty($boundaryPoints)) {
-                    $center = $boundaryPoints[0]; // Assuming the first element is the center point
-                    if (self::isPointInCircle($point, $center, $radius)) {
-                        $cityIds[] = $city->id;
-                    }
-                }
-            }   
+            }
         }
-   
-        $sellerIds = self::getSellerIdsfromCityIds($cityIds);
-        return $sellerIds;
 
     }
-    public static function isPointInPolygon($point, $polygon)
-    {
-        if (empty($polygon) || !is_array($polygon)) {
-            return false; // Return false if polygon data is not valid
-        }
-    
-        $x = $point['lng'];
-        $y = $point['lat'];
-    
-        $vertices = $polygon;
-        $count = count($vertices);
-    
-        if ($count < 3) {
-            return false; // A polygon must have at least 3 vertices
-        }
-    
-        $inside = false;
-        $p1x = $vertices[0]['lng'];
-        $p1y = $vertices[0]['lat'];
-    
-        for ($i = 1; $i <= $count; $i++) {
-            $p2x = $vertices[$i % $count]['lng'];
-            $p2y = $vertices[$i % $count]['lat'];
-    
-            if ($y > min($p1y, $p2y)) {
-                if ($y <= max($p1y, $p2y)) {
-                    if ($x <= max($p1x, $p2x)) {
-                        if ($p1y != $p2y) {
-                            $xinters = ($y - $p1y) * ($p2x - $p1x) / ($p2y - $p1y) + $p1x;
-                        }
-                        if ($p1x == $p2x || $x <= $xinters) {
-                            $inside = !$inside;
-                        }
+
+    $sellerIds = self::getSellerIdsfromCityIds( $cityIds );
+    return $sellerIds;
+
+}
+public static function isPointInPolygon( $point, $polygon ) {
+    if ( empty( $polygon ) || !is_array( $polygon ) ) {
+        return false;
+        // Return false if polygon data is not valid
+    }
+
+    $x = $point[ 'lng' ];
+    $y = $point[ 'lat' ];
+
+    $vertices = $polygon;
+    $count = count( $vertices );
+
+    if ( $count < 3 ) {
+        return false;
+        // A polygon must have at least 3 vertices
+    }
+
+    $inside = false;
+    $p1x = $vertices[ 0 ][ 'lng' ];
+    $p1y = $vertices[ 0 ][ 'lat' ];
+
+    for ( $i = 1; $i <= $count; $i++ ) {
+        $p2x = $vertices[ $i % $count ][ 'lng' ];
+        $p2y = $vertices[ $i % $count ][ 'lat' ];
+
+        if ( $y > min( $p1y, $p2y ) ) {
+            if ( $y <= max( $p1y, $p2y ) ) {
+                if ( $x <= max( $p1x, $p2x ) ) {
+                    if ( $p1y != $p2y ) {
+                        $xinters = ( $y - $p1y ) * ( $p2x - $p1x ) / ( $p2y - $p1y ) + $p1x;
+                    }
+                    if ( $p1x == $p2x || $x <= $xinters ) {
+                        $inside = !$inside;
                     }
                 }
             }
-    
-            $p1x = $p2x;
-            $p1y = $p2y;
         }
-    
-        return $inside;
+
+        $p1x = $p2x;
+        $p1y = $p2y;
     }
-    public static function isPointInCircle($point, $center, $radius) {
-        $earthRadius = 6371000; // Earth's radius in meters
-    
+
+    return $inside;
+}
+public static function isPointInCircle( $point, $center, $radius ) {
+    $earthRadius = 6371000;
+    // Earth's radius in meters
+
         $latFrom = deg2rad($center['lat']);
         $lngFrom = deg2rad($center['lng']);
         $latTo = deg2rad($point['lat']);
         $lngTo = deg2rad($point['lng']);
-    
+
         $latDelta = $latTo - $latFrom;
         $lngDelta = $lngTo - $lngFrom;
-    
+
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
             cos($latFrom) * cos($latTo) * pow(sin($lngDelta / 2), 2)));
-    
+
         $distance = $angle * $earthRadius;
-    
+
         return $distance <= $radius;
     }
     public static function getSellerIdsfromCityIds(array $cityIds)
@@ -545,8 +541,8 @@ class CommonHelper
 
     $query->where(function($q) use ($cityIds) {
         foreach ($cityIds as $cityId) {
-            // Check if city_id is a comma-separated string (e.g., '1,2')
-            $q->orWhereRaw('FIND_IN_SET(?, city_id)', [$cityId])
+            // Check if city_id is a comma-separated string (e.g., '1, 2')
+            $q->orWhereRaw('FIND_IN_SET( ?, city_id )', [$cityId])
               // Check if city_id is an individual integer or an array
               ->orWhereIn('city_id', $cityIds);
         }
@@ -572,9 +568,9 @@ class CommonHelper
             ->from("product_variants as pv")
             ->leftJoin("products as p", "pv.product_id", "=", "p.id")
             ->whereIn("pv.id", $arr)
-            ->orderByRaw("FIELD(pv.id, " . implode(',', $arr) . ")")
+            ->orderByRaw("FIELD(pv.id, " . implode(', ', $arr) . ")")
             ->get();
-               
+
             if (!empty($variants)) {
                 return $variants;
             }
@@ -588,7 +584,7 @@ class CommonHelper
 
     public static function addUserWalletBalance($amount, $id){
         $user = User::where("id",$id)->first();
-        
+
         $user->balance = $user->balance + $amount;
         $user->save();
         return $user->balance;
@@ -605,7 +601,7 @@ class CommonHelper
         $balance = 0;
         if ($user) {
             $balance = $user->balance;
-        } 
+        }
         return $balance;
     }
     public static function addWalletTransaction($order_id, $order_item_id, $user_id, $type, $wallet_balance, $mesage, $status = 1){
@@ -676,20 +672,20 @@ class CommonHelper
         $point = ['lat' => $latitudeTo, 'lng' => $longitudeTo];
 
         // Retrieve cities with boundary points
-        $checkcityIds = explode(',', $city_id);
+        $checkcityIds = explode(', ', $city_id);
         $cities = City::whereIn('id', $checkcityIds)->get();
         $cityIds = [];
-    
+
         foreach ($cities as $city) {
             $polygon = json_decode($city->boundary_points, true);
-    
+
             if (is_array($polygon) && !empty($polygon) && self::isPointInPolygon($point, $polygon)) {
                 $cityIds[] = $city->id;
             }
         }
         // Return whether the point is deliverable in any of the specified cities
         return $isDeliverable = !empty($cityIds);
-        
+
     }
 
     public static function isDeliverableOrder($address_id, $latitude, $longitude, $seller_id){
@@ -699,7 +695,7 @@ class CommonHelper
             $seller = Seller::select("latitude","longitude")->where("id","=",$seller_id)->first();
 
             /*$address =  UserAddress::select("latitude","longitude",
-                DB::raw("ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT(". $seller->latitude." ".$seller->longitude.")'))/1000 as distance")
+                DB::raw("ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT( ". $seller->latitude." ".$seller->longitude." )'))/1000 as distance")
             )->where("id","=",$address_id)->first();*/
 
             $address =  UserAddress::select("latitude","longitude", DB::raw("6371 * acos(cos(radians(" . $seller->latitude . "))
@@ -725,18 +721,18 @@ class CommonHelper
     //         // get seller points
     //         $seller_data = Seller::select("latitude","longitude")->where("id","=",$seller_id)->first();
 
-    //         //$where = "ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT(". $seller_data->latitude." ".$seller_data->longitude.")') ) as distance";
+    //         //$where = "ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT( ". $seller_data->latitude." ".$seller_data->longitude." )') ) as distance";
     //         //$data = fetch_details(['id' => $partner_id], "users", "latitude,longitude,$where");
 
-    //         $data =  UserAddress::select("latitude","longitude", DB::raw("ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT(". $seller_data->latitude." ".$seller_data->longitude.")'))/1000 as distance")
+    //         $data =  UserAddress::select("latitude","longitude", DB::raw("ST_Distance_Sphere(POINT(latitude,longitude), ST_GeomFromText('POINT( ". $seller_data->latitude." ".$seller_data->longitude." )'))/1000 as distance")
     //         )->where("id","=",$address_id)->first();
 
     //         //echo($data->distance);
 
     //         /*if ($type == "city") {
-    //             $partner = fetch_details(['id' => $address_id], 'cities', 'geolocation_type,radius,boundary_points,max_deliverable_distance');
+    //             $partner = fetch_details(['id' => $address_id], 'cities', 'geolocation_type, radius, boundary_points, max_deliverable_distance');
     //         } else {
-    //             $partner = fetch_details(['a.id' => $address_id], 'addresses a', 'a.city_id,c.geolocation_type,c.radius,c.boundary_points,c.max_deliverable_distance', null, null, null, "DESC", "", '', "cities c", "a.city_id=c.id");
+    //             $partner = fetch_details(['a.id' => $address_id], 'addresses a', 'a.city_id, c.geolocation_type, c.radius, c.boundary_points, c.max_deliverable_distance', null, null, null, "DESC", "", '', "cities c", "a.city_id=c.id");
     //         }*/
 
     //         $seller = Seller::select("s.city_id","c.geolocation_type","c.radius","c.boundary_points","c.max_deliverable_distance")
@@ -810,8 +806,8 @@ class CommonHelper
         }*/
 
         $order_item = OrderItem::select('products.cancelable_status',)
-            ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
-            ->leftJoin('products', 'product_variants.product_id', '=', 'products.id')
+            ->leftJoin('product_variants', 'order_items.product_variant_id', ' = ', 'product_variants.id')
+            ->leftJoin('products', 'product_variants.product_id', ' = ', 'products.id')
             ->where("order_items.id", $order_item_id)
             ->first();
 
@@ -845,20 +841,20 @@ class CommonHelper
     }
 
     public static function getProductIdsSection($section){
-        
+
         $cate_ids = $section->category_ids ? explode(",",$section->category_ids) : [];
         $product_ids = $section->product_ids;
-      
+
         if ($section->product_type == 'all_products') {
-              
+
             if (empty($section->category_ids)) {
                 $sql = Product::select("id as product_id")->where("status", "=", 1)->orderBy("product_id","DESC");
             } else {
-               
+
                 $sql = Product::select("id as product_id")->whereIn("category_id", $cate_ids)->orderBy("product_id","DESC");
             }
         } elseif ($section->product_type == 'new_added_products') {
-           
+
             if (empty($section->category_ids)) {
                 $sql = Product::select("id as product_id")->where("status", "=", 1)->orderBy("id","DESC");
             } else {
@@ -867,14 +863,14 @@ class CommonHelper
         } elseif ($section->product_type == 'products_on_sale') {
             if (empty($section->category_ids)) {
                 $sql = Product::select("p.id as product_id")->from("products as p")
-                    ->leftJoin('product_variants as pv', 'pv.product_id', '=', 'p.id')
+                    ->leftJoin('product_variants as pv', 'pv.product_id', ' = ', 'p.id')
                     ->where("p.status", "=", 1)
                     ->where("pv.discounted_price", ">", 0)
                     ->where("pv.price", "=", "pv.discounted_price")
                     ->orderBy("p.id","DESC");
             } else {
                 $sql = Product::select("p.id as product_id")->from("products as p")
-                    ->leftJoin('product_variants as pv', 'pv.product_id', '=', 'p.id')
+                    ->leftJoin('product_variants as pv', 'pv.product_id', ' = ', 'p.id')
                     ->where("p.status", "=", 1)
                     ->whereIn("category_id", $cate_ids)
                     ->where("pv.discounted_price", ">", 0)
@@ -918,7 +914,7 @@ class CommonHelper
             $pro_id = array_column($rows, 'product_id');
             $product_ids = implode(",", $pro_id);
         }
-      
+
         return $product_ids;
     }
 
@@ -928,76 +924,87 @@ class CommonHelper
         $sections = Section::orderBy('row_order','ASC')->get();
 
         $sections = $sections->makeHidden(['created_at','updated_at']);
-  
-        foreach ($sections as $key => $section){
-          $product_ids = self::getProductIdsSection($section) ?? "";
-$product_ids_array = array_filter(explode(",", $product_ids)); // Filter empty values
 
-if (!empty($product_ids_array)) {
-    $products = Product::select(
-            'p.*',
-            'p.type as d_type',
-            's.store_name as seller_name',
-            's.slug as seller_slug',
-            's.status as seller_status'
-        )
-        ->from('products as p')
-        ->leftJoin('sellers as s', 'p.seller_id', '=', 's.id')
-        ->leftJoin('categories as c', 'p.category_id', '=', 'c.id')
-        ->where('p.is_approved', 1)
-        ->where('p.status', 1)
-        ->where('c.status', 1)
-        ->where('s.status', 1)
-        ->whereIn('p.seller_id', $seller_ids)
-        ->whereIn('p.id', $product_ids_array)
-        ->with('ratings')
-        ->groupBy('p.id')
-        ->orderByRaw("FIELD(p.id, " . implode(',', $product_ids_array) . ")") // Removed DB::raw
-        ->skip($offset)
-        ->take($limit)
-        ->get();
-} else {
-    $products = collect(); // Return an empty collection if no product IDs
-}
- 
+            foreach ($sections as $key => $section){
+                $product_ids = self::getProductIdsSection($section) ?? "";
 
-            $products = $products->makeHidden(['seller_id','row_order','return_status',
-                'cancelable_status','till_status','description','status','is_approved','return_days','pincodes',
-                'cod_allowed','pickup_location','tags','d_type','seller_name','seller_slug','seller_status',
-                'created_at', 'updated_at','deleted_at','image','other_images']);
+                $product_ids_array = array_filter(explode(",", $product_ids)); // Filter empty values
 
-            $i = 0;
-            foreach ($products as $row){
+                if (!empty($product_ids_array)) {
 
-                 
-$sql = ProductVariant::select('*',
-                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
-                    ->from('product_variants as pv')
-                    ->where('pv.product_id','=',$row['id'])
-                    ->orderBy('pv.status','ASC');
-                $variants = $sql->get();
-                $variants = $variants->makeHidden(['product_id','status','measurement_unit_id','stock_unit_id','deleted_at']);
-                if (empty($variants)) {
-                    continue;
+                    $products = Product::select(
+                            'p.*',
+                            'p.type as d_type',
+                            's.store_name as seller_name',
+                            's.slug as seller_slug',
+                            's.status as seller_status'
+                        )
+                        ->from('products as p')
+                        ->leftJoin('sellers as s', 'p.seller_id', ' = ', 's.id')
+                        ->leftJoin('categories as c', 'p.category_id', ' = ', 'c.id')
+                        ->where('p.is_approved', 1)
+                        ->where('p.status', 1)
+                        ->where('c.status', 1)
+                        ->where('s.status', 1)
+                        ->whereIn('p.seller_id', $seller_ids)
+                        ->whereIn('p.id', $product_ids_array)
+                        ->with('ratings')
+                        ->groupBy('p.id')
+                        ->orderByRaw("FIELD(p.id, " . implode(', ', $product_ids_array) . ")") // Removed DB::raw
+                        ->skip($offset)
+                        ->take($limit)
+                        ->get();
+                } else {
+                    $products = collect(); // Return an empty collection if no product IDs
                 }
-  
-                $products[$i] = self::getProductDetails($row['id'],$user_id,false);
-              
-                $variantArray = array();
-                for ($k = 0; $k < count($variants); $k++) {
-                    array_push($variantArray,self::getProductVariant($variants[$k]['id'],$user_id));
+
+
+                if($products->isNotEmpty()){
+
+                        $products = $products->makeHidden(['seller_id','row_order','return_status',
+                            'cancelable_status','till_status','description','status','is_approved','return_days','pincodes',
+                            'cod_allowed','pickup_location','tags','d_type','seller_name','seller_slug','seller_status',
+                            'created_at', 'updated_at','deleted_at','image','other_images']);
+
+
+
+
+                        $i = 0;
+                        foreach ($products as $row){
+
+
+                            $sql =  ProductVariant::select('*',
+                                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
+                                    ->from('product_variants as pv')
+                                    ->where('pv.product_id',' = ',$row['id'])
+                                    ->orderBy('pv.status','ASC');
+                            $variants = $sql->get();
+                            $variants = $variants->makeHidden(['product_id','status','measurement_unit_id','stock_unit_id','deleted_at']);
+                            if (empty($variants)) {
+                                continue;
+                            }
+
+                            $products[$i] = self::getProductDetails($row['id'],$user_id,false);
+
+                            $variantArray = array();
+                            for ($k = 0; $k < count($variants); $k++) {
+                                array_push($variantArray,self::getProductVariant($variants[$k]['id'],$user_id));
+                            }
+
+                            $products[$i]['variants'] = $variantArray;
+                            $products[$i]->rating_count =CommonHelper::productAverageRating($row['id'])['rating_count'];
+                            $products[$i]->average_rating =CommonHelper::productAverageRating($row['id'])['average_rating'];
+                            $i++;
+                        }
                 }
-                  
-                $products[$i]['variants'] = $variantArray;
-                $products[$i]->rating_count =CommonHelper::productAverageRating($row['id'])['rating_count'];
-                $products[$i]->average_rating =CommonHelper::productAverageRating($row['id'])['average_rating'];
-                $i++;
+
+                $sections[$key]["products"] = $products;
+
+
             }
-            $sections[$key]["products"] = $products;
-        }
-        
         $sections =  array_map("array_filter",$sections->toArray());
         $sections = array_filter($sections);
+
         return $sections;
     }
 
@@ -1013,24 +1020,27 @@ $sql = ProductVariant::select('*',
 
     public static function getProductVariantsSize(){
         $variants = ProductVariant::select('measurement as size','short_code','stock_unit_id as unit_id')
-            ->from('product_variants as pv')->distinct()->leftJoin('units as u', 'pv.stock_unit_id', '=', 'u.id')->get();
+            ->from('product_variants as pv')->distinct()->leftJoin('units as u', 'pv.stock_unit_id', ' = ', 'u.id')->get();
         return $variants;
     }
 
     public static function doubleNumber($number){
         $formattedNumber = number_format($number, 2);
-        $floatNumber = (float) str_replace(',', '', $formattedNumber);
-        //$floatNumber = (float) preg_replace('/[^0-9.-]/', '', $formattedNumber);
+        $floatNumber = (float) str_replace(', ', '', $formattedNumber);
+        //$floatNumber = (float) preg_replace('/[ ^0-9.- ]/', '', $formattedNumber);
         return $floatNumber;
     }
 
     public static function getProductDetails($product_id,$user_id=null,$is_variants=true,$request=null){
+
         $product = Product::select('products.*', 'sellers.longitude', 'sellers.latitude', 'cities.max_deliverable_distance',
             'cities.boundary_points','co.name as country_made_in')
                 ->leftJoin("countries as co", "products.made_in", "=", "co.id")
-                ->leftJoin('sellers', 'products.seller_id', '=', 'sellers.id')
-                ->leftJoin('cities', 'sellers.city_id', '=', 'cities.id')
+                ->leftJoin('sellers', 'products.seller_id', "=", 'sellers.id')
+                ->leftJoin('cities', 'sellers.city_id', "=", 'cities.id')
                 ->where('products.id',$product_id)->first();
+
+
         // \Log::info('products1 : ',[$product]);
         if($product) {
             $product = $product->makeHidden(['row_order','return_status',
@@ -1141,19 +1151,19 @@ $sql = ProductVariant::select('*',
     }
 
     public static function getCartCount($user_id){
-        $total = Cart::select(DB::raw('COUNT(carts.id) AS cart_items_count'), DB::raw('sum(carts.qty) AS cart_total_qty'))
-            ->Join('products', 'carts.product_id', '=', 'products.id')
-            ->Join('product_variants', 'carts.product_variant_id', '=', 'product_variants.id')
-            ->where('carts.save_for_later','=',0)
+        $total = Cart::select(DB::raw('COUNT( carts.id ) AS cart_items_count'), DB::raw('sum( carts.qty ) AS cart_total_qty'))
+            ->Join('products', 'carts.product_id', ' = ', 'products.id')
+            ->Join('product_variants', 'carts.product_variant_id', ' = ', 'product_variants.id')
+            ->where('carts.save_for_later',' = ',0)
             ->where('user_id',$user_id)->first();
         $total->cart_items_count = intval($total->cart_items_count);
         $total->cart_total_qty = intval($total->cart_total_qty);
 
         $carts = Cart::select('carts.qty','carts.product_variant_id')
-            ->Join('products', 'carts.product_id', '=', 'products.id')
-            ->Join('product_variants', 'carts.product_variant_id', '=', 'product_variants.id')
-            ->where('carts.save_for_later','=',0)
-            ->where('user_id','=',$user_id)
+            ->Join('products', 'carts.product_id', ' = ', 'products.id')
+            ->Join('product_variants', 'carts.product_variant_id', ' = ', 'product_variants.id')
+            ->where('carts.save_for_later',' = ',0)
+            ->where('user_id',' = ',$user_id)
             ->get();
 
         $variant_ids = array_column($carts->toArray(),'product_variant_id');
@@ -1164,8 +1174,8 @@ $sql = ProductVariant::select('*',
         $total->save_price = $totalAmt['save_price'];
         $total->total_amount = $totalAmt['total_amount'];
 
-        $total->product_variant_id = implode(',', $variant_ids);
-        $total->quantity = implode(',',$quantityArray);
+        $total->product_variant_id = implode(', ', $variant_ids);
+        $total->quantity = implode(', ',$quantityArray);
 
         return $total;
     }
@@ -1183,7 +1193,7 @@ $sql = ProductVariant::select('*',
                 $taxed_amount = ProductHelper::getTaxableAmount($variant_id);
 
                 $variant = ProductVariant::select('price', 'discounted_price')->where('id',$variant_id)->first();
-                
+
                 if($variant->discounted_price != 0 && $variant->discounted_price != ""){
                     $mainPrice = $variant->discounted_price;
                 }else{
@@ -1426,32 +1436,32 @@ $sql = ProductVariant::select('*',
     public static function getDeliveryCharge($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $cityIdsString, $sub_total)
     {
            // Convert the string to an array
-            $cityIds = explode(',', $cityIdsString);
+            $cityIds = explode(', ', $cityIdsString);
 
             // Retrieve cities with specified IDs
             $cities = City::whereIn('id', $cityIds)->get();
             $point = ['lat' => $latitudeFrom, 'lng' => $longitudeFrom];
-      
+
         $cityId = '';
-    
+
         foreach ($cities as $city) {
             if($city->geolocation_type == 'polygon'){
             $polygon = json_decode($city->boundary_points, true);
-    
+
                 if (is_array($polygon) && !empty($polygon) && self::isPointInPolygon($point, $polygon)) {
                     $cityId = $city->id;
                 }
             }elseif($city->geolocation_type == 'circle'){
                 $boundaryPoints  = json_decode($city->boundary_points, true);
                 $radius = $city->radius; // Assuming radius is stored in meters
-        
+
                 if (is_array($boundaryPoints) && !empty($boundaryPoints)) {
                     $center = $boundaryPoints[0]; // Assuming the first element is the center point
                     if (self::isPointInCircle($point, $center, $radius)) {
                         $cityId = $city->id;
                     }
                 }
-            }  
+            }
         }
         $city = City::where('id', $cityId)->first();
        if ($city) {
@@ -1588,7 +1598,7 @@ $sql = ProductVariant::select('*',
                     return $response;
                 }
             }
-   
+
        }
        else{
             $response['error'] = true;
@@ -1597,8 +1607,8 @@ $sql = ProductVariant::select('*',
        }
     }
 
-    public static function getAllDeliveryCharge($latitudeFrom, $longitudeFrom, $seller_ids, $sub_total) { 
- 
+    public static function getAllDeliveryCharge($latitudeFrom, $longitudeFrom, $seller_ids, $sub_total) {
+
         $sellers = Seller::select('sellers.id', 'sellers.name', 'sellers.latitude', 'sellers.longitude', 'sellers.city_id', DB::raw("6371 * acos(cos(radians(" . $latitudeFrom . "))
                                 * cos(radians(sellers.latitude)) * cos(radians(sellers.longitude) - radians(" . $longitudeFrom . "))
                                 + sin(radians(" .$latitudeFrom. ")) * sin(radians(sellers.latitude))) AS distance"))
@@ -1616,7 +1626,7 @@ $sql = ProductVariant::select('*',
             $data = array();
             foreach ($sellers as $seller){
                 $subData = array();
-               
+
 
                 $delivery = self::getDeliveryCharge($latitudeFrom, $longitudeFrom, $seller->latitude, $seller->longitude, $seller->city_id, $sub_total);
 
@@ -1625,7 +1635,7 @@ $sql = ProductVariant::select('*',
                     $message = $delivery["message"];
                     break;
                 }
-               
+
                 $subData['seller_name'] = $seller->name;
                 $subData['delivery_charge'] = $delivery["charge"];
                 $subData['distance'] = $delivery["distance"];
@@ -1656,12 +1666,12 @@ $sql = ProductVariant::select('*',
 
     public static function getStatusOrderCount($seller_id = null){
 
-        $query = '(select count(orders.id) from orders where orders.active_status = order_status_lists.id) AS order_count';
+        $query = '( select count( orders.id ) from orders where orders.active_status = order_status_lists.id ) AS order_count';
 
         if(isset($seller_id) && $seller_id != "" && $seller_id !=0 ){
             $orderIds = OrderItem::where('seller_id',$seller_id)->get()->pluck('order_id')->toArray();
             if(count($orderIds)>0) {
-                $query = '(select count(orders.id) from orders where orders.active_status = order_status_lists.id and orders.id IN (' . implode(",", array_unique($orderIds)) . ')) AS order_count';
+                $query = '( select count( orders.id ) from orders where orders.active_status = order_status_lists.id and orders.id IN ( ' . implode(",", array_unique($orderIds)) . ' ) ) AS order_count';
             }
         }
         return OrderStatusList::select('order_status_lists.id','order_status_lists.status', \DB::raw($query))
@@ -1674,51 +1684,51 @@ $sql = ProductVariant::select('*',
             ,'users.email as user_email','users.mobile as user_mobile','users.country_code as user_country_code','address.*','address.address as customer_address','address.landmark as customer_landmark','address.area as customer_area','address.pincode as customer_pincode','address.city as customer_city','address.state as customer_state','address.country as customer_country','address.latitude as customer_latitude', 'address.longitude as customer_longitude', 'sellers.name as seller_name', 'sellers.mobile as seller_mobile',
             'sellers.email as seller_email', 'sellers.store_name', 'sellers.formatted_address as seller_formatted_address', 'sellers.place_name as seller_place_name', 'sellers.latitude as seller_latitude', 'sellers.longitude as seller_longitude', 'delivery_boys.name as delivery_boy_name',
             'order_items.id as order_item_id','os.id as active_status', 'os.status as status_name')
-            ->leftJoin('order_items', 'order_items.order_id', '=', 'orders.id')
-            ->leftJoin('users', 'orders.user_id', '=', 'users.id')
-            ->leftJoin('user_addresses as address', 'orders.address_id', '=', 'address.id')
-            ->leftJoin('cities', 'address.city_id', '=', 'cities.id')
-            ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
-            ->leftJoin('products', 'product_variants.product_id', '=', 'products.id')
-            ->leftJoin('delivery_boys', 'orders.delivery_boy_id', '=', 'delivery_boys.id')
-            ->leftJoin('sellers', 'order_items.seller_id', '=', 'sellers.id')
-            ->leftJoin('order_status_lists as os', 'orders.active_status', '=', 'os.id')
+            ->leftJoin('order_items', 'order_items.order_id', ' = ', 'orders.id')
+            ->leftJoin('users', 'orders.user_id', ' = ', 'users.id')
+            ->leftJoin('user_addresses as address', 'orders.address_id', ' = ', 'address.id')
+            ->leftJoin('cities', 'address.city_id', ' = ', 'cities.id')
+            ->leftJoin('product_variants', 'order_items.product_variant_id', ' = ', 'product_variants.id')
+            ->leftJoin('products', 'product_variants.product_id', ' = ', 'products.id')
+            ->leftJoin('delivery_boys', 'orders.delivery_boy_id', ' = ', 'delivery_boys.id')
+            ->leftJoin('sellers', 'order_items.seller_id', ' = ', 'sellers.id')
+            ->leftJoin('order_status_lists as os', 'orders.active_status', ' = ', 'os.id')
             ->where('orders.id', $order_id)
             ->groupBy('orders.id')
             ->first();
 
         $order_items = Order::select('order_items.*','orders.mobile','orders.total' ,'orders.delivery_charge','orders.discount','orders.promo_code',
             'orders.promo_discount','orders.wallet_balance','orders.final_total','orders.payment_method','orders.address','orders.delivery_time',
-            'users.name as user_name','order_items.status as order_status','sellers.name as seller_name','products.id as product_id',DB::raw('CONCAT("' . asset('storage/') . '", "/", products.image) as image'), 'os.id as active_status', 'os.status as status_name')
-            ->leftJoin('order_items', 'order_items.order_id', '=', 'orders.id')
-            ->leftJoin('users', 'orders.user_id', '=', 'users.id')
-            ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
-            ->leftJoin('products', 'product_variants.product_id', '=', 'products.id')
-            ->leftJoin('sellers', 'order_items.seller_id', '=', 'sellers.id')
-            ->leftJoin('order_status_lists as os', 'order_items.active_status', '=', 'os.id')
+            'users.name as user_name','order_items.status as order_status','sellers.name as seller_name','products.id as product_id',DB::raw('CONCAT( "' . asset('storage/') . '", '/', products.image ) as image'), 'os.id as active_status', 'os.status as status_name')
+            ->leftJoin('order_items', 'order_items.order_id', ' = ', 'orders.id')
+            ->leftJoin('users', 'orders.user_id', ' = ', 'users.id')
+            ->leftJoin('product_variants', 'order_items.product_variant_id', ' = ', 'product_variants.id')
+            ->leftJoin('products', 'product_variants.product_id', ' = ', 'products.id')
+            ->leftJoin('sellers', 'order_items.seller_id', ' = ', 'sellers.id')
+            ->leftJoin('order_status_lists as os', 'order_items.active_status', ' = ', 'os.id')
             ->where('orders.id', $order_id)
             ->whereNotIn('order_items.active_status', [7, 8])
             ->orderBy('order_items.id','DESC')
             ->get();
              if(auth()->user()->role_id == 3){
                $seller_id =  auth()->user()->seller->id;
-               
+
                  $order_items = Order::select('order_items.*','orders.mobile','orders.total' ,'orders.delivery_charge','orders.discount','orders.promo_code',
             'orders.promo_discount','orders.wallet_balance','orders.final_total','orders.payment_method','orders.address','orders.delivery_time',
-            'users.name as user_name','order_items.status as order_status','sellers.name as seller_name','products.id as product_id',DB::raw('CONCAT("' . asset('storage/') . '", "/", products.image) as image'), 'os.id as active_status', 'os.status as status_name')
-            ->leftJoin('order_items', 'order_items.order_id', '=', 'orders.id')
-            ->leftJoin('users', 'orders.user_id', '=', 'users.id')
-            ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
-            ->leftJoin('products', 'product_variants.product_id', '=', 'products.id')
-            ->leftJoin('sellers', 'order_items.seller_id', '=', 'sellers.id')
-            ->leftJoin('order_status_lists as os', 'order_items.active_status', '=', 'os.id')
+            'users.name as user_name','order_items.status as order_status','sellers.name as seller_name','products.id as product_id',DB::raw('CONCAT( "' . asset('storage/') . '", '/', products.image ) as image'), 'os.id as active_status', 'os.status as status_name')
+            ->leftJoin('order_items', 'order_items.order_id', ' = ', 'orders.id')
+            ->leftJoin('users', 'orders.user_id', ' = ', 'users.id')
+            ->leftJoin('product_variants', 'order_items.product_variant_id', ' = ', 'product_variants.id')
+            ->leftJoin('products', 'product_variants.product_id', ' = ', 'products.id')
+            ->leftJoin('sellers', 'order_items.seller_id', ' = ', 'sellers.id')
+            ->leftJoin('order_status_lists as os', 'order_items.active_status', ' = ', 'os.id')
             ->where('orders.id', $order_id)
            ->whereNotIn('order_items.active_status', [7, 8])
-            ->where('sellers.id', '=',  $seller_id)
+            ->where('sellers.id', ' = ',  $seller_id)
             ->orderBy('order_items.id','DESC')
             ->get();
              }
-             
+
         return array("order" => $order, "order_items" => $order_items);
     }
 
@@ -1813,9 +1823,9 @@ $sql = ProductVariant::select('*',
         if (!is_array($data)) {
             $data = [];
         }
-        
+
         $data['app_name'] = $app_name;
-        
+
         Mail::send('mail', $data, function($message) use ($mailData) {
             $message->to($mailData['to'], $mailData['name'])->subject($mailData['subject'])->from( Setting::get_value('smtp_from_mail'),$mailData["app_name"]);
             //$message->setBody($mailData['message']);
@@ -2031,7 +2041,7 @@ $sql = ProductVariant::select('*',
 
                 $userTokens = UserToken::where('user_id',$order->user_id)->where('type','customer')->get()->pluck('fcm_token','platform')->toArray();
                 Log::info("checkOrderMailSendable -> user:-",[$userTokens]);
-               
+
                 $title = "Your order  #" . $order->id . " has been " . $status_name;
                 $message = "This notification is just a friendly reminder (not a bill or a second charge) that on ". $order->created_at ." you placed an order from ".$app_name." Order summar #". $order->id." Final Total - ". $currency .$order->final_total." We would like to take this opportunity to thank you for your business and look forward to serving you in the future.";
                 /*if($order->active_status == OrderStatusList::$received)
@@ -2058,7 +2068,7 @@ $sql = ProductVariant::select('*',
             //$sellerInfo = $seller->store_name . " (" . $seller->name . ")";
             self::checkOrderMailSendable($seller_id, $order->active_status, 1);
                 $userTokens = UserToken::where('user_id',$seller_id)->where('type','seller')->get()->pluck('fcm_token','platform')->toArray();
-               
+
                 $type ='';
                 if ($order->active_status == OrderStatusList::$received) {
                     $type = "new_order";
@@ -2070,9 +2080,9 @@ $sql = ProductVariant::select('*',
                 $message = "";
 
                 self::sendNotification($userTokens,$title,$message,$type);
-        
+
             }
-        
+
 
         if (isset($order->delivery_boy_id) && $order->delivery_boy_id != 0 && $order->delivery_boy_id != "") {
 
@@ -2121,11 +2131,11 @@ $sql = ProductVariant::select('*',
 
         $orderStatusList = OrderStatusList::where('id', $order->active_status)->first();
         $status_name = $orderStatusList->status;
-        
+
         if (isset($order->delivery_boy_id) && $order->delivery_boy_id != 0 && $order->delivery_boy_id != "") {
 
             $deliveryBoy_id = $order->delivery_boy_id;
-               
+
            // if (self::checkOrderMailSendable($deliveryBoy->id, $order->active_status, 1)) {
            // dd();
                 $title = "Order  #" . $order->id . " has been assigned to you for delivery." ;
@@ -2203,7 +2213,7 @@ $sql = ProductVariant::select('*',
                 'icon' => $logo,
                 'sound' => $type == "new_order" || $type == "assign_order" ?  "order_sound.aiff" : "default"
             ];
-        
+
             $notification = [
                 'title' => $title,
                 'body' =>  $message,
@@ -2216,7 +2226,7 @@ $sql = ProductVariant::select('*',
 
             if(isset($userTokens) && count($userTokens)>0){
                 $userTokens = array_unique($userTokens);
-               
+
                 foreach ($userTokens as $platform => $deviceToken) {
                     try {
                         FirebaseHelper::send($platform,$deviceToken, $fcmMsg, $notification);
@@ -2295,29 +2305,31 @@ $sql = ProductVariant::select('*',
         $order->promo_code = "";
         $order->promo_discount = 0;
         $order->final_total += $order_promo_discount;
-        
+
         $order->save();
     }
     public static function getFssaiLicImg(){
         $fssai_lic_img_empty = '';
         try{
             $fssai_lic_img =  Setting::where('variable','fssai_lic_img')->first()->value;
-        
+
             if($fssai_lic_img != ''){
                 return self::getImage($fssai_lic_img);
             }else{
-                return $fssai_lic_img_empty;         
+                return $fssai_lic_img_empty;
             }
         } catch (\Exception $e) {
-            return $fssai_lic_img_empty;    
+            return $fssai_lic_img_empty;
         }
-    }   
-        
+    }
+
     public static function validateFSSAINumber($fssaiNumber){
-        $pattern = '/^[0-9]{14}$/';
+        $pattern = '/^[ 0-9 ] {
+    14}
+    $/';
         // Check if the FSSAI number matches the pattern
         if (preg_match($pattern, $fssaiNumber)) {
-           
+
         } else {
             return Response::json(array('status' => 0, 'message' => 'please enter Valid FSSAI NO.'));
         }
@@ -2327,61 +2339,61 @@ $sql = ProductVariant::select('*',
         $is_category_section_in_homepage_empty = 0;
         try{
             $is_category_section_in_homepage =  (int)Setting::where('variable','is_category_section_in_homepage')->first()->value;
-        
+
             if($is_category_section_in_homepage != ''){
                 return $is_category_section_in_homepage;
             }else{
-                return $is_category_section_in_homepage_empty;         
+                return $is_category_section_in_homepage_empty;
             }
         } catch (\Exception $e) {
-            return $is_category_section_in_homepage_empty;    
+            return $is_category_section_in_homepage_empty;
         }
     }
-    
+
     public static function getCountCategorySectionInHomepage(){
         $count_category_section_in_homepage_empty = 9;
         try{
             $count_category_section_in_homepage =  (int)Setting::where('variable','count_category_section_in_homepage')->first()->value;
-        
+
             if($count_category_section_in_homepage != ''){
                 return $count_category_section_in_homepage;
             }else{
-                return $count_category_section_in_homepage_empty;         
+                return $count_category_section_in_homepage_empty;
             }
         } catch (\Exception $e) {
-            return $count_category_section_in_homepage_empty;    
+            return $count_category_section_in_homepage_empty;
         }
-    } 
+    }
 
     public static function getIsBrandSectionInHomepage(){
         $is_brand_section_in_homepage_empty = 0;
         try{
             $is_brand_section_in_homepage =  (int)Setting::where('variable','is_brand_section_in_homepage')->first()->value;
-        
+
             if($is_brand_section_in_homepage != ''){
                 return $is_brand_section_in_homepage;
             }else{
-                return $is_brand_section_in_homepage_empty;         
+                return $is_brand_section_in_homepage_empty;
             }
         } catch (\Exception $e) {
-            return $is_brand_section_in_homepage_empty;    
+            return $is_brand_section_in_homepage_empty;
         }
     }
-    
+
     public static function getCountBrandSectionInHomepage(){
         $count_brand_section_in_homepage_empty = 9;
         try{
             $count_brand_section_in_homepage =  (int)Setting::where('variable','count_brand_section_in_homepage')->first()->value;
-        
+
             if($count_brand_section_in_homepage != ''){
                 return $count_brand_section_in_homepage;
             }else{
-                return $count_brand_section_in_homepage_empty;         
+                return $count_brand_section_in_homepage_empty;
             }
         } catch (\Exception $e) {
-            return $count_brand_section_in_homepage_empty;    
+            return $count_brand_section_in_homepage_empty;
         }
-    } 
+    }
 
     public static function getIsSellerSectionInHomepage(){
         $is_seller_section_in_homepage_empty = 0;
@@ -2396,12 +2408,12 @@ $sql = ProductVariant::select('*',
             }else{
                 $data['is_seller_section_in_homepage'] = $is_seller_section_in_homepage_empty;
                $data['count_seller_section_in_homepage'] = $is_seller_section_in_homepage_empty;
-               return $data;         
+               return $data;
             }
         } catch (\Exception $e) {
             $data['is_seller_section_in_homepage'] = $is_seller_section_in_homepage_empty;
             $data['count_seller_section_in_homepage'] = $is_seller_section_in_homepage_empty;
-            return $data;  
+            return $data;
         }
     }
 
@@ -2418,12 +2430,12 @@ $sql = ProductVariant::select('*',
             }else{
                 $data['is_country_section_in_homepage'] = $is_country_section_in_homepage_empty;
                $data['count_country_section_in_homepage'] = $is_country_section_in_homepage_empty;
-               return $data;         
+               return $data;
             }
         } catch (\Exception $e) {
             $data['is_country_section_in_homepage'] = $is_country_section_in_homepage_empty;
             $data['count_country_section_in_homepage'] = $is_country_section_in_homepage_empty;
-            return $data;  
+            return $data;
         }
     }
 
@@ -2440,7 +2452,7 @@ $sql = ProductVariant::select('*',
         $balance = 0;
         if ($seller) {
             $balance = $seller->balance;
-        } 
+        }
         return $balance;
     }
 
@@ -2449,20 +2461,20 @@ $sql = ProductVariant::select('*',
         $balance = 0;
         if ($seller) {
             $balance = $seller->balance;
-        } 
+        }
         return $balance;
     }
     public static function addSellerWalletTransaction($order_id, $order_item_id, $seller_id, $type, $wallet_balance, $message, $status = 1){
-        
+
         $validator = \Validator::make(['order_item_id' => $order_item_id], [
             'order_item_id' => [
                 'required',
                 Rule::unique('seller_wallet_transactions', 'order_item_id'),
             ],
         ]);
-        
+
         if ($validator->fails()) {
-            
+
         } else {
             // Validation passed, create and save the new SellerWalletTransaction
             $transaction = new SellerWalletTransaction();
@@ -2490,12 +2502,12 @@ $sql = ProductVariant::select('*',
     }
 
     public static function productAverageRating($product_id)
-    { 
+    {
         $product_ratings= Product::with('ratings')->find($product_id);
 
         // Calculate the average rating
         $averageRating = (isset($product_ratings) && $product_ratings->ratings->count() > 0) ? $product_ratings->ratings->avg('rate') : 0;
-                       
+
         // Count the number of ratings
         $data['rating_count'] = isset($product_ratings) ? $product_ratings->ratings->count(): 0;
         $data['average_rating'] = $averageRating;
@@ -2504,13 +2516,13 @@ $sql = ProductVariant::select('*',
         $data['three_star_rating'] = ProductRating::where('product_id',$product_id)->where('rate',3)->count() ?? 0;
         $data['four_star_rating'] = ProductRating::where('product_id',$product_id)->where('rate',4)->count() ?? 0;
         $data['five_star_rating'] = ProductRating::where('product_id',$product_id)->where('rate',5)->count() ?? 0;
-        return $data;  
+        return $data;
     }
 
     public static function productRatingOfUser($product_id, $user_id)
-    { 
-        $product_ratings =ProductRating::with('user','images')->where('product_id',$product_id)->where('user_id',$user_id)->get();    
-        return $product_ratings;  
+    {
+        $product_ratings =ProductRating::with('user','images')->where('product_id',$product_id)->where('user_id',$user_id)->get();
+        return $product_ratings;
     }
 
     public static function getCategoryChildIds($categories){
@@ -2527,26 +2539,26 @@ $sql = ProductVariant::select('*',
     }
 
     public static function getGuestCartCount($variant_id, $quantity){
- 
+
         $total['cart_items_count'] = count($variant_id);
         $total['cart_total_qty ']= count($quantity);
 
         $totalAmt = CommonHelper::calculateTotalAmount($variant_id,$quantity);
-     
+
         $total['save_price'] = $totalAmt['save_price'];
         $total['total_amount'] = $totalAmt['total_amount'];
 
-        $total['product_variant_id'] = implode(',', $variant_id);
-        $total['quantity'] = implode(',',$quantity);
+        $total['product_variant_id'] = implode(', ', $variant_id);
+        $total['quantity'] = implode(', ',$quantity);
 
         return $total;
     }
     public static function sendOrderItemStatusMailNotification($order_item, $type){
- 
+
         try {
                      //self::sendMailOrderStatus($order);
                      Log::info("Order Status order send mail :",[$order_item] );
-                     
+
                    dispatch(new SendEmailJob($order_item,$type))->afterResponse();
                     //SendEmailJob::dispatch($order);
 
@@ -2568,18 +2580,18 @@ $sql = ProductVariant::select('*',
     public static function SendCartNotification()
     {
         $cart_notification = Setting::where('variable', 'cart_notification')->first();
-        
+
         if ($cart_notification->value == 1) {
             $notification_delay_after_cart_addition = Setting::where('variable', 'notification_delay_after_cart_addition')->first();
             $notification_interval = Setting::where('variable', 'notification_interval')->first();
             $notification_stop_time = Setting::where('variable', 'notification_stop_time')->first();
-            
+
             // Fetch cart items with their related variants where 'save_for_later' is 0
             $cartItems = Cart::with('variants')->where('save_for_later', 0)->get();
-    
+
             foreach ($cartItems as $item) {
                 $cartNotifications = CartNotification::where('cart_id', $item->id)->orderBy('id', 'desc')->first();
-                
+
                 if ($cartNotifications) {
                     if (Carbon::now()->format('Y-m-d H:i') == Carbon::parse($item->created_at)->addMinutes($notification_stop_time->value)->format('Y-m-d H:i')) {
                         $cartNotifications->delete();
@@ -2587,7 +2599,7 @@ $sql = ProductVariant::select('*',
                         // Prepare the notification title and message
                         $title = "Title for product " . $item->products->name;
                         $message = "Message based on some condition for " . $item->variants->measurement;
-    
+
                         // Log the notification in the cart_notifications table
                         CartNotification::create([
                             'user_id' => $item->user_id,
@@ -2596,33 +2608,33 @@ $sql = ProductVariant::select('*',
                             'message' => $message,
                             'sent_at' => Carbon::now(),
                         ]);
-    
+
                         $userTokens = UserToken::where('user_id', $item->user_id)
                             ->where('type', 'customer')
                             ->get()
                             ->pluck('fcm_token', 'platform')
                             ->toArray();
-    
+
                         // Send the notification
                         self::sendNotification($userTokens, $title, $message);
                     }
                 } else {
                     $twoMinutesLater = Carbon::parse($item->created_at)->addMinutes($notification_delay_after_cart_addition->value);
-                    
+
                     if (Carbon::now()->format('Y-m-d H:i') == $twoMinutesLater->format('Y-m-d H:i')) {
                         \Log::info('Next schedule:');
-    
+
                         // Fetch user tokens for the notification
                         $userTokens = UserToken::where('user_id', $item->user_id)
                             ->where('type', 'customer')
                             ->get()
                             ->pluck('fcm_token', 'platform')
                             ->toArray();
-    
+
                         // Prepare the notification title and message
                         $title = "Hi, your cart with " . $item->products->name . " is waiting for you!";
                         $message = "Don't forget to complete your purchase and place your order today!";
-    
+
                         // Log the notification in the cart_notifications table
                         CartNotification::create([
                             'user_id' => $item->user_id,
@@ -2631,7 +2643,7 @@ $sql = ProductVariant::select('*',
                             'message' => $message,
                             'sent_at' => Carbon::now(),
                         ]);
-    
+
                         // Send the notification
                         self::sendNotification($userTokens, $title, $message);
                     }
@@ -2641,38 +2653,42 @@ $sql = ProductVariant::select('*',
     }
     public static function sendSmsOrderStatus($order, $order_item_status){
         try {
-            
+
             // Debugging: Output the order details
             // Remove the line below in production
-            
+
             $isenable_orderitemstatus = $order_item_status;
             if ($isenable_orderitemstatus != null) {
                 if ($order_item_status == 9 || $order_item_status == 10) {  // If return request is approved or rejected
                     $isenable_orderitemstatus = OrderStatusList::$returned;  // Assign the returned status
                 }
-                
+
                 $smsStatus = self::isSmsStatus($isenable_orderitemstatus);  // Set SMS status based on order item status
             } else {
                 $smsStatus = self::isSmsStatus($isenable_orderitemstatus);  // Handle null case
             }
-   
+
             // Step 2: If SMS is enabled, proceed to send the SMS
             if ($smsStatus) {
-               
+
                 // Prepare the SMS content
                 $message = self::getSmsTemplateMessage($order,$order_item_status);
-                $phone =  User::where('id', $order->user_id)->selectRaw("CONCAT(country_code, mobile) as phone")->value('phone');
+                $phone =  User::where('id', $order->user_id)->selectRaw("CONCAT( country_code, mobile ) as phone")->value('phone');
                 $phone = '+'.$phone;
-                
+
                 $success = TwilioHelper::sendSms($phone, $message);
-    
+
                 // Optional: Log the SMS sending
             } else {
-                Log::info("SMS not sent for order #{$order->id}: SMS status is disabled.");
+                Log::info("SMS not sent for order # {
+        $order->id}
+        : SMS status is disabled.");
             }
         } catch (\Exception $e) {
             // Log the error for debugging purposes
-            \Log::error("Error sending SMS for order #{$order->id}: " . $e->getMessage());
+            \Log::error("Error sending SMS for order # {
+            $order->id}
+            : " . $e->getMessage());
         }
     }
     public static function isSmsStatus($active_status){
@@ -2681,7 +2697,7 @@ $sql = ProductVariant::select('*',
     }
     public static function getSmsTemplateMessage($order, $status)
     {
-        
+
         $customer_name = User::where('id', $order->user_id)->value('name');
         $product_name= $order->product_name ?? '';
         $supportNumber = Setting::where('variable', 'support_number')->value('value');
@@ -2713,16 +2729,16 @@ $sql = ProductVariant::select('*',
                 break;
             case 8:
                 $messageType = 'customer_order_return_request';
-                break; 
+                break;
             case 9:
                 $messageType = 'customer_order_confirm_return_request';
-                break; 
+                break;
             case 10:
                 $messageType = 'customer_order_reject_return_request';
                 $product_name= OrderItem::where('id', $order->order_item_id)->first()->product_name;
                 $reason = $order->reason;
-                break; 
-                
+                break;
+
             default:
                 // Handle other statuses or use a default message type
                 $messageType = 'default_message';
@@ -2732,18 +2748,22 @@ $sql = ProductVariant::select('*',
         // Retrieve the message template from the sms_template table
         $messageTemplate = SmsTemplate::where('type', $messageType)->value('message');
         // If a template is found, replace placeholders with actual data
-       
+
         if ($messageTemplate) {
-           
+
             $message = str_replace(['[Customer Name]','[Product Name]','[Order ID]', '[Support Contact]', '[Store Name]','[Reason]'], [$customer_name,$product_name,'#'.$order->id, $supportNumber, $appName, $reason], $messageTemplate);
-            
+
         } else {
             // Fallback message if no template is found
-            $message = "Your order #{$order->id} has been updated to status: {$order->status->name}";
+            $message = "Your order # {
+                $order->id}
+                has been updated to status: {
+                    $order->status->name}
+                    ";
+                }
+
+                return $message;
+            }
+
         }
-
-        return $message;
-    }
-
-}
 

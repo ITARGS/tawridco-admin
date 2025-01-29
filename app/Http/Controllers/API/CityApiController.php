@@ -20,9 +20,12 @@ class CityApiController extends Controller
 
     public function getCities(Request $request){
 
-        if(!$request->limit){
-            return CommonHelper::responseWithData(City::orderBy('id','desc')->get());
-        }
+
+
+        // if(!$request->limit){
+
+        //     return CommonHelper::responseWithData(City::orderBy('id','desc')->get());
+        // }
 
         $limit = $request->get('limit',5);
         $offset = $request->get('offset',0);
@@ -53,6 +56,8 @@ class CityApiController extends Controller
         // Get the total count for pagination
         $total = $query->count();
         $cities = $query->skip($offset)->take($limit)->get();
+
+
 
         $data = array(
             "total" => $total,

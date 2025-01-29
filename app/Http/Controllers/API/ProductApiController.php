@@ -31,6 +31,8 @@ class ProductApiController extends Controller
 {
     public function getProducts(Request $request)
     {
+
+
         $limit = $request->input('per_page'); // Default items per page
         $offset = (($request->input('page')) - 1) * $limit; // Default page
         $filter = $request->input('filter', ''); // Filter query
