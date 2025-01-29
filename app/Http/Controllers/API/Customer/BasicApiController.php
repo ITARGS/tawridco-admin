@@ -89,7 +89,7 @@ class BasicApiController extends Controller
 
         if(isset($category_slug) && !empty($category_slug)){
             $category = Category::where('status',1)->where('slug',$category_slug)->first();
-                   
+
             $categories = Category::where('status',1)->where('parent_id',$category->id);
 
         }else{
@@ -103,7 +103,7 @@ class BasicApiController extends Controller
             $categories= $categories->orderBy('row_order', 'ASC')->get(['id','name','subtitle','slug','image']);
         }
         $categories = $categories->makeHidden(['image']);
-        
+
 
         if(count($categories)>0){
             return CommonHelper::responseWithData($categories,$total);
@@ -136,14 +136,14 @@ class BasicApiController extends Controller
             $total = $transactions->count();
             $transactions = $transactions->offset($offset)->limit($limit)->get();
             $transactions = $transactions->makeHidden(['user_id','order_id','payu_txn_id','updated_at','transaction_date']);
-        
+
             return CommonHelper::responseWithData($transactions, $total);
-        } elseif ($type == "wallet"){ 
+        } elseif ($type == "wallet"){
         $wallet_transactions = WalletTransaction::where('user_id', $user_id)
                 //->where('type', '!=', 'delivery_boy_cash_collection')
                 ->orderBy('created_at', 'DESC');
                 $total = $wallet_transactions->count();
-                $wallet_transactions = $wallet_transactions->offset($offset)->limit($limit)->get();  
+                $wallet_transactions = $wallet_transactions->offset($offset)->limit($limit)->get();
             for ($i = 0; $i < count($wallet_transactions); $i++) {
                 $wallet_transactions[$i]['last_updated'] = (isset($wallet_transactions[$i]['last_updated']) == null) ? "" : $wallet_transactions[$i]['last_updated'];
                 $wallet_transactions[$i]['status'] = $wallet_transactions[$i]['type'];
@@ -171,7 +171,7 @@ class BasicApiController extends Controller
     }
 
 
-   
+
     public function addWalletBalance(Request $request){
         $validator = Validator::make($request->all(), [
             'type' => 'required',
@@ -233,9 +233,9 @@ class BasicApiController extends Controller
         $user_id = auth()->user()->id;
         $limit = ($request->limit)??10;
         $offset = ($request->offset)??0;
-       
+
         $total = Favorite::select(DB::raw('COUNT(favorites.id) AS total'))->from('favorites')->Join('products', 'favorites.product_id', '=', 'products.id')->where('favorites.user_id','=',$user_id)->first();
-       
+
 
         try {
         $products = Favorite::select('favorites.id','favorites.user_id','favorites.product_id','products.tax_id','products.row_order','products.name',
@@ -504,6 +504,7 @@ class BasicApiController extends Controller
         }
     }
     public function getCities(Request $request){
+
         $limit = $request->limit??10;
         $offset = $request->offset??0;
 
@@ -759,7 +760,7 @@ class BasicApiController extends Controller
         try{
             $seller_admin_id = auth()->user()->id;
             $seller = Seller::where('admin_id', $seller_admin_id)->first();
-            
+
             if($seller->email == 'seller@gmail.com' && isDemoMode()){
                return CommonHelper::responseError("This function is not available in demo mode!");
             }
@@ -777,7 +778,7 @@ class BasicApiController extends Controller
         try{
             $delivery_boy_admin_id = auth()->user()->id;
             $delivery_boy = DeliveryBoy::where('admin_id', $delivery_boy_admin_id)->first();
-            
+
             if($delivery_boy->email == 'delivery@gmail.com' && isDemoMode()){
                return CommonHelper::responseError("This function is not available in demo mode!");
             }

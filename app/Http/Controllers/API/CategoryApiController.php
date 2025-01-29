@@ -79,8 +79,8 @@ class CategoryApiController extends Controller
         $validator = Validator::make($request->all(), [
             'name_en' => 'required',
             'name_ar' => 'required',
-            'subtitle_en' => 'required',
-            'subtitle_ar' => 'required',
+            // 'subtitle_en' => 'required',
+            // 'subtitle_ar' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
         if ($validator->fails()) {

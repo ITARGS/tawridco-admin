@@ -28,7 +28,13 @@ class Offer extends Model {
     }
 
     public function product() {
-        return $this->belongsTo( Product::class, 'type_id', 'id' )->select( 'id', 'name', 'slug' );
+        if ( app()->getLocale() == 'en' ) {
+
+            return $this->belongsTo( Product::class, 'type_id', 'id' )->select( 'id', 'name_en', 'slug' );
+        } else {
+            return $this->belongsTo( Product::class, 'type_id', 'id' )->select( 'id', 'name_ar', 'slug' );
+
+        }
     }
 
     public function section() {
@@ -38,9 +44,19 @@ class Offer extends Model {
     public function getTypeNameAttribute() {
         $type_name = '';
         if ( $this->type == 'category' ) {
-            $type_name = $this->category->name??'';
+            if ( app()->getLocale() == 'en' ) {
+                $type_name = $this->category->name_en??'';
+            } else {
+                $type_name = $this->category->name_ar??'';
+
+            }
+
         } elseif ( $this->type == 'product' ) {
-            $type_name = $this->product->name??'';
+            if ( app()->getLocale() == 'en' ) {
+                $type_name = $this->product->name_en??'';
+            } else {
+                $type_name = $this->product->name_ar??'';
+            }
         }
         return $type_name;
     }
