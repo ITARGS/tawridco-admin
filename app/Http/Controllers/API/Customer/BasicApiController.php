@@ -98,9 +98,9 @@ class BasicApiController extends Controller
 
         $total = $categories->count();
         if(isset($limit) &&  $limit>0 ){
-        $categories= $categories->orderBy('row_order', 'ASC')->offset($offset)->limit($limit)->get(['id','name','subtitle','slug','image']);
+        $categories= $categories->orderBy('row_order', 'ASC')->offset($offset)->limit($limit)->get(['id','name_en','name_ar','subtitle_en','subtitle_ar','slug','image']);
         }else{
-            $categories= $categories->orderBy('row_order', 'ASC')->get(['id','name','subtitle','slug','image']);
+            $categories= $categories->orderBy('row_order', 'ASC')->get(['id','name_en','name_ar','subtitle_en','subtitle_ar','slug','image']);
         }
         $categories = $categories->makeHidden(['image']);
 
