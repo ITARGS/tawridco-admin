@@ -73,8 +73,7 @@
                 >
                 <div class="divider">
                   <div class="divider-text">
-                    {{ __("new_delivery_boy_register_form") }}New Delivery Boy Register
-                    Form
+                    {{ __("new_delivery_boy_register_form") }}
                   </div>
                 </div>
                 <div class="row">
@@ -90,7 +89,7 @@
                         v-model="deliveryBoys.name"
                         required
                         class="form-control"
-                        placeholder="Enter name."
+                        :placeholder="__('name')"
                       />
                     </div>
                   </div>
@@ -106,7 +105,7 @@
                         id="dob"
                         v-model="deliveryBoys.dob"
                         class="form-control"
-                        placeholder="Enter date of birth"
+                        :placeholder="__('date_of_birth')"
                         @input="validateDateOfBirth"
                       />
                       <span v-if="dobvalidationError" class="error">{{
@@ -126,7 +125,7 @@
                         id="mobile"
                         v-model="deliveryBoys.mobile"
                         class="form-control"
-                        placeholder="Enter mobile no."
+                        :placeholder="__('enter_mobile')"
                         @input="validateMobileNumber"
                       />
                       <span v-if="mobilevalidationError" class="error">{{
@@ -148,7 +147,7 @@
                         v-model="deliveryBoys.email"
                         :readonly="this.$roleDeliveryBoy === this.login_user.role.name"
                         class="form-control"
-                        placeholder="Enter email id."
+                        :placeholder="__('enter_email')"
                       />
                     </div>
                   </div>
@@ -168,7 +167,7 @@
                           id="password"
                           v-model="deliveryBoys.password"
                           class="form-control"
-                          placeholder="Enter password."
+                          :placeholder="__('enter_passord')"
                         />
                         <button
                           type="button"
@@ -202,7 +201,7 @@
                           id="confirm_password"
                           v-model="deliveryBoys.confirm_password"
                           class="form-control"
-                          placeholder="Enter again password."
+                          :placeholder="__('enter_confirm_password')"
                         />
                         <button
                           type="button"
@@ -234,7 +233,7 @@
                         required
                         :readonly="this.$roleDeliveryBoy === this.login_user.role.name"
                         class="form-control"
-                        placeholder="Enter bank's IFSC code."
+                        :placeholder="__('ifsc_code')"
                       />
                     </div>
                   </div>
@@ -252,7 +251,7 @@
                         required
                         :readonly="this.$roleDeliveryBoy === this.login_user.role.name"
                         class="form-control"
-                        placeholder="Enter bank name"
+                        :placeholder="__('enter_bank_name')"
                       />
                     </div>
                   </div>
@@ -270,7 +269,7 @@
                         required
                         :readonly="this.$roleDeliveryBoy === this.login_user.role.name"
                         class="form-control"
-                        placeholder="Enter account number"
+                        :placeholder="__('enter_account_number')"
                         @input="validateAccountNumber"
                       />
                       <span v-if="account_numbervalidationError" class="error">{{
@@ -292,7 +291,7 @@
                         required
                         :readonly="this.$roleDeliveryBoy === this.login_user.role.name"
                         class="form-control"
-                        placeholder="Enter bank account name"
+                        :placeholder="__('enter_bank_account_name')"
                       />
                     </div>
                   </div>
@@ -305,8 +304,8 @@
                       v-model="city"
                       :options="cities"
                       @close="setCityId"
-                      placeholder="Select & Search City"
-                      label="name"
+                      :placeholder="__('select_search')"
+                      :label="__('name')"
                       track-by="name"
                       id="city_name"
                       required
@@ -338,7 +337,7 @@
                         v-model="deliveryBoys.address"
                         rows="3"
                         class="form-control"
-                        placeholder="Enter address"
+                        :placeholder="__('enter_address')"
                       ></textarea>
                     </div>
                   </div>
@@ -353,7 +352,7 @@
                         v-model="deliveryBoys.other_payment_information"
                         rows="3"
                         class="form-control"
-                        placeholder="Enter other payment information"
+                        :placeholder="__('payment_information')"
                       ></textarea>
                     </div>
                   </div>
@@ -489,7 +488,7 @@
                             :href="deliveryBoys.national_identity_card_url"
                             class="badge bg-success"
                           >
-                            <i class="fa fa-eye"></i> Identity Card</a
+                            <i class="fa fa-eye"></i> {{ __("identity") }}</a
                           >
                         </div>
                       </div>
@@ -505,7 +504,7 @@
                   >
                     <div class="form-group">
                       <label
-                        >Status {{ __("status")
+                        > {{ __("status")
                         }}<span class="text-danger text-xs">*</span></label
                       ><br />
                       <b-form-radio-group
@@ -525,7 +524,7 @@
                   <div class="col-md-6" v-if="[2, 3].includes(deliveryBoys.status)">
                     <div class="form-group">
                       <label for="remark"
-                        >Remark {{ __("remark")
+                        > {{ __("remark")
                         }}<span class="text-danger text-xs">*</span></label
                       >
                       <textarea
@@ -534,7 +533,7 @@
                         id="remark"
                         required
                         v-model="deliveryBoys.remark"
-                        placeholder="Add a remark of this status..."
+                        :placeholder="__('add_mark')"
                       ></textarea>
                     </div>
                   </div>
@@ -602,7 +601,7 @@
                             id="bonus_percentage"
                             v-model="deliveryBoys.bonus_percentage"
                             class="form-control"
-                            placeholder="Enter Bonus (%)"
+                            :placeholder="__('bonus')"
                           />
                         </div>
                       </div>
@@ -620,7 +619,7 @@
                             name="bonus_min_amount"
                             id="bonus_min_amount"
                             v-model="deliveryBoys.bonus_min_amount"
-                            placeholder="Minimum bonus amount"
+                            :placeholder="__('minimum_bonus_amount')"
                           />
                           <span class="text text-primary font-size-13">{{
                             __("set_0_if_you_want_to_remove_limit")
@@ -641,7 +640,7 @@
                             name="bonus_max_amount"
                             id="bonus_max_amount"
                             v-model="deliveryBoys.bonus_max_amount"
-                            placeholder="Maximum bonus amount"
+                            :placeholder="__('maximum_bonus_amount')"
                           />
                           <span class="text text-primary font-size-13">{{
                             __("set_0_if_you_want_to_remove_limit")

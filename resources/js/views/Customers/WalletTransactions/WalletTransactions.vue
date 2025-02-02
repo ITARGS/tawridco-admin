@@ -34,7 +34,7 @@
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -67,7 +67,7 @@
                                 </template>
 
                                 <template #head(amount)="row">
-                                    {{'Amount ('+$currency+')' }}
+                                   {{ __("amount") }} {{' ('+$currency+')' }}
                                 </template>
 
                                 <template #cell(type)="row">

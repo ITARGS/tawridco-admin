@@ -3,7 +3,7 @@
         <div class="page-heading">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Deliverable Area</h3>
+                    <h3>{{ __("deliverable_area") }}</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item">
                                 <router-link to="/dashboard">{{ __('dashboard') }}</router-link>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Deliverable Area</li>
+                            <li class="breadcrumb-item" aria-current="page">{{ __("deliverable_area") }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -21,14 +21,14 @@
                 <div class="col-12 col-md-12 order-md-1 order-last">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Deliverable Area for City <small class="text text-primary text-sm">Search your city in which you will deliver the foods and city points.</small></h4>
+                            <h4>{{ __("deliverable_area_for_city") }} <small class="text text-primary text-sm">{{ __("search_points") }}</small></h4>
                         </div>
                         <div class="card-body">
                             <form ref="my-form" @submit.prevent="saveRecord">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6 map-div">
-                                            <label for="city_name">Select or Search City</label>
+                                            <label for="city_name">{{ __("select_or_search_city") }}</label>
                                             <multiselect v-model="city"
                                                          :options="cities"
                                                          @close="setMap"
@@ -43,18 +43,18 @@
                                                 <template slot="option" slot-scope="props">
                                                     <div class="option__desc">
                                                         <span class="option__title">{{
-                                                                props.option.zone + ' &nbsp;- &nbsp; ' + props.option.formatted_address 
+                                                                props.option.zone + ' &nbsp;- &nbsp; ' + props.option.formatted_address
                                                             }}</span>
                                                     </div>
                                                 </template>
                                             </multiselect>
                                         </div>
-                                        <div class="col-md-12"> 
-                                            <small class="text text-primary text-sm h4 mt-1">Please edit Map or City Deliverable Area in desktop. It may not work in mobile device.</small>
+                                        <div class="col-md-12">
+                                            <small class="text text-primary text-sm h4 mt-1">{{ __("please_edit_device") }}</small>
                                             <div class="offset-3 mt-1">
-                                                <button type="button" id="remove-line" class="badge bg-primary">Remove Newly Added Line</button>
-                                                <button type="button" id="clear-line" class="badge bg-danger">Clear Map</button>
-                                                <button type="button" id="add-line" class="badge bg-success">Restore Old Map</button>
+                                                <button type="button" id="remove-line" class="badge bg-primary">{{ __("remove_newly_added_line") }}</button>
+                                                <button type="button" id="clear-line" class="badge bg-danger">{{ __("clear_map") }}</button>
+                                                <button type="button" id="add-line" class="badge bg-success">{{ __("restore_old_map") }}</button>
                                             </div>
                                             <div id="map" style="position: relative; overflow: hidden;">
                                                 <GmapMap
@@ -90,8 +90,8 @@
                                                 <span class="title font-weight-bolder">{{ city.formatted_address }}</span>
                                             </div>
                                             <div class="form-group d-none">
-                                                <label for="vertices" class="control-label">Boundry Points<span class='text-danger text-xs'>*</span> </label>
-                                                <textarea name="vertices" id="vertices" v-model="vertices" class="form-control" placeholder="here will be your selected outlines latitude and longitude" cols="10" rows="2"></textarea>
+                                                <label for="vertices" class="control-label">{{ __("boundary_points") }}<span class='text-danger text-xs'>*</span> </label>
+                                                <textarea name="vertices" id="vertices" v-model="vertices" class="form-control" :placeholder="__('here_longitude')" cols="10" rows="2"></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary mt-3">{{ __('save') }}</button>
@@ -216,7 +216,7 @@ export default {
                     });
                     bermudaTriangle.setMap(this.map);
                     this.overlayRemoveListener(bermudaTriangle, true, this.map, true, boundary_points);
-             
+
                 } else if (this.city.geolocation_type === "circle") {
                     this.vertices = this.city.boundary_points;
                     const cityCircle = new google.maps.Circle({

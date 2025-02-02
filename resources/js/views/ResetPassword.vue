@@ -24,15 +24,15 @@
             </a>
           </div>
 
-          <h4>Reset Your</h4>
-          <h4>Password here!</h4>
+          <h4>{{ __("reset_your") }}</h4>
+          <h4>{{ __("password_here") }}</h4>
 
           <form @submit.prevent="resetPassword()">
             <div class="form-group position-relative has-icon-left">
               <input
                 type="password"
                 class="form-control form-control-xl"
-                placeholder="New Password"
+                :placeholder="__('new_password')"
                 v-model="user.password"
                 required
               />
@@ -42,21 +42,21 @@
               <input
                 type="password"
                 class="form-control form-control-xl"
-                placeholder="Confirm New Password"
+                :placeholder="__('confirm_new_password')"
                 v-model="user.password_confirmation"
                 required
               />
               <div class="form-control-icon"><i class="bi bi-shield-lock"></i></div>
             </div>
             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn">
-              Reset Password
+              {{ __("reset_password") }}
               <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </button>
           </form>
 
           <div class="auth-copyright">
             <a href="javascript:void(0)" class="text-primary font-weight-normal">
-              @ 2022 {{ $appName }}. All Right Reserved</a
+              @ 2022 {{ $appName }}. {{ __("all_right_reserved") }}</a
             >
           </div>
         </div>

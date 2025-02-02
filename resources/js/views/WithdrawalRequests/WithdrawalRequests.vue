@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <section class="section"> 
+            <section class="section">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">{{ __('withdrawal_requests') }}</h4>
@@ -85,9 +85,9 @@
                                 </div>
                             </template>
                             <template #head(amount)="row">
-                                {{'Amount ('+$currency+')' }}
+                               {{ __("amount") }} {{' ('+$currency+')' }}
                             </template>
-                           
+
                             <template #cell(status)="row">
                                 <span v-if="row.item.status === 0" class="badge bg-warning">{{ __('pending') }}</span>
                                 <span v-else-if="row.item.status === 1" class="badge bg-success">{{ __('approved') }}</span>
@@ -160,7 +160,7 @@ export default {
                 { key: 'id', label:  __('id') , sortable: true, sortDirection: 'desc' },
                 { key: 'type', label: __('type'), sortable: true, class: 'text-center' },
                 { key: 'name', label: __('name'), sortable: true, class: 'text-center' },
-                { key: 'amount', label: __('amount'), sortable: true, class: 'text-center' },            
+                { key: 'amount', label: __('amount'), sortable: true, class: 'text-center' },
                 { key: 'message', label: __('message'), sortable: true,  class: 'text-center',tdClass: 'custom-message-width'  },
                 { key: 'status', label: __('status'), sortable: true, class: 'text-center' },
                 { key: 'remark', label: __('remark'), sortable: true, class: 'text-center',tdClass: 'custom-message-width' },
@@ -205,7 +205,7 @@ export default {
             return this.withdrawalRequests.filter(request => {
             return (
                  (request.type && request.type.toLowerCase().includes(query)) ||
-            (request.remark && request.remark.toLowerCase().includes(query)) 
+            (request.remark && request.remark.toLowerCase().includes(query))
             );
             });
         },

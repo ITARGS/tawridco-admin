@@ -274,7 +274,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }, {
         key: 'updated_at',
-        label: __('last_update'),
+        label: __('last_updated'),
         "class": 'text-left',
         thStyle: {
           width: '15%'

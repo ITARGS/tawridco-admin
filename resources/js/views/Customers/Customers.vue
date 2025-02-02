@@ -30,7 +30,7 @@
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                     @click="addFilter()"
                                 ></b-form-input>
                             </b-col>
@@ -154,7 +154,7 @@ export default {
 
                 { key: 'status', label: __('status'), sortable: true, class: 'text-center' },
                 { key: 'type', label: __('type'), sortable: true, class: 'text-center' },
-                { key: 'created_at', label: 'Date & Time', sortable: true, class: 'text-center' },
+                { key: 'created_at', label: __('date_time'), sortable: true, class: 'text-center' },
                 { key: 'actions', label: __('actions') }
             ],
             totalRows: 1,

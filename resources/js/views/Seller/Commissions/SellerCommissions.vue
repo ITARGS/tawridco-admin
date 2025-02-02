@@ -3,16 +3,16 @@
     <div class="page-heading">
       <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
-          <h3>Seller Commissions</h3>
+          <h3>{{ __("seller_commissions") }}</h3>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
           <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link to="/dashboard">Dashboard</router-link>
+                <router-link to="/dashboard">{{ __("dashboard") }}</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Seller Commissions
+                {{ __("seller_commissions") }}
               </li>
             </ol>
           </nav>
@@ -22,17 +22,17 @@
         <div class="col-12 col-md-12 order-md-1 order-last">
           <div class="card">
             <div class="card-header">
-              <h4>Category wise seller commission list</h4>
+              <h4>{{ __("category_wise_seller_commission_list") }}</h4>
             </div>
             <div class="card-body">
               <b-row class="mb-2">
                 <b-col md="3" offset-md="8">
-                  <h6 class="box-title">Search</h6>
+                  <h6 class="box-title">{{ __("search") }}</h6>
                   <b-form-input
                     id="filter-input"
                     v-model="filter"
                     type="search"
-                    placeholder="Search"
+                    :placeholder="__('search')"
                   ></b-form-input>
                 </b-col>
                 <b-col md="1" class="text-center">
@@ -138,21 +138,21 @@ export default {
         { key: "id", label: "ID", sortable: true, sortDirection: "desc" },
         {
           key: "seller_name",
-          label: "Seller Name",
+          label: __("seller_name"),
           class: "text-center",
           sortable: true,
           sortDirection: "desc",
         },
         {
           key: "category_name",
-          label: "Category Name",
+          label: __("category_name"),
           class: "text-center",
           sortable: true,
           sortDirection: "desc",
         },
         {
           key: "commission",
-          label: "Commi.(%)",
+          label: __("commission"),
           class: "text-center",
           sortable: true,
           sortDirection: "desc",

@@ -4,7 +4,7 @@
       <div class="page-title">
         <div class="row">
           <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Sales Reports</h3>
+            <h3>{{ __("sales_reports") }}</h3>
           </div>
           <div class="col-12 col-md-6 order-md-2 order-first">
             <nav
@@ -15,7 +15,7 @@
                 <li class="breadcrumb-item">
                   <router-link to="/seller/dashboard">{{ __("dashboard") }}</router-link>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Sales Reports</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __("sales_reports") }}</li>
               </ol>
             </nav>
           </div>
@@ -24,12 +24,12 @@
       <section class="section">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Sales Reports</h4>
+            <h4 class="card-title">{{ __("sales_reports") }}</h4>
           </div>
           <div class="card-body">
             <b-row class="mb-2">
               <b-col md="3">
-                <h6 class="box-title">From & To Date</h6>
+                <h6 class="box-title">{{ __("from_and_to_date") }}</h6>
                 <div class="d-flex justify-content-center align-items-center">
                   <date-range-picker
                     :autoApply="false"
@@ -52,7 +52,7 @@
               </b-col>
 
               <b-col md="3">
-                <h6 class="box-title" for="category">Category</h6>
+                <h6 class="box-title" for="category">{{ __("category") }}</h6>
                 <select
                   name="category"
                   id="category"
@@ -117,7 +117,7 @@
             </div>
             <b-row>
               <div class="col-md-4 text-success h6">
-                Total Amount :- {{ $currency }} {{ final_total_sum }}
+                {{ __("total_amount") }} :- {{ $currency }} {{ final_total_sum }}
               </div>
             </b-row>
             <b-row>
@@ -169,17 +169,17 @@ export default {
       seller: "",
       category: "",
       fields: [
-        { key: "id", label: "Order Item ID", sortable: true, sortDirection: "desc" },
-        { key: "user_name", label: "User", sortable: true, class: "text-center" },
-        { key: "product_name", label: "Product", sortable: true, class: "text-center" },
-        { key: "mobile", label: "Mob.", sortable: true, class: "text-center" },
+        { key: "id", label: __('order_item_id'), sortable: true, sortDirection: "desc" },
+        { key: "user_name", label: __('user'), sortable: true, class: "text-center" },
+        { key: "product_name", label: __('product'), sortable: true, class: "text-center" },
+        { key: "mobile", label: __('mobile'), sortable: true, class: "text-center" },
         {
           key: "sub_total",
-          label: "Total(" + this.$currency + ")",
+          label: __('total'),
           sortable: true,
           class: "text-center",
         },
-        { key: "added_date", label: "Date", sortable: true, class: "text-center" },
+        { key: "added_date", label: __('date'), sortable: true, class: "text-center" },
       ],
       totalRows: 1,
       currentPage: 1,

@@ -14,16 +14,16 @@
                         <input name="amount" id="amount" type="number" v-model="amount" hidden>
                         <div id="status" class="form-group btn-group">
                             <label class="btn btn-warning" data-toggle-class="btn-warning" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="status" value="0" class="form-check-input" > Pending
+                                <input type="radio" v-model="status" value="0" class="form-check-input" > {{ __("pending") }}
                             </label>
                             <label class="btn btn-success" data-toggle-class="btn-success" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="status" value="1" class="form-check-input"> Approved
+                                <input type="radio" v-model="status" value="1" class="form-check-input"> {{ __("approved") }}
                             </label>
                             <label class="btn btn-danger" data-toggle-class="btn-danger" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="status" value="2" class="form-check-input"> Rejected
+                                <input type="radio" v-model="status" value="2" class="form-check-input"> {{ __("rejected") }}
                             </label>
                         </div>
-                       
+
                         <div class="form-group" v-if="status == 1">
                             <label>{{ __('upload_receipt_image') }}</label>
                             <span v-if="error" class="error">{{ error }}</span>
@@ -32,7 +32,7 @@
                             <div class="file-input-div bg-gray-100" @click="$refs.file_image.click()" @drop="dropFile" @dragover="$dragoverFile" @dragleave="$dragleaveFile">
 
                                 <template v-if="image && image.name !== ''">
-                                    <label>Selected file name:- {{ image.name }}</label>
+                                    <label>{{ __("selected_file_name") }}:- {{ image.name }}</label>
                                 </template>
                                 <template v-else>
                                     <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="row" v-if="image_url">
                                 <div class="col-md-4">
-                                    <img class="custom-image" :src="image_url" title='Receipt Image' alt='Receipt Image'/>
+                                    <img class="custom-image" :src="image_url" :title="receipt_image"  alt='Receipt Image'/>
                                 </div>
                             </div>
                 </div>
@@ -67,14 +67,14 @@ export default {
     data : function(){
         return {
             isLoading: false,
-       
+
             id: this.record ? this.record.id : null ,
             status: this.record ? this.record.status : "" ,
             receipt_image: this.record ? this.record.receipt_image : null,
             remark: this.record ? this.record.remark : "" ,
             amount: this.record ? this.record.amount : "" ,
             image: ''
-           
+
         };
     },
     computed: {
@@ -101,9 +101,9 @@ export default {
         },
 
         handleFileUpload() {
-   
+
             const file = this.$refs.file_image.files[0];
-      
+
             // Reset previous error message
             this.error = null;
 

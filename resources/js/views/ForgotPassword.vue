@@ -13,17 +13,17 @@
                             <h2 style="margin: 10px;">{{ $appName }}</h2>
                         </a>
                     </div>
-                    <h4>Reset Your</h4>
-                    <h4>Password here!</h4>
+                    <h4>{{ __("reset_your") }}</h4>
+                    <h4>{{ __("password_here") }}</h4>
                     <form @submit.prevent="forgetPasswordSendMail()">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="email" class="form-control form-control-xl" placeholder="Email Address" v-model="user.email" required>
+                            <input type="email" class="form-control form-control-xl" :placeholder="__('email_address')" v-model="user.email" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn">
-                            Reset Password
+                           {{ __("reset_password") }}
                             <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
                         </button>
                     </form>

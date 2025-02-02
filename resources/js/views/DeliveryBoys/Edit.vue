@@ -17,26 +17,26 @@
         >Save
         <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
       </b-button>
-      <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+      <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
     </div>
     <form ref="my-form" @submit.prevent="saveRecord">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">{{ __("name") }}</label>
             <input
               type="text"
               name="name"
               id="name"
               v-model="deliveryBoys.name"
               class="form-control"
-              placeholder="Enter name."
+              :placeholder="__('name')"
             />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="dob">Date Of Birth</label>
+            <label for="dob">{{ __("date_of_birth") }}</label>
             <input
               type="date"
               name="dob"
@@ -44,7 +44,7 @@
               v-model="deliveryBoys.dob"
               required
               class="form-control"
-              placeholder="Enter date of birth"
+              :placeholder="__('date_of_birth')"
               @input="validateDateOfBirth"
             />
             <span v-if="validationError" class="error">{{ validationError }}</span>
@@ -52,14 +52,14 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="mobile">Mobile No.</label>
+            <label for="mobile">{{ __("mobile_no") }}</label>
             <input
               type="number"
               name="mobile"
               id="mobile"
               v-model="deliveryBoys.mobile"
               class="form-control"
-              placeholder="Enter mobile no."
+              :placeholder="__('mobile_no')"
               @input="validateMobileNumber"
             />
             <span v-if="validationError" class="error">{{ validationError }}</span>
@@ -68,48 +68,48 @@
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="email">Email.</label>
+            <label for="email">{{ __("email") }}</label>
             <input
               type="text"
               name="email"
               id="email"
               v-model="deliveryBoys.email"
               class="form-control"
-              placeholder="Enter email id."
+              :placeholder="__('email')"
             />
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">{{ __("password") }}</label>
             <input
               type="password"
               name="password"
               id="password"
               v-model="deliveryBoys.password"
               class="form-control"
-              placeholder="Enter password."
+              :placeholder="__('password')"
             />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="confirm_password">Confirm Password</label>
+            <label for="confirm_password">{{ __("confirm_password") }}</label>
             <input
               type="password"
               name="confirm_password"
               id="confirm_password"
               v-model="deliveryBoys.confirm_password"
               class="form-control"
-              placeholder="Enter agin password."
+              :placeholder="__('confirm_password')"
             />
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="driving_license">Driving License</label>
+            <label for="driving_license">{{ __("driving_licence") }}</label>
             <input
               type="file"
               name="driving_license"
@@ -133,7 +133,7 @@
                 "
               >
                 <label
-                  >Selected file name:- {{ deliveryBoys.driving_license.name }}</label
+                  >{{ __("selected_file_name") }}:- {{ deliveryBoys.driving_license.name }}</label
                 >
               </template>
               <template v-else>
@@ -157,7 +157,7 @@
                   :href="deliveryBoys.driving_license_url"
                   class="badge bg-success"
                 >
-                  <i class="fa fa-eye"></i> Identity Card</a
+                  <i class="fa fa-eye"></i> {{ __("identity") }}</a
                 >
               </div>
             </div>
@@ -165,7 +165,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="national_identity_card">National Identity Card</label>
+            <label for="national_identity_card">{{ _("national_identity_card") }}</label>
             <input
               type="file"
               name="national_identity_card"
@@ -190,7 +190,7 @@
                 "
               >
                 <label
-                  >Selected file name:-
+                  >{{ __("selected_file_name") }}
                   {{ deliveryBoys.national_identity_card.name }}</label
                 >
               </template>
@@ -218,7 +218,7 @@
                   :href="deliveryBoys.national_identity_card_url"
                   class="badge bg-success"
                 >
-                  <i class="fa fa-eye"></i> Identity Card</a
+                  <i class="fa fa-eye"></i> {{ __("identity") }}</a
                 >
               </div>
             </div>
@@ -226,20 +226,20 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="bonus">Bonus (%)</label>
+            <label for="bonus">{{ __("bonus") }}</label>
             <input
               type="number"
               name="bonus"
               id="bonus"
               v-model="deliveryBoys.bonus"
               class="form-control"
-              placeholder="Enter Bonus (%)"
+              :placeholder="__('bonus')"
             />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="ifsc_code">Bank's IFSC Code</label>
+            <label for="ifsc_code">{{ __("bank_ifsc_code") }}</label>
             <input
               type="text"
               name="ifsc_code"
@@ -247,13 +247,13 @@
               v-model="deliveryBoys.ifsc_code"
               required
               class="form-control"
-              placeholder="Enter bank's IFSC code."
+              :placeholder="__('bank_ifsc_code')"
             />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="bank_name">Bank Name</label>
+            <label for="bank_name">{{ __("bank_name") }}</label>
             <input
               type="text"
               name="bank_name"
@@ -261,13 +261,13 @@
               v-model="deliveryBoys.bank_name"
               required
               class="form-control"
-              placeholder="Enter bank name"
+              :placeholder="__('bank_name')"
             />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="account_number">Account Number</label>
+            <label for="account_number">{{ __("account_number") }}</label>
             <input
               type="number"
               name="account_number"
@@ -275,7 +275,7 @@
               v-model="deliveryBoys.bank_account_number"
               required
               class="form-control"
-              placeholder="Enter account number"
+              :placeholder="__('account_number')"
               @input="validateAccountNumber"
             />
             <span v-if="validationError" class="error">{{ validationError }}</span>
@@ -283,7 +283,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="account_name">Bank Account Name</label>
+            <label for="account_name">{{ __("bank_account_name") }}</label>
             <input
               type="text"
               name="account_name"
@@ -291,17 +291,17 @@
               v-model="deliveryBoys.account_name"
               required
               class="form-control"
-              placeholder="Enter bank account name"
+              :placeholder="__('bank_account_name')"
             />
           </div>
         </div>
         <div class="col-md-6">
-          <label for="city_name">Select or Search City</label>
+          <label for="city_name">{{ __("select_or_search_city") }}</label>
           <multiselect
             v-model="city"
             :options="cities"
             @close="setCityId"
-            placeholder="Select & Search City"
+            :placeholder="__('select_or_search_city')"
             label="name"
             track-by="name"
             id="city_name"
@@ -321,41 +321,41 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="address">Address</label>
+            <label for="address">{{ __("address") }}</label>
             <textarea
               name="address"
               id="address"
               v-model="deliveryBoys.address"
               rows="3"
               class="form-control"
-              placeholder="Enter address"
+              :placeholder="__('address')"
             ></textarea>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="other_payment_info">Other Payment Information</label>
+            <label for="other_payment_info">{{ __("other_payment_information") }}</label>
             <textarea
               name="other_payment_info"
               id="other_payment_info"
               v-model="deliveryBoys.other_payment_information"
               rows="3"
               class="form-control"
-              placeholder="Enter other payment information"
+              :placeholder="__('other_payment_information')"
             ></textarea>
           </div>
         </div>
 
         <div class="col-md-12" v-if="deliveryBoys.id">
           <div class="form-group">
-            <label>Status</label><br />
+            <label>{{ __("status") }}</label><br />
             <b-form-radio-group
               v-model="deliveryBoys.status"
               :options="[
                 { text: __('registered'), value: 0 },
-                { text: ' Activated', value: 1 },
+                { text: __('activated'), value: 1 },
                 { text: __('not-approved'), value: 2 },
-                { text: ' Deactivated', value: 3 },
+                { text: __('deactivated'), value: 3 },
               ]"
               buttons
               button-variant="outline-primary"
@@ -365,14 +365,14 @@
         </div>
         <div v-if="[2, 3].includes(deliveryBoys.status)" class="form-group col-md-12">
           <div class="form-group">
-            <label for="remark">Remark</label>
+            <label for="remark">{{ __("remark") }}</label>
             <textarea
               class="form-control"
               name="remark"
               id="remark"
               required
               v-model="deliveryBoys.remark"
-              placeholder="Add a remark of this status..."
+              :placeholder="__('add_mark')"
             ></textarea>
           </div>
         </div>
