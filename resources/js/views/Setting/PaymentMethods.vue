@@ -165,32 +165,32 @@
                       class="form-control form-select"
                     >
                       <option value="">{{ __("select_currency_code") }}</option>
-                      <option value="INR">Indian rupee {{ __("indian_rupee") }}</option>
+                      <option value="INR">{{ __("indian_rupee") }}</option>
                       <option value="AUD">
-                        Australian dollar{{ __("australian_dollar") }}
+                        {{ __("australian_dollar") }}
                       </option>
                       <option value="BRL">
-                        Brazilian real{{ __("brazilian_real") }}
+                        {{ __("brazilian_real") }}
                       </option>
                       <option value="CAD">
-                        Canadian dollar{{ __("canadian_doller") }}
+                        {{ __("canadian_doller") }}
                       </option>
                       <option value="CNY">
-                        Chinese Renmenbi{{ __("chinese_renmenbi") }}
+                        {{ __("chinese_renmenbi") }}
                       </option>
-                      <option value="CZK">Czech koruna{{ __("czech_koruna") }}</option>
-                      <option value="DKK">Danish krone {{ __("danish_krone") }}</option>
-                      <option value="EUR">Euro {{ __("euro") }}</option>
+                      <option value="CZK">{{ __("czech_koruna") }}</option>
+                      <option value="DKK">{{ __("danish_krone") }}</option>
+                      <option value="EUR">{{ __("euro") }}</option>
                       <option value="HKD">
-                        Hong Kong dollar {{ __("hong_kong_dollar") }}
+                       {{ __("hong_kong_dollar") }}
                       </option>
                       <option value="HUF">
-                        Hungarian forint {{ __("hungarian_forint") }}
+                        {{ __("hungarian_forint") }}
                       </option>
                       <option value="ILS">
-                        Israeli new shekel{{ __("israeli_new_shekel") }}
+                        {{ __("israeli_new_shekel") }}
                       </option>
-                      <option value="JPY">Japanese yen{{ __("japanese_yen") }}</option>
+                      <option value="JPY"> {{ __("japanese_yen") }}</option>
                       <option value="MYR">
                         Malaysian ringgit{{ __("malaysian_ringgit") }}
                       </option>

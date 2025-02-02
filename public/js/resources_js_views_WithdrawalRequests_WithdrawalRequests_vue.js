@@ -787,7 +787,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Pending\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("pending")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -819,7 +823,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Approved\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("approved")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -851,7 +859,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Rejected\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("rejected")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                   ]
@@ -898,7 +910,8 @@ var render = function () {
                             ? [
                                 _c("label", [
                                   _vm._v(
-                                    "Selected file name:- " +
+                                    _vm._s(_vm.__("selected_file_name")) +
+                                      ":- " +
                                       _vm._s(_vm.image.name)
                                   ),
                                 ]),
@@ -931,7 +944,7 @@ var render = function () {
                                 staticClass: "custom-image",
                                 attrs: {
                                   src: _vm.image_url,
-                                  title: "Receipt Image",
+                                  title: _vm.receipt_image,
                                   alt: "Receipt Image",
                                 },
                               }),
@@ -1306,8 +1319,10 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n                            " +
-                              _vm._s("Amount (" + _vm.$currency + ")") +
+                            "\n                           " +
+                              _vm._s(_vm.__("amount")) +
+                              " " +
+                              _vm._s(" (" + _vm.$currency + ")") +
                               "\n                        "
                           ),
                         ]

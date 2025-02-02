@@ -562,8 +562,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -1117,11 +1115,13 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("h4", [_vm._v("Seller Complete Profile")]),
+          _c("h4", [_vm._v(_vm._s(_vm.__("register_message")))]),
           _vm._v(" "),
           _c("p", { staticClass: "auth-subtitle text-primary" }, [
             _vm._v(
-              "\n        Please Complete the form to complete your registration\n      "
+              "\n       " +
+                _vm._s(_vm.__("seller_register_message")) +
+                "\n      "
             ),
           ]),
           _vm._v(" "),
@@ -1140,13 +1140,15 @@ var render = function () {
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "content" }, [
                   _c("div", { staticClass: "card" }, [
-                    _vm._m(0),
+                    _c("div", { staticClass: "card-header" }, [
+                      _c("h4", [_vm._v(_vm._s(_vm.__("store_information")))]),
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Name")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("name")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1161,7 +1163,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 required: "",
-                                placeholder: "Enter name.",
+                                placeholder: _vm.__("enter_name"),
                               },
                               domProps: { value: _vm.name },
                               on: {
@@ -1178,7 +1180,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Store Name")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("store_name")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1193,7 +1195,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 required: "",
-                                placeholder: "Enter store name.",
+                                placeholder: _vm.__("enter_store-name"),
                               },
                               domProps: { value: _vm.store_name },
                               on: {
@@ -1210,7 +1212,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Store URL")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("store_url")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1224,7 +1226,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter store URL.",
+                                placeholder: _vm.__("enter_store_url"),
                               },
                               domProps: { value: _vm.store_url },
                               on: {
@@ -1244,7 +1246,9 @@ var render = function () {
                             "div",
                             { staticClass: "form-group" },
                             [
-                              _c("label", [_vm._v("Categories")]),
+                              _c("label", [
+                                _vm._v(_vm._s(_vm.__("categories"))),
+                              ]),
                               _vm._v(" "),
                               _c("Select2", {
                                 attrs: {
@@ -1267,7 +1271,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Tax Name")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("tax_name")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1281,7 +1285,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter tax name.",
+                                placeholder: _vm.__("tax_name"),
                                 required: "",
                               },
                               domProps: { value: _vm.tax_name },
@@ -1299,7 +1303,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Tax Number")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("tax_number")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1313,7 +1317,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter tax number.",
+                                placeholder: _vm.__("enter_tax_number"),
                                 required: "",
                               },
                               domProps: { value: _vm.tax_number },
@@ -1331,7 +1335,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("PAN Number")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("pan_number")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1345,7 +1349,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter PAN number.",
+                                placeholder: _vm.__("Enter PAN number"),
                                 required: "",
                               },
                               domProps: { value: _vm.pan_number },
@@ -1363,7 +1367,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("National Identity Card")]),
+                            _c("label", [
+                              _vm._v(_vm._s(_vm.__("national_identity_card"))),
+                            ]),
                             _vm._v(" "),
                             !_vm.id
                               ? _c("input", {
@@ -1402,13 +1408,14 @@ var render = function () {
                                   ? [
                                       _c("label", [
                                         _vm._v(
-                                          "Selected file name:- " +
+                                          _vm._s(_vm.__("selected_file_name")) +
+                                            ":- " +
                                             _vm._s(_vm.national_id_card.name)
                                         ),
                                       ]),
                                     ]
                                   : [
-                                      _vm._m(1),
+                                      _vm._m(0),
                                       _vm._v(" "),
                                       _c("label", [
                                         _vm._v(
@@ -1454,7 +1461,9 @@ var render = function () {
                                               _c("i", {
                                                 staticClass: "fa fa-eye",
                                               }),
-                                              _vm._v(" Identity Card"),
+                                              _vm._v(
+                                                " " + _vm._s(_vm.__("identity"))
+                                              ),
                                             ]
                                           ),
                                         ]
@@ -1466,7 +1475,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Address Proof")]),
+                            _c("label", [
+                              _vm._v(_vm._s(_vm.__("address_proofs"))),
+                            ]),
                             _vm._v(" "),
                             !_vm.id
                               ? _c("input", {
@@ -1502,7 +1513,7 @@ var render = function () {
                               [
                                 _vm.address_proof_name == ""
                                   ? [
-                                      _vm._m(2),
+                                      _vm._m(1),
                                       _vm._v(" "),
                                       _c("label", [
                                         _vm._v(
@@ -1517,7 +1528,8 @@ var render = function () {
                                   : [
                                       _c("label", [
                                         _vm._v(
-                                          "Selected file name:- " +
+                                          _vm._s(_vm.__("selected_file_name")) +
+                                            ":- " +
                                             _vm._s(_vm.address_proof_name)
                                         ),
                                       ]),
@@ -1556,7 +1568,12 @@ var render = function () {
                                               _c("i", {
                                                 staticClass: "fa fa-eye",
                                               }),
-                                              _vm._v(" Address Proof"),
+                                              _vm._v(
+                                                " " +
+                                                  _vm._s(
+                                                    _vm.__("address_proofs")
+                                                  )
+                                              ),
                                             ]
                                           ),
                                         ]
@@ -1568,7 +1585,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-12" }, [
                           _c("label", { attrs: { for: "logo" } }, [
-                            _vm._v("Logo"),
+                            _vm._v(_vm._s(_vm.__("logo"))),
                           ]),
                           _vm._v(" "),
                           _c("input", {
@@ -1601,13 +1618,14 @@ var render = function () {
                                 ? [
                                     _c("label", [
                                       _vm._v(
-                                        "Selected file name:- " +
+                                        _vm._s(_vm.__("selected_file_name")) +
+                                          ":- " +
                                           _vm._s(_vm.store_logo.name)
                                       ),
                                     ]),
                                   ]
                                 : [
-                                    _vm._m(3),
+                                    _vm._m(2),
                                     _vm._v(" "),
                                     _c("label", [
                                       _vm._v(
@@ -1643,7 +1661,11 @@ var render = function () {
                           "div",
                           { staticClass: "form-group col-md-12" },
                           [
-                            _c("label", [_vm._v("Store Description :")]),
+                            _c("label", [
+                              _vm._v(
+                                _vm._s(_vm.__("store_description")) + " :"
+                              ),
+                            ]),
                             _vm._v(
                               "\n                    <\n                    "
                             ),
@@ -1674,7 +1696,11 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card" }, [
-                    _vm._m(4),
+                    _c("div", { staticClass: "card-header" }, [
+                      _c("h4", [
+                        _vm._v(_vm._s(_vm.__("store_location_information"))),
+                      ]),
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "row" }, [
@@ -1683,13 +1709,13 @@ var render = function () {
                           { staticClass: "form-group col-md-4" },
                           [
                             _c("label", { attrs: { for: "city_name" } }, [
-                              _vm._v("Select or Search City"),
+                              _vm._v(_vm._s(_vm.__("select_or_search_city"))),
                             ]),
                             _vm._v(" "),
                             _c("multiselect", {
                               attrs: {
                                 options: _vm.cities,
-                                placeholder: "Select & Search City",
+                                placeholder: _vm.__("select_or_search_city"),
                                 label: "name",
                                 "track-by": "name",
                                 id: "city_name",
@@ -1754,7 +1780,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("State")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("state")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1769,7 +1795,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 readonly: "",
-                                placeholder: "Enter state",
+                                placeholder: _vm.__("state"),
                               },
                               domProps: { value: _vm.state },
                               on: {
@@ -1786,7 +1812,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Street")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("street")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1801,7 +1827,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 readonly: "",
-                                placeholder: "Enter street.",
+                                placeholder: _vm.__("street"),
                               },
                               domProps: { value: _vm.street },
                               on: {
@@ -1818,7 +1844,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Latitude")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("latitude")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1833,7 +1859,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 readonly: "",
-                                placeholder: "Enter latitude.",
+                                placeholder: _vm.__("latitude"),
                               },
                               domProps: { value: _vm.latitude },
                               on: {
@@ -1850,7 +1876,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Longitude")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("latitude")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -1865,7 +1891,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 readonly: "",
-                                placeholder: "Enter longitude.",
+                                placeholder: _vm.__("latitude"),
                               },
                               domProps: { value: _vm.longitude },
                               on: {
@@ -1882,7 +1908,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("label", { attrs: { for: "location" } }, [
-                            _vm._v("Search Location"),
+                            _vm._v(_vm._s(_vm.__("search_location"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -1893,7 +1919,9 @@ var render = function () {
                                 staticClass: "form-control",
                                 attrs: {
                                   type: "search",
-                                  placeholder: "Search you location on map.",
+                                  placeholder: _vm.__(
+                                    "search_you_location_on_map"
+                                  ),
                                   options: {
                                     fields: [
                                       "formatted_address",
@@ -1907,52 +1935,37 @@ var render = function () {
                                 on: { place_changed: _vm.setPlace },
                               }),
                               _vm._v(" "),
+                              _vm._v(
+                                '"add_current_location")\n                        @click="getCurrentLocation"\n                      >\n                        '
+                              ),
                               _c(
-                                "b-button",
+                                "svg",
                                 {
-                                  directives: [
-                                    {
-                                      name: "b-tooltip",
-                                      rawName: "v-b-tooltip.hover",
-                                      modifiers: { hover: true },
-                                    },
-                                  ],
                                   attrs: {
-                                    type: "button",
-                                    variant: "primary",
-                                    title: "Add current location",
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    height: "48px",
+                                    viewBox: "0 0 24 24",
+                                    width: "48px",
+                                    fill: "#FFFFFF",
                                   },
-                                  on: { click: _vm.getCurrentLocation },
                                 },
                                 [
-                                  _c(
-                                    "svg",
-                                    {
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        height: "48px",
-                                        viewBox: "0 0 24 24",
-                                        width: "48px",
-                                        fill: "#FFFFFF",
-                                      },
+                                  _c("title", [
+                                    _vm._v(_vm._s(_vm.__("current_location"))),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0 0h24v24H0V0z",
+                                      fill: "none",
                                     },
-                                    [
-                                      _c("title", [_vm._v("current-location")]),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M0 0h24v24H0V0z",
-                                          fill: "none",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          d: "M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
-                                        },
-                                      }),
-                                    ]
-                                  ),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
+                                    },
+                                  }),
                                 ]
                               ),
                             ],
@@ -1964,7 +1977,11 @@ var render = function () {
                             { staticClass: "text-danger d-block font-size-13" },
                             [
                               _vm._v(
-                                "*Only Search Location, When Update is necessary"
+                                _vm._s(
+                                  _vm.__(
+                                    "only_search_location_when_update_is_necessary"
+                                  )
+                                )
                               ),
                             ]
                           ),
@@ -1974,7 +1991,11 @@ var render = function () {
                             { staticClass: "text text-primary font-size-13" },
                             [
                               _vm._v(
-                                "Search your seller name and you will get the location\n                      points(Latitude & Longitude) below."
+                                _vm._s(
+                                  _vm.__(
+                                    "search_your_seller_name_and_you_will_get_the_location_points_latitude_longitude_below"
+                                  )
+                                )
                               ),
                             ]
                           ),
@@ -1984,7 +2005,13 @@ var render = function () {
                           _vm.formatted_address
                             ? _c("div", { staticClass: "text-danger" }, [
                                 _vm._v(
-                                  "\n                      *Drag and click marker to your shop proper location (This will\n                      affect into delivery charge calculation)\n                    "
+                                  "\n                      " +
+                                    _vm._s(
+                                      _vm.__(
+                                        "draf_and_click_marker_to_your_shop_proper_location"
+                                      )
+                                    ) +
+                                    "\n                    "
                                 ),
                               ])
                             : _vm._e(),
@@ -2088,13 +2115,17 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card" }, [
-                    _vm._m(5),
+                    _c("div", { staticClass: "card-header" }, [
+                      _c("h4", [
+                        _vm._v(_vm._s(_vm.__("seller_bank_information"))),
+                      ]),
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Bank Name")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("bank_name")))]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -2108,7 +2139,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter bank name.",
+                                placeholder: _vm.__("bank_name"),
                                 required: "",
                               },
                               domProps: { value: _vm.bank_name },
@@ -2126,7 +2157,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Account Number")]),
+                            _c("label", [
+                              _vm._v(_vm._s(_vm.__("account_number"))),
+                            ]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -2140,7 +2173,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "number",
-                                placeholder: "Enter account number.",
+                                placeholder: _vm.__("account_number"),
                                 required: "",
                               },
                               domProps: { value: _vm.account_number },
@@ -2158,7 +2191,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Bank's IFSC Code")]),
+                            _c("label", [
+                              _vm._v(_vm._s(_vm.__("bank_ifsc_code"))),
+                            ]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -2172,7 +2207,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter bank's IFSC code.",
+                                placeholder: _vm.__("bank_ifsc_code"),
                                 required: "",
                               },
                               domProps: { value: _vm.ifsc_code },
@@ -2190,7 +2225,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-md-4" }, [
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Bank Account Name")]),
+                            _c("label", [
+                              _vm._v(_vm._s(_vm.__("bank_account_name"))),
+                            ]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -2204,7 +2241,7 @@ var render = function () {
                               staticClass: "form-control valid",
                               attrs: {
                                 type: "text",
-                                placeholder: "Enter bank account name.",
+                                placeholder: _vm.__("bank_account_name"),
                                 required: "",
                               },
                               domProps: { value: _vm.account_name },
@@ -2231,7 +2268,11 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-5",
                   },
                   [
-                    _vm._v("\n            Complete\n            "),
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(_vm.__("complete")) +
+                        "\n            "
+                    ),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -2264,14 +2305,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Store Information")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("label", [
       _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
     ])
@@ -2290,22 +2323,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Store Location Information")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Seller Bank Information")]),
     ])
   },
 ]

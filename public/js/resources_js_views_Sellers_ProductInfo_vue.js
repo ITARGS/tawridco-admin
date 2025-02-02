@@ -281,86 +281,86 @@ __webpack_require__.r(__webpack_exports__);
       category: "",
       fields: [{
         key: "product_variant_id",
-        label: "ID",
+        label: __("id"),
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "product_id",
-        label: "Product ID",
+        label: __("product_id"),
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "tax_id",
-        label: "Tax ID",
+        label: __("tax_id"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "seller_name",
-        label: "Seller Name",
+        label: __("seller_name"),
         "class": "text-center",
         sortable: true
       }, {
         key: "name",
-        label: "Name",
+        label: __("name"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "image",
-        label: "Image",
+        label: __("images"),
         "class": "text-center"
       }, {
         key: "price",
-        label: "Price",
+        label: __("price"),
         "class": "text-center",
         sortable: true
       }, {
         key: "discounted_price",
-        label: "D.Price",
+        label: __("discounted_price"),
         "class": "text-center",
         sortable: true
       }, {
         key: "measurement",
-        label: "Measurement",
+        label: __("measurement"),
         "class": "text-center",
         sortable: true
       }, {
         key: "stock",
-        label: "Stock",
+        label: __("stock"),
         "class": "text-center",
         sortable: true
       }, {
         key: "status",
-        label: "Availability",
+        label: __("availability"),
         "class": "text-center",
         sortable: true
       }, {
         key: "indicator",
-        label: "Indicator",
+        label: __("indicator"),
         "class": "text-center",
         sortable: true
       }, {
         key: "is_approved",
-        label: "Is Approved?",
+        label: __("is_approved"),
         "class": "text-center",
         sortable: true
       }, {
         key: "return_status",
-        label: "Return",
+        label: __("return"),
         "class": "text-center",
         sortable: true
       }, {
         key: "cancelable_status",
-        label: "Cancellation",
+        label: __("cancellation"),
         "class": "text-center",
         sortable: true
       }, {
         key: "till_status",
-        label: "Till Status",
+        label: __("till_status"),
         "class": "text-center",
         sortable: true
       }, {
         key: "status",
-        label: "Status",
+        label: __("status"),
         "class": "text-center",
         sortable: true
       }, {
@@ -572,11 +572,11 @@ var render = function () {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
             _vm.type === "sold_out"
-              ? _c("h3", [_vm._v("Sold Out Products")])
+              ? _c("h3", [_vm._v(_vm._s(_vm.__("sold_out_products")))])
               : _vm._e(),
             _vm._v(" "),
             _vm.type === "low_stock"
-              ? _c("h3", [_vm._v("Low Stock Products")])
+              ? _c("h3", [_vm._v(_vm._s(_vm.__("low_stock_products")))])
               : _vm._e(),
           ]),
           _vm._v(" "),
@@ -611,7 +611,9 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                Sold Out Products\n              "
+                            "\n                " +
+                              _vm._s(_vm.__("sold_out_products")) +
+                              "\n              "
                           ),
                         ]
                       )
@@ -626,7 +628,9 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                Low Stock Products\n              "
+                            "\n                " +
+                              _vm._s(_vm.__("low_stock_products")) +
+                              "\n              "
                           ),
                         ]
                       )
@@ -643,13 +647,17 @@ var render = function () {
           _c("div", { staticClass: "card-header" }, [
             _vm.type === "sold_out"
               ? _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Sold Out Products List"),
+                  _vm._v(_vm._s(_vm.__("sold_out_products_list"))),
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.type === "low_stock"
               ? _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("\n            Low Stock Products List\n          "),
+                  _vm._v(
+                    "\n           " +
+                      _vm._s(_vm.__("low_stock_products_list")) +
+                      "\n          "
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -663,7 +671,7 @@ var render = function () {
                     staticClass: "btn btn-primary",
                     attrs: { to: "/manage_products/create" },
                   },
-                  [_vm._v("Add New Product")]
+                  [_vm._v(_vm._s(_vm.__("add_new_product")))]
                 ),
               ],
               1
@@ -847,7 +855,9 @@ var render = function () {
                         fn: function (row) {
                           return [
                             row.item.is_unlimited_stock
-                              ? _c("span", [_vm._v("Unlimited")])
+                              ? _c("span", [
+                                  _vm._v(_vm._s(_vm.__("unlimited"))),
+                                ])
                               : [
                                   _vm._v(
                                     "\n                  " +
@@ -915,13 +925,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Veg")]
+                                  [_vm._v(_vm._s(_vm.__("veg")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             row.item.indicator === 2
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Non-Veg"),
+                                  _vm._v(_vm._s(_vm.__("non_veg"))),
                                 ])
                               : _vm._e(),
                           ]
@@ -953,7 +963,7 @@ var render = function () {
                           return [
                             row.item.return_status === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Allowed"),
+                                  _vm._v(_vm._s(_vm.__("not_allowed"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -961,7 +971,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Allowed")]
+                                  [_vm._v(_vm._s(_vm.__("allowed")))]
                                 )
                               : _vm._e(),
                           ]
@@ -973,7 +983,7 @@ var render = function () {
                           return [
                             row.item.cancelable_status === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Allowed"),
+                                  _vm._v(_vm._s(_vm.__("not_allowed"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -981,7 +991,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Allowed")]
+                                  [_vm._v(_vm._s(_vm.__("allowed")))]
                                 )
                               : _vm._e(),
                           ]
@@ -993,7 +1003,7 @@ var render = function () {
                           return [
                             row.item.till_status == 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not Applicable"),
+                                  _vm._v(_vm._s(_vm.__("not_applicable"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -1001,7 +1011,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Received")]
+                                  [_vm._v(_vm._s(_vm.__("received")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -1009,7 +1019,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Processed")]
+                                  [_vm._v(_vm._s(_vm.__("processed")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -1017,7 +1027,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Shipped")]
+                                  [_vm._v(_vm._s(_vm.__("shipped")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -1025,7 +1035,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Delivered")]
+                                  [_vm._v(_vm._s(_vm.__("delivered")))]
                                 )
                               : _vm._e(),
                           ]

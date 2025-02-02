@@ -148,27 +148,27 @@ __webpack_require__.r(__webpack_exports__);
       maxDate: new Date(),
       fields: [{
         key: 'product_name',
-        label: 'Product Name',
+        label: __('product_name'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'product_variant_id',
-        label: 'Product Variant ID',
+        label: __('product_variant_id'),
         sortable: true,
         sortDirection: 'desc'
       }, {
         key: 'variant_name',
-        label: 'Unit Of Measure',
+        label: __('unit_of_measure'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'total_sales',
-        label: 'Total Units Sold',
+        label: __('total_units_sold'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'total_price',
-        label: 'Total Price',
+        label: __('total_sales'),
         sortable: true,
         "class": 'text-center'
       }],
@@ -418,7 +418,9 @@ var render = function () {
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "page-title" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("product_sales_reports")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -448,7 +450,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Product Sales Reports")]
+                    [_vm._v(_vm._s(_vm.__("product_sales_reports")))]
                   ),
                 ]),
               ]
@@ -459,7 +461,11 @@ var render = function () {
       _vm._v(" "),
       _c("section", { staticClass: "section" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "card-header" }, [
+            _c("h4", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.__("product_sales_reports"))),
+            ]),
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -471,7 +477,7 @@ var render = function () {
                 [
                   _c("b-col", { attrs: { md: "4" } }, [
                     _c("h6", { staticClass: "box-title" }, [
-                      _vm._v("From & To Date"),
+                      _vm._v(_vm._s(_vm.__("from_and_to_date"))),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -721,26 +727,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Product Sales Reports")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Product Sales Reports"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -794,7 +794,7 @@ var render = function () {
                         staticClass: "form-control",
                         attrs: {
                           type: "search",
-                          placeholder: "Search City on map.",
+                          placeholder: _vm.__("search_city_on_map"),
                           options: {
                             fields: [
                               "address_components",
@@ -872,7 +872,7 @@ var render = function () {
                         type: "text",
                         name: "latitude",
                         id: "latitude",
-                        placeholder: "Enter Latitude.",
+                        placeholder: _vm.__("enter_latitude"),
                         required: "",
                         readonly: "",
                       },
@@ -910,7 +910,7 @@ var render = function () {
                         type: "text",
                         name: "longitude",
                         id: "longitude",
-                        placeholder: "Enter Longitude.",
+                        placeholder: _vm.__("enter_longitude"),
                         required: "",
                         readonly: "",
                       },
@@ -948,7 +948,7 @@ var render = function () {
                         type: "text",
                         name: "name",
                         id: "name",
-                        placeholder: "Enter City Name.",
+                        placeholder: _vm.__("enter_city_name"),
                         required: "",
                         readonly: "",
                       },
@@ -986,7 +986,7 @@ var render = function () {
                         type: "text",
                         name: "state",
                         id: "state",
-                        placeholder: "Enter State Name.",
+                        placeholder: _vm.__("enter_state_name"),
                         required: "",
                         readonly: "",
                       },
@@ -1024,7 +1024,7 @@ var render = function () {
                         type: "text",
                         name: "zone",
                         id: "zone",
-                        placeholder: "Enter Zone Name.",
+                        placeholder: _vm.__("enter_zone_name"),
                         required: "",
                       },
                       domProps: { value: _vm.city.zone },
@@ -1046,7 +1046,7 @@ var render = function () {
                         _vm._v("*"),
                       ]),
                       _vm._v(" "),
-                      _c("small", [_vm._v("(Enter in minutes)")]),
+                      _c("small", [_vm._v(_vm._s(_vm.__("enter_in_minutes")))]),
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -1065,7 +1065,7 @@ var render = function () {
                         id: "time_to_travel",
                         min: "0",
                         max: "999999999",
-                        placeholder: "Enter Time to travel 1 (km).",
+                        placeholder: _vm.__("enter_time_travel"),
                         required: "",
                       },
                       domProps: { value: _vm.city.time_to_travel },
@@ -1116,7 +1116,7 @@ var render = function () {
                         type: "number",
                         name: "min_amount_for_free_delivery",
                         id: "min_amount_for_free_delivery",
-                        placeholder: "Enter Delivarable Maximum Distance in km",
+                        placeholder: _vm.__("minimum_amount_for_free_delivery"),
                         min: "0",
                         max: "999999999",
                         required: "",
@@ -1151,7 +1151,9 @@ var render = function () {
                           _vm._v("*"),
                         ]),
                         _vm._v(" "),
-                        _c("small", [_vm._v("[Kilometre]")]),
+                        _c("small", [
+                          _vm._v("[" + _vm._s(_vm.__("kilometre")) + "]"),
+                        ]),
                       ]
                     ),
                     _vm._v(" "),
@@ -1168,7 +1170,7 @@ var render = function () {
                       attrs: {
                         type: "number",
                         name: "max_deliverable_distance",
-                        placeholder: "Enter Delivarable Maximum Distance in km",
+                        placeholder: _vm.__("minimum_amount_for_free_delivery"),
                         min: "0",
                         max: "999999999",
                       },
@@ -1289,7 +1291,7 @@ var render = function () {
                             type: "number",
                             name: "fixed_charge",
                             id: "fixed_charge",
-                            placeholder: "Global Flat Charges",
+                            placeholder: _vm.__("global_flat_charges"),
                             min: "0",
                             max: "999999999",
                             step: "any",
@@ -1334,7 +1336,7 @@ var render = function () {
                             type: "number",
                             name: "per_km_charge",
                             id: "per_km_charge",
-                            placeholder: "Per Kilometer Delivery Charge",
+                            placeholder: _vm.__("per_km_delivery_charges"),
                             min: "0",
                             max: "999999999",
                             step: "any",
@@ -1368,7 +1370,7 @@ var render = function () {
                             type: "text",
                             name: "boundary_points",
                             id: "boundary_points",
-                            placeholder: "Boundary Points",
+                            placeholder: _vm.__("boundary_points"),
                           },
                           domProps: { value: _vm.city.boundary_points },
                           on: {
@@ -1403,11 +1405,7 @@ var render = function () {
                             _c(
                               "span",
                               { staticClass: "text-secondary text-sm" },
-                              [
-                                _vm._v(
-                                  "(Set Proper ranges for delivery charge. Do not repeat the range value to next range. For e.g. 1-3,4-6)"
-                                ),
-                              ]
+                              [_vm._v(_vm._s(_vm.__("handel_message")))]
                             ),
                           ]),
                           _vm._v(" "),
@@ -1440,7 +1438,7 @@ var render = function () {
                                         type: "number",
                                         name: "from_range[]",
                                         id: "from_range",
-                                        placeholder: "From Range",
+                                        placeholder: _vm.__("from_range"),
                                         min: "0",
                                         max: "999999999",
                                       },
@@ -1483,7 +1481,7 @@ var render = function () {
                                         type: "number",
                                         name: "to_range[]",
                                         id: "to_range",
-                                        placeholder: "To Range",
+                                        placeholder: _vm.__("to_range"),
                                         min: "0",
                                         max: "999999999",
                                       },
@@ -1518,7 +1516,7 @@ var render = function () {
                                         type: "number",
                                         name: "price[]",
                                         id: "price",
-                                        placeholder: "Price",
+                                        placeholder: _vm.__("price"),
                                         min: "0",
                                         max: "999999999",
                                         step: "any",
@@ -1635,10 +1633,39 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "card h-100" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "card-header" }, [
+                _c("h4", [_vm._v(_vm._s(_vm.__("map_view")))]),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _vm._m(1),
+                _c("div", { staticClass: "offset-3 mt-1" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "badge bg-primary",
+                      attrs: { type: "button", id: "remove-line" },
+                    },
+                    [_vm._v(_vm._s(_vm.__("remove_newly_added_line")))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "badge bg-danger",
+                      attrs: { type: "button", id: "clear-line" },
+                    },
+                    [_vm._v(_vm._s(_vm.__("clear_map")))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "badge bg-success",
+                      attrs: { type: "button", id: "add-line" },
+                    },
+                    [_vm._v(_vm._s(_vm.__("restore_old_map")))]
+                  ),
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -1721,7 +1748,19 @@ var render = function () {
                   : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group d-none" }, [
-                  _vm._m(2),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "control-label",
+                      attrs: { for: "vertices" },
+                    },
+                    [
+                      _vm._v(_vm._s(_vm.__("boundary_points"))),
+                      _c("span", { staticClass: "text-danger text-xs" }, [
+                        _vm._v("*"),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -1736,8 +1775,7 @@ var render = function () {
                     attrs: {
                       name: "vertices",
                       id: "vertices",
-                      placeholder:
-                        "here will be your selected outlines latitude and longitude",
+                      placeholder: _vm.__("here_longitude"),
                       cols: "10",
                       rows: "2",
                     },
@@ -1760,62 +1798,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Map View")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offset-3 mt-1" }, [
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-primary",
-          attrs: { type: "button", id: "remove-line" },
-        },
-        [_vm._v("Remove Newly Added Line")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-danger",
-          attrs: { type: "button", id: "clear-line" },
-        },
-        [_vm._v("Clear Map")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-success",
-          attrs: { type: "button", id: "add-line" },
-        },
-        [_vm._v("Restore Old Map")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "control-label", attrs: { for: "vertices" } },
-      [
-        _vm._v("Boundry Points"),
-        _c("span", { staticClass: "text-danger text-xs" }, [_vm._v("*")]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

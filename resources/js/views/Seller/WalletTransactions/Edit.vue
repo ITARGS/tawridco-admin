@@ -48,7 +48,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount</label>
+                    <label for="amount">{{ __("amount") }}</label>
                     <input type="number" step="any" name="amount" id="amount" v-model="walletTransaction.amount" v-on:keyup="checkAmount" required class="form-control" placeholder="Enter Transfer Amount" @input="validateAmount">
                     <span class="text-danger" v-if="graterAmount === true">You Can not enter amount greater than balance.</span>
                     <span v-if="validationErrorAmount" class="error">{{ validationErrorAmount }}</span>

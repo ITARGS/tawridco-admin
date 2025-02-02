@@ -73,7 +73,7 @@
                                     {{'Closing Balance ('+$currency+')' }}
                                 </template>
                                 <template #head(amount)="row">
-                                    {{'Amount ('+$currency+')' }}
+                                   {{ __("amount") }} {{' ('+$currency+')' }}
                                 </template>
 
                                 <template #cell(type)="row">

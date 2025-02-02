@@ -377,7 +377,7 @@ var render = function () {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,
@@ -489,8 +489,10 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
-                                _vm._s("Amount (" + _vm.$currency + ")") +
+                              "\n                              " +
+                                _vm._s(_vm.__("amount")) +
+                                "  " +
+                                _vm._s(" (" + _vm.$currency + ")") +
                                 "\n                            "
                             ),
                           ]

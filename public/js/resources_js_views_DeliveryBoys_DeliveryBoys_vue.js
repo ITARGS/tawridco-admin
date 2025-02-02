@@ -1917,7 +1917,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -1938,7 +1938,9 @@ var render = function () {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v(_vm._s(_vm.__("name"))),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -1954,7 +1956,7 @@ var render = function () {
                     type: "text",
                     name: "name",
                     id: "name",
-                    placeholder: "Enter name.",
+                    placeholder: _vm.__("name"),
                   },
                   domProps: { value: _vm.deliveryBoys.name },
                   on: {
@@ -1972,7 +1974,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "dob" } }, [
-                  _vm._v("Date Of Birth"),
+                  _vm._v(_vm._s(_vm.__("date_of_birth"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -1990,7 +1992,7 @@ var render = function () {
                     name: "dob",
                     id: "dob",
                     required: "",
-                    placeholder: "Enter date of birth",
+                    placeholder: _vm.__("date_of_birth"),
                   },
                   domProps: { value: _vm.deliveryBoys.dob },
                   on: {
@@ -2017,7 +2019,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "mobile" } }, [
-                  _vm._v("Mobile No."),
+                  _vm._v(_vm._s(_vm.__("mobile_no"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2034,7 +2036,7 @@ var render = function () {
                     type: "number",
                     name: "mobile",
                     id: "mobile",
-                    placeholder: "Enter mobile no.",
+                    placeholder: _vm.__("mobile_no"),
                   },
                   domProps: { value: _vm.deliveryBoys.mobile },
                   on: {
@@ -2064,7 +2066,9 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "email" } }, [_vm._v("Email.")]),
+                _c("label", { attrs: { for: "email" } }, [
+                  _vm._v(_vm._s(_vm.__("email"))),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -2080,7 +2084,7 @@ var render = function () {
                     type: "text",
                     name: "email",
                     id: "email",
-                    placeholder: "Enter email id.",
+                    placeholder: _vm.__("email"),
                   },
                   domProps: { value: _vm.deliveryBoys.email },
                   on: {
@@ -2098,7 +2102,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "password" } }, [
-                  _vm._v("Password"),
+                  _vm._v(_vm._s(_vm.__("password"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2115,7 +2119,7 @@ var render = function () {
                     type: "password",
                     name: "password",
                     id: "password",
-                    placeholder: "Enter password.",
+                    placeholder: _vm.__("password"),
                   },
                   domProps: { value: _vm.deliveryBoys.password },
                   on: {
@@ -2137,7 +2141,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "confirm_password" } }, [
-                  _vm._v("Confirm Password"),
+                  _vm._v(_vm._s(_vm.__("confirm_password"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2154,7 +2158,7 @@ var render = function () {
                     type: "password",
                     name: "confirm_password",
                     id: "confirm_password",
-                    placeholder: "Enter agin password.",
+                    placeholder: _vm.__("confirm_password"),
                   },
                   domProps: { value: _vm.deliveryBoys.confirm_password },
                   on: {
@@ -2176,7 +2180,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "driving_license" } }, [
-                  _vm._v("Driving License"),
+                  _vm._v(_vm._s(_vm.__("driving_licence"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2210,7 +2214,8 @@ var render = function () {
                       ? [
                           _c("label", [
                             _vm._v(
-                              "Selected file name:- " +
+                              _vm._s(_vm.__("selected_file_name")) +
+                                ":- " +
                                 _vm._s(_vm.deliveryBoys.driving_license.name)
                             ),
                           ]),
@@ -2259,7 +2264,7 @@ var render = function () {
                               },
                               [
                                 _c("i", { staticClass: "fa fa-eye" }),
-                                _vm._v(" Identity Card"),
+                                _vm._v(" " + _vm._s(_vm.__("identity"))),
                               ]
                             ),
                           ]),
@@ -2271,7 +2276,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "national_identity_card" } }, [
-                  _vm._v("National Identity Card"),
+                  _vm._v(_vm._s(_vm._("national_identity_card"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2305,7 +2310,8 @@ var render = function () {
                       ? [
                           _c("label", [
                             _vm._v(
-                              "Selected file name:-\n                " +
+                              _vm._s(_vm.__("selected_file_name")) +
+                                "\n                " +
                                 _vm._s(
                                   _vm.deliveryBoys.national_identity_card.name
                                 )
@@ -2358,7 +2364,7 @@ var render = function () {
                               },
                               [
                                 _c("i", { staticClass: "fa fa-eye" }),
-                                _vm._v(" Identity Card"),
+                                _vm._v(" " + _vm._s(_vm.__("identity"))),
                               ]
                             ),
                           ]),
@@ -2369,7 +2375,9 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "bonus" } }, [_vm._v("Bonus (%)")]),
+                _c("label", { attrs: { for: "bonus" } }, [
+                  _vm._v(_vm._s(_vm.__("bonus"))),
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -2385,7 +2393,7 @@ var render = function () {
                     type: "number",
                     name: "bonus",
                     id: "bonus",
-                    placeholder: "Enter Bonus (%)",
+                    placeholder: _vm.__("bonus"),
                   },
                   domProps: { value: _vm.deliveryBoys.bonus },
                   on: {
@@ -2403,7 +2411,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "ifsc_code" } }, [
-                  _vm._v("Bank's IFSC Code"),
+                  _vm._v(_vm._s(_vm.__("bank_ifsc_code"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2421,7 +2429,7 @@ var render = function () {
                     name: "ifsc_code",
                     id: "ifsc_code",
                     required: "",
-                    placeholder: "Enter bank's IFSC code.",
+                    placeholder: _vm.__("bank_ifsc_code"),
                   },
                   domProps: { value: _vm.deliveryBoys.ifsc_code },
                   on: {
@@ -2443,7 +2451,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "bank_name" } }, [
-                  _vm._v("Bank Name"),
+                  _vm._v(_vm._s(_vm.__("bank_name"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2461,7 +2469,7 @@ var render = function () {
                     name: "bank_name",
                     id: "bank_name",
                     required: "",
-                    placeholder: "Enter bank name",
+                    placeholder: _vm.__("bank_name"),
                   },
                   domProps: { value: _vm.deliveryBoys.bank_name },
                   on: {
@@ -2483,7 +2491,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "account_number" } }, [
-                  _vm._v("Account Number"),
+                  _vm._v(_vm._s(_vm.__("account_number"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2501,7 +2509,7 @@ var render = function () {
                     name: "account_number",
                     id: "account_number",
                     required: "",
-                    placeholder: "Enter account number",
+                    placeholder: _vm.__("account_number"),
                   },
                   domProps: { value: _vm.deliveryBoys.bank_account_number },
                   on: {
@@ -2532,7 +2540,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "account_name" } }, [
-                  _vm._v("Bank Account Name"),
+                  _vm._v(_vm._s(_vm.__("bank_account_name"))),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -2550,7 +2558,7 @@ var render = function () {
                     name: "account_name",
                     id: "account_name",
                     required: "",
-                    placeholder: "Enter bank account name",
+                    placeholder: _vm.__("bank_account_name"),
                   },
                   domProps: { value: _vm.deliveryBoys.account_name },
                   on: {
@@ -2574,13 +2582,13 @@ var render = function () {
               { staticClass: "col-md-6" },
               [
                 _c("label", { attrs: { for: "city_name" } }, [
-                  _vm._v("Select or Search City"),
+                  _vm._v(_vm._s(_vm.__("select_or_search_city"))),
                 ]),
                 _vm._v(" "),
                 _c("multiselect", {
                   attrs: {
                     options: _vm.cities,
-                    placeholder: "Select & Search City",
+                    placeholder: _vm.__("select_or_search_city"),
                     label: "name",
                     "track-by": "name",
                     id: "city_name",
@@ -2627,7 +2635,9 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "address" } }, [_vm._v("Address")]),
+                _c("label", { attrs: { for: "address" } }, [
+                  _vm._v(_vm._s(_vm.__("address"))),
+                ]),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -2643,7 +2653,7 @@ var render = function () {
                     name: "address",
                     id: "address",
                     rows: "3",
-                    placeholder: "Enter address",
+                    placeholder: _vm.__("address"),
                   },
                   domProps: { value: _vm.deliveryBoys.address },
                   on: {
@@ -2661,7 +2671,7 @@ var render = function () {
             _c("div", { staticClass: "col-md-6" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "other_payment_info" } }, [
-                  _vm._v("Other Payment Information"),
+                  _vm._v(_vm._s(_vm.__("other_payment_information"))),
                 ]),
                 _vm._v(" "),
                 _c("textarea", {
@@ -2678,7 +2688,7 @@ var render = function () {
                     name: "other_payment_info",
                     id: "other_payment_info",
                     rows: "3",
-                    placeholder: "Enter other payment information",
+                    placeholder: _vm.__("other_payment_information"),
                   },
                   domProps: {
                     value: _vm.deliveryBoys.other_payment_information,
@@ -2705,16 +2715,16 @@ var render = function () {
                     "div",
                     { staticClass: "form-group" },
                     [
-                      _c("label", [_vm._v("Status")]),
+                      _c("label", [_vm._v(_vm._s(_vm.__("status")))]),
                       _c("br"),
                       _vm._v(" "),
                       _c("b-form-radio-group", {
                         attrs: {
                           options: [
                             { text: _vm.__("registered"), value: 0 },
-                            { text: " Activated", value: 1 },
+                            { text: _vm.__("activated"), value: 1 },
                             { text: _vm.__("not-approved"), value: 2 },
-                            { text: " Deactivated", value: 3 },
+                            { text: _vm.__("deactivated"), value: 3 },
                           ],
                           buttons: "",
                           "button-variant": "outline-primary",
@@ -2738,7 +2748,7 @@ var render = function () {
               ? _c("div", { staticClass: "form-group col-md-12" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "remark" } }, [
-                      _vm._v("Remark"),
+                      _vm._v(_vm._s(_vm.__("remark"))),
                     ]),
                     _vm._v(" "),
                     _c("textarea", {
@@ -2755,7 +2765,7 @@ var render = function () {
                         name: "remark",
                         id: "remark",
                         required: "",
-                        placeholder: "Add a remark of this status...",
+                        placeholder: _vm.__("add_mark"),
                       },
                       domProps: { value: _vm.deliveryBoys.remark },
                       on: {

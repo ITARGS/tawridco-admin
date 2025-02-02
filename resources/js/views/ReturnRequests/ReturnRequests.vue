@@ -75,21 +75,21 @@
               </template>
 
               <template #head(price)="row">
-                {{ "Price (" + $currency + ")" }}
+              {{ __("price") }}  {{ "(" + $currency + ")" }}
               </template>
               <template #head(discounted_price)="row">
-                {{ "Discounted Price (" + $currency + ")" }}
+                {{ __("discounted_price") }}{{ "(" + $currency + ")" }}
               </template>
 
               <template #cell(status)="row">
-                <span v-if="row.item.status === 1" class="badge bg-warning">Pending</span>
+                <span v-if="row.item.status === 1" class="badge bg-warning">{{ __("pending") }}</span>
                 <span v-else-if="row.item.status === 2" class="badge bg-success"
-                  >Approved</span
+                  >{{ __("approved") }}</span
                 >
                 <span v-else-if="row.item.status === 3" class="badge bg-danger"
-                  >Rejected</span
+                  >{{ __("rejected") }}</span
                 >
-                <span v-else class="badge bg-danger">Undefine</span>
+                <span v-else class="badge bg-danger">{{ __("undefine") }}</span>
               </template>
               <template #cell(created_at)="row">
                 {{ new Date(row.item.created_at).toLocaleString() }}
@@ -166,26 +166,26 @@ export default {
   data: function () {
     return {
       fields: [
-        { key: "id", label: "ID", sortable: true, sortDirection: "desc" },
-        { key: "user_id", label: "U.ID", sortable: true, class: "text-center" },
-        { key: "name", label: "Name", sortable: true, class: "text-center" },
+        { key: "id", label: __("id"), sortable: true, sortDirection: "desc" },
+        { key: "user_id", label: __("user_id"), sortable: true, class: "text-center" },
+        { key: "name", label: __("name"), sortable: true, class: "text-center" },
         {
           key: "product_name",
-          label: "Product Name",
+          label: __("product_name"),
           sortable: true,
           class: "text-center",
         },
-        { key: "price", label: "Price", sortable: true, class: "text-center" },
+        { key: "price", label: __("price"), sortable: true, class: "text-center" },
         {
           key: "discounted_price",
-          label: "Discounted Price",
+          label: __("discounted_price"),
           sortable: true,
           class: "text-center",
         },
-        { key: "quantity", label: "Quantity", sortable: true, class: "text-center" },
-        { key: "sub_total", label: "Total", sortable: true, class: "text-center" },
-        { key: "status", label: "Status", sortable: true, class: "text-center" },
-        { key: "created_at", label: "Date", sortable: true, class: "text-center" },
+        { key: "quantity", label: __("quantity"), sortable: true, class: "text-center" },
+        { key: "sub_total", label: __("total"), sortable: true, class: "text-center" },
+        { key: "status", label: __("status"), sortable: true, class: "text-center" },
+        { key: "created_at", label: __("date"), sortable: true, class: "text-center" },
         { key: "actions", label: __("actions") },
       ],
       totalRows: 1,

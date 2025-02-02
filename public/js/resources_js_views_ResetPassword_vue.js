@@ -263,9 +263,9 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("h4", [_vm._v("Reset Your")]),
+            _c("h4", [_vm._v(_vm._s(_vm.__("reset_your")))]),
             _vm._v(" "),
-            _c("h4", [_vm._v("Password here!")]),
+            _c("h4", [_vm._v(_vm._s(_vm.__("password_here")))]),
             _vm._v(" "),
             _c(
               "form",
@@ -294,7 +294,7 @@ var render = function () {
                       staticClass: "form-control form-control-xl",
                       attrs: {
                         type: "password",
-                        placeholder: "New Password",
+                        placeholder: _vm.__("new_password"),
                         required: "",
                       },
                       domProps: { value: _vm.user.password },
@@ -328,7 +328,7 @@ var render = function () {
                       staticClass: "form-control form-control-xl",
                       attrs: {
                         type: "password",
-                        placeholder: "Confirm New Password",
+                        placeholder: _vm.__("confirm_new_password"),
                         required: "",
                       },
                       domProps: { value: _vm.user.password_confirmation },
@@ -357,7 +357,11 @@ var render = function () {
                       "btn btn-primary btn-block btn-lg shadow-lg mt-5 auth-btn",
                   },
                   [
-                    _vm._v("\n            Reset Password\n            "),
+                    _vm._v(
+                      "\n            " +
+                        _vm._s(_vm.__("reset_password")) +
+                        "\n            "
+                    ),
                     _vm.isLoading
                       ? _c("b-spinner", {
                           attrs: { small: "", label: "Spinning" },
@@ -380,7 +384,8 @@ var render = function () {
                   _vm._v(
                     "\n            @ 2022 " +
                       _vm._s(_vm.$appName) +
-                      ". All Right Reserved"
+                      ". " +
+                      _vm._s(_vm.__("all_right_reserved"))
                   ),
                 ]
               ),

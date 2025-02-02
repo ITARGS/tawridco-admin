@@ -556,8 +556,10 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
-                                _vm._s("Amount (" + _vm.$currency + ")") +
+                              "\n                               " +
+                                _vm._s(_vm.__("amount")) +
+                                " " +
+                                _vm._s(" (" + _vm.$currency + ")") +
                                 "\n                            "
                             ),
                           ]

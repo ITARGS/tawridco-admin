@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Newsletter</h3>
+                        <h3>{{ __("newsletter") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><router-link to="/dashboard">{{ __('dashboard') }}</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Newsletter</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("newsletter") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -19,18 +19,18 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Newsletter</h4>
+                        <h4 class="card-title">{{ __("newsletter") }}</h4>
                     </div>
                     <div class="card-body">
 
                         <b-row class="mb-2">
                             <b-col md="3" offset-md="8">
-                                <h6 class="box-title">Search</h6>
+                                <h6 class="box-title">{{__("search")}}</h6>
                                 <b-form-input
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -109,9 +109,9 @@ export default {
     data: function() {
         return {
             fields: [
-                { key: 'id', label: 'ID', sortable: true, sortDirection: 'desc' },
-                { key: 'email', label: 'Emai', sortable: true, class: 'text-center' },
-                { key: 'created_at', label: 'Date Created', sortable: true, class: 'text-center' }
+                { key: 'id', label:__('id'), sortable: true, sortDirection: 'desc' },
+                { key: 'email', label: __('email'), sortable: true, class: 'text-center' },
+                { key: 'created_at', label: __('date_created'), sortable: true, class: 'text-center' }
             ],
             totalRows: 1,
             currentPage: 1,

@@ -78,7 +78,7 @@
                                     </div>
                                 </template>
                             </b-table>
-                            
+
                         </div>
                         <b-row>
                             <b-col  md="2" class="my-1">
@@ -181,7 +181,7 @@ export default {
                 responseType: 'blob',
             }).then((response) => {
         this.isLoading = false;
-        
+
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
@@ -202,13 +202,13 @@ export default {
         },
        exportToCSV() {
           let customHeaders = [
-            'Product Name',
-            'Seller Name',
-            'Seller ID',
-            'Product Variant ID',
-            'Unit of Measure',
-            'Total Units Sold',
-            'Total Sales'
+            __("product_name"),
+            __("seller_name"),
+            __("seller_id"),
+            __("product_variant_id"),
+            __("unit_of_measure"),
+            __("total_units_sold"),
+            __("total_sales")
         ];
   const csvData = this.convertToCSV(this.productSalesReports,customHeaders);
   const blob = new Blob([csvData], { type: 'text/csv' });

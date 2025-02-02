@@ -271,19 +271,19 @@ __webpack_require__.r(__webpack_exports__);
         sortDirection: "desc"
       }, {
         key: "seller_name",
-        label: "Seller Name",
+        label: __("seller_name"),
         "class": "text-center",
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "category_name",
-        label: "Category Name",
+        label: __("category_name"),
         "class": "text-center",
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "commission",
-        label: "Commi.(%)",
+        label: __("commission"),
         "class": "text-center",
         sortable: true,
         sortDirection: "desc"
@@ -661,7 +661,9 @@ var render = function () {
     [
       _c("div", { staticClass: "page-heading" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("seller_commissions")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -677,7 +679,7 @@ var render = function () {
                     { staticClass: "breadcrumb-item" },
                     [
                       _c("router-link", { attrs: { to: "/dashboard" } }, [
-                        _vm._v("Dashboard"),
+                        _vm._v(_vm._s(_vm.__("dashboard"))),
                       ]),
                     ],
                     1
@@ -689,7 +691,13 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("\n              Seller Commissions\n            ")]
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.__("seller_commissions")) +
+                          "\n            "
+                      ),
+                    ]
                   ),
                 ]),
               ]
@@ -700,7 +708,13 @@ var render = function () {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-12 col-md-12 order-md-1 order-last" }, [
             _c("div", { staticClass: "card" }, [
-              _vm._m(1),
+              _c("div", { staticClass: "card-header" }, [
+                _c("h4", [
+                  _vm._v(
+                    _vm._s(_vm.__("category_wise_seller_commission_list"))
+                  ),
+                ]),
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -715,14 +729,14 @@ var render = function () {
                         { attrs: { md: "3", "offset-md": "8" } },
                         [
                           _c("h6", { staticClass: "box-title" }, [
-                            _vm._v("Search"),
+                            _vm._v(_vm._s(_vm.__("search"))),
                           ]),
                           _vm._v(" "),
                           _c("b-form-input", {
                             attrs: {
                               id: "filter-input",
                               type: "search",
-                              placeholder: "Search",
+                              placeholder: _vm.__("search"),
                             },
                             model: {
                               value: _vm.filter,
@@ -965,24 +979,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Seller Commissions")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Category wise seller commission list")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -459,7 +459,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1121,7 +1121,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,
@@ -1233,8 +1233,10 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                                " +
-                                  _vm._s("Amount (" + _vm.$currency + ")") +
+                                "\n                               " +
+                                  _vm._s(_vm.__("amount")) +
+                                  " " +
+                                  _vm._s(" (" + _vm.$currency + ")") +
                                   "\n                            "
                               ),
                             ]

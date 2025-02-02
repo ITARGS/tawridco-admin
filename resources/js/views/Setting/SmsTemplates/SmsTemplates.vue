@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-12 col-md-12 order-md-1 order-last">
                     <div class="card">
-                        
+
                         <div class="card-body">
                             <b-row class="mb-2">
                                 <b-col md="3" offset-md="8">
@@ -42,7 +42,7 @@
                             <b-table
                                 :items="sms_templates"
                                 :fields="fields"
-                               
+
                                 :filter="filter"
                                 :filter-included-fields="filterOn"
                                 :sort-by.sync="sortBy"
@@ -63,7 +63,7 @@
                                 <template #cell(updated_at)="row">
                                     {{ new Date(row.item.updated_at).toLocaleString()  }}
                                 </template>
-                               
+
                                 <template #cell(actions)="row">
                                     <button class="btn btn-sm btn-primary" @click="edit_record = row.item" v-if="$can('category_update')" v-b-tooltip.hover :title="__('edit')"><i class="fa fa-pencil-alt"></i></button>
                                 </template>
@@ -98,7 +98,7 @@
                                     align="fill"
                                     size="sm"
                                     class="my-0"
-                                    
+
                                 ></b-pagination>
                             </b-col>
                             </b-row>
@@ -131,7 +131,7 @@ export default {
                 { key: 'id', label: __('id'), class: 'text-left', sortable: true, sortDirection: 'desc',thStyle: { width: '5%' }  },
                 { key: 'type', label: __('type'), class: 'text-left', sortable: true,thStyle: { width: '20%' }  },
                 { key: 'message', label: __('message'), class: 'text-left', sortable: true,thStyle: { width: '50%' }  },
-                { key: 'updated_at', label: __('last_update'),  class: 'text-left',thStyle: { width: '15%' }  },
+                { key: 'updated_at', label: __('last_updated'),  class: 'text-left',thStyle: { width: '15%' }  },
                 { key: 'actions', label: __('actions'), class: 'text-center', thStyle: { width: '10%' } }
             ],
             totalRows: 1,
@@ -177,7 +177,7 @@ export default {
             this.getSmsTemplates();
             this.create_new = null;
         });
-        this.getSmsTemplates(); 
+        this.getSmsTemplates();
     },
     methods: {
 

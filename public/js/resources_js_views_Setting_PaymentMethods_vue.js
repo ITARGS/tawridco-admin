@@ -1922,15 +1922,12 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "INR" } }, [
-                                _vm._v(
-                                  "Indian rupee " +
-                                    _vm._s(_vm.__("indian_rupee"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("indian_rupee"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AUD" } }, [
                                 _vm._v(
-                                  "\n                      Australian dollar" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("australian_dollar")) +
                                     "\n                    "
                                 ),
@@ -1938,7 +1935,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BRL" } }, [
                                 _vm._v(
-                                  "\n                      Brazilian real" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("brazilian_real")) +
                                     "\n                    "
                                 ),
@@ -1946,7 +1943,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CAD" } }, [
                                 _vm._v(
-                                  "\n                      Canadian dollar" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("canadian_doller")) +
                                     "\n                    "
                                 ),
@@ -1954,33 +1951,27 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CNY" } }, [
                                 _vm._v(
-                                  "\n                      Chinese Renmenbi" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("chinese_renmenbi")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CZK" } }, [
-                                _vm._v(
-                                  "Czech koruna" +
-                                    _vm._s(_vm.__("czech_koruna"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("czech_koruna"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DKK" } }, [
-                                _vm._v(
-                                  "Danish krone " +
-                                    _vm._s(_vm.__("danish_krone"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("danish_krone"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "EUR" } }, [
-                                _vm._v("Euro " + _vm._s(_vm.__("euro"))),
+                                _vm._v(_vm._s(_vm.__("euro"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HKD" } }, [
                                 _vm._v(
-                                  "\n                      Hong Kong dollar " +
+                                  "\n                     " +
                                     _vm._s(_vm.__("hong_kong_dollar")) +
                                     "\n                    "
                                 ),
@@ -1988,7 +1979,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HUF" } }, [
                                 _vm._v(
-                                  "\n                      Hungarian forint " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("hungarian_forint")) +
                                     "\n                    "
                                 ),
@@ -1996,17 +1987,14 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ILS" } }, [
                                 _vm._v(
-                                  "\n                      Israeli new shekel" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("israeli_new_shekel")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "JPY" } }, [
-                                _vm._v(
-                                  "Japanese yen" +
-                                    _vm._s(_vm.__("japanese_yen"))
-                                ),
+                                _vm._v(" " + _vm._s(_vm.__("japanese_yen"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MYR" } }, [

@@ -978,7 +978,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "amount" } }, [_vm._v("Amount")]),
+              _c("label", { attrs: { for: "amount" } }, [
+                _vm._v(_vm._s(_vm.__("amount"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [

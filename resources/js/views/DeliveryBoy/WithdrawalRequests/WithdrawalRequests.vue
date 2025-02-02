@@ -78,7 +78,7 @@
                                 </div>
                             </template>
                             <template #head(amount)="row">
-                                {{'Amount ('+$currency+')' }}
+                            {{ __("amount") }}    {{' ('+$currency+')' }}
                             </template>
                             <template #cell(status)="row">
                                 <span v-if="row.item.status === 0" class="badge bg-warning">{{ __('pending') }}</span>
@@ -152,13 +152,13 @@ export default {
                { key: 'id', label:  __('id') , sortable: true, sortDirection: 'desc' },
                 { key: 'type', label: __('type'), sortable: true, class: 'text-center' },
                 { key: 'name', label: __('name'), sortable: true, class: 'text-center' },
-                { key: 'amount', label: __('amount'), sortable: true, class: 'text-center' },            
+                { key: 'amount', label: __('amount'), sortable: true, class: 'text-center' },
                 { key: 'message', label: __('message'), sortable: true,  class: 'text-center',tdClass: 'custom-message-width'  },
                 { key: 'status', label: __('status'), sortable: true, class: 'text-center' },
                 { key: 'remark', label: __('remark'), sortable: true, class: 'text-center',tdClass: 'custom-message-width' },
                 { key: 'receipt_image', label: __('receipt_image'), sortable: true, class: 'text-center' },
                 { key: 'created_at', label:__('date'), sortable: true, class: 'text-center' },
-               
+
             ],
             totalRows: 1,
             currentPage: 1,
@@ -180,7 +180,7 @@ export default {
 
             customers: null,
             withdrawalRequests: [
-                
+
             ],
             balance: 0,
             status : ""
@@ -200,7 +200,7 @@ export default {
         // Set the initial number of items
         this.totalRows = this.withdrawalRequests.length
     },
-   
+
     created: function () {
         this.$eventBus.$on('withdrawalRequestsSaved', (message) => {
             //this.showSuccess(message);

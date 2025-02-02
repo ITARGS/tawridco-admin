@@ -130,7 +130,7 @@ export default {
             fields: [
                 { key: 'id', label: __('id'), sortable: true, sortDirection: 'desc' },
                 { key: 'title', label: __('title'), sortable: true, class: 'text-center' },
-                { key: 'message', label: __('messgae'), sortable: true, class: 'text-center' },
+                { key: 'message', label: __('message'), sortable: true, class: 'text-center' },
                 { key: 'type', label: __('type'),  class: 'text-center' },
                 { key: 'type_id', label: __('id'),  class: 'text-center' },
                 { key: 'type_link', label: __('link'),  class: 'text-center' },

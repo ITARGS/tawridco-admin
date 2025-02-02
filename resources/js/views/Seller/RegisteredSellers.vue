@@ -393,7 +393,7 @@ export default {
           sortable: true,
           sortDirection: "desc",
         },
-        { key: "actions", label: __("action") },
+        { key: "actions", label: __("actions") },
       ],
       totalRows: 1,
       currentPage: 1,

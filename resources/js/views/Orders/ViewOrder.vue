@@ -3,7 +3,7 @@
         <div class="page-heading">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>View Order</h3>
+                    <h3>{{ __("view_order") }}</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -18,16 +18,16 @@
                                 <router-link to="/dashboard">{{ __('dashboard') }}</router-link>
                             </li>
                             <li class="breadcrumb-item" v-if="isSellerRoute">
-                                <router-link to="/seller/orders">View Order</router-link>
+                                <router-link to="/seller/orders">{{ __("view_order") }}</router-link>
                             </li>
                             <li class="breadcrumb-item" v-else-if="isDeliveryBoyRoute">
-                                <router-link to="/delivery_boy/orders">View Order</router-link>
+                                <router-link to="/delivery_boy/orders">{{ __("view_order") }}</router-link>
                             </li>
                             <li class="breadcrumb-item" v-else>
-                                <router-link to="/orders">View Order</router-link>
+                                <router-link to="/orders">{{ __("view_order") }}</router-link>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Order Details
+                                {{ __("order_details") }}
                             </li>
                         </ol>
                     </nav>
@@ -38,66 +38,66 @@
                 <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-header">
-                            <h4>Order Details</h4>
+                            <h4>{{ __("order_details") }}</h4>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <th class="th-width">Order Id</th>
+                                        <th class="th-width">{{ __("order_id") }}</th>
                                         <td>{{ order.order_id }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Email</th>
+                                        <th class="th-width">{{ __("email") }}</th>
                                         <td>{{ order.user_email }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">O. Note</th>
+                                        <th class="th-width">{{ __("order_note") }}</th>
                                         <td>{{ order.order_note }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Status</th>
+                                        <th class="th-width">{{ __("status") }}</th>
                                         <td>
                                             {{ order.status_name }}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Name</th>
+                                        <th class="th-width">{{ __("name") }}</th>
                                         <td>{{ order.user_name }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Contact</th>
+                                        <th class="th-width">{{ __("contact_us") }}</th>
                                         <td>{{ order.user_mobile | mobileMask }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Area</th>
+                                        <th class="th-width">{{ __("area") }}</th>
                                         <td>{{ order.address }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Pincode</th>
+                                        <th class="th-width">{{ __("pincode") }}</th>
                                         <td>{{ order.pincode }}</td>
                                     </tr>
-                                    
+
                                     <tr>
-                                        <th class="th-width">Delivery Boy</th>
+                                        <th class="th-width">{{ __("delivery_boys") }}</th>
                                         <td>
                                             <template v-if="order.delivery_boy_name">
                                                 {{ order.delivery_boy_name }}
                                             </template>
                                             <template v-else>
-                                                Not Assign
+                                                {{ __("not_assign") }}
                                             </template>
                                         </td>
                                     </tr>
                                     <tr v-if="this.$roleDeliveryBoy !== this.login_user.role.name">
-                                        <th class="th-width">Assign Delivery Boy</th>
+                                        <th class="th-width">{{ __("assign_delivery_boy") }}</th>
                                         <td>
                                             <form class="row g-3 align-items-center" ref="my-form" @submit.prevent="assignDeliveryBoy">
 
                                                 <div class="input-group">
-                                                    <label class="visually-hidden" for="delivery_boy_id">Delivery Boy</label>
+                                                    <label class="visually-hidden" for="delivery_boy_id">{{ __("delivery_boy") }}</label>
                                                     <select id="delivery_boy_id" name="status" class="form-control form-select" v-model="delivery_boy_id">
-                                                        <option value="">Select Delivery Boy</option>
+                                                        <option value="">{{ __("select_delivery_boy") }}</option>
                                                         <option v-for="boy in deliveryBoys" :value='boy.id'>{{ boy.name }}</option>
                                                     </select>
                                                     <div class="input-group-append">
@@ -110,18 +110,18 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Update Status</th>
+                                        <th class="th-width">{{ __("update_status") }}</th>
                                         <td>
                                             <form class="row g-3 align-items-center" ref="my-form" @submit.prevent="updateStatus">
 
                                                 <div class="input-group">
-                                                    <label class="visually-hidden" for="status">Status</label>
+                                                    <label class="visually-hidden" for="status">{{ __("status") }}</label>
                                                     <select id="status" name="status" class="form-control form-select" v-model="order_status_id">
-                                                        <option value="">Select Order Status</option>
+                                                        <option value="">{{ __("select_order_status") }}</option>
                                                         <option v-for="status in statuses" :value='status.id'>{{ status.status }}</option>
                                                     </select>
                                                     <div class="input-group-append">
-                                                        <button type="submit" class="btn btn-primary" :disabled="order_status_id === '' || isLoadingUstatus" > <template v-if="isLoadingUstatus"><b-spinner small label="Spinning"></b-spinner></template> Update </button>
+                                                        <button type="submit" class="btn btn-primary" :disabled="order_status_id === '' || isLoadingUstatus" > <template v-if="isLoadingUstatus"><b-spinner small label="Spinning"></b-spinner></template> {{ __("update") }} </button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -135,20 +135,20 @@
                 <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-header">
-                            <h4>Billing Details</h4>
+                            <h4>{{ __("billing_details") }}</h4>
                             <span class="pull-right">
 
                                 <button @click="downloadInvoice" v-b-tooltip.hover title="Download Invoice" class="btn btn-secondary btn-sm" :disabled="isLoading" >
                                     <template v-if="isLoading" >
-                                        <b-spinner small label="Spinning"></b-spinner> Downloading...
+                                        <b-spinner small label="Spinning"></b-spinner> {{ __("downloading") }}
                                     </template>
                                     <template v-else>
-                                        <i class="fa fa-download"></i> Download Invoice
+                                        <i class="fa fa-download"></i> {{ __("download_invoice") }}
                                     </template>
                                 </button>
 
                                 <router-link :to="invoiceRoute" v-b-tooltip.hover title="Generate Invoice" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-file" aria-hidden="true"></i> Generate Invoice
+                                    <i class="fa fa-file" aria-hidden="true"></i> {{ __("generate_invoice") }}
                                 </router-link>
                             </span>
                         </div>
@@ -156,50 +156,50 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <th class="th-width">Order Date</th>
+                                        <th class="th-width">{{ __("order_date") }}</th>
                                         <td> {{ formatDate(order.orders_created_at) }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Address</th>
+                                        <th class="th-width">{{ __("address") }}</th>
                                         <td colspan="3">{{ order.order_address}}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Delivery Time</th>
+                                        <th class="th-width">{{ __("delivery_time") }}</th>
                                         <td>{{ order.delivery_time }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Total ({{ $currency }})</th>
+                                        <th class="th-width">{{ __("total") }} ({{ $currency }})</th>
                                         <td>{{ order.total }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Disc. {{ $currency }}( % )</th>
+                                        <th class="th-width">{{ __("disc") }}. {{ $currency }}( % )</th>
                                         <td>{{ discount_in_rupees+' ( '+ order.discount+'% )' }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Wallet Used ({{ $currency }})</th>
+                                        <th class="th-width">{{ __("wallet_used") }} ({{ $currency }})</th>
                                         <td>{{ order.wallet_balance }}</td>
-                                        
+
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Promo Disc. ({{ $currency }})</th>
+                                        <th class="th-width">{{ __("promo_disc") }}. ({{ $currency }})</th>
                                         <td>{{ order.promo_discount }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Promo Code</th>
+                                        <th class="th-width">{{ __("promo_code") }}</th>
                                         <td>{{ order.promo_code }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">D.Charge ({{ $currency }})</th>
+                                        <th class="th-width">{{ __("dcharges") }} ({{ $currency }})</th>
                                         <td>{{ order.delivery_charge }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Payable Total( {{ $currency }} )</th>
+                                        <th class="th-width">{{__("payable_total")}}( {{ $currency }} )</th>
                                         <td>
                                             <input type="number" class="form-control" name="final_total" :value="order.final_total" disabled>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th class="th-width">Payment Method</th>
+                                        <th class="th-width">{{ __("payment_method") }}</th>
                                         <td>{{ order.payment_method }}</td>
                                     </tr>
                             </tbody>
@@ -209,32 +209,32 @@
                 </div>
 
                 <div class="col-12 col-md-12 mt-4">
-                    <h4>List of Order Items</h4>
+                    <h4>{{ __("list_of_order_items") }}</h4>
                     <div class="row">
                         <div class="col-md-4" v-for="item in order_items">
                             <div class="card">
                                 <div class="card-body">
-                                    <b>Name :- </b>{{ item.product_name+" ("+item.variant_name+")" }}
+                                    <b>{{ __("name") }} :- </b>{{ item.product_name+" ("+item.variant_name+")" }}
                                     <br>
-                                    <b>Quantity :- </b>{{ item.quantity }}
+                                    <b>{{ __("quantity") }} :- </b>{{ item.quantity }}
                                     <br>
-                                    <b>Variant :- </b>{{ item.variant_name }}
+                                    <b>{{ __("variant") }} :- </b>{{ item.variant_name }}
                                     <br>
-                                    <b>Subtotal( {{ $currency }} ) :- </b>{{ item.sub_total }}
+                                    <b> {{ __("subtotal") }} ( {{ $currency }} ) :- </b>{{ item.sub_total }}
                                     <div class="row mt-3">
                                         <div class="col-6">
                                             <b-button v-b-tooltip.hover title="View Item Details" class="btn btn-block btn-primary"  @click="sendInfo(item)">
-                                                View Item Details
+                                                {{ __("view_item_details") }}
                                             </b-button>
                                         </div>
                                         <div class="col-6" v-if="isSellerRoute">
-                                            <router-link :to="{ name: 'SellerViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">View Product</router-link>
+                                            <router-link :to="{ name: 'SellerViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">{{ __("view_product") }}</router-link>
                                         </div>
                                         <div class="col-6" v-else-if="isDeliveryBoyRoute">
-                                            <router-link :to="{ name: 'DeliveryBoyViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">View Product</router-link>
+                                            <router-link :to="{ name: 'DeliveryBoyViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">{{ __("view_product") }}</router-link>
                                         </div>
                                         <div class="col-6" v-else>
-                                            <router-link :to="{ name: 'ViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">View Product</router-link>
+                                            <router-link :to="{ name: 'ViewProduct',params: { id: item.product_id }}" v-b-tooltip.hover title="View Product" class="btn btn-block btn-light-primary">{{ __("view_product") }}</router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -248,23 +248,23 @@
                 <b-container fluid>
                     <div class="row">
                         <ul class="list-group">
-                            <li class="list-group-item"><b>Name :- </b>{{ item.product_name+" ("+item.variant_name+")" }}</li>
+                            <li class="list-group-item"><b>{{ __("name") }} :- </b>{{ item.product_name+" ("+item.variant_name+")" }}</li>
                             <li class="list-group-item capitalize" v-if="item.active_status" >
                                 <b>Status :- </b>{{ item.active_status }}
                             </li>
                             <li class="list-group-item">
-                                <span><b>Product Id :- </b>{{ item.product_id }}</span>
+                                <span><b>{{ __("product_id") }} :- </b>{{ item.product_id }}</span>
                                 <router-link :to="viewProductRoute" v-b-tooltip.hover title="View" class="btn btn-primary btn-sm pull-right"><i class="fa fa-eye"></i></router-link>
                             </li>
-                            <li class="list-group-item" v-if="item.seller_name" ><b>Seller Name :- </b>{{ item.seller_name }}</li>
-                            <li class="list-group-item"><b>User Name :- </b>{{ item.user_name }}</li>
-                            <li class="list-group-item"><b>Variant Id :- </b>{{ item.product_variant_id }}</li>
-                            <li class="list-group-item"><b>Quantity :- </b>{{ item.quantity }}</li>
-                            <li class="list-group-item"><b>Price :- </b>{{ item.price }}</li>
-                            <li class="list-group-item"><b>Discounted Price( {{ $currency }} ) :- </b>{{ item.discounted_price }}</li>
-                            <li class="list-group-item"><b>Tax Amount( {{ $currency }} ) :- </b>{{ item.tax_amount }}</li>
-                            <li class="list-group-item"><b>Tax Percentage(%) :- </b>{{ item.tax_percentage }}</li>
-                            <li class="list-group-item"><b>Subtotal( {{ $currency }} ) :- </b>{{ item.sub_total }}</li>
+                            <li class="list-group-item" v-if="item.seller_name" ><b>{{ __("seller_name") }} :- </b>{{ item.seller_name }}</li>
+                            <li class="list-group-item"><b>{{ __("user_name") }} :- </b>{{ item.user_name }}</li>
+                            <li class="list-group-item"><b>{{ __("variant_id") }} :- </b>{{ item.product_variant_id }}</li>
+                            <li class="list-group-item"><b>{{ __("quantity") }} :- </b>{{ item.quantity }}</li>
+                            <li class="list-group-item"><b>{{ __("price") }} :- </b>{{ item.price }}</li>
+                            <li class="list-group-item"><b> {{ __("discounted_price") }} ( {{ $currency }} ) :- </b>{{ item.discounted_price }}</li>
+                            <li class="list-group-item"><b>{{__("tax_amount")}}( {{ $currency }} ) :- </b>{{ item.tax_amount }}</li>
+                            <li class="list-group-item"><b> {{ __("tax_percentage") }} (%) :- </b>{{ item.tax_percentage }}</li>
+                            <li class="list-group-item"><b> {{ __("subtotal") }} ( {{ $currency }} ) :- </b>{{ item.sub_total }}</li>
                             <li class="list-group-item">
                                 <a class=" col-sm-12 btn btn-success" :href="whatsappMessageLink(order.country_code,order.mobile,order.user_name,order.id, item.id)"
                                    target="_blank" title="Send Whatsapp Notification">
@@ -316,7 +316,7 @@ export default {
         order_id: '', // Replace with the actual order ID
       },
         }
-        
+
     },
     computed: {
     isSellerRoute() {
@@ -410,13 +410,13 @@ export default {
             let final_total = this.order.total - discounted_amount;
             this.discount_in_rupees = this.order.total - final_total;
         }
-       
+
     },
     methods: {
         getOrderStatus: function () {
             let vm = this;
             axios.get(this.$apiUrl + '/order_statuses').then((response) => {
-               
+
                 this.isLoading = false
                     let data = response.data;
                     const statusesToRemoveIds = [7, 8];
@@ -535,7 +535,7 @@ export default {
                 this.isLoadingDboy = false
                 let data = response.data;
                 if (data.status === 1) {
-                   
+
                     this.delivery_boy_id = '';
                     this.getOrder();
                     this.showMessage("success", data.message);
@@ -562,7 +562,7 @@ export default {
                 url: this.$apiUrl + '/orders/invoice_download',
                 method: 'post',
                 responseType: 'blob',
-              
+
                 data: postData
             }).then((response) => {
                 var fileURL = window.URL.createObjectURL(new Blob([response.data]));
@@ -629,7 +629,7 @@ export default {
                             this.isLoading = false
                             let data = response.data;
                             if (data.status === 1) {
-                                
+
                                 this.getOrder();
                                 this.status_id = '';
                                 this.selectedItems = [];

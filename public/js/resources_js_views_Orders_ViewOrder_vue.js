@@ -830,7 +830,9 @@ var render = function () {
       { staticClass: "page-heading" },
       [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("view_order")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -886,7 +888,7 @@ var render = function () {
                           _c(
                             "router-link",
                             { attrs: { to: "/seller/orders" } },
-                            [_vm._v("View Order")]
+                            [_vm._v(_vm._s(_vm.__("view_order")))]
                           ),
                         ],
                         1
@@ -899,7 +901,7 @@ var render = function () {
                           _c(
                             "router-link",
                             { attrs: { to: "/delivery_boy/orders" } },
-                            [_vm._v("View Order")]
+                            [_vm._v(_vm._s(_vm.__("view_order")))]
                           ),
                         ],
                         1
@@ -909,7 +911,7 @@ var render = function () {
                         { staticClass: "breadcrumb-item" },
                         [
                           _c("router-link", { attrs: { to: "/orders" } }, [
-                            _vm._v("View Order"),
+                            _vm._v(_vm._s(_vm.__("view_order"))),
                           ]),
                         ],
                         1
@@ -923,7 +925,9 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Order Details\n                        "
+                        "\n                            " +
+                          _vm._s(_vm.__("order_details")) +
+                          "\n                        "
                       ),
                     ]
                   ),
@@ -937,14 +941,16 @@ var render = function () {
           ? _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-6" }, [
                 _c("div", { staticClass: "card h-100" }, [
-                  _vm._m(1),
+                  _c("div", { staticClass: "card-header" }, [
+                    _c("h4", [_vm._v(_vm._s(_vm.__("order_details")))]),
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
                     _c("table", { staticClass: "table table-bordered" }, [
                       _c("tbody", [
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Order Id"),
+                            _vm._v(_vm._s(_vm.__("order_id"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.order_id))]),
@@ -952,7 +958,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Email"),
+                            _vm._v(_vm._s(_vm.__("email"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.user_email))]),
@@ -960,7 +966,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("O. Note"),
+                            _vm._v(_vm._s(_vm.__("order_note"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.order_note))]),
@@ -968,7 +974,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Status"),
+                            _vm._v(_vm._s(_vm.__("status"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -982,7 +988,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Name"),
+                            _vm._v(_vm._s(_vm.__("name"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.user_name))]),
@@ -990,7 +996,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Contact"),
+                            _vm._v(_vm._s(_vm.__("contact_us"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -1004,7 +1010,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Area"),
+                            _vm._v(_vm._s(_vm.__("area"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.address))]),
@@ -1012,7 +1018,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Pincode"),
+                            _vm._v(_vm._s(_vm.__("pincode"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.pincode))]),
@@ -1020,7 +1026,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Delivery Boy"),
+                            _vm._v(_vm._s(_vm.__("delivery_boys"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -1036,7 +1042,9 @@ var render = function () {
                                   ]
                                 : [
                                     _vm._v(
-                                      "\n                                            Not Assign\n                                        "
+                                      "\n                                            " +
+                                        _vm._s(_vm.__("not_assign")) +
+                                        "\n                                        "
                                     ),
                                   ],
                             ],
@@ -1047,7 +1055,7 @@ var render = function () {
                         this.$roleDeliveryBoy !== this.login_user.role.name
                           ? _c("tr", [
                               _c("th", { staticClass: "th-width" }, [
-                                _vm._v("Assign Delivery Boy"),
+                                _vm._v(_vm._s(_vm.__("assign_delivery_boy"))),
                               ]),
                               _vm._v(" "),
                               _c("td", [
@@ -1074,7 +1082,7 @@ var render = function () {
                                           staticClass: "visually-hidden",
                                           attrs: { for: "delivery_boy_id" },
                                         },
-                                        [_vm._v("Delivery Boy")]
+                                        [_vm._v(_vm._s(_vm.__("delivery_boy")))]
                                       ),
                                       _vm._v(" "),
                                       _c(
@@ -1122,7 +1130,13 @@ var render = function () {
                                           _c(
                                             "option",
                                             { attrs: { value: "" } },
-                                            [_vm._v("Select Delivery Boy")]
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.__("select_delivery_boy")
+                                                )
+                                              ),
+                                            ]
                                           ),
                                           _vm._v(" "),
                                           _vm._l(
@@ -1180,7 +1194,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Update Status"),
+                            _vm._v(_vm._s(_vm.__("update_status"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -1207,7 +1221,7 @@ var render = function () {
                                       staticClass: "visually-hidden",
                                       attrs: { for: "status" },
                                     },
-                                    [_vm._v("Status")]
+                                    [_vm._v(_vm._s(_vm.__("status")))]
                                   ),
                                   _vm._v(" "),
                                   _c(
@@ -1249,7 +1263,9 @@ var render = function () {
                                     },
                                     [
                                       _c("option", { attrs: { value: "" } }, [
-                                        _vm._v("Select Order Status"),
+                                        _vm._v(
+                                          _vm._s(_vm.__("select_order_status"))
+                                        ),
                                       ]),
                                       _vm._v(" "),
                                       _vm._l(_vm.statuses, function (status) {
@@ -1289,7 +1305,9 @@ var render = function () {
                                                 }),
                                               ]
                                             : _vm._e(),
-                                          _vm._v(" Update "),
+                                          _vm._v(
+                                            " " + _vm._s(_vm.__("update")) + " "
+                                          ),
                                         ],
                                         2
                                       ),
@@ -1309,7 +1327,7 @@ var render = function () {
               _c("div", { staticClass: "col-md-6" }, [
                 _c("div", { staticClass: "card h-100" }, [
                   _c("div", { staticClass: "card-header" }, [
-                    _c("h4", [_vm._v("Billing Details")]),
+                    _c("h4", [_vm._v(_vm._s(_vm.__("billing_details")))]),
                     _vm._v(" "),
                     _c(
                       "span",
@@ -1339,13 +1357,17 @@ var render = function () {
                                     attrs: { small: "", label: "Spinning" },
                                   }),
                                   _vm._v(
-                                    " Downloading...\n                                "
+                                    " " +
+                                      _vm._s(_vm.__("downloading")) +
+                                      "\n                                "
                                   ),
                                 ]
                               : [
                                   _c("i", { staticClass: "fa fa-download" }),
                                   _vm._v(
-                                    " Download Invoice\n                                "
+                                    " " +
+                                      _vm._s(_vm.__("download_invoice")) +
+                                      "\n                                "
                                   ),
                                 ],
                           ],
@@ -1374,7 +1396,9 @@ var render = function () {
                               attrs: { "aria-hidden": "true" },
                             }),
                             _vm._v(
-                              " Generate Invoice\n                            "
+                              " " +
+                                _vm._s(_vm.__("generate_invoice")) +
+                                "\n                            "
                             ),
                           ]
                         ),
@@ -1388,7 +1412,7 @@ var render = function () {
                       _c("tbody", [
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Order Date"),
+                            _vm._v(_vm._s(_vm.__("order_date"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -1403,7 +1427,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Address"),
+                            _vm._v(_vm._s(_vm.__("address"))),
                           ]),
                           _vm._v(" "),
                           _c("td", { attrs: { colspan: "3" } }, [
@@ -1413,7 +1437,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Delivery Time"),
+                            _vm._v(_vm._s(_vm.__("delivery_time"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.delivery_time))]),
@@ -1421,7 +1445,12 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Total (" + _vm._s(_vm.$currency) + ")"),
+                            _vm._v(
+                              _vm._s(_vm.__("total")) +
+                                " (" +
+                                _vm._s(_vm.$currency) +
+                                ")"
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.total))]),
@@ -1429,7 +1458,12 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Disc. " + _vm._s(_vm.$currency) + "( % )"),
+                            _vm._v(
+                              _vm._s(_vm.__("disc")) +
+                                ". " +
+                                _vm._s(_vm.$currency) +
+                                "( % )"
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -1447,7 +1481,10 @@ var render = function () {
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
                             _vm._v(
-                              "Wallet Used (" + _vm._s(_vm.$currency) + ")"
+                              _vm._s(_vm.__("wallet_used")) +
+                                " (" +
+                                _vm._s(_vm.$currency) +
+                                ")"
                             ),
                           ]),
                           _vm._v(" "),
@@ -1457,7 +1494,10 @@ var render = function () {
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
                             _vm._v(
-                              "Promo Disc. (" + _vm._s(_vm.$currency) + ")"
+                              _vm._s(_vm.__("promo_disc")) +
+                                ". (" +
+                                _vm._s(_vm.$currency) +
+                                ")"
                             ),
                           ]),
                           _vm._v(" "),
@@ -1466,7 +1506,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Promo Code"),
+                            _vm._v(_vm._s(_vm.__("promo_code"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.promo_code))]),
@@ -1474,7 +1514,12 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("D.Charge (" + _vm._s(_vm.$currency) + ")"),
+                            _vm._v(
+                              _vm._s(_vm.__("dcharges")) +
+                                " (" +
+                                _vm._s(_vm.$currency) +
+                                ")"
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.delivery_charge))]),
@@ -1483,7 +1528,10 @@ var render = function () {
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
                             _vm._v(
-                              "Payable Total( " + _vm._s(_vm.$currency) + " )"
+                              _vm._s(_vm.__("payable_total")) +
+                                "( " +
+                                _vm._s(_vm.$currency) +
+                                " )"
                             ),
                           ]),
                           _vm._v(" "),
@@ -1502,7 +1550,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Payment Method"),
+                            _vm._v(_vm._s(_vm.__("payment_method"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.order.payment_method))]),
@@ -1514,7 +1562,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-12 col-md-12 mt-4" }, [
-                _c("h4", [_vm._v("List of Order Items")]),
+                _c("h4", [_vm._v(_vm._s(_vm.__("list_of_order_items")))]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -1523,7 +1571,7 @@ var render = function () {
                     return _c("div", { staticClass: "col-md-4" }, [
                       _c("div", { staticClass: "card" }, [
                         _c("div", { staticClass: "card-body" }, [
-                          _c("b", [_vm._v("Name :- ")]),
+                          _c("b", [_vm._v(_vm._s(_vm.__("name")) + " :- ")]),
                           _vm._v(
                             _vm._s(
                               item.product_name + " (" + item.variant_name + ")"
@@ -1531,14 +1579,16 @@ var render = function () {
                           ),
                           _c("br"),
                           _vm._v(" "),
-                          _c("b", [_vm._v("Quantity :- ")]),
+                          _c("b", [
+                            _vm._v(_vm._s(_vm.__("quantity")) + " :- "),
+                          ]),
                           _vm._v(
                             _vm._s(item.quantity) +
                               "\n                                "
                           ),
                           _c("br"),
                           _vm._v(" "),
-                          _c("b", [_vm._v("Variant :- ")]),
+                          _c("b", [_vm._v(_vm._s(_vm.__("variant")) + " :- ")]),
                           _vm._v(
                             _vm._s(item.variant_name) +
                               "\n                                "
@@ -1547,7 +1597,11 @@ var render = function () {
                           _vm._v(" "),
                           _c("b", [
                             _vm._v(
-                              "Subtotal( " + _vm._s(_vm.$currency) + " ) :- "
+                              " " +
+                                _vm._s(_vm.__("subtotal")) +
+                                " ( " +
+                                _vm._s(_vm.$currency) +
+                                " ) :- "
                             ),
                           ]),
                           _vm._v(
@@ -1579,7 +1633,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                            View Item Details\n                                        "
+                                      "\n                                            " +
+                                        _vm._s(_vm.__("view_item_details")) +
+                                        "\n                                        "
                                     ),
                                   ]
                                 ),
@@ -1612,7 +1668,7 @@ var render = function () {
                                           title: "View Product",
                                         },
                                       },
-                                      [_vm._v("View Product")]
+                                      [_vm._v(_vm._s(_vm.__("view_product")))]
                                     ),
                                   ],
                                   1
@@ -1642,7 +1698,7 @@ var render = function () {
                                           title: "View Product",
                                         },
                                       },
-                                      [_vm._v("View Product")]
+                                      [_vm._v(_vm._s(_vm.__("view_product")))]
                                     ),
                                   ],
                                   1
@@ -1671,7 +1727,7 @@ var render = function () {
                                           title: "View Product",
                                         },
                                       },
-                                      [_vm._v("View Product")]
+                                      [_vm._v(_vm._s(_vm.__("view_product")))]
                                     ),
                                   ],
                                   1
@@ -1704,7 +1760,7 @@ var render = function () {
               _c("div", { staticClass: "row" }, [
                 _c("ul", { staticClass: "list-group" }, [
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Name :- ")]),
+                    _c("b", [_vm._v(_vm._s(_vm.__("name")) + " :- ")]),
                     _vm._v(
                       _vm._s(
                         _vm.item.product_name +
@@ -1730,7 +1786,9 @@ var render = function () {
                     { staticClass: "list-group-item" },
                     [
                       _c("span", [
-                        _c("b", [_vm._v("Product Id :- ")]),
+                        _c("b", [
+                          _vm._v(_vm._s(_vm.__("product_id")) + " :- "),
+                        ]),
                         _vm._v(_vm._s(_vm.item.product_id)),
                       ]),
                       _vm._v(" "),
@@ -1755,35 +1813,41 @@ var render = function () {
                   _vm._v(" "),
                   _vm.item.seller_name
                     ? _c("li", { staticClass: "list-group-item" }, [
-                        _c("b", [_vm._v("Seller Name :- ")]),
+                        _c("b", [
+                          _vm._v(_vm._s(_vm.__("seller_name")) + " :- "),
+                        ]),
                         _vm._v(_vm._s(_vm.item.seller_name)),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("User Name :- ")]),
+                    _c("b", [_vm._v(_vm._s(_vm.__("user_name")) + " :- ")]),
                     _vm._v(_vm._s(_vm.item.user_name)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Variant Id :- ")]),
+                    _c("b", [_vm._v(_vm._s(_vm.__("variant_id")) + " :- ")]),
                     _vm._v(_vm._s(_vm.item.product_variant_id)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Quantity :- ")]),
+                    _c("b", [_vm._v(_vm._s(_vm.__("quantity")) + " :- ")]),
                     _vm._v(_vm._s(_vm.item.quantity)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Price :- ")]),
+                    _c("b", [_vm._v(_vm._s(_vm.__("price")) + " :- ")]),
                     _vm._v(_vm._s(_vm.item.price)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
                     _c("b", [
                       _vm._v(
-                        "Discounted Price( " + _vm._s(_vm.$currency) + " ) :- "
+                        " " +
+                          _vm._s(_vm.__("discounted_price")) +
+                          " ( " +
+                          _vm._s(_vm.$currency) +
+                          " ) :- "
                       ),
                     ]),
                     _vm._v(_vm._s(_vm.item.discounted_price)),
@@ -1791,19 +1855,34 @@ var render = function () {
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
                     _c("b", [
-                      _vm._v("Tax Amount( " + _vm._s(_vm.$currency) + " ) :- "),
+                      _vm._v(
+                        _vm._s(_vm.__("tax_amount")) +
+                          "( " +
+                          _vm._s(_vm.$currency) +
+                          " ) :- "
+                      ),
                     ]),
                     _vm._v(_vm._s(_vm.item.tax_amount)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
-                    _c("b", [_vm._v("Tax Percentage(%) :- ")]),
+                    _c("b", [
+                      _vm._v(
+                        " " + _vm._s(_vm.__("tax_percentage")) + " (%) :- "
+                      ),
+                    ]),
                     _vm._v(_vm._s(_vm.item.tax_percentage)),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "list-group-item" }, [
                     _c("b", [
-                      _vm._v("Subtotal( " + _vm._s(_vm.$currency) + " ) :- "),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.__("subtotal")) +
+                          " ( " +
+                          _vm._s(_vm.$currency) +
+                          " ) :- "
+                      ),
                     ]),
                     _vm._v(_vm._s(_vm.item.sub_total)),
                   ]),
@@ -1839,24 +1918,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("View Order")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Order Details")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

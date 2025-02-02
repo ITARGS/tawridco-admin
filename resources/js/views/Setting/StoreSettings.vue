@@ -87,7 +87,7 @@
                                 name="app_name"
                                 id="app_name"
                                 v-model="store_settings.app_name"
-                                placeholder="Name of the App - used in whole system"
+                                :placeholder="__('Name_of_the_system')"
                               />
                             </div>
 
@@ -103,7 +103,7 @@
                                 id="support_number"
                                 v-model="store_settings.support_number"
                                 inputmode="numeric"
-                                placeholder="Customer support mobile number - used in whole system +91 9876543210"
+                                :placeholder="__('customer_support')"
                                 @input="validateMobileNumber"
                               />
                               <span v-if="mobilevalidationError" class="error">{{
@@ -122,7 +122,7 @@
                                 name="support_email"
                                 id="support_email"
                                 v-model="store_settings.support_email"
-                                placeholder="Customer support email - used in whole system"
+                                :placeholder="__('customer_support_email')"
                               />
                             </div>
 
@@ -362,8 +362,7 @@
                             </div>
                             <div class="form-group col-md-4">
                               <label for="currency">
-                                {{ __("store_currency") }}(Symbol or Code - $ or
-                                USD):</label
+                                {{ __("store_currency") }}:</label
                               >
                               <input
                                 type="text"
@@ -372,7 +371,7 @@
                                 name="currency"
                                 id="currency"
                                 v-model="store_settings.currency"
-                                placeholder="Either Symbol or Code - For Example $ or USD"
+                                :placeholder="__('either_symbol_Code')"
                               />
                             </div>
 
@@ -387,7 +386,7 @@
                                 id="currency_code"
                                 v-model="store_settings.currency_code"
                               >
-                                <option value="">Select Country Currency Code</option>
+                                <option value="">{{ __("select_country") }}</option>
                                 <option
                                   :key="code.currencyCode"
                                   v-for="code in currency_codes"
@@ -401,7 +400,7 @@
 
                             <div class="form-group col-md-4">
                               <label for="currency_code"
-                                >Decimal Point{{ __("decimal_point") }}</label
+                                > {{ __("decimal_point") }}</label
                               >
                               <select
                                 class="form-control form-select"
@@ -450,7 +449,7 @@
                                 v-model="city"
                                 :options="cities"
                                 @close="setCityId"
-                                placeholder="Select & Search City"
+                                :placeholder="__('default_city')"
                                 label="name"
                                 track-by="name"
                                 id="city_name"
@@ -479,7 +478,7 @@
                                   class="text-muted"
                                   to="/cities/create"
                                   v-if="$can('city_create')"
-                                  >Add new city here.</router-link
+                                  >{{__("add_new_city_here")}}</router-link
                                 >
                               </p>
                             </div>
@@ -528,7 +527,7 @@
                                 name="max_cart_items_count"
                                 id="max_cart_items_count"
                                 v-model="store_settings.max_cart_items_count"
-                                placeholder="Maximum Items Allowed In Cart"
+                                :placeholder="__('maximum_items_allowed_in_cart')"
                                 min="1"
                               />
                               <span class="text text-primary font-size-13"
@@ -549,14 +548,13 @@
                                 name="min_order_amount"
                                 id="min_order_amount"
                                 v-model="store_settings.min_order_amount"
-                                placeholder="Minimum total amount to place order"
+                                :placeholder="__('minimum_order_amount')"
                                 min="1"
                               />
                               <span class="text text-primary font-size-13">
-                                ( Below this user will not allowed to place order
                                 {{
                                   __("below_this_user_will_not_allowed_to_place_order")
-                                }})</span
+                                }}</span
                               >
                             </div>
                             <div class="form-group col-md-4">
@@ -570,7 +568,7 @@
                                 name="low_stock_limit"
                                 id="low_stock_limit"
                                 v-model="store_settings.low_stock_limit"
-                                placeholder="Product low stock limit"
+                                :placeholder="__('Product_low_stock_limit')"
                               />
                               <span class="text text-primary font-size-13">
                                 (
@@ -671,7 +669,7 @@
                                 name="delivery_boy_bonus_percentage"
                                 id="delivery_boy_bonus_percentage"
                                 v-model="store_settings.delivery_boy_bonus_percentage"
-                                placeholder="Delivery Boy Bonus"
+                                :placeholder="__('delivery_boy_bonus_percentage')"
                               />
                             </div>
 
@@ -694,7 +692,7 @@
                                 name="delivery_boy_bonus_min_amount"
                                 id="delivery_boy_bonus_min_amount"
                                 v-model="store_settings.delivery_boy_bonus_min_amount"
-                                placeholder="Minimum bonus amount"
+                                :placeholder="__('minimum_bonus_amount')"
                               />
                               <span class="text text-primary font-size-13"
                                 >{{ __("set_0_if_you_want_to_remove_limit") }}.</span
@@ -720,7 +718,7 @@
                                 name="delivery_boy_bonus_max_amount"
                                 id="delivery_boy_bonus_max_amount"
                                 v-model="store_settings.delivery_boy_bonus_max_amount"
-                                placeholder="Maximum bonus amount"
+                                :placeholder="__('maximum_bonus_amount')"
                               />
                               <span class="text text-primary font-size-13"
                                 >{{ __("set_0_if_you_want_to_remove_limit") }}.</span
@@ -773,8 +771,7 @@
                       </div>
                       <div class="card-body">
                         <span class="text text-primary font-size-13"
-                          >In this mode you can set your app in Maintenance and that
-                          Appilication will not work till not disabled from here{{
+                          >{{
                             __(
                               "in_this_mode_you_can_set_your_app_in_maitenance_and_that_application_will_not_work_till_not_disabled_from_here"
                             )
@@ -815,7 +812,7 @@
                                   :required="store_settings.app_mode_customer == 1"
                                   v-model="store_settings.app_mode_customer_remark"
                                   class="form-control"
-                                  placeholder="Enter Notification Message Here!"
+                                  :placeholder="__('enter_notification_message_here')"
                                 ></textarea>
                                 <label for="app_mode_customer_remark">{{
                                   __("customer_app_remark")
@@ -850,7 +847,7 @@
                                   :required="store_settings.app_mode_seller == 1"
                                   v-model="store_settings.app_mode_seller_remark"
                                   class="form-control"
-                                  placeholder="Enter Notification Message Here!"
+                                  :placeholder="__('enter_notification_message_here')"
                                 ></textarea>
                                 <label for="app_mode_seller_remark">{{
                                   __("seller_app_remark")
@@ -886,7 +883,7 @@
                                   :required="store_settings.app_mode_delivery_boy == 1"
                                   v-model="store_settings.app_mode_delivery_boy_remark"
                                   class="form-control"
-                                  placeholder="Enter Notification Message Here!"
+                                  :placeholder="__('enter_notification_message_here')"
                                 ></textarea>
                                 <label for="app_mode_delivery_boy_remark">{{
                                   __("delivery_boy_app_remark")
@@ -973,7 +970,7 @@
                                     name="current_version"
                                     id="current_version"
                                     v-model="store_settings.current_version"
-                                    placeholder="Current Version"
+                                    :placeholder="__('current_version')"
                                   />
                                 </div>
                               </div>
@@ -1034,7 +1031,7 @@
                                     name="ios_current_version"
                                     id="ios_current_version"
                                     v-model="store_settings.ios_current_version"
-                                    placeholder="IOS Current Version"
+                                    :placeholder="__('ios_current_version')"
                                   />
                                 </div>
                               </div>
@@ -1234,7 +1231,7 @@
                                     store_settings.count_country_section_in_homepage
                                   "
                                   class="form-control"
-                                  placeholder="Enter Country Number Here!"
+                                  :placeholder="__('country_number_here')"
                                   @input="validateInput"
                                 />
                                 <label for="">{{
@@ -1289,7 +1286,7 @@
                                 name="smtp_from_mail"
                                 id="smtp_from_mail"
                                 v-model="store_settings.smtp_from_mail"
-                                placeholder="From SMTP Email ID"
+                                :placeholder="__('from_email_id')"
                               />
                               <span class="text text-primary font-size-13"
                                 >(
@@ -1309,7 +1306,7 @@
                                 name="smtp_reply_to"
                                 id="smtp_reply_to"
                                 v-model="store_settings.smtp_reply_to"
-                                placeholder="From SMTP Email ID"
+                                :placeholder="__('reply_to_email_id')"
                               />
                               <span class="text text-primary font-size-13"
                                 >({{
@@ -1328,7 +1325,7 @@
                                 name="smtp_email_password"
                                 id="smtp_email_password"
                                 v-model="store_settings.smtp_email_password"
-                                placeholder="Enter your SMTP email password"
+                                :placeholder="__('smtp_email_password')"
                               />
                             </div>
                             <div class="form-group col-md-4">
@@ -1340,7 +1337,7 @@
                                 name="smtp_host"
                                 id="smtp_host"
                                 v-model="store_settings.smtp_host"
-                                placeholder="SMTP Host address"
+                                :placeholder="__('smtp_host')"
                               />
                             </div>
                             <div class="form-group col-md-3">
@@ -1355,7 +1352,7 @@
                                 name="smtp_port"
                                 id="smtp_port"
                                 v-model="store_settings.smtp_port"
-                                placeholder="SMTP Port"
+                                :placeholder="__('smtp_port')"
                               />
                             </div>
                             <div class="form-group col-md-3">
@@ -1404,7 +1401,7 @@
                                   class="form-control"
                                   name="test_email"
                                   v-model="store_settings.test_email"
-                                  placeholder="Enter Email Address for Test"
+                                  :placeholder="__('enter_email_test')"
                                 />
                                 <b-button
                                   type="button"
@@ -1467,7 +1464,7 @@
                                 name="google_place_api_key"
                                 id="google_place_api_key"
                                 v-model="store_settings.google_place_api_key"
-                                placeholder="Google Place Api Key"
+                                :placeholder="__('place_api_key')"
                               />
                             </div>
                           </div>
@@ -1532,7 +1529,7 @@
                                 name="seller_commission"
                                 id="seller_commission"
                                 v-model="store_settings.seller_commission"
-                                placeholder="Seller Commission"
+                                :placeholder="__('seller_commission')"
                                 step="0.1"
                                 min="1"
                                 max="100"
@@ -2118,7 +2115,7 @@ export default {
     validateMobileNumber() {
       const mobileNumber = this.store_settings.support_number;
       if (!/^\d{1,16}$/.test(mobileNumber)) {
-        this.mobilevalidationError = "Support Number must be maximum 16 digits numbers.";
+        this.mobilevalidationError = __('error_message');
         this.store_settings.support_number = null;
       } else {
         this.mobilevalidationError = null;

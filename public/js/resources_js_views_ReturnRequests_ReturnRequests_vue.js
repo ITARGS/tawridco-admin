@@ -347,52 +347,52 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: [{
         key: "id",
-        label: "ID",
+        label: __("id"),
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "user_id",
-        label: "U.ID",
+        label: __("user_id"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "name",
-        label: "Name",
+        label: __("name"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "product_name",
-        label: "Product Name",
+        label: __("product_name"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "price",
-        label: "Price",
+        label: __("price"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "discounted_price",
-        label: "Discounted Price",
+        label: __("discounted_price"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "quantity",
-        label: "Quantity",
+        label: __("quantity"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "sub_total",
-        label: "Total",
+        label: __("total"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "status",
-        label: "Status",
+        label: __("status"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "created_at",
-        label: "Date",
+        label: __("date"),
         sortable: true,
         "class": "text-center"
       }, {
@@ -1169,8 +1169,10 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n              " +
-                              _vm._s("Price (" + _vm.$currency + ")") +
+                            "\n            " +
+                              _vm._s(_vm.__("price")) +
+                              "  " +
+                              _vm._s("(" + _vm.$currency + ")") +
                               "\n            "
                           ),
                         ]
@@ -1182,9 +1184,8 @@ var render = function () {
                         return [
                           _vm._v(
                             "\n              " +
-                              _vm._s(
-                                "Discounted Price (" + _vm.$currency + ")"
-                              ) +
+                              _vm._s(_vm.__("discounted_price")) +
+                              _vm._s("(" + _vm.$currency + ")") +
                               "\n            "
                           ),
                         ]
@@ -1196,18 +1197,18 @@ var render = function () {
                         return [
                           row.item.status === 1
                             ? _c("span", { staticClass: "badge bg-warning" }, [
-                                _vm._v("Pending"),
+                                _vm._v(_vm._s(_vm.__("pending"))),
                               ])
                             : row.item.status === 2
                             ? _c("span", { staticClass: "badge bg-success" }, [
-                                _vm._v("Approved"),
+                                _vm._v(_vm._s(_vm.__("approved"))),
                               ])
                             : row.item.status === 3
                             ? _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Rejected"),
+                                _vm._v(_vm._s(_vm.__("rejected"))),
                               ])
                             : _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Undefine"),
+                                _vm._v(_vm._s(_vm.__("undefine"))),
                               ]),
                         ]
                       },

@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: 'created_at',
-        label: 'Date & Time',
+        label: __('date_time'),
         sortable: true,
         "class": 'text-center'
       }, {
@@ -453,7 +453,7 @@ var render = function () {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         on: {
                           click: function ($event) {

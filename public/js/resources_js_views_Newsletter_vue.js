@@ -121,17 +121,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: [{
         key: 'id',
-        label: 'ID',
+        label: __('id'),
         sortable: true,
         sortDirection: 'desc'
       }, {
         key: 'email',
-        label: 'Emai',
+        label: __('email'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'created_at',
-        label: 'Date Created',
+        label: __('date_created'),
         sortable: true,
         "class": 'text-center'
       }],
@@ -281,7 +281,9 @@ var render = function () {
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "page-title" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("newsletter")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -309,7 +311,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Newsletter")]
+                    [_vm._v(_vm._s(_vm.__("newsletter")))]
                   ),
                 ]),
               ]
@@ -320,7 +322,11 @@ var render = function () {
       _vm._v(" "),
       _c("section", { staticClass: "section" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "card-header" }, [
+            _c("h4", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.__("newsletter"))),
+            ]),
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -335,14 +341,14 @@ var render = function () {
                     { attrs: { md: "3", "offset-md": "8" } },
                     [
                       _c("h6", { staticClass: "box-title" }, [
-                        _vm._v("Search"),
+                        _vm._v(_vm._s(_vm.__("search"))),
                       ]),
                       _vm._v(" "),
                       _c("b-form-input", {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,
@@ -538,24 +544,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Newsletter")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Newsletter")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
