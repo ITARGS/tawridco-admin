@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="form-group">
                     <label for="question">{{ __('query') }}</label>
-                    <input class="form-control" name="query" id="question" v-model="faq.question" placeholder="Add a Query...">
+                    <input class="form-control" name="query" id="question" v-model="faq.question" :placeholder="__('add_query')">
                 </div>
                 <div class="form-group ">
                     <label for="answer">{{ __('answer') }}</label>
-                    <textarea class="form-control" name="answer" id="answer" v-model="faq.answer" placeholder="Add a Answer..." ></textarea>
+                    <textarea class="form-control" name="answer" id="answer" v-model="faq.answer" :placeholder="__('add_answer')" ></textarea>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>

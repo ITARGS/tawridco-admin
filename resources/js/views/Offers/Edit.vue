@@ -16,7 +16,7 @@
         >{{ __("save") }}
         <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
       </b-button>
-      <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+      <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
     </div>
     <form ref="my-form" @submit.prevent="saveRecord">
       <div class="row">
@@ -53,7 +53,7 @@
             type="url"
             class="form-control"
             v-model="offer_url"
-            placeholder="Enter Link"
+            :placeholder="__('enter_link')"
             required
           />
         </div>

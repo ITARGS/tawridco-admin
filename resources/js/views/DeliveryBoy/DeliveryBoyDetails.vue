@@ -53,7 +53,7 @@
                                             <img class="custom-image" :src="deliveryBoys.driving_license_url" title='Driving License' alt='Driving License'/>
                                         </div>
                                         <div v-else class="col-md-2 mt-2">
-                                            <a target="_blank" :href="deliveryBoys.driving_license_url" class="badge bg-success"> <i class="fa fa-eye"></i> Identity Card</a>
+                                            <a target="_blank" :href="deliveryBoys.driving_license_url" class="badge bg-success"> <i class="fa fa-eye"></i> {{ __("identity") }}</a>
                                         </div>
                                     </div>
 
@@ -94,25 +94,25 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ifsc_code">{{ __("bank_ifsc_code") }}</label>
-                                    <input type="text" name="ifsc_code" id="ifsc_code" v-model="deliveryBoys.ifsc_code" required class="form-control" placeholder="Enter bank's IFSC code.">
+                                    <input type="text" name="ifsc_code" id="ifsc_code" v-model="deliveryBoys.ifsc_code" required class="form-control" :placeholder="__('ifsc_code')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="bank_name">{{ __("bank_name") }}</label>
-                                    <input type="text" name="bank_name" id="bank_name" v-model="deliveryBoys.bank_name" required class="form-control" placeholder="Enter bank name">
+                                    <input type="text" name="bank_name" id="bank_name" v-model="deliveryBoys.bank_name" required class="form-control" :placeholder="__('enter_bank_name')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="account_number">{{ __("account_number") }}</label>
-                                    <input type="text" name="account_number" id="account_number" v-model="deliveryBoys.bank_account_number" required class="form-control" placeholder="Enter account number">
+                                    <input type="text" name="account_number" id="account_number" v-model="deliveryBoys.bank_account_number" required class="form-control" :placeholder="__('enter_account_number')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="account_name">{{ __("bank_account_name") }}</label>
-                                    <input type="text" name="account_name" id="account_name" v-model="deliveryBoys.account_name" required class="form-control" placeholder="Enter bank account name">
+                                    <input type="text" name="account_name" id="account_name" v-model="deliveryBoys.account_name" required class="form-control" :placeholder="__('enter_bank_account_name')">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -140,7 +140,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="address">{{ __("address") }}</label>
-                                    <textarea name="address" id="address" v-model="deliveryBoys.address" rows='3' class="form-control" placeholder="Enter address"></textarea>
+                                    <textarea name="address" id="address" v-model="deliveryBoys.address" rows='3' class="form-control" :placeholder="__('enter_address')"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">

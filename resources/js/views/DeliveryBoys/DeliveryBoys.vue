@@ -21,7 +21,7 @@
                     <div class="card-header">
                         <h4 class="card-title"> {{ __('delivery_boys') }}</h4>
                         <span class="pull-right">
-                            <router-link to="/delivery_boys/create" class="btn btn-primary" v-b-tooltip.hover  title="Add New Seller" v-if="$can('delivery_boy_create')">Add Delivery boys{{ __('add_delivery_boys') }}</router-link>
+                            <router-link to="/delivery_boys/create" class="btn btn-primary" v-b-tooltip.hover  title="Add New Seller" v-if="$can('delivery_boy_create')">{{ __('add_delivery_boys') }}</router-link>
 
                         </span>
                     </div>
@@ -49,7 +49,7 @@
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -293,7 +293,7 @@ export default {
                 }
             });
         },
-   
+
         hideModal() {
             this.create_new = false
             this.edit_record = false

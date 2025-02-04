@@ -1,26 +1,26 @@
 <template>
     <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" no-fade static>
         <div slot="modal-footer">
-            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading || (graterAmount === true) || (validationError !== null) ">Save
+            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading || (graterAmount === true) || (validationError !== null) ">{{ __("save") }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </b-button>
-            <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+            <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
         </div>
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
                 <div class="form-group">
-                    <label for="balance">Balance</label>
+                    <label for="balance">{{ __("balance") }}</label>
                     <input type="number" name="balance" id="balance" v-model="balance" class="form-control" step="any" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount</label>
-                    <input type="number" name="amount" id="amount" v-model="withdrawalRequests.amount" v-on:keyup="checkAmount" required class="form-control" placeholder="Enter Transfer Amount"  @input="validateAmount" step="any">
+                    <label for="amount">{{ __("amount") }}</label>
+                    <input type="number" name="amount" id="amount" v-model="withdrawalRequests.amount" v-on:keyup="checkAmount" required class="form-control" :placeholder="__('transfer_amount')"  @input="validateAmount" step="any">
                     <span class="text-danger" v-if="graterAmount === true">{{ __('requested_amount_should_not_greater_then_available_balance') }}</span>
                     <span v-if="validationError" class="error">{{ validationError }}</span>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" v-model="withdrawalRequests.message" class="form-control" rows="3" placeholder="Enter Message." required ></textarea>
+                    <label for="message">{{ __("message") }}</label>
+                    <textarea name="message" id="message" v-model="withdrawalRequests.message" class="form-control" rows="3" :placeholder="__('message')" required ></textarea>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>
@@ -34,7 +34,7 @@ import Auth from '../../../Auth.js';
 
 export default {
     props: ['record','balance'],
-    
+
     data : function(){
         return {
             isLoading: false,
@@ -47,7 +47,7 @@ export default {
                 type_id:Auth.user.id,
                 amount: this.record ? this.record.amount : "" ,
                 message: this.record ? this.record.message : "" ,
-               
+
             },
               validationError: null,
 
@@ -59,9 +59,9 @@ export default {
             title += " Withdraw Request";
             return title;
         },
-        
+
     },
-   
+
     methods: {
         showModal() {
             this.$refs['my-modal'].show()
@@ -76,7 +76,7 @@ export default {
                 this.validationError = null;
             }
         },
-       
+
         checkAmount(){
             if(((this.withdrawalRequests.amount) > (this.balance))){
                 this.graterAmount = true;

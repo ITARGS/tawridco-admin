@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Shipping Methods</h3>
+                        <h3>{{ __("shipping_methods") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><router-link to="/dashboard">Dashboard</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Shipping Methods</li>
+                                <li class="breadcrumb-item"><router-link to="/dashboard">{{ __("dashboard") }}</router-link></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("shipping_methods") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -20,14 +20,14 @@
                 <form id="api_key_form" method="post" enctype="multipart/form-data" @submit.prevent="saveRecord">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Shipping Methods</h4>
-                            <button type="button" class="btn" @click="modalShow = !modalShow">(What is shipping method?)</button>
+                            <h4 class="card-title">{{ __("shipping_methods") }}</h4>
+                            <button type="button" class="btn" @click="modalShow = !modalShow">{{ __("shipping_method") }}</button>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="local_shipping">Enable Local Shipping </label><small>( Use Local Delivery Boy For Shipping)</small>
+                                        <label for="local_shipping">{{ __("enable_shipping") }}</label><small>{{ __("use_shipping") }}</small>
                                         <div class='form-check form-switch'>
                                             <input class='form-check-input' id="local_shipping" type='checkbox' v-model="shipping.local_shipping" :checked="shipping.local_shipping === 1 ">
                                         </div>
@@ -35,8 +35,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="standard_shipping">Standard delivery method (Shiprocket)</label>
-                                        <small>( Enable/Disable ) <a href="https://app.shiprocket.in/api-user" target="_blank">Click here</a> to get credentials. <a href="https://www.shiprocket.in/" target="_blank">What is shiprocket?</a></small>
+                                        <label for="standard_shipping">{{ __("standard") }}</label></label>
+                                        <small>{{ __("enable_disable") }}<a href="https://app.shiprocket.in/api-user" target="_blank">{{ __("click_here") }}</a> {{ __("credentials") }}. <a href="https://www.shiprocket.in/" target="_blank">What is shiprocket?</a></small>
                                         <div class='form-check form-switch'>
                                             <input class='form-check-input' id="standard_shipping" type='checkbox' v-model="shipping.standard_shipping" :checked="shipping.standard_shipping === 1 ">
                                         </div>
@@ -44,15 +44,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                        <label for="shiprocket_email">Email</label>
-                                        <input type="text"  name="shiprocket_email" id="shiprocket_email" v-model="shipping.shiprocket_email" class="form-control" placeholder='Shiprocket account email' />
+                                        <label for="shiprocket_email">{{ __("email") }}</label>
+                                        <input type="text"  name="shiprocket_email" id="shiprocket_email" v-model="shipping.shiprocket_email" class="form-control" :placeholder='__("shiprocket_email")' />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="shiprocket_password">Password</label>
+                                        <label for="shiprocket_password">{{ __("password") }}</label>
                                         <div class="input-group">
-                                            <input v-bind:type="[showPassword ? 'text' : 'password']" name="shiprocket_password" id="shiprocket_password" v-model="shipping.shiprocket_password" placeholder='Shiprocket account password' class="form-control">
+                                            <input v-bind:type="[showPassword ? 'text' : 'password']" name="shiprocket_password" id="shiprocket_password" v-model="shipping.shiprocket_password" :placeholder='__("password")' class="form-control">
                                             <button type="button" class="btn btn-primary" @click="toggleShow">
                                                 <i class="fa" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
                                             </button>
@@ -62,14 +62,14 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="shiprocket_email">Shiprocket Webhoook Url</label>
-                                        <input type="text" name="shiprocket_email" id="Shiprocket Webhoook" disabled v-model="shipping.shiprocket_webhook" class="form-control" placeholder='Shiprocket Webhook url' />
+                                        <label for="shiprocket_email">{{ __("shiprocket_url") }}</label>
+                                        <input type="text" name="shiprocket_email" id="Shiprocket Webhoook" disabled v-model="shipping.shiprocket_webhook" class="form-control" :placeholder='__("shiprocket_url")' />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="webhook_token">Shiprocket webhook token</label>
+                                    <label for="webhook_token">{{ __("shiprocket_token") }}</label>
                                     <div class="input-group">
-                                        <input type="text" name="webhook_token" id="webhook_token" readonly required v-model="shipping.webhook_token"  class="form-control" placeholder="Generating new token....">
+                                        <input type="text" name="webhook_token" id="webhook_token" readonly required v-model="shipping.webhook_token"  class="form-control" :placeholder="__('shiprocket_token')">
                                         <button type="button" class="btn btn-primary"  @click="generateToken">
                                             <i class="fa fa-refresh" :class="{ 'fa-spin': refreshing, ' ': !refreshing }"></i>
                                         </button>
@@ -112,7 +112,7 @@
                         class="float-right"
                         @click="modalShow=false"
                     >
-                        Close
+                        {{ __("close") }}
                     </b-button>
             </template>
         </b-modal>

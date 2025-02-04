@@ -600,7 +600,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -611,7 +611,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -631,7 +631,7 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Unit Name")]),
+              _c("label", [_vm._v(_vm._s(_vm.__dirname("unit_name")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -646,7 +646,7 @@ var render = function () {
                 attrs: {
                   type: "text",
                   required: "",
-                  placeholder: "Enter unit name.",
+                  placeholder: _vm.__("unit_name"),
                 },
                 domProps: { value: _vm.name },
                 on: {
@@ -661,7 +661,7 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Short Code")]),
+              _c("label", [_vm._v(_vm._s(_vm.__("short_code")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -676,7 +676,7 @@ var render = function () {
                 attrs: {
                   type: "text",
                   required: "",
-                  placeholder: "Enter short code of unit name.",
+                  placeholder: _vm.__("short_code"),
                 },
                 domProps: { value: _vm.short_code },
                 on: {
@@ -691,7 +691,7 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Parent Unit")]),
+              _c("label", [_vm._v(_vm._s(_vm.__("parent_unit")))]),
               _vm._v(" "),
               _c(
                 "select",
@@ -723,7 +723,7 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "0" } }, [
-                    _vm._v("Main Unit"),
+                    _vm._v(_vm._s(_vm.__("main_unit"))),
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.units, function (unit) {
@@ -737,7 +737,7 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Conversion")]),
+              _c("label", [_vm._v(_vm._s(_vm.__("conversion")))]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -751,7 +751,7 @@ var render = function () {
                 staticClass: "form-control",
                 attrs: {
                   type: "number",
-                  placeholder: "Enter Conversion.",
+                  placeholder: _vm.__("conversion"),
                   min: "1",
                 },
                 domProps: { value: _vm.conversion },

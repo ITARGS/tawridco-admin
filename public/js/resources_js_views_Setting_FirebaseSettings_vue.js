@@ -399,7 +399,7 @@ var render = function () {
                           type: "text",
                           name: "apiKey",
                           id: "apiKey",
-                          placeholder: "Enter api key.",
+                          placeholder: _vm.__("apikey"),
                         },
                         domProps: { value: _vm.firebase.apiKey },
                         on: {
@@ -441,7 +441,7 @@ var render = function () {
                           type: "text",
                           name: "authDomain",
                           id: "authDomain",
-                          placeholder: "Enter aith domain.",
+                          placeholder: _vm.__("authdomain"),
                         },
                         domProps: { value: _vm.firebase.authDomain },
                         on: {
@@ -483,7 +483,7 @@ var render = function () {
                           type: "text",
                           name: "projectId",
                           id: "projectId",
-                          placeholder: "Enter project id.",
+                          placeholder: _vm.__("projectid"),
                         },
                         domProps: { value: _vm.firebase.projectId },
                         on: {
@@ -525,7 +525,7 @@ var render = function () {
                           type: "text",
                           name: "storageBucket",
                           id: "storageBucket",
-                          placeholder: "Enter storage bucket.",
+                          placeholder: _vm.__("storagebucket"),
                         },
                         domProps: { value: _vm.firebase.storageBucket },
                         on: {
@@ -567,7 +567,7 @@ var render = function () {
                           type: "text",
                           name: "messagingSenderId",
                           id: "messagingSenderId",
-                          placeholder: "Enter messaging sender id.",
+                          placeholder: _vm.__("messagingsenderid"),
                         },
                         domProps: { value: _vm.firebase.messagingSenderId },
                         on: {
@@ -609,7 +609,7 @@ var render = function () {
                           type: "text",
                           name: "appId",
                           id: "appId",
-                          placeholder: "Enter app id.",
+                          placeholder: _vm.__("appid"),
                         },
                         domProps: { value: _vm.firebase.appId },
                         on: {
@@ -647,7 +647,7 @@ var render = function () {
                           type: "text",
                           name: "measurementId",
                           id: "measurementId",
-                          placeholder: "Enter measurement id.",
+                          placeholder: _vm.__("measurementid"),
                         },
                         domProps: { value: _vm.firebase.measurementId },
                         on: {

@@ -734,7 +734,7 @@ var render = function () {
                                     },
                                     [
                                       _c("i", { staticClass: "fa fa-eye" }),
-                                      _vm._v(" Identity Card"),
+                                      _vm._v(" " + _vm._s(_vm.__("identity"))),
                                     ]
                                   ),
                                 ]),
@@ -907,7 +907,7 @@ var render = function () {
                           name: "ifsc_code",
                           id: "ifsc_code",
                           required: "",
-                          placeholder: "Enter bank's IFSC code.",
+                          placeholder: _vm.__("ifsc_code"),
                         },
                         domProps: { value: _vm.deliveryBoys.ifsc_code },
                         on: {
@@ -947,7 +947,7 @@ var render = function () {
                           name: "bank_name",
                           id: "bank_name",
                           required: "",
-                          placeholder: "Enter bank name",
+                          placeholder: _vm.__("enter_bank_name"),
                         },
                         domProps: { value: _vm.deliveryBoys.bank_name },
                         on: {
@@ -987,7 +987,7 @@ var render = function () {
                           name: "account_number",
                           id: "account_number",
                           required: "",
-                          placeholder: "Enter account number",
+                          placeholder: _vm.__("enter_account_number"),
                         },
                         domProps: {
                           value: _vm.deliveryBoys.bank_account_number,
@@ -1029,7 +1029,7 @@ var render = function () {
                           name: "account_name",
                           id: "account_name",
                           required: "",
-                          placeholder: "Enter bank account name",
+                          placeholder: _vm.__("enter_bank_account_name"),
                         },
                         domProps: { value: _vm.deliveryBoys.account_name },
                         on: {
@@ -1126,7 +1126,7 @@ var render = function () {
                           name: "address",
                           id: "address",
                           rows: "3",
-                          placeholder: "Enter address",
+                          placeholder: _vm.__("enter_address"),
                         },
                         domProps: { value: _vm.deliveryBoys.address },
                         on: {

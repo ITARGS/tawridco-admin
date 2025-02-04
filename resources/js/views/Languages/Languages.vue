@@ -27,7 +27,7 @@
 
 
                                 <button v-if="supported_languages.length == 0" :disabled="isSystemRefreshing" class="btn btn-info" @click="supportedLanguageSeeder">
-                                    <b-spinner v-if="isSystemRefreshing" small label="Spinning"></b-spinner> Add default supported languages
+                                    <b-spinner v-if="isSystemRefreshing" small label="Spinning"></b-spinner> {{ __("add_anguages") }}
                                 </button>
                                 <button v-else class="btn btn-primary" @click="showSupportedLanguages = true">{{ __('supported_languages_list') }}</button>
 
@@ -62,7 +62,7 @@
 
                                     </b-container>
                                     <template #modal-footer>
-                                        <b-button variant="danger" size="sm" class="float-right" @click="showSupportedLanguages=false">Close
+                                        <b-button variant="danger" size="sm" class="float-right" @click="showSupportedLanguages=false">{{ __("close") }}
                                         </b-button>
                                     </template>
                                 </b-modal>
@@ -126,13 +126,13 @@
 
 
                                 <template #cell(is_default)="row">
-                                    <span v-if="row.item.is_default == 1" class="badge bg-success">Yes</span>
-                                    <span v-else class="badge bg-danger">No</span>
+                                    <span v-if="row.item.is_default == 1" class="badge bg-success">{{ __("yes") }}</span>
+                                    <span v-else class="badge bg-danger">{{ __("no") }}</span>
                                 </template>
 
                                 <template #cell(status)="row">
-                                    <span class='badge bg-success' v-if="row.item.status == 1">Activated</span>
-                                    <span class='badge bg-danger' v-if="row.item.status == 0">Deactivated</span>
+                                    <span class='badge bg-success' v-if="row.item.status == 1">{{ __("activated") }}</span>
+                                    <span class='badge bg-danger' v-if="row.item.status == 0">{{ __("deactivated") }}</span>
                                 </template>
 
                                 <template #cell(actions)="row">

@@ -32,7 +32,7 @@
                 <div class="col-md-4">
                   <div class="box-body">
                     <div class="form-group">
-                     
+
                       <label>{{ __('delivery_estimate_days') }}</label>
                       <input type="number" min="1" class="form-control" required v-model="timeSlot_settingsObject.delivery_estimate_days" @input="validateNoOfEstimateDays">
                       <span v-if="validationNoOfEstimateDaysError" class="error">{{ validationNoOfEstimateDaysError }}</span>
@@ -66,7 +66,7 @@
                         id="filter-input"
                         v-model="filter"
                         type="search"
-                        placeholder="Search"
+                        :placeholder="__('search')"
                       ></b-form-input>
                     </b-col>
                       <b-col md="1" class="text-center">

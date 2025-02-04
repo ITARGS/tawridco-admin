@@ -265,7 +265,9 @@ var render = function () {
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "page-title" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("manager_policy")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -293,7 +295,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Manager App Privacy Policy")]
+                    [_vm._v(_vm._s(_vm.__("manager_policy")))]
                   ),
                 ]),
               ]
@@ -320,7 +322,11 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "card" }, [
-              _vm._m(1),
+              _c("div", { staticClass: "card-header" }, [
+                _c("h4", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(_vm.__("update_privacy_policy"))),
+                ]),
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
                 _c(
@@ -331,7 +337,7 @@ var render = function () {
                       "div",
                       { staticClass: "d-flex justify-content-between mb-2" },
                       [
-                        _c("label", [_vm._v("Privacy Policy")]),
+                        _c("label", [_vm._v(_vm._s(_vm.__("privacy_policy")))]),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -357,7 +363,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Privacy Policy",
+                        placeholder: _vm.__("privacy_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -382,7 +388,7 @@ var render = function () {
                 ),
                 _vm._v(" "),
                 _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Update Terms & Conditions"),
+                  _vm._v(_vm._s(_vm.__("update_terms_conditions"))),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -393,7 +399,11 @@ var render = function () {
                       "div",
                       { staticClass: "d-flex justify-content-between mb-2" },
                       [
-                        _c("label", [_vm._v("Terms & Conditions : ")]),
+                        _c("label", [
+                          _vm._v(
+                            " " + _vm._s(_vm.__("terms_conditions")) + " : "
+                          ),
+                        ]),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -419,7 +429,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Terms & Conditions",
+                        placeholder: _vm.__("terms_conditions"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -481,26 +491,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Manager App Privacy Policy")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [
-        _vm._v("Update Privacy Policy"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -146,21 +146,21 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: [{
         key: 'id',
-        label: 'ID',
+        label: __('id'),
         "class": 'text-center',
         sortable: true,
         sortDirection: 'desc'
       }, {
         key: 'name',
-        label: 'Name',
+        label: __('name'),
         "class": 'text-center'
       }, {
         key: 'image',
-        label: 'Image',
+        label: __('image'),
         "class": 'text-center'
       }, {
         key: 'status',
-        label: 'Status',
+        label: __('status'),
         "class": 'text-center'
       }],
       totalRows: 1,
@@ -318,7 +318,9 @@ var render = function () {
   return _c("div", [
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "row" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.__("brands")))]),
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
           _c(
@@ -334,7 +336,7 @@ var render = function () {
                   { staticClass: "breadcrumb-item" },
                   [
                     _c("router-link", { attrs: { to: "/seller/dashboard" } }, [
-                      _vm._v("Dashboard"),
+                      _vm._v(_vm._s(_vm.__("dashboard"))),
                     ]),
                   ],
                   1
@@ -346,7 +348,7 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v("Brands")]
+                  [_vm._v(_vm._s(_vm.__("brands")))]
                 ),
               ]),
             ]
@@ -357,7 +359,9 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 col-md-12 order-md-1 order-last" }, [
           _c("div", { staticClass: "card" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [_vm._v(_vm._s(_vm.__("brands")))]),
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -372,14 +376,14 @@ var render = function () {
                       { attrs: { md: "3", "offset-md": "8" } },
                       [
                         _c("h6", { staticClass: "box-title" }, [
-                          _vm._v("Search"),
+                          _vm._v(_vm._s(_vm.__("search"))),
                         ]),
                         _vm._v(" "),
                         _c("b-form-input", {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,
@@ -497,7 +501,7 @@ var render = function () {
                       fn: function (row) {
                         return [
                           row.item.image === ""
-                            ? _c("p", [_vm._v("No Image")])
+                            ? _c("p", [_vm._v(_vm._s(_vm.__("no_image")))])
                             : _c("img", {
                                 attrs: {
                                   src: _vm.$storageUrl + row.item.image,
@@ -513,10 +517,10 @@ var render = function () {
                         return [
                           row.item.status == 1
                             ? _c("span", { staticClass: "badge bg-success" }, [
-                                _vm._v("Active"),
+                                _vm._v(_vm._s(_vm.__("active"))),
                               ])
                             : _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Deactive"),
+                                _vm._v(_vm._s(_vm.__("deactive"))),
                               ]),
                         ]
                       },
@@ -663,24 +667,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Brands")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Brands")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

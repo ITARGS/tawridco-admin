@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-heading"> 
+    <div class="page-heading">
       <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
           <h3>{{ __('manage_promo_code') }}</h3>
@@ -35,7 +35,7 @@
                     id="filter-input"
                     v-model="filter"
                     type="search"
-                    placeholder="Search"
+                    :placeholder="__('search')"
                   ></b-form-input>
                 </b-col>
                   <b-col md="1" class="text-center">

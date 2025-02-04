@@ -1258,12 +1258,7 @@ var render = function () {
                             title: "Add New Seller",
                           },
                         },
-                        [
-                          _vm._v(
-                            "Add Delivery boys" +
-                              _vm._s(_vm.__("add_delivery_boys"))
-                          ),
-                        ]
+                        [_vm._v(_vm._s(_vm.__("add_delivery_boys")))]
                       )
                     : _vm._e(),
                 ],
@@ -1364,7 +1359,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,

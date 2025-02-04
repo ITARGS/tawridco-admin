@@ -2371,7 +2371,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,

@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
-                            
+
                                 <div class="card-body px-3 py-4-5">
                                     <div class="row">
                                         <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
@@ -81,12 +81,12 @@
                             </b-col>
 
                             <b-col md="3" offset-md="5">
-                                <h6 class="box-title">Search</h6>
+                                <h6 class="box-title">{{ __("search") }}</h6>
                                 <b-form-input
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">

@@ -439,7 +439,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -698,7 +698,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -709,7 +709,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -729,7 +729,9 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "balance" } }, [_vm._v("Balance")]),
+              _c("label", { attrs: { for: "balance" } }, [
+                _vm._v(_vm._s(_vm.__("balance"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -761,7 +763,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "amount" } }, [_vm._v("Amount")]),
+              _c("label", { attrs: { for: "amount" } }, [
+                _vm._v(_vm._s(_vm.__("amount"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -778,7 +782,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                   step: "any",
                 },
                 domProps: { value: _vm.withdrawalRequests.amount },
@@ -820,7 +824,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+              _c("label", { attrs: { for: "message" } }, [
+                _vm._v(_vm._s(_vm.__("message"))),
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -836,7 +842,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                   required: "",
                 },
                 domProps: { value: _vm.withdrawalRequests.message },
@@ -1044,7 +1050,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,

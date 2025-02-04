@@ -29,9 +29,9 @@
                                     <a :href="$baseUrl+'/delivery-boy-privacy-policy'" v-b-tooltip.hover title="Privacy Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Privacy Policy"
+                                    :placeholder="__('privacy_policy')"
                                     v-model="policies.privacy_policy_delivery_boy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -47,9 +47,9 @@
                                     <a :href="$baseUrl+'/delivery-boy-terms-conditions'" v-b-tooltip.hover title="Terms & Conditions" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Terms & Conditions"
+                                    :placeholder="__('term_conditions')"
                                     v-model="policies.terms_conditions_delivery_boy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,

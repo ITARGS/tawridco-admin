@@ -150,7 +150,7 @@
                       class="form-control form-select"
                       v-model="tax_id"
                     >
-                      <option value="0">Select Tax</option>
+                      <option value="0">{{ __("select_tax") }}</option>
                       <option v-for="tax in taxes" :value="tax.id">
                         {{ tax.title }}
                       </option>
@@ -165,7 +165,7 @@
 
                       <Select2
                         v-model="tag_ids"
-                        placeholder="Select Tags"
+                        :placeholder="__('select_tags')"
                         no-add-on-enter
                         :options="tagsOptions"
                         separator=" ,;"
@@ -251,7 +251,7 @@
                           <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                         </template>
                         <template v-else>
-                          <label>Selected file name:- {{ main_image_name }}</label>
+                          <label>{{ __("selected_file_name") }} {{ main_image_name }}</label>
                         </template>
                       </div>
                       <span class="text text-primary">
@@ -305,10 +305,10 @@
                         </template>
                         <template v-else>
                           <template v-if="images.length === 1">
-                            <label>Selected file name:- {{ images[0].name }}</label>
+                            <label>{{ __("selected_file_name") }} {{ images[0].name }}</label>
                           </template>
                           <template v-else>
-                            <label>{{ images.length }} files Selected</label>
+                            <label>{{ images.length }} {{ __("files_selected") }}</label>
                             <span
                               ><small v-for="image in images"
                                 >{{ image.name }},
@@ -327,7 +327,7 @@
                       <p v-if="otherImageerror" class="error">{{ otherImageerror }}</p>
 
                       <div class="row" v-if="images && images.length !== 0">
-                        <h6 class="mt-3">Seleted Other Image List.</h6>
+                        <h6 class="mt-3">{{ __("seleted_list") }}</h6>
                         <div
                           class="col-md-4 image-container"
                           v-if="images.length !== 0"
@@ -350,7 +350,7 @@
                       </div>
 
                       <div class="row" v-if="other_images && other_images.length !== 0">
-                        <h6 class="mt-3">Uploaded Other Image List.</h6>
+                        <h6 class="mt-3">{{ __("uploaded_list") }}</h6>
                         <div
                           class="col-md-4 image-container"
                           v-if="other_images.length !== 0"
@@ -379,7 +379,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h4>Product Variant</h4>
+                <h4>{{__("product_variant")}}</h4>
               </div>
               <div class="card-body">
                 <div class="col-md-6">
@@ -884,7 +884,7 @@
                             {{ validationMessage }}
                           </p>
                           <p style="color: green" v-else-if="isValid">
-                            FSSAI License Number is valid!
+                            {{ __("fssai_valid") }}
                           </p>
                         </div>
                       </div>

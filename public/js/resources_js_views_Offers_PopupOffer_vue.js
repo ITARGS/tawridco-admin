@@ -571,7 +571,7 @@ var render = function () {
                     _c("div", { staticClass: "col-md-12" }, [
                       _vm.popup_type == "category"
                         ? _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("Category")]),
+                            _c("label", [_vm._v(_vm._s(_vm.__("category")))]),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -695,7 +695,10 @@ var render = function () {
                                 },
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "url", placeholder: "Enter Link" },
+                              attrs: {
+                                type: "url",
+                                placeholder: _vm.__("enter_link"),
+                              },
                               domProps: { value: _vm.popup_url },
                               on: {
                                 input: function ($event) {

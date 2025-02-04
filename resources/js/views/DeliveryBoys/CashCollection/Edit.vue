@@ -14,14 +14,14 @@
                                  :options="deliveryBoys"
                                  :custom-label="customLabelOption"
                                  @close="checkAmount"
-                                 placeholder="Select or search Delivery Boy"
+                                 :placeholder="__('select_delivery_boy')"
                                  label="name"
                                  track-by="name" required>
                     </multiselect>
                     <div class="border border-grey rounded p-2 mt-2" v-if="transactions.deliveryBoy">
                         <div class="d-flex justify-content-between align-items-center text-left">
                             <span>{{ __('name') }}:-</span><span> {{ transactions.deliveryBoy.name }}</span>
-                            <span>{{ __('mobile') }}:-</span><span> {{ transactions.deliveryBoy.mobile }}</span>  
+                            <span>{{ __('mobile') }}:-</span><span> {{ transactions.deliveryBoy.mobile }}</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center text-left">
                             <span>{{ __('id') }}:-</span><span> {{ transactions.deliveryBoy.id }}</span>
@@ -31,17 +31,17 @@
                 </div>
                 <div class="form-group">
                     <label for="amount">{{ __('transfer_amount') }}</label>
-                    <input type="number" name="amount" id="amount" v-model="transactions.amount" v-on:keyup="checkAmount" required class="form-control" placeholder="Enter Transfer Amount" @input="validateFundTransfer" step="0.01">
+                    <input type="number" name="amount" id="amount" v-model="transactions.amount" v-on:keyup="checkAmount" required class="form-control" :placeholder="__('transfer_amount')" @input="validateFundTransfer" step="0.01">
                     <span class="text-danger" v-if="graterAmount === true">{{ __('you_can_not_enter_amount_greater_than_balance') }}</span>
                     <span v-if="validationErrorFundTransfer" class="error">{{ validationErrorFundTransfer }}</span>
                 </div>
                 <div class="form-group">
                     <label for="transaction_date"> {{ __('date_time') }}</label>
-                    <input type="datetime-local" name="transaction_date" id="transaction_date" v-model="transactions.transaction_date" required class="form-control" placeholder="Select Date & Time.">
+                    <input type="datetime-local" name="transaction_date" id="transaction_date" v-model="transactions.transaction_date" required class="form-control" :placeholder="__('date_time')">
                 </div>
                 <div class="form-group">
                     <label for="message">{{ __('message') }}</label>
-                    <textarea name="message" id="message" v-model="transactions.message" class="form-control" rows="3" placeholder="Enter Message." ></textarea>
+                    <textarea name="message" id="message" v-model="transactions.message" class="form-control" rows="3" :placeholder="__('message')" ></textarea>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>

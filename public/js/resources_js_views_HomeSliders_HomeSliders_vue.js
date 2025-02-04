@@ -889,7 +889,7 @@ var render = function () {
                     staticClass: "form-control",
                     attrs: {
                       type: "url",
-                      placeholder: "Enter Link",
+                      placeholder: _vm.__("enter_link"),
                       required: "",
                     },
                     domProps: { value: _vm.slider_url },

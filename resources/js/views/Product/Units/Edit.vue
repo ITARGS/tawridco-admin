@@ -1,36 +1,36 @@
 <template>
     <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" scrollable no-close-on-backdrop no-fade static>
         <div slot="modal-footer">
-            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">Save
+            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">{{ __("save") }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </b-button>
-            <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+            <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
         </div>
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
                 <div class="form-group">
-                    <label>Unit Name</label>
-                    <input type="text" class="form-control" required v-model="name" placeholder="Enter unit name.">
+                    <label>{{ __dirname("unit_name") }}</label>
+                    <input type="text" class="form-control" required v-model="name" :placeholder="__('unit_name')">
                 </div>
                 <div class="form-group">
-                    <label>Short Code</label>
-                    <input type="text" class="form-control" required v-model="short_code" placeholder="Enter short code of unit name.">
+                    <label>{{ __("short_code") }}</label>
+                    <input type="text" class="form-control" required v-model="short_code" :placeholder="__('short_code')">
                 </div>
                 <div class="form-group">
-                    <label>Parent Unit</label>
+                    <label>{{ __("parent_unit") }}</label>
                     <select class="form-control form-select" v-model="parent_id">
-                        <option value="0">Main Unit</option>
+                        <option value="0">{{ __("main_unit") }}</option>
                         <option v-for="unit in units" :value="unit.id">{{unit.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Conversion</label>
-                    <input type="number" class="form-control" v-model="conversion" placeholder="Enter Conversion." min="1" @input="validateConversion">
+                    <label>{{ __("conversion") }}</label>
+                    <input type="number" class="form-control" v-model="conversion" :placeholder="__('conversion')" min="1" @input="validateConversion">
                     <span v-if="validationError" class="error">{{ validationError }}</span>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>
-        </form> 
+        </form>
     </b-modal>
 </template>
 
@@ -71,13 +71,13 @@ export default {
                 this.validationError = null;
             }
         },
-        handleFileUpload() { 
+        handleFileUpload() {
             this.image = this.$refs.file_image.files[0];
         },
         saveRecord: function(){
             let vm = this;
             this.isLoading = true;
-           
+
             let formData = new FormData();
             if(this.id) {
                 formData.append('id', this.id);
@@ -97,7 +97,7 @@ export default {
             }).then(res => {
                 let data = res.data;
                 if (data.status === 1) {
-                  
+
                     this.$eventBus.$emit('unitSaved', data.message);
                     this.hideModal();
 

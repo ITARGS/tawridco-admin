@@ -26,9 +26,9 @@
                             <div class="form-group">
                                 <label>{{ __('contact_us') }} : </label>
                                 <editor
-                                    placeholder="Enter Contact us"
+                                    :placeholder="__('contact_us')"
                                     v-model="contact.contact_us"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,

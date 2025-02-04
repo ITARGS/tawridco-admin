@@ -46,7 +46,7 @@
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -85,7 +85,7 @@
                                 <span v-if="row.item.status === 0" class="badge bg-warning">{{ __('pending') }}</span>
                                 <span v-else-if="row.item.status === 1" class="badge bg-success">{{ __('approved') }}</span>
                                 <span v-else-if="row.item.status === 2" class="badge bg-danger">{{ __('rejected') }}</span>
-                                <span v-else class="badge bg-danger">{{ __('undefine') }}Undefine</span>
+                                <span v-else class="badge bg-danger">{{ __('undefine') }}{{ __("undefine") }}</span>
                             </template>
                             <template #cell(receipt_image)="row">
                                     <img :src="row.item.receipt_image_url" height="50" />

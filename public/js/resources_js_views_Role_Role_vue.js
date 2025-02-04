@@ -435,7 +435,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.switch[data-v-73ac5494] {\r\n    display: inline-block;\r\n    height: 34px;\r\n    position: relative;\r\n    width: 60px;\n}\n.switch input[data-v-73ac5494] {\r\n    display: none;\n}\n.slider[data-v-73ac5494] {\r\n    background-color: #ccc;\r\n    bottom: 0;\r\n    cursor: pointer;\r\n    left: 0;\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    transition: .4s;\n}\n.slider[data-v-73ac5494]:before {\r\n    background-color: #fff;\r\n    bottom: 4px;\r\n    content: \"\";\r\n    height: 26px;\r\n    left: 4px;\r\n    position: absolute;\r\n    transition: .4s;\r\n    width: 26px;\n}\ninput:checked + .slider[data-v-73ac5494] {\r\n    background-color: #66bb6a;\n}\ninput:checked + .slider[data-v-73ac5494]:before {\r\n    transform: translateX(26px);\n}\n.slider.round[data-v-73ac5494] {\r\n    border-radius: 34px;\n}\n.slider.round[data-v-73ac5494]:before {\r\n    border-radius: 50%;\n}\n.form-check[data-v-73ac5494] {\r\n    display: inline-flex !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.switch[data-v-73ac5494] {\n    display: inline-block;\n    height: 34px;\n    position: relative;\n    width: 60px;\n}\n.switch input[data-v-73ac5494] {\n    display: none;\n}\n.slider[data-v-73ac5494] {\n    background-color: #ccc;\n    bottom: 0;\n    cursor: pointer;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 0;\n    transition: .4s;\n}\n.slider[data-v-73ac5494]:before {\n    background-color: #fff;\n    bottom: 4px;\n    content: \"\";\n    height: 26px;\n    left: 4px;\n    position: absolute;\n    transition: .4s;\n    width: 26px;\n}\ninput:checked + .slider[data-v-73ac5494] {\n    background-color: #66bb6a;\n}\ninput:checked + .slider[data-v-73ac5494]:before {\n    transform: translateX(26px);\n}\n.slider.round[data-v-73ac5494] {\n    border-radius: 34px;\n}\n.slider.round[data-v-73ac5494]:before {\n    border-radius: 50%;\n}\n.form-check[data-v-73ac5494] {\n    display: inline-flex !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -663,7 +663,12 @@ var render = function () {
             return [
               _vm.id
                 ? _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v(_vm._s(_vm.modal_title) + " & Permission Access : "),
+                    _vm._v(
+                      _vm._s(_vm.modal_title) +
+                        " & " +
+                        _vm._s(_vm.__("permission_access")) +
+                        " : "
+                    ),
                     _c("strong", [_vm._v(" " + _vm._s(_vm.printName) + " ")]),
                   ])
                 : _c("h5", { staticClass: "modal-title" }, [
@@ -704,7 +709,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -715,7 +720,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -736,7 +741,7 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Title")]),
+              _c("label", [_vm._v(_vm._s(_vm.__("title")))]),
               _vm._v(" "),
               _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
               _vm._v(" "),
@@ -753,7 +758,7 @@ var render = function () {
                 attrs: {
                   type: "text",
                   required: "",
-                  placeholder: "Enter Role title.",
+                  placeholder: _vm.__("enter_role_title"),
                 },
                 domProps: { value: _vm.name },
                 on: {

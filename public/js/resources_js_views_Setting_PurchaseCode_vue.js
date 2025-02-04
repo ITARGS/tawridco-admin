@@ -346,7 +346,7 @@ var render = function () {
                               name: "purchase_code",
                               id: "purchase_code",
                               required: "",
-                              placeholder: "Enter the purchase code here",
+                              placeholder: _vm.__("enter_the_purchase_code"),
                               disabled: _vm.hasValid,
                             },
                             domProps: { value: _vm.purchase_code },

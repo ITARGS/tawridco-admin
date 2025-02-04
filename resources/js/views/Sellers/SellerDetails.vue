@@ -282,7 +282,7 @@
                       <label>{{ __("store_description") }} :</label>
                       <
                       <editor
-                        placeholder="Enter store description"
+                        :placeholder="__('store_description')"
                         v-model="store_description"
                         :init="{
                           height: 400,
