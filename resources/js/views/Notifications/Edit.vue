@@ -38,7 +38,7 @@
 
       <div class="row">
         <div class="form-group">
-          <label for="type">Type {{ __("type") }}</label>
+          <label for="type">{{ __("type") }}</label>
           <select
             name="type"
             id="type"
@@ -61,7 +61,7 @@
             type="url"
             class="form-control"
             v-model="type_link"
-            placeholder="Enter Link"
+            :placeholder="__('enter_link')"
           />
         </div>
 
@@ -121,7 +121,7 @@
             required
             v-model="title"
             class="form-control"
-            placeholder="Enter title"
+            :placeholder="__('enter_link')"
           />
         </div>
 

@@ -708,7 +708,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1386,7 +1385,7 @@ var render = function () {
                       _vm._v(
                         "\n                  " +
                           _vm._s(_vm.__("new_delivery_boy_register_form")) +
-                          "New Delivery Boy Register\n                  Form\n                "
+                          "\n                "
                       ),
                     ]),
                   ]),
@@ -1416,7 +1415,7 @@ var render = function () {
                             name: "name",
                             id: "name",
                             required: "",
-                            placeholder: "Enter name.",
+                            placeholder: _vm.__("name"),
                           },
                           domProps: { value: _vm.deliveryBoys.name },
                           on: {
@@ -1461,7 +1460,7 @@ var render = function () {
                             type: "date",
                             name: "dob",
                             id: "dob",
-                            placeholder: "Enter date of birth",
+                            placeholder: _vm.__("date_of_birth"),
                           },
                           domProps: { value: _vm.deliveryBoys.dob },
                           on: {
@@ -1512,7 +1511,7 @@ var render = function () {
                             type: "number",
                             name: "mobile",
                             id: "mobile",
-                            placeholder: "Enter mobile no.",
+                            placeholder: _vm.__("enter_mobile"),
                           },
                           domProps: { value: _vm.deliveryBoys.mobile },
                           on: {
@@ -1566,7 +1565,7 @@ var render = function () {
                             readonly:
                               this.$roleDeliveryBoy ===
                               this.login_user.role.name,
-                            placeholder: "Enter email id.",
+                            placeholder: _vm.__("enter_email"),
                           },
                           domProps: { value: _vm.deliveryBoys.email },
                           on: {
@@ -1616,7 +1615,7 @@ var render = function () {
                                     attrs: {
                                       name: "password",
                                       id: "password",
-                                      placeholder: "Enter password.",
+                                      placeholder: _vm.__("enter_passord"),
                                       type: "checkbox",
                                     },
                                     domProps: {
@@ -1679,7 +1678,7 @@ var render = function () {
                                     attrs: {
                                       name: "password",
                                       id: "password",
-                                      placeholder: "Enter password.",
+                                      placeholder: _vm.__("enter_passord"),
                                       type: "radio",
                                     },
                                     domProps: {
@@ -1711,7 +1710,7 @@ var render = function () {
                                     attrs: {
                                       name: "password",
                                       id: "password",
-                                      placeholder: "Enter password.",
+                                      placeholder: _vm.__("enter_passord"),
                                       type: _vm.showPassword
                                         ? "text"
                                         : "password",
@@ -1796,7 +1795,9 @@ var render = function () {
                                     attrs: {
                                       name: "confirm_password",
                                       id: "confirm_password",
-                                      placeholder: "Enter again password.",
+                                      placeholder: _vm.__(
+                                        "enter_confirm_password"
+                                      ),
                                       type: "checkbox",
                                     },
                                     domProps: {
@@ -1863,7 +1864,9 @@ var render = function () {
                                     attrs: {
                                       name: "confirm_password",
                                       id: "confirm_password",
-                                      placeholder: "Enter again password.",
+                                      placeholder: _vm.__(
+                                        "enter_confirm_password"
+                                      ),
                                       type: "radio",
                                     },
                                     domProps: {
@@ -1897,7 +1900,9 @@ var render = function () {
                                     attrs: {
                                       name: "confirm_password",
                                       id: "confirm_password",
-                                      placeholder: "Enter again password.",
+                                      placeholder: _vm.__(
+                                        "enter_confirm_password"
+                                      ),
                                       type: _vm.showConfirmPassword
                                         ? "text"
                                         : "password",
@@ -1978,7 +1983,7 @@ var render = function () {
                             readonly:
                               this.$roleDeliveryBoy ===
                               this.login_user.role.name,
-                            placeholder: "Enter bank's IFSC code.",
+                            placeholder: _vm.__("ifsc_code"),
                           },
                           domProps: { value: _vm.deliveryBoys.ifsc_code },
                           on: {
@@ -2024,7 +2029,7 @@ var render = function () {
                             readonly:
                               this.$roleDeliveryBoy ===
                               this.login_user.role.name,
-                            placeholder: "Enter bank name",
+                            placeholder: _vm.__("enter_bank_name"),
                           },
                           domProps: { value: _vm.deliveryBoys.bank_name },
                           on: {
@@ -2073,7 +2078,7 @@ var render = function () {
                             readonly:
                               this.$roleDeliveryBoy ===
                               this.login_user.role.name,
-                            placeholder: "Enter account number",
+                            placeholder: _vm.__("enter_account_number"),
                           },
                           domProps: {
                             value: _vm.deliveryBoys.bank_account_number,
@@ -2130,7 +2135,7 @@ var render = function () {
                             readonly:
                               this.$roleDeliveryBoy ===
                               this.login_user.role.name,
-                            placeholder: "Enter bank account name",
+                            placeholder: _vm.__("enter_bank_account_name"),
                           },
                           domProps: { value: _vm.deliveryBoys.account_name },
                           on: {
@@ -2166,8 +2171,8 @@ var render = function () {
                         _c("multiselect", {
                           attrs: {
                             options: _vm.cities,
-                            placeholder: "Select & Search City",
-                            label: "name",
+                            placeholder: _vm.__("select_search"),
+                            label: _vm.__("name"),
                             "track-by": "name",
                             id: "city_name",
                             required: "",
@@ -2245,7 +2250,7 @@ var render = function () {
                             name: "address",
                             id: "address",
                             rows: "3",
-                            placeholder: "Enter address",
+                            placeholder: _vm.__("enter_address"),
                           },
                           domProps: { value: _vm.deliveryBoys.address },
                           on: {
@@ -2285,7 +2290,7 @@ var render = function () {
                             name: "other_payment_info",
                             id: "other_payment_info",
                             rows: "3",
-                            placeholder: "Enter other payment information",
+                            placeholder: _vm.__("payment_information"),
                           },
                           domProps: {
                             value: _vm.deliveryBoys.other_payment_information,
@@ -2552,7 +2557,9 @@ var render = function () {
                                       },
                                       [
                                         _c("i", { staticClass: "fa fa-eye" }),
-                                        _vm._v(" Identity Card"),
+                                        _vm._v(
+                                          " " + _vm._s(_vm.__("identity"))
+                                        ),
                                       ]
                                     ),
                                   ]),
@@ -2569,7 +2576,7 @@ var render = function () {
                             { staticClass: "form-group" },
                             [
                               _c("label", [
-                                _vm._v("Status " + _vm._s(_vm.__("status"))),
+                                _vm._v(" " + _vm._s(_vm.__("status"))),
                                 _c(
                                   "span",
                                   { staticClass: "text-danger text-xs" },
@@ -2608,7 +2615,7 @@ var render = function () {
                       ? _c("div", { staticClass: "col-md-6" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "remark" } }, [
-                              _vm._v("Remark " + _vm._s(_vm.__("remark"))),
+                              _vm._v(" " + _vm._s(_vm.__("remark"))),
                               _c(
                                 "span",
                                 { staticClass: "text-danger text-xs" },
@@ -2630,7 +2637,7 @@ var render = function () {
                                 name: "remark",
                                 id: "remark",
                                 required: "",
-                                placeholder: "Add a remark of this status...",
+                                placeholder: _vm.__("add_mark"),
                               },
                               domProps: { value: _vm.deliveryBoys.remark },
                               on: {
@@ -2829,7 +2836,7 @@ var render = function () {
                                         step: "0.1",
                                         name: "bonus_percentage",
                                         id: "bonus_percentage",
-                                        placeholder: "Enter Bonus (%)",
+                                        placeholder: _vm.__("bonus"),
                                       },
                                       domProps: {
                                         value:
@@ -2887,7 +2894,9 @@ var render = function () {
                                         required: "",
                                         name: "bonus_min_amount",
                                         id: "bonus_min_amount",
-                                        placeholder: "Minimum bonus amount",
+                                        placeholder: _vm.__(
+                                          "minimum_bonus_amount"
+                                        ),
                                       },
                                       domProps: {
                                         value:
@@ -2959,7 +2968,9 @@ var render = function () {
                                         required: "",
                                         name: "bonus_max_amount",
                                         id: "bonus_max_amount",
-                                        placeholder: "Maximum bonus amount",
+                                        placeholder: _vm.__(
+                                          "maximum_bonus_amount"
+                                        ),
                                       },
                                       domProps: {
                                         value:

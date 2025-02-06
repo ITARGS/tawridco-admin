@@ -245,9 +245,9 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("h4", [_vm._v("Reset Your")]),
+            _c("h4", [_vm._v(_vm._s(_vm.__("reset_your")))]),
             _vm._v(" "),
-            _c("h4", [_vm._v("Password here!")]),
+            _c("h4", [_vm._v(_vm._s(_vm.__("password_here")))]),
             _vm._v(" "),
             _c(
               "form",
@@ -279,7 +279,7 @@ var render = function () {
                       staticClass: "form-control form-control-xl",
                       attrs: {
                         type: "email",
-                        placeholder: "Email Address",
+                        placeholder: _vm.__("email_address"),
                         required: "",
                       },
                       domProps: { value: _vm.user.email },
@@ -305,7 +305,9 @@ var render = function () {
                   },
                   [
                     _vm._v(
-                      "\n                        Reset Password\n                        "
+                      "\n                       " +
+                        _vm._s(_vm.__("reset_password")) +
+                        "\n                        "
                     ),
                     _vm.isLoading
                       ? _c("b-spinner", {

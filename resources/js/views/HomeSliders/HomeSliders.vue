@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="card-body">
-                           
+
                             <b-row class="mb-2">
                                 <b-col md="3" offset-md="8">
                                     <h6 class="box-title">{{ __('search') }}</h6>
@@ -39,7 +39,7 @@
                                         id="filter-input"
                                         v-model="filter"
                                         type="search"
-                                        placeholder="Search"
+                                        :placeholder="__('search')"
                                     ></b-form-input>
                                 </b-col>
                                 <b-col md="1" class="text-center">

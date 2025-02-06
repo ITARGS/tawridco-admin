@@ -236,32 +236,32 @@ __webpack_require__.r(__webpack_exports__);
       category: "",
       fields: [{
         key: "id",
-        label: "Order Item ID",
+        label: __('order_item_id'),
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "user_name",
-        label: "User",
+        label: __('user'),
         sortable: true,
         "class": "text-center"
       }, {
         key: "product_name",
-        label: "Product",
+        label: __('product'),
         sortable: true,
         "class": "text-center"
       }, {
         key: "mobile",
-        label: "Mob.",
+        label: __('mobile'),
         sortable: true,
         "class": "text-center"
       }, {
         key: "sub_total",
-        label: "Total( " + this.$currency + " )",
+        label: __('total'),
         sortable: true,
         "class": "text-center"
       }, {
         key: "added_date",
-        label: "Date",
+        label: __('date'),
         sortable: true,
         "class": "text-center"
       }],
@@ -529,7 +529,9 @@ var render = function () {
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "page-title" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("sales_reports")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -557,7 +559,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Sales Reports")]
+                    [_vm._v(_vm._s(_vm.__("sales_reports")))]
                   ),
                 ]),
               ]
@@ -568,7 +570,11 @@ var render = function () {
       _vm._v(" "),
       _c("section", { staticClass: "section" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "card-header" }, [
+            _c("h4", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.__("sales_reports"))),
+            ]),
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -580,7 +586,7 @@ var render = function () {
                 [
                   _c("b-col", { attrs: { md: "2" } }, [
                     _c("h6", { staticClass: "box-title" }, [
-                      _vm._v("From & To Date"),
+                      _vm._v(_vm._s(_vm.__("from_and_to_date"))),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -635,7 +641,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "seller" } },
-                      [_vm._v("Seller")]
+                      [_vm._v(_vm._s(_vm.__("sellers")))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -674,7 +680,7 @@ var render = function () {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Select Seller"),
+                          _vm._v(_vm._s(_vm.__("select_seller"))),
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.sellers, function (seller) {
@@ -699,7 +705,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Category")]
+                      [_vm._v(_vm._s(_vm.__("category")))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -763,7 +769,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Delivery Boys")]
+                      [_vm._v(_vm._s(_vm.__("delivery_boys")))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -802,7 +808,7 @@ var render = function () {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Select Delivery Boys"),
+                          _vm._v(_vm._s(_vm.__("select_delivery_boys"))),
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.deliveryBoys, function (deliveryBoy) {
@@ -827,7 +833,7 @@ var render = function () {
                     _c(
                       "h6",
                       { staticClass: "box-title", attrs: { for: "category" } },
-                      [_vm._v("Payment")]
+                      [_vm._v(_vm._s(_vm.__("payment")))]
                     ),
                     _vm._v(" "),
                     _c(
@@ -866,15 +872,15 @@ var render = function () {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Select Type"),
+                          _vm._v(_vm._s(_vm.__("select_type"))),
                         ]),
                         _vm._v(" "),
                         _c("option", { domProps: { value: 1 } }, [
-                          _vm._v("COD"),
+                          _vm._v(_vm._s(_vm.__("code"))),
                         ]),
                         _vm._v(" "),
                         _c("option", { domProps: { value: 2 } }, [
-                          _vm._v("Online"),
+                          _vm._v(_vm._s(_vm.__("online"))),
                         ]),
                       ]
                     ),
@@ -885,14 +891,14 @@ var render = function () {
                     { attrs: { md: "2" } },
                     [
                       _c("h6", { staticClass: "box-title" }, [
-                        _vm._v("Search"),
+                        _vm._v(_vm._s(_vm.__("search"))),
                       ]),
                       _vm._v(" "),
                       _c("b-form-input", {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,
@@ -1034,7 +1040,9 @@ var render = function () {
               _c("b-row", [
                 _c("div", { staticClass: "col-md-4 text-success h6" }, [
                   _vm._v(
-                    "\n              Total Amount :- " +
+                    "\n              " +
+                      _vm._s(_vm.__("total_amount")) +
+                      " :- " +
                       _vm._s(_vm.$currency) +
                       " " +
                       _vm._s(_vm.final_total_sum.toFixed(2)) +
@@ -1121,24 +1129,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Sales Reports")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Sales Reports")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

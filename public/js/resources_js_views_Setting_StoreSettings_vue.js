@@ -1894,9 +1894,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2087,7 +2084,7 @@ __webpack_require__.r(__webpack_exports__);
     validateMobileNumber: function validateMobileNumber() {
       var mobileNumber = this.store_settings.support_number;
       if (!/^\d{1,16}$/.test(mobileNumber)) {
-        this.mobilevalidationError = "Support Number must be maximum 16 digits numbers.";
+        this.mobilevalidationError = __('error_message');
         this.store_settings.support_number = null;
       } else {
         this.mobilevalidationError = null;
@@ -2723,7 +2720,7 @@ var render = function () {
                                           name: "app_name",
                                           id: "app_name",
                                           placeholder:
-                                            "Name of the App - used in whole system",
+                                            _vm.__("Name_of_the_system"),
                                         },
                                         domProps: {
                                           value: _vm.store_settings.app_name,
@@ -2778,7 +2775,7 @@ var render = function () {
                                           id: "support_number",
                                           inputmode: "numeric",
                                           placeholder:
-                                            "Customer support mobile number - used in whole system +91 9876543210",
+                                            _vm.__("customer_support"),
                                         },
                                         domProps: {
                                           value:
@@ -2843,8 +2840,9 @@ var render = function () {
                                           required: "",
                                           name: "support_email",
                                           id: "support_email",
-                                          placeholder:
-                                            "Customer support email - used in whole system",
+                                          placeholder: _vm.__(
+                                            "customer_support_email"
+                                          ),
                                         },
                                         domProps: {
                                           value:
@@ -3476,7 +3474,7 @@ var render = function () {
                                           _vm._v(
                                             "\n                              " +
                                               _vm._s(_vm.__("store_currency")) +
-                                              "(Symbol or Code - $ or\n                              USD):"
+                                              ":"
                                           ),
                                         ]
                                       ),
@@ -3498,7 +3496,7 @@ var render = function () {
                                           name: "currency",
                                           id: "currency",
                                           placeholder:
-                                            "Either Symbol or Code - For Example $ or USD",
+                                            _vm.__("either_symbol_Code"),
                                         },
                                         domProps: {
                                           value: _vm.store_settings.currency,
@@ -3588,7 +3586,7 @@ var render = function () {
                                             { attrs: { value: "" } },
                                             [
                                               _vm._v(
-                                                "Select Country Currency Code"
+                                                _vm._s(_vm.__("select_country"))
                                               ),
                                             ]
                                           ),
@@ -3636,7 +3634,7 @@ var render = function () {
                                         { attrs: { for: "currency_code" } },
                                         [
                                           _vm._v(
-                                            "Decimal Point" +
+                                            " " +
                                               _vm._s(_vm.__("decimal_point"))
                                           ),
                                         ]
@@ -3842,7 +3840,7 @@ var render = function () {
                                       _c("multiselect", {
                                         attrs: {
                                           options: _vm.cities,
-                                          placeholder: "Select & Search City",
+                                          placeholder: _vm.__("default_city"),
                                           label: "name",
                                           "track-by": "name",
                                           id: "city_name",
@@ -3950,7 +3948,11 @@ var render = function () {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "Add new city here."
+                                                        _vm._s(
+                                                          _vm.__(
+                                                            "add_new_city_here"
+                                                          )
+                                                        )
                                                       ),
                                                     ]
                                                   )
@@ -4079,8 +4081,9 @@ var render = function () {
                                           required: "",
                                           name: "max_cart_items_count",
                                           id: "max_cart_items_count",
-                                          placeholder:
-                                            "Maximum Items Allowed In Cart",
+                                          placeholder: _vm.__(
+                                            "maximum_items_allowed_in_cart"
+                                          ),
                                           min: "1",
                                         },
                                         domProps: {
@@ -4158,8 +4161,9 @@ var render = function () {
                                           required: "",
                                           name: "min_order_amount",
                                           id: "min_order_amount",
-                                          placeholder:
-                                            "Minimum total amount to place order",
+                                          placeholder: _vm.__(
+                                            "minimum_order_amount"
+                                          ),
                                           min: "1",
                                         },
                                         domProps: {
@@ -4188,13 +4192,12 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                              ( Below this user will not allowed to place order\n                              " +
+                                            "\n                              " +
                                               _vm._s(
                                                 _vm.__(
                                                   "below_this_user_will_not_allowed_to_place_order"
                                                 )
-                                              ) +
-                                              ")"
+                                              )
                                           ),
                                         ]
                                       ),
@@ -4233,8 +4236,9 @@ var render = function () {
                                           required: "",
                                           name: "low_stock_limit",
                                           id: "low_stock_limit",
-                                          placeholder:
-                                            "Product low stock limit",
+                                          placeholder: _vm.__(
+                                            "Product_low_stock_limit"
+                                          ),
                                         },
                                         domProps: {
                                           value:
@@ -4605,7 +4609,9 @@ var render = function () {
                                               step: "0.1",
                                               name: "delivery_boy_bonus_percentage",
                                               id: "delivery_boy_bonus_percentage",
-                                              placeholder: "Delivery Boy Bonus",
+                                              placeholder: _vm.__(
+                                                "delivery_boy_bonus_percentage"
+                                              ),
                                             },
                                             domProps: {
                                               value:
@@ -4673,8 +4679,9 @@ var render = function () {
                                               required: "",
                                               name: "delivery_boy_bonus_min_amount",
                                               id: "delivery_boy_bonus_min_amount",
-                                              placeholder:
-                                                "Minimum bonus amount",
+                                              placeholder: _vm.__(
+                                                "minimum_bonus_amount"
+                                              ),
                                             },
                                             domProps: {
                                               value:
@@ -4759,8 +4766,9 @@ var render = function () {
                                               required: "",
                                               name: "delivery_boy_bonus_max_amount",
                                               id: "delivery_boy_bonus_max_amount",
-                                              placeholder:
-                                                "Maximum bonus amount",
+                                              placeholder: _vm.__(
+                                                "maximum_bonus_amount"
+                                              ),
                                             },
                                             domProps: {
                                               value:
@@ -4966,12 +4974,11 @@ var render = function () {
                               { staticClass: "text text-primary font-size-13" },
                               [
                                 _vm._v(
-                                  "In this mode you can set your app in Maintenance and that\n                        Appilication will not work till not disabled from here" +
-                                    _vm._s(
-                                      _vm.__(
-                                        "in_this_mode_you_can_set_your_app_in_maitenance_and_that_application_will_not_work_till_not_disabled_from_here"
-                                      )
+                                  _vm._s(
+                                    _vm.__(
+                                      "in_this_mode_you_can_set_your_app_in_maitenance_and_that_application_will_not_work_till_not_disabled_from_here"
                                     )
+                                  )
                                 ),
                               ]
                             ),
@@ -5134,8 +5141,9 @@ var render = function () {
                                                   required:
                                                     _vm.store_settings
                                                       .app_mode_customer == 1,
-                                                  placeholder:
-                                                    "Enter Notification Message Here!",
+                                                  placeholder: _vm.__(
+                                                    "enter_notification_message_here"
+                                                  ),
                                                 },
                                                 domProps: {
                                                   value:
@@ -5323,8 +5331,9 @@ var render = function () {
                                                   required:
                                                     _vm.store_settings
                                                       .app_mode_seller == 1,
-                                                  placeholder:
-                                                    "Enter Notification Message Here!",
+                                                  placeholder: _vm.__(
+                                                    "enter_notification_message_here"
+                                                  ),
                                                 },
                                                 domProps: {
                                                   value:
@@ -5517,8 +5526,9 @@ var render = function () {
                                                     _vm.store_settings
                                                       .app_mode_delivery_boy ==
                                                     1,
-                                                  placeholder:
-                                                    "Enter Notification Message Here!",
+                                                  placeholder: _vm.__(
+                                                    "enter_notification_message_here"
+                                                  ),
                                                 },
                                                 domProps: {
                                                   value:
@@ -5958,7 +5968,7 @@ var render = function () {
                                                   name: "current_version",
                                                   id: "current_version",
                                                   placeholder:
-                                                    "Current Version",
+                                                    _vm.__("current_version"),
                                                 },
                                                 domProps: {
                                                   value:
@@ -6277,8 +6287,9 @@ var render = function () {
                                                   required: "",
                                                   name: "ios_current_version",
                                                   id: "ios_current_version",
-                                                  placeholder:
-                                                    "IOS Current Version",
+                                                  placeholder: _vm.__(
+                                                    "ios_current_version"
+                                                  ),
                                                 },
                                                 domProps: {
                                                   value:
@@ -7086,8 +7097,9 @@ var render = function () {
                                                     _vm.store_settings
                                                       .is_country_section_in_homepage ==
                                                     1,
-                                                  placeholder:
-                                                    "Enter Country Number Here!",
+                                                  placeholder: _vm.__(
+                                                    "country_number_here"
+                                                  ),
                                                 },
                                                 domProps: {
                                                   value:
@@ -7248,7 +7260,7 @@ var render = function () {
                                           required: "",
                                           name: "smtp_from_mail",
                                           id: "smtp_from_mail",
-                                          placeholder: "From SMTP Email ID",
+                                          placeholder: _vm.__("from_email_id"),
                                         },
                                         domProps: {
                                           value:
@@ -7322,7 +7334,8 @@ var render = function () {
                                           required: "",
                                           name: "smtp_reply_to",
                                           id: "smtp_reply_to",
-                                          placeholder: "From SMTP Email ID",
+                                          placeholder:
+                                            _vm.__("reply_to_email_id"),
                                         },
                                         domProps: {
                                           value:
@@ -7400,8 +7413,9 @@ var render = function () {
                                           required: "",
                                           name: "smtp_email_password",
                                           id: "smtp_email_password",
-                                          placeholder:
-                                            "Enter your SMTP email password",
+                                          placeholder: _vm.__(
+                                            "smtp_email_password"
+                                          ),
                                         },
                                         domProps: {
                                           value:
@@ -7454,7 +7468,7 @@ var render = function () {
                                           required: "",
                                           name: "smtp_host",
                                           id: "smtp_host",
-                                          placeholder: "SMTP Host address",
+                                          placeholder: _vm.__("smtp_host"),
                                         },
                                         domProps: {
                                           value: _vm.store_settings.smtp_host,
@@ -7507,7 +7521,7 @@ var render = function () {
                                           required: "",
                                           name: "smtp_port",
                                           id: "smtp_port",
-                                          placeholder: "SMTP Port",
+                                          placeholder: _vm.__("smtp_port"),
                                         },
                                         domProps: {
                                           value: _vm.store_settings.smtp_port,
@@ -7756,7 +7770,7 @@ var render = function () {
                                               type: "text",
                                               name: "test_email",
                                               placeholder:
-                                                "Enter Email Address for Test",
+                                                _vm.__("enter_email_test"),
                                             },
                                             domProps: {
                                               value:
@@ -7941,7 +7955,7 @@ var render = function () {
                                                 name: "google_place_api_key",
                                                 id: "google_place_api_key",
                                                 placeholder:
-                                                  "Google Place Api Key",
+                                                  _vm.__("place_api_key"),
                                               },
                                               domProps: {
                                                 value:
@@ -8196,7 +8210,8 @@ var render = function () {
                                             type: "number",
                                             name: "seller_commission",
                                             id: "seller_commission",
-                                            placeholder: "Seller Commission",
+                                            placeholder:
+                                              _vm.__("seller_commission"),
                                             step: "0.1",
                                             min: "1",
                                             max: "100",

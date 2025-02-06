@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Product Sales Reports</h3>
+                        <h3>{{ __("product_sales_reports") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><router-link to="/delivery_boy/dashboard">{{ __('dashboard') }}</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Product Sales Reports</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("product_sales_reports") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -19,28 +19,28 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Product Sales Reports</h4>
+                        <h4 class="card-title">{{ __("product_sales_reports") }}</h4>
                     </div>
                     <div class="card-body">
                         <b-row class="mb-2">
                             <b-col md="4">
-                                <h6 class="box-title">From & To Date</h6>
+                                <h6 class="box-title">{{ __("from_and_to_date") }}</h6>
                                 <date-range-picker
                                     v-model="dateRange"
                                     :autoApply=false
                                     :showDropdowns = true
                                     :maxDate="maxDate"
                                     @update="getProductSalesReports">
-                                    
+
                                 </date-range-picker>
                             </b-col>
                             <b-col md="4" offset-md="3">
-                                <h6 class="box-title">Search</h6>
+                                <h6 class="box-title">{{ __("search") }}</h6>
                                 <b-form-input
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1">
@@ -123,11 +123,11 @@ export default {
             dateRange: {startDate, endDate},
             maxDate : new Date(),
             fields: [
-                { key: 'product_name', label: 'Product Name', sortable: true, class: 'text-center' },
-                { key: 'product_variant_id', label: 'Product Variant ID', sortable: true, sortDirection: 'desc' },
-                { key: 'unit_name', label: 'Unit Of Measure', sortable: true, class: 'text-center' },
-                { key: 'total_sales', label: 'Total Units Sold', sortable: true, class: 'text-center' },
-                { key: 'total_price', label: 'Total Sales', sortable: true, class: 'text-center' }
+                { key: 'product_name', label: __('product_name'), sortable: true, class: 'text-center' },
+                { key: 'product_variant_id', label: __('product_variant_id'), sortable: true, sortDirection: 'desc' },
+                { key: 'unit_name', label: __('unit_of_measure'), sortable: true, class: 'text-center' },
+                { key: 'total_sales', label: __('total_units_sold'), sortable: true, class: 'text-center' },
+                { key: 'total_price', label: __('total_sales'), sortable: true, class: 'text-center' }
             ],
             totalRows: 1,
             currentPage: 1,

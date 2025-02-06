@@ -546,10 +546,10 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("h4", [_vm._v("Delivery Boy Complete Profile")]),
+          _c("h4", [_vm._v(_vm._s(_vm.__("delivery_profile")))]),
           _vm._v(" "),
           _c("p", { staticClass: "auth-subtitle text-primary" }, [
-            _vm._v("Please Complete the form to complete your registration"),
+            _vm._v(_vm._s(_vm.__("seller_register_message"))),
           ]),
           _vm._v(" "),
           _c(
@@ -565,12 +565,14 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "content" }, [
-                _c("h6", [_vm._v("Delivery Boy Information")]),
+                _c("h6", [_vm._v(_vm._s(_vm.__("delivery_information")))]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                      _c("label", { attrs: { for: "name" } }, [
+                        _vm._v(_vm._s(_vm.__("name"))),
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -586,7 +588,7 @@ var render = function () {
                           type: "text",
                           name: "name",
                           id: "name",
-                          placeholder: "Enter name.",
+                          placeholder: _vm.__("name"),
                         },
                         domProps: { value: _vm.deliveryBoys.name },
                         on: {
@@ -608,7 +610,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "mobile" } }, [
-                        _vm._v("Mobile No."),
+                        _vm._v(_vm._s(_vm.__("mobile_no"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -625,7 +627,7 @@ var render = function () {
                           type: "number",
                           name: "mobile",
                           id: "mobile",
-                          placeholder: "Enter mobile no.",
+                          placeholder: _vm.__("mobile_no"),
                         },
                         domProps: { value: _vm.deliveryBoys.mobile },
                         on: {
@@ -647,7 +649,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "driving_license" } }, [
-                        _vm._v("Driving License"),
+                        _vm._v(_vm._s(_vm.__("driving_licence"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -681,7 +683,8 @@ var render = function () {
                             ? [
                                 _c("label", [
                                   _vm._v(
-                                    "Selected file name:- " +
+                                    _vm._s(_vm.__("selected_file_name")) +
+                                      ":- " +
                                       _vm._s(
                                         _vm.deliveryBoys.driving_license.name
                                       )
@@ -745,7 +748,7 @@ var render = function () {
                       _c(
                         "label",
                         { attrs: { for: "national_identity_card" } },
-                        [_vm._v("National Identity Card")]
+                        [_vm._v(_vm._s(_vm.__("national_identity_card")))]
                       ),
                       _vm._v(" "),
                       _c("input", {
@@ -779,7 +782,8 @@ var render = function () {
                             ? [
                                 _c("label", [
                                   _vm._v(
-                                    "Selected file name:- " +
+                                    _vm._s(_vm.__("selected_file_name")) +
+                                      ":- " +
                                       _vm._s(
                                         _vm.deliveryBoys.national_identity_card
                                           .name
@@ -833,7 +837,7 @@ var render = function () {
                                     },
                                     [
                                       _c("i", { staticClass: "fa fa-eye" }),
-                                      _vm._v(" Identity Card"),
+                                      _vm._v(" " + _vm._s(_vm.__("identity"))),
                                     ]
                                   ),
                                 ]),
@@ -845,7 +849,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "dob" } }, [
-                        _vm._v("Date Of Birth"),
+                        _vm._v(_vm._s(_vm.__("date_of_birth"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -885,7 +889,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "ifsc_code" } }, [
-                        _vm._v("Bank's IFSC Code"),
+                        _vm._v(_vm._s(_vm.__("bank_ifsc_code"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -925,7 +929,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "bank_name" } }, [
-                        _vm._v("Bank Name"),
+                        _vm._v(_vm._s(_vm.__("bank_name"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -965,7 +969,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "account_number" } }, [
-                        _vm._v("Account Number"),
+                        _vm._v(_vm._s(_vm.__("account_number"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -1007,7 +1011,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "account_name" } }, [
-                        _vm._v("Bank Account Name"),
+                        _vm._v(_vm._s(_vm.__("bank_account_name"))),
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -1049,13 +1053,13 @@ var render = function () {
                     { staticClass: "col-md-6" },
                     [
                       _c("label", { attrs: { for: "city_name" } }, [
-                        _vm._v("Select or Search City"),
+                        _vm._v(_vm._s(_vm.__("select_or_search_city"))),
                       ]),
                       _vm._v(" "),
                       _c("multiselect", {
                         attrs: {
                           options: _vm.cities,
-                          placeholder: "Select & Search City",
+                          placeholder: _vm.__("select_or_search_city"),
                           label: "name",
                           "track-by": "name",
                           id: "city_name",
@@ -1105,7 +1109,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "address" } }, [
-                        _vm._v("Address"),
+                        _vm._v(_vm._s(_vm.__("address"))),
                       ]),
                       _vm._v(" "),
                       _c("textarea", {
@@ -1144,7 +1148,7 @@ var render = function () {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "other_payment_info" } }, [
-                        _vm._v("Other Payment Information"),
+                        _vm._v(_vm._s(_vm.__("other_payment_information"))),
                       ]),
                       _vm._v(" "),
                       _c("textarea", {
@@ -1162,7 +1166,7 @@ var render = function () {
                           name: "other_payment_info",
                           id: "other_payment_info",
                           rows: "3",
-                          placeholder: "Enter other payment information",
+                          placeholder: _vm.__("other_payment_information"),
                         },
                         domProps: {
                           value: _vm.deliveryBoys.other_payment_information,
@@ -1193,7 +1197,9 @@ var render = function () {
                 },
                 [
                   _vm._v(
-                    "\n                     Complete\n                     "
+                    "\n                     " +
+                      _vm._s(_vm.__("complete")) +
+                      "\n                     "
                   ),
                   _vm.isLoading
                     ? _c("b-spinner", {

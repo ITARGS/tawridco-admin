@@ -4,8 +4,8 @@
       <div class="page-title">
         <div class="row">
           <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3 v-if="type === 'sold_out'">Sold Out Products</h3>
-            <h3 v-if="type === 'low_stock'">Low Stock Products</h3>
+            <h3 v-if="type === 'sold_out'">{{ __("sold_out_products") }}</h3>
+            <h3 v-if="type === 'low_stock'">{{ __("low_stock_products") }}</h3>
           </div>
           <div class="col-12 col-md-6 order-md-2 order-first">
             <nav
@@ -21,14 +21,14 @@
                   class="breadcrumb-item active"
                   aria-current="page"
                 >
-                  Sold Out Products
+                  {{ __("sold_out_products") }}
                 </li>
                 <li
                   v-if="type === 'low_stock'"
                   class="breadcrumb-item active"
                   aria-current="page"
                 >
-                  Low Stock Products
+                  {{ __("low_stock_products") }}
                 </li>
               </ol>
             </nav>
@@ -38,13 +38,13 @@
       <section class="section">
         <div class="card">
           <div class="card-header">
-            <h4 v-if="type === 'sold_out'" class="card-title">Sold Out Products List</h4>
+            <h4 v-if="type === 'sold_out'" class="card-title">{{ __("sold_out_products_list") }}</h4>
             <h4 v-if="type === 'low_stock'" class="card-title">
-              Low Stock Products List
+             {{ __("low_stock_products_list") }}
             </h4>
             <span class="pull-right">
               <router-link to="/manage_products/create" class="btn btn-primary"
-                >Add New Product</router-link
+                >{{ __("add_new_product") }}</router-link
               >
             </span>
           </div>
@@ -108,7 +108,7 @@
                   {{ row.item.measurement + " " + row.item.short_code }}
                 </template>
                 <template #cell(stock)="row">
-                  <span v-if="row.item.is_unlimited_stock">Unlimited</span>
+                  <span v-if="row.item.is_unlimited_stock">{{ __("unlimited") }}</span>
                   <template v-else>
                     {{ row.item.stock }}
                     <span v-if="row.item.stock_unit">{{ row.item.stock_unit }}</span>
@@ -116,19 +116,19 @@
                 </template>
                 <template #cell(status)="row">
                   <span class="badge bg-success" v-if="row.item.status == 1"
-                    >Available</span
+                    >{{ __("available") }}</span
                   >
                   <span class="badge bg-danger" v-if="row.item.status == 0"
-                    >Sold Out</span
+                    >{{ __("sold_out") }}</span
                   >
                 </template>
                 <template #cell(indicator)="row">
                   <span class="badge bg-info" v-if="row.item.indicator === 0">None</span>
                   <span class="badge bg-success" v-if="row.item.indicator === 1"
-                    >Veg</span
+                    >{{ __("veg") }}</span
                   >
                   <span class="badge bg-danger" v-if="row.item.indicator === 2"
-                    >Non-Veg</span
+                    >{{ __("non_veg") }}</span
                   >
                 </template>
                 <template #cell(is_approved)="row">
@@ -141,39 +141,39 @@
                 </template>
                 <template #cell(return_status)="row">
                   <span class="badge bg-danger" v-if="row.item.return_status === 0"
-                    >Not-Allowed</span
+                    >{{ __("not_allowed") }}</span
                   >
                   <span class="badge bg-success" v-if="row.item.return_status === 1"
-                    >Allowed</span
+                    >{{ __("allowed") }}</span
                   >
                 </template>
                 <template #cell(cancelable_status)="row">
                   <span class="badge bg-danger" v-if="row.item.cancelable_status === 0"
-                    >Not-Allowed</span
+                    >{{ __("not_allowed") }}</span
                   >
                   <span class="badge bg-success" v-if="row.item.cancelable_status === 1"
-                    >Allowed</span
+                    >{{ __("allowed") }}</span
                   >
                 </template>
                 <template #cell(till_status)="row">
                   <span class="badge bg-danger" v-if="row.item.till_status == 0"
-                    >Not Applicable</span
+                    >{{ __("not_applicable") }}</span
                   >
                   <span class="badge bg-success" v-if="row.item.till_status == 'received'"
-                    >Received</span
+                    >{{ __("received") }}</span
                   >
                   <span
                     class="badge bg-success"
                     v-if="row.item.till_status == 'processed'"
-                    >Processed</span
+                    >{{ __("processed") }}</span
                   >
                   <span class="badge bg-success" v-if="row.item.till_status == 'shipped'"
-                    >Shipped</span
+                    >{{ __("shipped") }}</span
                   >
                   <span
                     class="badge bg-success"
                     v-if="row.item.till_status == 'delivered'"
-                    >Delivered</span
+                    >{{ __("delivered") }}</span
                   >
                 </template>
                 <template #cell(status)="row">
@@ -266,53 +266,53 @@ export default {
     return {
       category: "",
       fields: [
-        { key: "product_variant_id", label: "ID", sortable: true, sortDirection: "desc" },
-        { key: "product_id", label: "Product ID", sortable: true, sortDirection: "desc" },
-        { key: "tax_id", label: "Tax ID", sortable: true, class: "text-center" },
+        { key: "product_variant_id", label: __("id"), sortable: true, sortDirection: "desc" },
+        { key: "product_id", label: __("product_id"), sortable: true, sortDirection: "desc" },
+        { key: "tax_id", label: __("tax_id"), sortable: true, class: "text-center" },
         {
           key: "seller_name",
-          label: "Seller Name",
+          label: __("seller_name"),
           class: "text-center",
           sortable: true,
         },
-        { key: "name", label: "Name", sortable: true, class: "text-center" },
-        { key: "image", label: "Image", class: "text-center" },
-        { key: "price", label: "Price", class: "text-center", sortable: true },
+        { key: "name", label: __("name"), sortable: true, class: "text-center" },
+        { key: "image", label: __("images"), class: "text-center" },
+        { key: "price", label: __("price"), class: "text-center", sortable: true },
         {
           key: "discounted_price",
-          label: "D.Price",
+          label: __("discounted_price"),
           class: "text-center",
           sortable: true,
         },
         {
           key: "measurement",
-          label: "Measurement",
+          label: __("measurement"),
           class: "text-center",
           sortable: true,
         },
-        { key: "stock", label: "Stock", class: "text-center", sortable: true },
-        { key: "status", label: "Availability", class: "text-center", sortable: true },
-        { key: "indicator", label: "Indicator", class: "text-center", sortable: true },
+        { key: "stock", label: __("stock"), class: "text-center", sortable: true },
+        { key: "status", label: __("availability"), class: "text-center", sortable: true },
+        { key: "indicator", label: __("indicator"), class: "text-center", sortable: true },
         {
           key: "is_approved",
-          label: "Is Approved?",
+          label: __("is_approved"),
           class: "text-center",
           sortable: true,
         },
-        { key: "return_status", label: "Return", class: "text-center", sortable: true },
+        { key: "return_status", label: __("return"), class: "text-center", sortable: true },
         {
           key: "cancelable_status",
-          label: "Cancellation",
+          label: __("cancellation"),
           class: "text-center",
           sortable: true,
         },
         {
           key: "till_status",
-          label: "Till Status",
+          label: __("till_status"),
           class: "text-center",
           sortable: true,
         },
-        { key: "status", label: "Status", class: "text-center", sortable: true },
+        { key: "status", label: __("status"), class: "text-center", sortable: true },
         { key: "actions", label: __("actions") },
       ],
       totalRows: 1,

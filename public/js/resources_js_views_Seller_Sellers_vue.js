@@ -379,7 +379,7 @@ __webpack_require__.r(__webpack_exports__);
         sortDirection: 'desc'
       }, {
         key: 'actions',
-        label: __('action')
+        label: __('actions')
       }],
       totalRows: 1,
       currentPage: 1,
@@ -924,7 +924,8 @@ var render = function () {
                         _c("div", { staticClass: "form-group" }, [
                           _c("h6", { attrs: { for: "filterStatus" } }, [
                             _vm._v(
-                              "Filter Seller by Status " +
+                              _vm._s(_vm.__("filter_status")) +
+                                " " +
                                 _vm._s(_vm.__("filter_seller_by_status"))
                             ),
                           ]),

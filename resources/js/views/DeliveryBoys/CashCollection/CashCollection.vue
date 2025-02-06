@@ -160,7 +160,7 @@ export default {
             maxDate : new Date(),
             fields: [
                 {key: 'id', label: __('id'), sortable: true, sortDirection: 'desc'},
-                {key: 'name', label: ('name'), sortable: true, class: 'text-center'},
+                {key: 'name', label: __('name'), sortable: true, class: 'text-center'},
                 {key: 'mobile', label: __('mobile'), sortable: true, class: 'text-center'},
                 {key: 'order_id', label: __('order_id'), sortable: true, class: 'text-center'},
                 {key: 'final_total', label: __('final_total')  +'('+ this.$currency +')', sortable: true, class: 'text-center'},
