@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="purchase_code">{{ __('enter_the_purchase_code') }}</label>
-                                        <input type="text" name="purchase_code" id="purchase_code" v-model="purchase_code" required placeholder="Enter the purchase code here" class="form-control" :disabled="hasValid">
+                                        <input type="text" name="purchase_code" id="purchase_code" v-model="purchase_code" required :placeholder="__('enter_the_purchase_code')" class="form-control" :disabled="hasValid">
                                     </div>
                                     <div class="form-group" v-if="!hasValid">
                                         <button type="submit" class="btn btn-primary" name="btnValidate" :disabled="isValidation">

@@ -2309,7 +2309,9 @@ var render = function () {
                                     })
                                   : _vm._e(),
                                 _vm._v(
-                                  "\n                Download Database\n              "
+                                  "\n                " +
+                                    _vm._s(_vm.__("download_database")) +
+                                    "\n              "
                                 ),
                               ],
                               1

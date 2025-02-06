@@ -9,9 +9,9 @@
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
                 <div class="form-group">
-                    <label for="icon">Icon</label>
+                    <label for="icon">{{ __("icon") }}</label>
                     <select name="icon" id="icon" v-model="socialMedia.icon" class="form-control form-select social_media" >
-                        <option value="">Select Icon</option>
+                        <option value="">{{ __("select_icon") }}</option>
                         <option value="fab fa-facebook">&#xf09a; Facebook</option>
                         <option value="fab fa-linkedin">&#xf0e1; LinkedIn</option>
                         <option value="fab fa-instagram">&#xf16d; Instagram</option>

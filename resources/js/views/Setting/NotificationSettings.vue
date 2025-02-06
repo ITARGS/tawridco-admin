@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="fcm_server_key"> {{ __('fcm_server_key') }} : </label>
-                                <textarea class="form-control" name="fcm_server_key" v-model="notification_settings.fcm_server_key" id="fcm_server_key" placeholder="FCM Server Key" rows="5"></textarea>
+                                <textarea class="form-control" name="fcm_server_key" v-model="notification_settings.fcm_server_key" id="fcm_server_key" :placeholder="__('fcm_server_key')" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="card-footer">

@@ -80,8 +80,8 @@
                                 </template>
 
                                 <template #cell(status)="row">
-                                    <span class='badge bg-success' v-if="row.item.status == 1">Activated</span>
-                                    <span class='badge bg-danger' v-if="row.item.status == 0">Deactivated</span>
+                                    <span class='badge bg-success' v-if="row.item.status == 1">{{ __("activated") }}</span>
+                                    <span class='badge bg-danger' v-if="row.item.status == 0">{{ __("deactivated") }}</span>
                                 </template>
 
                                 <template #cell(actions)="row">

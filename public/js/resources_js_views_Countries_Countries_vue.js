@@ -1038,13 +1038,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Activated")]
+                                  [_vm._v(_vm._s(_vm.__("activated")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             row.item.status == 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Deactivated"),
+                                  _vm._v(_vm._s(_vm.__("deactivated"))),
                                 ])
                               : _vm._e(),
                           ]

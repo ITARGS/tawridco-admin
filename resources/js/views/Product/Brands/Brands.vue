@@ -85,8 +85,8 @@
               </template>
 
               <template #cell(status)="row">
-                <span v-if="row.item.status == 1" class="badge bg-success">Active</span>
-                <span v-else class="badge bg-danger">Deactive</span>
+                <span v-if="row.item.status == 1" class="badge bg-success">{{ __("active") }}</span>
+                <span v-else class="badge bg-danger">{{ __("deactive") }}</span>
               </template>
 
               <template #cell(actions)="row">

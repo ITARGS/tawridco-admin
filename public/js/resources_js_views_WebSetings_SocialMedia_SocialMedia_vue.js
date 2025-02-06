@@ -582,7 +582,9 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "icon" } }, [_vm._v("Icon")]),
+              _c("label", { attrs: { for: "icon" } }, [
+                _vm._v(_vm._s(_vm.__("icon"))),
+              ]),
               _vm._v(" "),
               _c(
                 "select",
@@ -619,7 +621,7 @@ var render = function () {
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Select Icon"),
+                    _vm._v(_vm._s(_vm.__("select_icon"))),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "fab fa-facebook" } }, [
@@ -765,11 +767,7 @@ var render = function () {
             _c(
               "div",
               { staticClass: "col-12 col-md-6 order-md-1 order-last" },
-              [
-                _c("h3", [
-                  _vm._v("Social Media" + _vm._s(_vm.__("social_media"))),
-                ]),
-              ]
+              [_c("h3", [_vm._v(_vm._s(_vm.__("social_media")))])]
             ),
             _vm._v(" "),
             _c(
@@ -856,7 +854,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,

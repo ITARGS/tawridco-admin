@@ -111,7 +111,7 @@
                 <button class="btn btn-primary" @click="downloadDatabase">
                   <i :class="`fa fa-download`"></i>
                   <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
-                  Download Database
+                  {{ __("download_database") }}
                 </button>
               </div>
             </template>

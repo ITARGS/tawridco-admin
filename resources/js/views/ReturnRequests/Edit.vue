@@ -1,10 +1,10 @@
 <template>
     <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" no-fade static>
         <div slot="modal-footer">
-            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">Save
+            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">{{ __("save") }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </b-button>
-            <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+            <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
         </div>
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
@@ -13,13 +13,13 @@
                         <label for="status">Status</label><br>
                         <div id="status" class="btn-group">
                             <label class="btn btn-warning" data-toggle-class="btn-warning" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="returnRequest.status" value="1" class="form-check-input"> Pending
+                                <input type="radio" v-model="returnRequest.status" value="1" class="form-check-input"> {{ __("pending") }}
                             </label>
                             <label class="btn btn-success" data-toggle-class="btn-success" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="returnRequest.status" value="2" class="form-check-input"> Approve
+                                <input type="radio" v-model="returnRequest.status" value="2" class="form-check-input"> {{ __("approved") }}
                             </label>
                             <label class="btn btn-danger" data-toggle-class="btn-danger" data-toggle-passive-class="btn-default">
-                                <input type="radio" v-model="returnRequest.status" value="3" class="form-check-input"> Reject
+                                <input type="radio" v-model="returnRequest.status" value="3" class="form-check-input"> {{ __("reject") }}
                             </label>
                         </div>
                     </div>
@@ -27,21 +27,21 @@
                     <input type="hidden" v-model="returnRequest.order_id">
 
                     <div class="form-group" v-if="returnRequest.status == 2">
-                        <label for="assign delivery boy">Assign Delivery Boy</label>
+                        <label for="assign delivery boy">{{ __("assign_delivery_boy") }}</label>
                         <form class="row g-3 align-items-center" ref="my-form">
                             <div class="input-group">
-                                <label class="visually-hidden" for="delivery_boy_id">Delivery Boy</label>
+                                <label class="visually-hidden" for="delivery_boy_id">{{ __("delivery_boy") }}</label>
                                 <select id="delivery_boy_id" name="delivery_boy_id" class="form-control form-select" v-model="returnRequest.delivery_boy_id" required>
-                                    <option value="">Select Delivery Boy</option>
+                                    <option value="">{{ __("select_delivery_boy") }}</option>
                                     <option v-for="boy in deliveryBoys" :value="boy.id">{{ boy.name }}</option>
                                 </select>
                             </div>
                         </form>
-                    </div> 
+                    </div>
                 </div>
                     <div class="form-group">
-                        <label for="remark">Remark</label>
-                        <textarea name="remark" id="remark" v-model="returnRequest.remark" class="form-control" placeholder="Enter Remark">
+                        <label for="remark">{{ __("remark") }}</label>
+                        <textarea name="remark" id="remark" v-model="returnRequest.remark" class="form-control" :placeholder="__('remark')">
                         </textarea>
                     </div>
             </div>
@@ -69,7 +69,7 @@ export default {
                 delivery_boy_id:  this.record ? this.record.delivery_boy_id : 0 ,
                 remark: this.record ? this.record.remarks : "" ,
             },
-           
+
         };
     },
     computed: {
@@ -83,7 +83,7 @@ export default {
         showModal() {
             this.$refs['my-modal'].show();
             this.getOrder();
-           
+
         },
         hideModal() {
             this.$refs['my-modal'].hide()
@@ -91,10 +91,10 @@ export default {
 
         getOrder() {
             this.isLoading = true
-         
+
             axios.get(this.$apiUrl + '/orders/view/' + this.record.order_id)
                 .then((response) => {
-              
+
                     this.isLoading = false
                     let data = response.data;
                     if (data.status === 1) {
@@ -125,7 +125,7 @@ export default {
             for(let key in formObject){
                 formData.append(key, formObject[key]);
             }
-            
+
             let url = this.$apiUrl + '/return_requests/save';
             if(this.returnRequest.id){
                 url = this.$apiUrl + '/return_requests/update';

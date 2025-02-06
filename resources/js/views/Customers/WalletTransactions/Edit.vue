@@ -1,10 +1,10 @@
 <template>
     <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" no-fade static>
         <div slot="modal-footer">
-            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading || (graterAmount === true) ">Save
+            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading || (graterAmount === true) ">{{ __("save") }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </b-button>
-            <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+            <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
         </div>
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
@@ -13,7 +13,7 @@
                     <multiselect v-model="walletTransaction.customer"
                                  :options="customers"
                                  @close="checkAmount"
-                                 placeholder="Select & Search Customer"
+                                 :placeholder="__('select_or_search_city')"
                                  label="name"
                                  track-by="name" required>
                         <template slot="singleLabel" slot-scope="props">
@@ -24,34 +24,34 @@
                         <template slot="option" slot-scope="props">
                             <div class="option__desc">
                                 <span class="option__title">{{ props.option.name }}</span>,
-                                <span class="option__small">Balance:- {{ props.option.balance }}</span>
+                                <span class="option__small">{{ __("balance") }}:- {{ props.option.balance }}</span>
                             </div>
                         </template>
                     </multiselect>
                     <div class="border border-grey rounded p-2 mt-2" v-if="walletTransaction.customer">
                         <div class="d-flex justify-content-between align-items-center text-left">
-                            <span>Name:-</span><span> {{ walletTransaction.customer.name }}</span>
-                            <span>Mobile:-</span><span> {{ walletTransaction.customer.mobile }}</span>
+                            <span>{{ __("name") }}:-</span><span> {{ walletTransaction.customer.name }}</span>
+                            <span>{{ __("mobile") }}:-</span><span> {{ walletTransaction.customer.mobile }}</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center text-left">
-                            <span>Id:-</span><span> {{ walletTransaction.customer.id }}</span>
-                            <span>Balance:-</span><span> {{ walletTransaction.customer.balance }}</span>
+                            <span>{{ __("id") }}:-</span><span> {{ walletTransaction.customer.id }}</span>
+                            <span>{{ __("balance") }}:-</span><span> {{ walletTransaction.customer.balance }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="type">Type</label>
+                    <label for="type">{{ __("type") }}</label>
                     <input type="text" name="type" id="type" v-model="walletTransaction.type" class="form-control" value="Credit" readonly disabled />
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount</label>
-                    <input type="number" name="amount" id="amount" v-model="walletTransaction.amount" v-on:keyup="checkAmount" required class="form-control" placeholder="Enter Transfer Amount" min="1" step="0.01"  @input="validateAmount">
-                    <span class="text-danger" v-if="graterAmount === true">You Can not enter amount greater than balance.</span>
+                    <label for="amount">{{ __("amount") }}</label>
+                    <input type="number" name="amount" id="amount" v-model="walletTransaction.amount" v-on:keyup="checkAmount" required class="form-control" :placeholder="__('transfer_amount')" min="1" step="0.01"  @input="validateAmount">
+                    <span class="text-danger" v-if="graterAmount === true">{{ __("you_can_not_enter_amount_greater_than_balance") }}</span>
                     <span v-if="validationError" class="error">{{ validationError }}</span>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" v-model="walletTransaction.message" class="form-control" rows="3" placeholder="Enter Message." required ></textarea>
+                    <label for="message">{{ __("message") }}</label>
+                    <textarea name="message" id="message" v-model="walletTransaction.message" class="form-control" rows="3" :placeholder="__('message')" required ></textarea>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>
@@ -103,7 +103,7 @@ export default {
                 this.validationError = null;
             }
         },
-        
+
         checkAmount(){
             if((this.walletTransaction.type === 'debit') && (parseInt(this.walletTransaction.amount) > parseInt(this.walletTransaction.customer.balance))){
                 this.graterAmount = true;

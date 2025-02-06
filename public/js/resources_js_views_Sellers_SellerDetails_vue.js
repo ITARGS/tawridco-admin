@@ -1671,7 +1671,7 @@ var render = function () {
                             ),
                             _c("editor", {
                               attrs: {
-                                placeholder: "Enter store description",
+                                placeholder: _vm.__("store_description"),
                                 init: {
                                   height: 400,
                                   plugins: this.$editorPlugins,

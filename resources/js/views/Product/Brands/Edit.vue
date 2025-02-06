@@ -69,7 +69,7 @@
             @dragleave="$dragleaveFile"
           >
             <template v-if="image && image.name !== ''">
-              <label>Selected file name:- {{ image.name }}</label>
+              <label>{{ __("selected_file_name") }} {{ image.name }}</label>
             </template>
             <template v-else>
               <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>

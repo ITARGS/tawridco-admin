@@ -17,9 +17,9 @@
                         <tab-content title="Welcome">
                             <div class="text-center">
                                 <p class="display-4 py-3">🙌</p>
-                                <p>Thank you for choosing the eGrogcer script from WRTeam.</p>
-                                <p>This quick setup wizard will help you configure your new website.</p>
-                                <p>It should only take 3-5 minutes.</p>
+                                <p>{{ __("thank_wrTeam") }}</p>
+                                <p> {{ __("this_website") }} </p>
+                                <p>{{ __("It_minutes") }}</p>
                             </div>
                         </tab-content>
 
@@ -51,7 +51,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th colspan="2" class="ps-2">Permissions</th>
+                                    <th colspan="2" class="ps-2">{{ __("permissions") }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -87,57 +87,57 @@
 
                         <tab-content title="Database" :before-change="onCreateDatabase">
                             <div>
-                                <p class="text-center">Below you should enter your database connection details. If you are not sure about these, contact your host.</p>
+                                <p class="text-center">{{ __("below_host") }}</p>
 
                                 <form>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="database_host">Database Host<span class="text-danger text-xs">*</span></label>
-                                                <input type="text" placeholder="Database Host" v-model="database.database_host" id="database_host" class="form-control" required />
+                                                <label class="form-label" for="database_host">{{ __("database_host") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="text" :placeholder="__('database_host')" v-model="database.database_host" id="database_host" class="form-control" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="database_port">Database Port<span class="text-danger text-xs">*</span></label>
-                                                <input type="text" placeholder="Database Port" v-model="database.database_port" id="database_port" class="form-control" required />
+                                                <label class="form-label" for="database_port">{{ __("database_port") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="text" :placeholder="__('database_port')" v-model="database.database_port" id="database_port" class="form-control" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="database_name">Database Name<span class="text-danger text-xs">*</span></label>
-                                                <input type="text" placeholder="Database Name" v-model="database.database_name" id="database_name" class="form-control " required />
+                                                <label class="form-label" for="database_name">{{ __("database_name") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="text" :placeholder="__('database_name')" v-model="database.database_name" id="database_name" class="form-control " required />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="database_username">Database Username<span class="text-danger text-xs">*</span></label>
-                                                <input type="text" placeholder="Database Usersname" v-model="database.database_username" id="database_username" class="form-control" required />
+                                                <label class="form-label" for="database_username">{{ __("database_username") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="text" :placeholder="__('database_username')" v-model="database.database_username" id="database_username" class="form-control" required />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="database_password">Database Password<span class="text-danger text-xs">*</span></label>
-                                                <input type="password" placeholder="Database Password" v-model="database.database_password" id="database_password" class="form-control" required autocomplete="off" />
+                                                <label class="form-label" for="database_password">{{ __("database_password") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="password" :placeholder="__('database_password')" v-model="database.database_password" id="database_password" class="form-control" required autocomplete="off" />
                                             </div>
                                         </div>
 
                                         <div class="divider">
-                                            <div class="divider-text">Admin Details</div>
+                                            <div class="divider-text">{{ __("admin_details") }}</div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="admin_email">Admin Email<span class="text-danger text-xs">*</span></label>
-                                                <input type="email" placeholder="Admin Email" v-model="database.admin_email" id="admin_email" class="form-control" required />
+                                                <label class="form-label" for="admin_email">{{ __("admin_email") }}<span class="text-danger text-xs">*</span></label>
+                                                <input type="email" :placeholder="__('admin_email')" v-model="database.admin_email" id="admin_email" class="form-control" required />
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group mb-3">
-                                                <label class="form-label" for="admin_password">Admin Password<span class="text-danger text-xs">*</span></label>
+                                                <label class="form-label" for="admin_password">{{ __("admin_password") }}<span class="text-danger text-xs">*</span></label>
                                                 <div class="input-group">
-                                                    <input :type="showAdminPassword ? 'text' : 'password'" placeholder="Admin Password" v-model="database.admin_password" name="admin_password" id="admin_password" class="form-control" required autocomplete="off">
+                                                    <input :type="showAdminPassword ? 'text' : 'password'" :placeholder="__('admin_password')" v-model="database.admin_password" name="admin_password" id="admin_password" class="form-control" required autocomplete="off">
                                                     <button type="button" v-on:click="showAdminPassword = !showAdminPassword" class="btn btn-primary font-bold">
                                                         <i v-if="showAdminPassword" class="fa fa-eye-slash" aria-hidden="true"></i>
                                                         <i v-else class="fa fa-eye" aria-hidden="true"></i>
@@ -153,16 +153,16 @@
 
                         </tab-content>
 
-               
+
 
                         <tab-content title="Finish" :before-change="finish">
                             <div class="text-center">
                                 <i class="fa fa-check-circle fa-5x text-success mx-auto my-3"></i>
-                                <h1 class="text-success my-3">Congratulations!</h1>
-                                <p>Your website is ready now. Login to your Admin dashboard to make changes and modify any of the default content to suit your needs.</p>
-                                <p>Please come back and<a class="text-primary" href="https://codecanyon.net/item/egrocer-online-grocery-store-ecommerce-marketplace-flutter-full-app-with-admin-panel/reviews/41423150"> Leave a 5-star rating </a> if you are happy with this script.</p>
+                                <h1 class="text-success my-3">{{ __("congratulations") }}</h1>
+                                <p>{{ __("your_needs") }}.</p>
+                                <p>{{ __("please_and") }}<a class="text-primary" href="https://codecanyon.net/item/egrocer-online-grocery-store-ecommerce-marketplace-flutter-full-app-with-admin-panel/reviews/41423150">{{ __("leave_rating") }} </a> {{ __("if_script") }}</p>
 
-                                <small class="form-hint">For security reasons, the system will remove the install link automatically.</small>
+                                <small class="form-hint">{{ __("for_automatically") }}</small>
                             </div>
                         </tab-content>
 

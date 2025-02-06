@@ -32,7 +32,7 @@
                                             <multiselect v-model="city"
                                                          :options="cities"
                                                          @close="setMap"
-                                                         placeholder="Select & Search City"
+                                                         :placeholder="__('select_or_search_city')"
                                                          label="zone"
                                                          track-by="zone" id="city_name" required>
                                                 <template slot="singleLabel" slot-scope="props">

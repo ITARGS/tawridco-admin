@@ -5,13 +5,13 @@
         <div class="page-heading">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Brands</h3>
+                    <h3>{{ __("brands") }}</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><router-link to="/seller/dashboard">Dashboard</router-link></li>
-                            <li class="breadcrumb-item active" aria-current="page">Brands</li>
+                            <li class="breadcrumb-item"><router-link to="/seller/dashboard">{{ __("dashboard") }}</router-link></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ __("brands") }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,18 +22,18 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h4>Brands</h4>
+                            <h4>{{ __("brands") }}</h4>
                         </div>
 
                         <div class="card-body">
                             <b-row class="mb-2">
                                 <b-col md="3" offset-md="8">
-                                    <h6 class="box-title">Search</h6>
+                                    <h6 class="box-title">{{ __("search") }}</h6>
                                     <b-form-input
                                         id="filter-input"
                                         v-model="filter"
                                         type="search"
-                                        placeholder="Search"
+                                        :placeholder="__('search')"
                                     ></b-form-input>
                                 </b-col>
                                 <b-col md="1" class="text-center">
@@ -69,13 +69,13 @@
                                 </template>
 
                                 <template #cell(image)="row">
-                                    <p v-if="row.item.image ===''">No Image</p>
+                                    <p v-if="row.item.image ===''">{{ __("no_image") }}</p>
                                     <img :src="$storageUrl + row.item.image" height="50" v-else/>
                                 </template>
 
                                 <template #cell(status)="row">
-                                    <span v-if="row.item.status == 1" class="badge bg-success">Active</span>
-                                    <span v-else class="badge bg-danger">Deactive</span>
+                                    <span v-if="row.item.status == 1" class="badge bg-success">{{ __("active") }}</span>
+                                    <span v-else class="badge bg-danger">{{ __("deactive") }}</span>
                                 </template>
 
                                 <template #cell(actions)="row">
@@ -131,10 +131,10 @@ export default {
     data: function() {
         return {
             fields: [
-                { key: 'id', label: 'ID', class: 'text-center', sortable: true, sortDirection: 'desc' },
-                { key: 'name', label: 'Name',  class: 'text-center' },
-                { key: 'image', label: 'Image',  class: 'text-center' },
-                { key: 'status', label: 'Status',  class: 'text-center' },
+                { key: 'id', label: __('id'), class: 'text-center', sortable: true, sortDirection: 'desc' },
+                { key: 'name', label: __('name'),  class: 'text-center' },
+                { key: 'image', label: __('image'),  class: 'text-center' },
+                { key: 'status', label: __('status'),  class: 'text-center' },
             ],
             totalRows: 1,
             currentPage: 1,

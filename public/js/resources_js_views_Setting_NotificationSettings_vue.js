@@ -286,7 +286,7 @@ var render = function () {
                     attrs: {
                       name: "fcm_server_key",
                       id: "fcm_server_key",
-                      placeholder: "FCM Server Key",
+                      placeholder: _vm.__("fcm_server_key"),
                       rows: "5",
                     },
                     domProps: {

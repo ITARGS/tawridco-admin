@@ -632,7 +632,7 @@ var render = function () {
                           _c("multiselect", {
                             attrs: {
                               options: _vm.cities,
-                              placeholder: "Select & Search City",
+                              placeholder: _vm.__("select_or_search_city"),
                               label: "zone",
                               "track-by": "zone",
                               id: "city_name",

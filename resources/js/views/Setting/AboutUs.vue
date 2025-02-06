@@ -31,9 +31,9 @@
                             <div class="form-group">
                                 <label>{{ __('about_us') }} : </label>
                                 <editor
-                                    placeholder="Enter About us"
+                                    :placeholder="__('about_us')"
                                     v-model="about.about_us"
-                                    
+
                                     :init="{
                                                 height:400,
                                                 plugins: this.$editorPlugins ,

@@ -14,7 +14,7 @@
                                  :options="deliveryBoys"
                                  :custom-label="customLabelOption"
                                  @close="checkAmount"
-                                 placeholder="Select & Search Delivery Boy"
+                                 :placeholder="__('select_delivery_boys')"
                                  label="name"
                                  track-by="name" required>
                     </multiselect>
@@ -31,13 +31,13 @@
                 </div>
                 <div class="form-group">
                     <label for="amount">{{ __('transfer_amount') }}</label>
-                    <input type="number" name="amount" id="amount" v-model="fundTransfers.amount" v-on:keyup="checkAmount" required class="form-control" placeholder="Enter Transfer Amount" @input="validateFundTransfer">
-                    <span class="text-danger" v-if="graterAmount === true">You Can not enter amount greater than balance.{{ __('you_can_not_enter_amount_greater_than_balance') }}</span>
+                    <input type="number" name="amount" id="amount" v-model="fundTransfers.amount" v-on:keyup="checkAmount" required class="form-control" :placeholder="__('transfer_amount')" @input="validateFundTransfer">
+                    <span class="text-danger" v-if="graterAmount === true">{{ __('you_can_not_enter_amount_greater_than_balance') }}</span>
                     <span v-if="validationErrorFundTransfer" class="error">{{ validationErrorFundTransfer }}</span>
                 </div>
                 <div class="form-group">
                     <label for="message">{{ __('message') }}</label>
-                    <textarea name="message" id="message" v-model="fundTransfers.message" class="form-control" rows="3" placeholder="Enter Message." ></textarea>
+                    <textarea name="message" id="message" v-model="fundTransfers.message" class="form-control" rows="3" :placeholder="__('message')" ></textarea>
                 </div>
             </div>
             <button ref="dummy_submit" style="display:none;"></button>
@@ -62,7 +62,7 @@ export default {
                 deliveryBoy:null,
                 amount: this.record ? this.record.amount : "" ,
                 message: this.record ? this.record.message : "" ,
-                
+
             },
             validationErrorFundTransfer: null,
 

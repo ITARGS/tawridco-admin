@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Store Settings</h3>
+                        <h3>{{ __("store_settings") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><router-link to="/seller/dashboard">Dashboard</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Store Settings</li>
+                                <li class="breadcrumb-item"><router-link to="/seller/dashboard">{{ __("dashboard") }}</router-link></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("store_settings") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -19,18 +19,18 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Units</h4>
+                        <h4 class="card-title">{{ __("units") }}</h4>
                     </div>
                     <div class="card-body">
 
                         <b-row class="mb-2">
                             <b-col md="3" offset-md="8">
-                                <h6 class="box-title">Search</h6>
+                                <h6 class="box-title">{{ __("search") }}</h6>
                                 <b-form-input
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -120,11 +120,11 @@
         data: function() {
             return {
                 fields: [
-                    { key: 'id', label: 'ID', sortable: true, sortDirection: 'desc' },
-                    { key: 'name', label: 'Name', sortable: true, class: 'text-center' },
-                    { key: 'short_code', label: 'Short Code', sortable: true, class: 'text-center' },
-                    { key: 'parent_id', label: 'Parent Id',  class: 'text-center' },
-                    { key: 'conversion', label: 'Conversion',  class: 'text-center' }
+                    { key: 'id', label: __('id'), sortable: true, sortDirection: 'desc' },
+                    { key: 'name', label: __('name'), sortable: true, class: 'text-center' },
+                    { key: 'short_code', label: __('short_code'), sortable: true, class: 'text-center' },
+                    { key: 'parent_id', label: __('parent_id'),  class: 'text-center' },
+                    { key: 'conversion', label: __('conversion'),  class: 'text-center' }
                 ],
                 totalRows: 1,
                 currentPage: 1,

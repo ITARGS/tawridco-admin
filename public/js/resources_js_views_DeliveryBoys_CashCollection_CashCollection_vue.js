@@ -524,7 +524,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1388,7 +1388,7 @@ var render = function () {
                   attrs: {
                     options: _vm.deliveryBoys,
                     "custom-label": _vm.customLabelOption,
-                    placeholder: "Select or search Delivery Boy",
+                    placeholder: _vm.__("select_delivery_boy"),
                     label: "name",
                     "track-by": "name",
                     required: "",
@@ -1486,7 +1486,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                   step: "0.01",
                 },
                 domProps: { value: _vm.transactions.amount },
@@ -1541,7 +1541,7 @@ var render = function () {
                   name: "transaction_date",
                   id: "transaction_date",
                   required: "",
-                  placeholder: "Select Date & Time.",
+                  placeholder: _vm.__("date_time"),
                 },
                 domProps: { value: _vm.transactions.transaction_date },
                 on: {
@@ -1578,7 +1578,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                 },
                 domProps: { value: _vm.transactions.message },
                 on: {

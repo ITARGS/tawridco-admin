@@ -359,7 +359,7 @@
                     id="bonus_percentage"
                     v-model="deliveryBoys.bonus_percentage"
                     class="form-control"
-                    placeholder="Enter Bonus (%)"
+                    :placeholder="__('bonus_percentage')"
                   />
                   <span v-if="bonusValidationMessage" class="error">{{
                     bonusValidationMessage

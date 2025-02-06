@@ -359,7 +359,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter About us",
+                        placeholder: _vm.__("about_us"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,

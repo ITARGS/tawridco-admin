@@ -4,15 +4,15 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Fund Transfers</h3>
+                        <h3>{{ __("fund_transfers") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <router-link to="/delivery_boy/dashboard">Dashboard</router-link>
+                                    <router-link to="/delivery_boy/dashboard">{{ __("dashboard") }}</router-link>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Fund Transfers</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("fund_transfers") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -21,21 +21,21 @@
             <section class="section">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Fund Transfers</h4>
+                        <h4 class="card-title">{{ __("fund_transfers") }}</h4>
                         <span class="pull-right">
                             <button class="btn btn-primary" @click="create_new=true"
-                                    v-if="$can('fund_transfers_create')">Add Fund Transfers</button>
+                                    v-if="$can('fund_transfers_create')">{{ __("add_fund_transfers") }}</button>
                         </span>
                     </div>
                     <div class="card-body">
                         <b-row class="mb-2">
                             <b-col md="3" offset-md="8">
-                                <h6 class="box-title">Search</h6>
+                                <h6 class="box-title">{{ __("search") }}</h6>
                                 <b-form-input
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -77,13 +77,13 @@
                                 </template>
 
                                 <template #cell(type)="row">
-                                    <span v-if="row.item.type === 'credit'" class="badge bg-success">Credit</span>
-                                    <span v-else class="badge bg-danger">Debit</span>
+                                    <span v-if="row.item.type === 'credit'" class="badge bg-success">{{ __("credit") }}</span>
+                                    <span v-else class="badge bg-danger">{{ __("debit") }}</span>
                                 </template>
 
                                 <template #cell(status)="row">
-                                    <span v-if="row.item.status === '1'" class="badge bg-success">Active</span>
-                                    <span v-else class="badge bg-danger">Deactive</span>
+                                    <span v-if="row.item.status === '1'" class="badge bg-success">{{ __("active") }}</span>
+                                    <span v-else class="badge bg-danger">{{ __("deactive") }}</span>
                                 </template>
 
                                 <template #cell(created_at)="row">
@@ -133,16 +133,16 @@ export default {
     data: function () {
         return {
             fields: [
-                {key: 'id', label: 'ID', sortable: true, sortDirection: 'desc'},
-                {key: 'name', label: 'Name', sortable: true, class: 'text-center'},
-                {key: 'mobile', label: 'Mobile', sortable: true, class: 'text-center'},
-                {key: 'opening_balance', label: 'Opening Balance', sortable: true, class: 'text-center'},
-                {key: 'closing_balance', label: 'Closing Balance', sortable: true, class: 'text-center'},
-                {key: 'amount', label: 'Amount', sortable: true, class: 'text-center'},
-                {key: 'type', label: 'Type', sortable: true, class: 'text-center'},
-                {key: 'message', label: 'Message', sortable: true, class: 'text-center'},
-                {key: 'status', label: 'Status', sortable: true, class: 'text-center'},
-                {key: 'created_at', label: 'Date Created', sortable: true, class: 'text-center'}
+                {key: 'id', label: __('id'), sortable: true, sortDirection: 'desc'},
+                {key: 'name', label: __('name'), sortable: true, class: 'text-center'},
+                {key: 'mobile', label: __('mobile'), sortable: true, class: 'text-center'},
+                {key: 'opening_balance', label: __('opening_balance'), sortable: true, class: 'text-center'},
+                {key: 'closing_balance', label: __('closing_balance'), sortable: true, class: 'text-center'},
+                {key: 'amount', label: __('amount'), sortable: true, class: 'text-center'},
+                {key: 'type', label: __('type'), sortable: true, class: 'text-center'},
+                {key: 'message', label: __('message'), sortable: true, class: 'text-center'},
+                {key: 'status', label: __('status'), sortable: true, class: 'text-center'},
+                {key: 'created_at', label: __('date_created'), sortable: true, class: 'text-center'}
             ],
             totalRows: 1,
             currentPage: 1,

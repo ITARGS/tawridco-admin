@@ -526,7 +526,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-64f39104] {\r\n  margin-top: 5px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image_preview[data-v-64f39104] {\n  margin-top: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -964,10 +964,10 @@ var render = function () {
                         return [
                           row.item.status == 1
                             ? _c("span", { staticClass: "badge bg-success" }, [
-                                _vm._v("Active"),
+                                _vm._v(_vm._s(_vm.__("active"))),
                               ])
                             : _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Deactive"),
+                                _vm._v(_vm._s(_vm.__("deactive"))),
                               ]),
                         ]
                       },
@@ -1325,7 +1325,9 @@ var render = function () {
                     ? [
                         _c("label", [
                           _vm._v(
-                            "Selected file name:- " + _vm._s(_vm.image.name)
+                            _vm._s(_vm.__("selected_file_name")) +
+                              " " +
+                              _vm._s(_vm.image.name)
                           ),
                         ]),
                       ]

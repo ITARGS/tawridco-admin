@@ -1,14 +1,14 @@
 <template>
     <b-modal ref="my-modal" :title="modal_title" @hidden="$emit('modalClose')" size="xl" scrollable  no-close-on-backdrop no-fade static>
         <div slot="modal-footer">
-            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">Save
+            <b-button variant="primary" @click="$refs['dummy_submit'].click()" :disabled="isLoading">{{ __("save") }}
                 <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </b-button>
-            <b-button variant="secondary" @click="hideModal">Cancel</b-button>
+            <b-button variant="secondary" @click="hideModal">{{ __("cancel") }}</b-button>
         </div>
 
         <template #modal-header="{ close }">
-            <h5 v-if="id" class="modal-title">{{ modal_title }} & Permission Access : <strong> {{ printName }} </strong></h5>
+            <h5 v-if="id" class="modal-title">{{ modal_title }} & {{ __("permission_access") }} : <strong> {{ printName }} </strong></h5>
             <h5 v-else class="modal-title">{{ modal_title }}</h5>
             <button type="button" aria-label="Close" class="close" @click="close()">×</button>
         </template>
@@ -16,9 +16,9 @@
         <form ref="my-form" @submit.prevent="saveRecord">
             <div class="row">
                 <div class="form-group">
-                    <label>Title</label>
+                    <label>{{ __("title") }}</label>
                     <i class="text-danger">*</i>
-                    <input type="text" class="form-control" required v-model="name" placeholder="Enter Role title.">
+                    <input type="text" class="form-control" required v-model="name" :placeholder="__('enter_role_title')">
                 </div>
 
                 <div class="table-responsive">

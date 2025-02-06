@@ -980,7 +980,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("Select2", {
                       attrs: {
-                        placeholder: "Select customers",
+                        placeholder: _vm.__("select_customer"),
                         options: _vm.users_options,
                         settings: {
                           multiple: "multiple",
@@ -1097,7 +1097,7 @@ var render = function () {
                       },
                     },
                     [
-                      _c("option", [_vm._v("Select Product")]),
+                      _c("option", [_vm._v(_vm._s(_vm.__("select_product")))]),
                       _vm._v(" "),
                       _vm._l(_vm.products, function (product) {
                         return _c(
@@ -1173,7 +1173,7 @@ var render = function () {
                     id: "message",
                     rows: "40",
                     cols: "70",
-                    placeholder: "Enter Notification Message Here!",
+                    placeholder: _vm.__("enter_notification_message_here"),
                   },
                   domProps: { value: _vm.message },
                   on: {

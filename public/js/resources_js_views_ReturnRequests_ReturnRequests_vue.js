@@ -668,7 +668,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -679,7 +679,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -737,7 +737,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Pending\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("pending")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -771,7 +775,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Approve\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("approved")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -805,7 +813,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Reject\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("reject")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                   ]
@@ -836,7 +848,7 @@ var render = function () {
               _vm.returnRequest.status == 2
                 ? _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "assign delivery boy" } }, [
-                      _vm._v("Assign Delivery Boy"),
+                      _vm._v(_vm._s(_vm.__("assign_delivery_boy"))),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -853,7 +865,7 @@ var render = function () {
                               staticClass: "visually-hidden",
                               attrs: { for: "delivery_boy_id" },
                             },
-                            [_vm._v("Delivery Boy")]
+                            [_vm._v(_vm._s(_vm.__("delivery_boy")))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -896,7 +908,7 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v("Select Delivery Boy"),
+                                _vm._v(_vm._s(_vm.__("select_delivery_boy"))),
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.deliveryBoys, function (boy) {
@@ -917,7 +929,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "remark" } }, [_vm._v("Remark")]),
+              _c("label", { attrs: { for: "remark" } }, [
+                _vm._v(_vm._s(_vm.__("remark"))),
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -932,7 +946,7 @@ var render = function () {
                 attrs: {
                   name: "remark",
                   id: "remark",
-                  placeholder: "Enter Remark",
+                  placeholder: _vm.__("remark"),
                 },
                 domProps: { value: _vm.returnRequest.remark },
                 on: {
