@@ -55,7 +55,7 @@
         }
 
         $google_place_api_key = Setting::get_value('google_place_api_key') ?? "";
-        $currency = Setting::get_value('currency') ?? "$";
+        $currency =  app()->getLocale() == 'en' ? "SAR" : "رس";//Setting::get_value('currency') ?? "$";
         // $purchase_code = Setting::get_value('purchase_code') ?? "";
 
         $website_url = Setting::get_value('website_url') ?? "";

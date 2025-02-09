@@ -118,9 +118,7 @@ class ProductApiController extends Controller
 
                 $search = $request['search'];
 
-                $where .= " AND ( p.`name_en` like '%" . $search . "%' OR p.`name_ar` like '%". $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
-
-
+                $where .= " AND ( p.`name_en` like '%" . $search . "%' OR p.`name_ar` like '%" . $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
             }
 
 
@@ -129,7 +127,7 @@ class ProductApiController extends Controller
                 $seller_slug = $request['seller_slug'];
                 if (isset($request['category_id']) && !empty($request['category_id']) && is_numeric($request['category_id'])) {
                     $seller_category = Seller::where('slug', $seller_slug)->first(['categories']);
-                    if(!empty($seller_category)) {
+                    if (!empty($seller_category)) {
                         $category = $seller_category['categories'];
                         $data = explode(",", $category);
                         $search = (in_array($category_id, $data, TRUE)) ? 1 : 2;
@@ -138,34 +136,33 @@ class ProductApiController extends Controller
                         } else {
                             $where .= " AND s.`slug` = '$seller_slug' AND p.`category_id` IN (" . $category_id . ") ";
                         }
-                    }else{
+                    } else {
                         return CommonHelper::responseError(__('no_products_found'));
                     }
                 } else {
-                     $seller_category = Seller::where('slug', $seller_slug)->first(['categories']);
-                    if(!empty($seller_category)) {
+                    $seller_category = Seller::where('slug', $seller_slug)->first(['categories']);
+                    if (!empty($seller_category)) {
                         $category_ids = explode(",", $seller_category['categories']);
 
-                // Query categories based on the provided category IDs
-                $categories = Category::where('status', 1)
-                                        ->whereIn('id', $category_ids)
-                                        ->orderBy('id', 'ASC')
-                                        ->get()
-                                        ->toArray();
+                        // Query categories based on the provided category IDs
+                        $categories = Category::where('status', 1)
+                            ->whereIn('id', $category_ids)
+                            ->orderBy('id', 'ASC')
+                            ->get()
+                            ->toArray();
 
 
-                // Get all child category IDs
-                $ids = CommonHelper::getCategoryChildIds($categories);
+                        // Get all child category IDs
+                        $ids = CommonHelper::getCategoryChildIds($categories);
 
-                // Convert array of category IDs to comma-separated string
-                $category_ids = implode(",", $ids);
+                        // Convert array of category IDs to comma-separated string
+                        $category_ids = implode(",", $ids);
 
 
                         $where .= " AND s.`slug` =  '$seller_slug' AND p.category_id IN (" . $category_ids . " )";
-                    }else{
+                    } else {
                         return CommonHelper::responseError(__('no_products_found'));
                     }
-
                 }
             }
 
@@ -177,7 +174,7 @@ class ProductApiController extends Controller
             if (isset($request['seller_id']) && !empty($request['seller_id']) && is_numeric($request['seller_id'])) {
                 if (isset($request['category_id']) && !empty($request['category_id']) && is_numeric($request['category_id'])) {
                     $seller_category = Seller::where('slug', $seller_slug)->first(['categories']);
-                    if(!empty($seller_category)) {
+                    if (!empty($seller_category)) {
                         $category = $seller_category['categories'];
                         $data = explode(",", $category);
                         $search = (in_array($category_id, $data, TRUE)) ? 1 : 2;
@@ -186,30 +183,30 @@ class ProductApiController extends Controller
                         } else {
                             $where .= " AND p.`seller_id` = " . $seller_id . " AND p.`category_id` IN (" . $category_id . ") ";
                         }
-                    }else{
+                    } else {
                         return CommonHelper::responseError(__('no_products_found'));
                     }
                 } else {
                     $seller_category = Seller::where('id', $seller_id)->first(['categories']);
-                    if(!empty($seller_category)) {
+                    if (!empty($seller_category)) {
                         $category_ids = explode(",", $seller_category['categories']);
 
-                // Query categories based on the provided category IDs
-                $categories = Category::where('status', 1)
-                                        ->whereIn('id', $category_ids)
-                                        ->orderBy('id', 'ASC')
-                                        ->get()
-                                        ->toArray();
+                        // Query categories based on the provided category IDs
+                        $categories = Category::where('status', 1)
+                            ->whereIn('id', $category_ids)
+                            ->orderBy('id', 'ASC')
+                            ->get()
+                            ->toArray();
 
-                // Get all child category IDs
-                $ids = CommonHelper::getCategoryChildIds($categories);
+                        // Get all child category IDs
+                        $ids = CommonHelper::getCategoryChildIds($categories);
 
-                // Convert array of category IDs to comma-separated string
-                $category_ids = implode(",", $ids);
+                        // Convert array of category IDs to comma-separated string
+                        $category_ids = implode(",", $ids);
 
 
                         $where .= " AND p.`seller_id` = " . $seller_id . " AND p.category_id IN (" . $category_ids . " )";
-                    }else{
+                    } else {
                         return CommonHelper::responseError(__('no_products_found'));
                     }
                 }
@@ -239,21 +236,31 @@ class ProductApiController extends Controller
             $products = array();
             $i = 0;
 
-             $products = Product::select('p.*', 'p.type as d_type', 's.store_name as seller_name', 's.slug as seller_slug', 's.status as seller_status',
+            $products = Product::select(
+                'p.*',
+                'p.type as d_type',
+                's.store_name as seller_name',
+                's.slug as seller_slug',
+                's.status as seller_status',
 
-             'pv.price', 'pv.discounted_price',
+                'pv.price',
+                'pv.discounted_price',
 
-             DB::raw("if(pv.discounted_price > 0, ceil(((pv.price - pv.discounted_price)/pv.price)*100), 0)  as cal_discount_percentage"),
+                DB::raw("if(pv.discounted_price > 0, ceil(((pv.price - pv.discounted_price)/pv.price)*100), 0)  as cal_discount_percentage"),
 
-             DB::raw("ceil((pv.price - pv.discounted_price)) as cal_discount"),
+                DB::raw("ceil((pv.price - pv.discounted_price)) as cal_discount"),
 
-             DB::raw('count(*) as order_counter'),
+                DB::raw('count(*) as order_counter'),
 
-            //  DB::raw("(select MIN(if(discounted_price > 0, discounted_price, price)) from product_variants where product_variants.product_id = p.id) as min_price"),
-            //  DB::raw("(select MAX(if(discounted_price > 0, discounted_price, price)) from product_variants where product_variants.product_id = p.id) as max_price"),
-             'co.name as country_made_in',
-             's.longitude', 's.latitude', 'cities.max_deliverable_distance', 'cities.boundary_points',
-             DB::raw("GROUP_CONCAT(t.name) as tag_names"))
+                //  DB::raw("(select MIN(if(discounted_price > 0, discounted_price, price)) from product_variants where product_variants.product_id = p.id) as min_price"),
+                //  DB::raw("(select MAX(if(discounted_price > 0, discounted_price, price)) from product_variants where product_variants.product_id = p.id) as max_price"),
+                'co.name as country_made_in',
+                's.longitude',
+                's.latitude',
+                'cities.max_deliverable_distance',
+                'cities.boundary_points',
+                DB::raw("GROUP_CONCAT(t.name) as tag_names")
+            )
                 ->from('products as p')
                 ->leftJoin("countries as co", "p.made_in", "=", "co.id")
                 ->leftJoin('sellers as s', 'p.seller_id', '=', 's.id')
@@ -262,25 +269,26 @@ class ProductApiController extends Controller
                 ->Join("product_variants as pv", "pv.product_id", "=", "p.id")
                 ->leftJoin('product_tag as pt', 'p.id', '=', 'pt.product_id')
                 ->leftJoin('tags as t', 'pt.tag_id', '=', 't.id')
-                ->where('p.is_approved',1)
-                ->where('p.status',1)
-                ->where('c.status',1)
+                ->where('p.is_approved', 1)
+                ->where('p.status', 1)
+                ->where('c.status', 1)
 
-                ->where('s.status',1)
-                ->whereIn('p.seller_id',$seller_ids)
-                ->selectRaw('
+                ->where('s.status', 1)
+                ->whereIn('p.seller_id', $seller_ids)
+                ->selectRaw(
+                    '
         MIN(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as min_price,
         MAX(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as max_price'
-    )
+                )
                 ->with('ratings');
 
 
-                if(isset($product_ids_array) && $product_ids_array != NULL){
-               $products = $products->orderByRaw(DB::raw("FIELD(p.id, " . implode(',', $product_ids_array) . ")"));
-                }
-                $products = $products->groupBy("p.id");
+            if (isset($product_ids_array) && $product_ids_array != NULL) {
+                $products = $products->orderByRaw(DB::raw("FIELD(p.id, " . implode(',', $product_ids_array) . ")"));
+            }
+            $products = $products->groupBy("p.id");
 
-                 if (isset($request->min_price) && isset($request->max_price) && intval($request->max_price)) {
+            if (isset($request->min_price) && isset($request->max_price) && intval($request->max_price)) {
                 $products = $products->havingRaw(" min_price > " . intval(intval($request->min_price) - 1) . " and max_price < " . intval(intval($request->max_price) + 1));
             }
 
@@ -299,34 +307,33 @@ class ProductApiController extends Controller
                 $category_ids = explode(",", $request->category_ids);
 
                 // Query categories based on the provided category IDs
-                $categories = Category::where('status', 1)->whereIn('id', $category_ids)->orderBy('id', 'ASC') ->get()->toArray();
+                $categories = Category::where('status', 1)->whereIn('id', $category_ids)->orderBy('id', 'ASC')->get()->toArray();
 
                 // Get all child category IDs
                 $ids = CommonHelper::getCategoryChildIds($categories);
 
                 // Convert array of category IDs to comma-separated string
                 $category_ids = implode(",", $ids);
-               // dd($category_ids);
+                // dd($category_ids);
                 // Filter products based on category IDs
                 $products = $products->whereIn('p.category_id', explode(",", $category_ids));
             }
 
-              if (isset($request->section_id) && $request->section_id != "") {
+            if (isset($request->section_id) && $request->section_id != "") {
                 $section_id = $request->section_id;
                 $section = Section::select("*")->where("id", "=", $section_id)->first();
 
                 $product_ids = CommonHelper::getProductIdsSection($section);
 
-              // Convert product IDs into an array
+                // Convert product IDs into an array
                 $product_ids_array = explode(",", $product_ids);
 
                 // Initialize the query condition
 
 
                 if (!empty($product_ids_array)) {
-                $products = $products->whereIn('p.id', $product_ids_array);
+                    $products = $products->whereIn('p.id', $product_ids_array);
                 }
-
             }
 
 
@@ -334,7 +341,7 @@ class ProductApiController extends Controller
                 $tagsArray = explode(',', $request->tag_names);
                 $tagIds = DB::table('tags')->whereIn('name', $tagsArray)->pluck('id')->toArray();
 
-               //dd( $tagIds);
+                //dd( $tagIds);
                 $products = $products->havingRaw("SUM(CASE WHEN pt.tag_id IN (" . implode(',', $tagIds) . ") THEN 1 ELSE 0 END) > 0")->where('p.slug', '!=', $request->tag_slug);
             }
 
@@ -345,54 +352,76 @@ class ProductApiController extends Controller
             if ($where != "") {
                 $products = $products->whereRaw(substr($where, 4));
             }
-// dd($products);
+            // dd($products);
             // $productsTotal = clone $products;
-        $total = $products->get()->count();
+            $total = $products->get()->count();
 
             $products = $products->skip($offset)->take($limit)->orderByRaw($sort)->get();
 
-            $products = $products->makeHidden(['row_order','return_status',
-                'cancelable_status','till_status','description','status','is_approved','return_days','pincodes',
-                'cod_allowed','pickup_location','tags','d_type','seller_name','seller_slug','seller_status',
-                'created_at', 'updated_at','deleted_at','image','other_images']);
+            $products = $products->makeHidden([
+                'row_order',
+                'return_status',
+                'cancelable_status',
+                'till_status',
+                'description',
+                'status',
+                'is_approved',
+                'return_days',
+                'pincodes',
+                'cod_allowed',
+                'pickup_location',
+                'tags',
+                'd_type',
+                'seller_name',
+                'seller_slug',
+                'seller_status',
+                'created_at',
+                'updated_at',
+                'deleted_at',
+                'image',
+                'other_images'
+            ]);
 
             $i = 0;
 
 
-            foreach ($products as $row){
+            foreach ($products as $row) {
 
-                $sql = ProductVariant::select('*',
-                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
+                $sql = ProductVariant::select(
+                    '*',
+                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name")
+                )
                     ->from('product_variants as pv')
-                    ->where('pv.product_id','=',$row['id'])
-                    ->orderBy('pv.status','ASC');
+                    ->where('pv.product_id', '=', $row['id'])
+                    ->orderBy('pv.status', 'ASC');
                 $variants = $sql->get();
-                $variants = $variants->makeHidden(['product_id','status','measurement_unit_id','stock_unit_id','deleted_at']);
+                $variants = $variants->makeHidden(['product_id', 'status', 'measurement_unit_id', 'stock_unit_id', 'deleted_at']);
                 if (empty($variants)) {
                     continue;
                 }
 
-                CommonHelper::getProductDetails($row['id'],$user_id,false);
+                CommonHelper::getProductDetails($row['id'], $user_id, false);
                 $variantArray = array();
                 for ($k = 0; $k < count($variants); $k++) {
-                    array_push($variantArray,CommonHelper::getProductVariant($variants[$k]['id'],$user_id));
+                    array_push($variantArray, CommonHelper::getProductVariant($variants[$k]['id'], $user_id));
                 }
                 $products[$i]['variants'] = $variantArray;
 
-                $products[$i]->rating_count =CommonHelper::productAverageRating($row['id'])['rating_count'];
-                $products[$i]->average_rating =CommonHelper::productAverageRating($row['id'])['average_rating'];
+                $products[$i]->rating_count = CommonHelper::productAverageRating($row['id'])['rating_count'];
+                $products[$i]->average_rating = CommonHelper::productAverageRating($row['id'])['average_rating'];
 
                 $i++;
             }
 
             $productResult = Product::from('products as p')
-                                ->leftJoin('product_variants as pv', 'pv.product_id', '=', 'p.id')
-                                ->whereIn('p.seller_id', $seller_ids)
-                                ->selectRaw('
+                ->leftJoin('product_variants as pv', 'pv.product_id', '=', 'p.id')
+                ->whereIn('p.seller_id', $seller_ids)
+                ->selectRaw(
+                    '
                                     MIN(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as min_price,
                                     MAX(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as max_price'
-                                )
-                                ->first();
+                )
+                ->first();
 
             $total_min_price = $productResult->min_price;
             $total_max_price = $productResult->max_price;
@@ -406,7 +435,19 @@ class ProductApiController extends Controller
 
 
 
+                foreach ($products as $product) {
+                    // Unset the price-related fields
+                    unset($product->price);
+                    unset($product->discounted_price);
+                    unset($product->min_price);
+                    unset($product->max_price);
 
+                    // If there are variants with price fields, also unset them
+                    foreach ($product->variants as $variant) {
+                        unset($variant->price);
+                        unset($variant->discounted_price);
+                    }
+                }
 
                 return Response::json(array(
                     'status' => 1,
@@ -422,17 +463,14 @@ class ProductApiController extends Controller
 
                 return CommonHelper::responseError(__('no_products_found'));
             }
-
-
         } catch (\Exception $e) {
             Log::info("Products Error : " . $e->getMessage());
             throw $e;
             return CommonHelper::responseError("Something Went Wrong!");
         }
-
     }
 
-
+    // Mark:- get product by id
     public function getProduct(Request $request)
     {
 
@@ -458,23 +496,37 @@ class ProductApiController extends Controller
         $product_barcode = $request->barcode;
 
         if (app()->getLocale() == 'en') {
-            $categoryNameField = 'c.name_en as category_name'  ;
+            $categoryNameField = 'c.name_en as category_name';
             $brandNameField = 'br.name_en as brand_name';
         } else {
             $categoryNameField = 'c.name_ar as category_name';
             $brandNameField = 'br.name_ar as brand_name';
-
         }
 
 
 
         $sql = Product::with(['variants' => function ($query) {
-            $query->select('*',
+            $query->select(
+                '*',
                 DB::raw("(SELECT short_code FROM units as u WHERE u.id = stock_unit_id) as stock_unit_name")
             );
-        }])->select('p.*', 'p.type as d_type', 's.id as seller_id', 's.store_name as seller_name', 's.slug as seller_slug', 's.status as seller_status', 's.latitude', 's.longitude',
-            'co.name as country_made_in', 'co.id as made_in_id', 'cities.boundary_points', 'cities.max_deliverable_distance',$categoryNameField ,$brandNameField ,
-            DB::raw("GROUP_CONCAT(t.name) as tag_names"))
+        }])->select(
+            'p.*',
+            'p.type as d_type',
+            's.id as seller_id',
+            's.store_name as seller_name',
+            's.slug as seller_slug',
+            's.status as seller_status',
+            's.latitude',
+            's.longitude',
+            'co.name as country_made_in',
+            'co.id as made_in_id',
+            'cities.boundary_points',
+            'cities.max_deliverable_distance',
+            $categoryNameField,
+            $brandNameField,
+            DB::raw("GROUP_CONCAT(t.name) as tag_names")
+        )
             ->from('products as p')
             ->leftJoin("countries as co", "p.made_in", "=", "co.id")
             ->leftJoin('sellers as s', 'p.seller_id', '=', 's.id')
@@ -500,8 +552,21 @@ class ProductApiController extends Controller
 
         if ($product) {
 
-            $product = $product->makeHidden(['row_order', 'pincodes', 'pickup_location', 'tags', 'seller_slug', 'seller_status',
-                'created_at', 'updated_at', 'deleted_at', 'image', 'other_images','boundary_points','country_made_in']);
+            $product = $product->makeHidden([
+                'row_order',
+                'pincodes',
+                'pickup_location',
+                'tags',
+                'seller_slug',
+                'seller_status',
+                'created_at',
+                'updated_at',
+                'deleted_at',
+                'image',
+                'other_images',
+                'boundary_points',
+                'country_made_in'
+            ]);
 
             $product->images = CommonHelper::getImages($product->id);
             $product->made_in = $product->country_made_in ?? "";
@@ -519,13 +584,13 @@ class ProductApiController extends Controller
                 $product->is_deliverable = false;
             }*/
 
-            if(isset($product->max_deliverable_distance) && $product->max_deliverable_distance != 0 && $product->max_deliverable_distance != ""){
-                if(CommonHelper::isDeliverable($product->max_deliverable_distance, $product->longitude, $product->latitude, $request->longitude, $request->latitude)){
+            if (isset($product->max_deliverable_distance) && $product->max_deliverable_distance != 0 && $product->max_deliverable_distance != "") {
+                if (CommonHelper::isDeliverable($product->max_deliverable_distance, $product->longitude, $product->latitude, $request->longitude, $request->latitude)) {
                     $product->is_deliverable = true;
-                }else{
+                } else {
                     $product->is_deliverable = false;
                 }
-            }else{
+            } else {
                 $product->is_deliverable = false;
             }
 
@@ -546,8 +611,13 @@ class ProductApiController extends Controller
                 return CommonHelper::responseError(__('no_items_found'));
             }
             foreach ($variants as $key => $variant) {
-                $variants = $variants->makeHidden(['product_id', 'measurement_unit_id', 'stock_unit_id', 'deleted_at']);
-                if ($variants[$key]->stock <= 0 && $product->is_unlimited_stock == 0 ) {
+                if (auth()->check()) {
+                    $variants = $variants->makeHidden(['product_id', 'measurement_unit_id', 'stock_unit_id', 'deleted_at']);
+                } else {
+                    $variants = $variants->makeHidden(['product_id', 'measurement_unit_id', 'stock_unit_id', 'deleted_at', 'price', 'discounted_price']);
+                }
+
+                if ($variants[$key]->stock <= 0 && $product->is_unlimited_stock == 0) {
                     $variants[$key]->status = 0;
                 } else {
                     $variants[$key]->status = intval($variants[$key]->status) ?? 0;
@@ -563,89 +633,99 @@ class ProductApiController extends Controller
                 } else {
                     $variants[$key]->cart_count = 0;
                 }
+
+
+
+
+
                 $taxed = ProductHelper::getTaxableAmount($variants[$key]['id']);
                 $variants[$key]['discounted_price'] = CommonHelper::doubleNumber($taxed->taxable_discounted_price ?? $variants[$key]['discounted_price']);
                 $variants[$key]['price'] = CommonHelper::doubleNumber($taxed->taxable_price ?? $variants[$key]['price']);
                 $variants[$key]['taxable_amount'] = CommonHelper::doubleNumber($taxed->taxable_amount);
+
+
                 $variants[$key]->images = CommonHelper::getImages($variants[$key]->product_id, $variants[$key]->id);
 
                 $variants[$key]->stock_unit_name = $variants[$key]->stock_unit_name ?? '';
             }
 
+
+
             $product->variants = $variants;
             $product->fssai_lic_img = CommonHelper::getFssaiLicImg();
-//             $tagsArray = explode(',', $product->tags);
+            //             $tagsArray = explode(',', $product->tags);
 
-//             $related_products = array();
-//             $i = 0;
-//             $related_products = Product::select('p.*', 'p.type as d_type', 's.store_name as seller_name', 's.slug as seller_slug', 's.status as seller_status',
+            //             $related_products = array();
+            //             $i = 0;
+            //             $related_products = Product::select('p.*', 'p.type as d_type', 's.store_name as seller_name', 's.slug as seller_slug', 's.status as seller_status',
 
-//             'pv.price', 'pv.discounted_price',
+            //             'pv.price', 'pv.discounted_price',
 
-//             DB::raw("if(pv.discounted_price > 0, ceil(((pv.price - pv.discounted_price)/pv.price)*100), 0)  as cal_discount_percentage"),
+            //             DB::raw("if(pv.discounted_price > 0, ceil(((pv.price - pv.discounted_price)/pv.price)*100), 0)  as cal_discount_percentage"),
 
-//             DB::raw("ceil((pv.price - pv.discounted_price)) as cal_discount"),
+            //             DB::raw("ceil((pv.price - pv.discounted_price)) as cal_discount"),
 
-//             DB::raw('count(*) as order_counter'),
+            //             DB::raw('count(*) as order_counter'),
 
-//             'co.name as country_made_in',
-//             's.longitude', 's.latitude', 'cities.max_deliverable_distance', 'cities.boundary_points'
-//         )
-//                ->from('products as p')
-//                ->leftJoin("countries as co", "p.made_in", "=", "co.id")
-//                ->leftJoin('sellers as s', 'p.seller_id', '=', 's.id')
-//                ->leftJoin('categories as c', 'p.category_id', '=', 'c.id')
-//                ->leftJoin('cities', 's.city_id', '=', 'cities.id')
-//                ->Join("product_variants as pv", "pv.product_id", "=", "p.id")
-//                ->where('p.is_approved',1)
-//                ->where('p.status',1)
-//                ->where('c.status',1)
+            //             'co.name as country_made_in',
+            //             's.longitude', 's.latitude', 'cities.max_deliverable_distance', 'cities.boundary_points'
+            //         )
+            //                ->from('products as p')
+            //                ->leftJoin("countries as co", "p.made_in", "=", "co.id")
+            //                ->leftJoin('sellers as s', 'p.seller_id', '=', 's.id')
+            //                ->leftJoin('categories as c', 'p.category_id', '=', 'c.id')
+            //                ->leftJoin('cities', 's.city_id', '=', 'cities.id')
+            //                ->Join("product_variants as pv", "pv.product_id", "=", "p.id")
+            //                ->where('p.is_approved',1)
+            //                ->where('p.status',1)
+            //                ->where('c.status',1)
 
-//                ->where('s.status',1)
-//                ->where('p.id', '!=', $product_id)
-//                ->where('p.slug', '!=', $product_slug)
-//                ->where(function($query) use ($tagsArray) {
-//             foreach ($tagsArray as $tag) {
-//                 $query->orWhere('tags', 'LIKE', '%' . $tag . '%')
-//                       ->orWhere('tags', 'LIKE', '%' . rtrim($tag, 's') . '%')
-//                       ->orWhere('tags', 'LIKE', '%' . $tag . 's%');
-//             }
-//         })
-//                ->selectRaw('
-//        MIN(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as min_price,
-//        MAX(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as max_price'
-//    )
-//                ->with('ratings')
-//                ->groupBy("p.id")->take(7)->get();
-//                foreach ($related_products as $row){
+            //                ->where('s.status',1)
+            //                ->where('p.id', '!=', $product_id)
+            //                ->where('p.slug', '!=', $product_slug)
+            //                ->where(function($query) use ($tagsArray) {
+            //             foreach ($tagsArray as $tag) {
+            //                 $query->orWhere('tags', 'LIKE', '%' . $tag . '%')
+            //                       ->orWhere('tags', 'LIKE', '%' . rtrim($tag, 's') . '%')
+            //                       ->orWhere('tags', 'LIKE', '%' . $tag . 's%');
+            //             }
+            //         })
+            //                ->selectRaw('
+            //        MIN(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as min_price,
+            //        MAX(IF(pv.discounted_price > 0, pv.discounted_price, pv.price)) as max_price'
+            //    )
+            //                ->with('ratings')
+            //                ->groupBy("p.id")->take(7)->get();
+            //                foreach ($related_products as $row){
 
-//                 $sql = ProductVariant::select('*',
-//                     DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
-//                     ->from('product_variants as pv')
-//                     ->where('pv.product_id','=',$row['id'])
-//                     ->orderBy('pv.status','ASC');
-//                 $variants = $sql->get();
-//                 $variants = $variants->makeHidden(['product_id','status','measurement_unit_id','stock_unit_id','deleted_at']);
-//                 if (empty($variants)) {
-//                     continue;
-//                 }
+            //                 $sql = ProductVariant::select('*',
+            //                     DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
+            //                     ->from('product_variants as pv')
+            //                     ->where('pv.product_id','=',$row['id'])
+            //                     ->orderBy('pv.status','ASC');
+            //                 $variants = $sql->get();
+            //                 $variants = $variants->makeHidden(['product_id','status','measurement_unit_id','stock_unit_id','deleted_at']);
+            //                 if (empty($variants)) {
+            //                     continue;
+            //                 }
 
-//                 CommonHelper::getProductDetails($row['id'],$user_id,false);
-//                 $variantArray = array();
-//                 for ($k = 0; $k < count($variants); $k++) {
-//                     array_push($variantArray,CommonHelper::getProductVariant($variants[$k]['id'],$user_id));
-//                 }
-//                 $related_products[$i]['variants'] = $variantArray;
+            //                 CommonHelper::getProductDetails($row['id'],$user_id,false);
+            //                 $variantArray = array();
+            //                 for ($k = 0; $k < count($variants); $k++) {
+            //                     array_push($variantArray,CommonHelper::getProductVariant($variants[$k]['id'],$user_id));
+            //                 }
+            //                 $related_products[$i]['variants'] = $variantArray;
 
-//                 $related_products[$i]->rating_count =CommonHelper::productAverageRating($row['id'])['rating_count'];
-//                 $related_products[$i]->average_rating =CommonHelper::productAverageRating($row['id'])['average_rating'];
-//                 $i++;
-//             }
+            //                 $related_products[$i]->rating_count =CommonHelper::productAverageRating($row['id'])['rating_count'];
+            //                 $related_products[$i]->average_rating =CommonHelper::productAverageRating($row['id'])['average_rating'];
+            //                 $i++;
+            //             }
 
-//              $product->related_products = $related_products;
+            //              $product->related_products = $related_products;
+
+
 
             return CommonHelper::responseWithData($product);
-
         } else {
             return CommonHelper::responseError(__('no_items_found'));
         }
@@ -728,8 +808,10 @@ class ProductApiController extends Controller
              $variants = \DB::select(\DB::raw($sql));
              $variants = json_decode(json_encode($variants), true);*/
 
-            $sql = ProductVariant::with('images')->select('*',
-                DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
+            $sql = ProductVariant::with('images')->select(
+                '*',
+                DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name")
+            )
                 ->from('product_variants as pv')
                 ->where('pv.product_id', '=', $row['id'])
                 ->orderBy('pv.status', 'ASC');
@@ -996,7 +1078,6 @@ class ProductApiController extends Controller
                     $tax1 = Tax::find($row['tax_id']);
                     $tempRow['tax_title'] = $tax1['title'];
                     $tempRow['tax_percentage'] = $tax1['percentage'];
-
                 }
 
                 if ($user_id) {
@@ -1031,7 +1112,6 @@ class ProductApiController extends Controller
                 }
                 $tempRow['variants'] = $variants;
                 $rows[] = $tempRow;
-
             }
 
             $response['total'] = $total;
@@ -1194,18 +1274,18 @@ class ProductApiController extends Controller
         $product_rating->status = 1;
         $product_rating->save();
         if ($request->hasFile('image')) {
-            CommonHelper::uploadRatingImages($request->file('image'),$product_rating->id);
+            CommonHelper::uploadRatingImages($request->file('image'), $product_rating->id);
         }
-        $data = ProductRating::with('user','images')->where('id', $product_rating->id )->get();
-        return CommonHelper::responseSuccessWithData("Product Rating Saved Successfully!",$data);
-
+        $data = ProductRating::with('user', 'images')->where('id', $product_rating->id)->get();
+        return CommonHelper::responseSuccessWithData("Product Rating Saved Successfully!", $data);
     }
 
-    public function productRatingEdit(Request $request){
-        $id=$request->id;
-        $product_rating = ProductRating::with('images')->where('id',$id)->first();
+    public function productRatingEdit(Request $request)
+    {
+        $id = $request->id;
+        $product_rating = ProductRating::with('images')->where('id', $id)->first();
         //log::info('product edit function :=> ',[$product]);
-        if(!$product_rating){
+        if (!$product_rating) {
             return CommonHelper::responseError("Product Rating Not found!");
         }
         return CommonHelper::responseWithData($product_rating);
@@ -1214,7 +1294,7 @@ class ProductApiController extends Controller
     public function productRatingUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
-           // 'user_id' => 'required',
+            // 'user_id' => 'required',
             'rate' => 'required',
             // 'product_id' => ['required', Rule::unique('product_ratings')->where(function ($query) use ($request) {
             //     return $query->where('user_id', $request->user_id)->where('id', '!=', $request->id);
@@ -1249,10 +1329,10 @@ class ProductApiController extends Controller
         $product_rating->status = 1;
         $product_rating->save();
         if ($request->hasFile('image')) {
-            CommonHelper::uploadRatingImages($request->file('image'),$product_rating->id);
+            CommonHelper::uploadRatingImages($request->file('image'), $product_rating->id);
         }
-        $data = ProductRating::with('user','images')->where('id', $request->id )->get();
-        return CommonHelper::responseSuccessWithData("Product Updated Successfully!",$data);
+        $data = ProductRating::with('user', 'images')->where('id', $request->id)->get();
+        return CommonHelper::responseSuccessWithData("Product Updated Successfully!", $data);
     }
 
     public function productRatingsList(Request $request)
@@ -1264,19 +1344,18 @@ class ProductApiController extends Controller
         $order = $request->get('order', 'DESC');
 
         $product_id = $request->product_id;
-        if($product_id != null){
-        $productRatings = ProductRating::with('user','images')->where('product_id', $product_id);
-        $total = $productRatings->count();
-        $productRatingsData['average_rating'] = CommonHelper::productAverageRating($product_id)['average_rating'];
-        $productRatingsData['one_star_rating'] = CommonHelper::productAverageRating($product_id)['one_star_rating'];
-        $productRatingsData['two_star_rating'] = CommonHelper::productAverageRating($product_id)['two_star_rating'];
-        $productRatingsData['three_star_rating'] = CommonHelper::productAverageRating($product_id)['three_star_rating'];
-        $productRatingsData['four_star_rating'] = CommonHelper::productAverageRating($product_id)['four_star_rating'];
-        $productRatingsData['five_star_rating'] = CommonHelper::productAverageRating($product_id)['five_star_rating'];
-        $productRatingsData['rating_list'] = $productRatings->orderBy($sort, $order)->skip($offset)->take($limit)->get();
-        return CommonHelper::responseWithData($productRatingsData, $total);
-        }
-        else{
+        if ($product_id != null) {
+            $productRatings = ProductRating::with('user', 'images')->where('product_id', $product_id);
+            $total = $productRatings->count();
+            $productRatingsData['average_rating'] = CommonHelper::productAverageRating($product_id)['average_rating'];
+            $productRatingsData['one_star_rating'] = CommonHelper::productAverageRating($product_id)['one_star_rating'];
+            $productRatingsData['two_star_rating'] = CommonHelper::productAverageRating($product_id)['two_star_rating'];
+            $productRatingsData['three_star_rating'] = CommonHelper::productAverageRating($product_id)['three_star_rating'];
+            $productRatingsData['four_star_rating'] = CommonHelper::productAverageRating($product_id)['four_star_rating'];
+            $productRatingsData['five_star_rating'] = CommonHelper::productAverageRating($product_id)['five_star_rating'];
+            $productRatingsData['rating_list'] = $productRatings->orderBy($sort, $order)->skip($offset)->take($limit)->get();
+            return CommonHelper::responseWithData($productRatingsData, $total);
+        } else {
             return CommonHelper::responseError("Please select product first");
         }
     }
@@ -1293,8 +1372,8 @@ class ProductApiController extends Controller
             $productRatingImages = ProductRating::with('images')->where('product_id', $product_id)->get();
             if ($productRatingImages->isNotEmpty()) {
                 $images = $productRatingImages->pluck('images')->flatten();
-                   $total = $images->count();
-                   $images = $productRatingImages->pluck('images')->flatten()->skip($offset)->take($limit);
+                $total = $images->count();
+                $images = $productRatingImages->pluck('images')->flatten()->skip($offset)->take($limit);
                 $RatingImages = [];
                 foreach ($images as $image) {
                     $RatingImages[] = $image->image_url;
@@ -1302,10 +1381,8 @@ class ProductApiController extends Controller
                 return CommonHelper::responseWithData($RatingImages, $total);
             }
             return CommonHelper::responseError("Product not available");
-        }
-        else{
+        } else {
             return CommonHelper::responseError("Please select product first");
         }
     }
-
 }

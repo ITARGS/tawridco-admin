@@ -983,7 +983,7 @@ export default {
     cities_options: function () {
       var temp = [];
       if (this.cities.length !== 0) {
-        this.cities.forEach((city) => {
+        this.cities.cities.forEach((city) => {
           temp.push({ id: city.id, text: city.name + "-" + city.zone });
         });
       }
