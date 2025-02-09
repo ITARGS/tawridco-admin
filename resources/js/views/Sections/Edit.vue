@@ -145,7 +145,7 @@
 
           <Select2
             v-model="section.product_ids"
-            placeholder="Select Products"
+            :placeholder="__('select_products')"
             :options="products_options"
             :settings="{
               multiple: 'multiple',

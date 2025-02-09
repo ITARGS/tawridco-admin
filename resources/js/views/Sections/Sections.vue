@@ -33,7 +33,7 @@
                                     id="filter-input"
                                     v-model="filter"
                                     type="search"
-                                    placeholder="Search"
+                                    :placeholder="__('search')"
                                 ></b-form-input>
                             </b-col>
                             <b-col md="1" class="text-center">
@@ -70,37 +70,37 @@
         <!-- App Style -->
         <div v-if="row.item.style_app">
             <strong>{{ __('App Style:') }}</strong>
-            <img 
+            <img
                 v-if="row.item.style_app === 'style_1'"
-                :src="$baseUrl + '/images/app_style/App_Style_1.jpg'" 
-                alt="App Style 1" 
+                :src="$baseUrl + '/images/app_style/App_Style_1.jpg'"
+                alt="App Style 1"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/app_style/App_Style_1.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_app === 'style_2'"
-                :src="$baseUrl + '/images/app_style/App_Style_2.jpg'" 
-                alt="App Style 2" 
+                :src="$baseUrl + '/images/app_style/App_Style_2.jpg'"
+                alt="App Style 2"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/app_style/App_Style_2.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_app === 'style_3'"
-                :src="$baseUrl + '/images/app_style/App_Style_3.jpg'" 
-                alt="App Style 3" 
+                :src="$baseUrl + '/images/app_style/App_Style_3.jpg'"
+                alt="App Style 3"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/app_style/App_Style_3.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_app === 'style_4'"
-                :src="$baseUrl + '/images/app_style/App_Style_4.jpg'" 
-                alt="App Style 4" 
+                :src="$baseUrl + '/images/app_style/App_Style_4.jpg'"
+                alt="App Style 4"
                 width="70"
                 @click="openLightbox($baseUrl + '/images/app_style/App_Style_4.jpg')"
             />
-            
-            
-            <FsLightbox :toggler="toggler" :sources="lightboxSources" 	:onClose="handleClose" 
+
+
+            <FsLightbox :toggler="toggler" :sources="lightboxSources" 	:onClose="handleClose"
                                     >  </FsLightbox>
             <br/><br/>
         </div>
@@ -108,31 +108,31 @@
         <!-- Web Style -->
         <div v-if="row.item.style_web">
             <strong>{{ __('Web Style:') }}</strong>
-            <img 
+            <img
                 v-if="row.item.style_web === 'style_1'"
-                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'" 
-                alt="Web Style 1" 
+                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'"
+                alt="Web Style 1"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/web_style/Web_Style_1.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_web === 'style_2'"
-                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'" 
-                alt="Web Style 2" 
+                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'"
+                alt="Web Style 2"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/web_style/Web_Style_2.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_web === 'style_3'"
-                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'" 
-                alt="Web Style 3" 
+                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'"
+                alt="Web Style 3"
                 height="70"
                 @click="openLightbox($baseUrl + '/images/web_style/Web_Style_3.jpg')"
             />
-            <img 
+            <img
                 v-if="row.item.style_web === 'style_4'"
-                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'" 
-                alt="Web Style 4" 
+                :src="$baseUrl + '/images/web_style/Web_Style_1.jpg'"
+                alt="Web Style 4"
                 width="70"
                 @click="openLightbox($baseUrl + '/images/web_style/Web_Style_4.jpg')"
             />
@@ -273,14 +273,14 @@ export default {
     },
     methods: {
          openLightbox(image) {
-     
+
       this.lightboxSources = [image];
       this.toggler = !this.toggler;
     },
      handleClose() {
         this.lightboxSources = null;
       this.toggler = false;
-      
+
     },
         getSections(){
             this.isLoading = true

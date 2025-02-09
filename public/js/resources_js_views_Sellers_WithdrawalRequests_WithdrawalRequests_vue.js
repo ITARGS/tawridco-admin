@@ -695,7 +695,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -706,7 +706,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -726,7 +726,9 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "balance" } }, [_vm._v("Balance")]),
+              _c("label", { attrs: { for: "balance" } }, [
+                _vm._v(_vm._s(_vm.__("balance"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -758,7 +760,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "amount" } }, [_vm._v("Amount")]),
+              _c("label", { attrs: { for: "amount" } }, [
+                _vm._v(_vm._s(_vm.__("amount"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -775,7 +779,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                   min: "1",
                   step: "any",
                 },
@@ -818,7 +822,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+              _c("label", { attrs: { for: "message" } }, [
+                _vm._v(_vm._s(_vm.__("message"))),
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -834,7 +840,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                   required: "",
                 },
                 domProps: { value: _vm.withdrawalRequests.message },
@@ -1042,7 +1048,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,
@@ -1154,8 +1160,10 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                            " +
-                                  _vm._s("Amount (" + _vm.$currency + ")") +
+                                "\n                         " +
+                                  _vm._s(_vm.__("amount")) +
+                                  "   " +
+                                  _vm._s(" (" + _vm.$currency + ")") +
                                   "\n                        "
                               ),
                             ]
@@ -1188,7 +1196,8 @@ var render = function () {
                                     { staticClass: "badge bg-danger" },
                                     [
                                       _vm._v(
-                                        _vm._s(_vm.__("undefine")) + "Undefine"
+                                        _vm._s(_vm.__("undefine")) +
+                                          _vm._s(_vm.__("undefine"))
                                       ),
                                     ]
                                   ),

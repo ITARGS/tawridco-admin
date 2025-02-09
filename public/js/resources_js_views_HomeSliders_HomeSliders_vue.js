@@ -889,7 +889,7 @@ var render = function () {
                     staticClass: "form-control",
                     attrs: {
                       type: "url",
-                      placeholder: "Enter Link",
+                      placeholder: _vm.__("enter_link"),
                       required: "",
                     },
                     domProps: { value: _vm.slider_url },
@@ -1139,7 +1139,7 @@ var render = function () {
                             attrs: {
                               id: "filter-input",
                               type: "search",
-                              placeholder: "Search",
+                              placeholder: _vm.__("search"),
                             },
                             model: {
                               value: _vm.filter,

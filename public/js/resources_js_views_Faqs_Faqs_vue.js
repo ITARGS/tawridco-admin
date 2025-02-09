@@ -580,7 +580,7 @@ var render = function () {
                 attrs: {
                   name: "query",
                   id: "question",
-                  placeholder: "Add a Query...",
+                  placeholder: _vm.__("add_query"),
                 },
                 domProps: { value: _vm.faq.question },
                 on: {
@@ -612,7 +612,7 @@ var render = function () {
                 attrs: {
                   name: "answer",
                   id: "answer",
-                  placeholder: "Add a Answer...",
+                  placeholder: _vm.__("add_answer"),
                 },
                 domProps: { value: _vm.faq.answer },
                 on: {

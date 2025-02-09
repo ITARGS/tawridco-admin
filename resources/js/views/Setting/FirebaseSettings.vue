@@ -4,7 +4,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>{{ __('firebase_settings') }}</h3> 
+                        <h3>{{ __('firebase_settings') }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -19,7 +19,7 @@
             <section class="section">
                 <form id="api_key_form" method="post" enctype="multipart/form-data" @submit.prevent="saveRecord">
                     <div class="card">
-                     
+
                         <div class="card-body">
                             <div class="row">
                                 <h4 class="card-title">{{ __('firebase_setup_keys') }}</h4>
@@ -28,49 +28,49 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="apiKey">{{ __('apikey') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="apiKey" id="apiKey" v-model="firebase.apiKey" placeholder="Enter api key.">
+                                        <input type="text" class="form-control" name="apiKey" id="apiKey" v-model="firebase.apiKey" :placeholder="__('apikey')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="authDomain">{{ __('authdomain') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="authDomain" id="authDomain" v-model="firebase.authDomain" placeholder="Enter aith domain.">
+                                        <input type="text" class="form-control" name="authDomain" id="authDomain" v-model="firebase.authDomain" :placeholder="__('authdomain')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="projectId">{{ __('projectid') }} <span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="projectId" id="projectId" v-model="firebase.projectId" placeholder="Enter project id.">
+                                        <input type="text" class="form-control" name="projectId" id="projectId" v-model="firebase.projectId" :placeholder="__('projectid')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="storageBucket">{{ __('storagebucket') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="storageBucket" id="storageBucket" v-model="firebase.storageBucket" placeholder="Enter storage bucket.">
+                                        <input type="text" class="form-control" name="storageBucket" id="storageBucket" v-model="firebase.storageBucket" :placeholder="__('storagebucket')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="messagingSenderId"> {{ __('messagingsenderid') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="messagingSenderId" id="messagingSenderId" v-model="firebase.messagingSenderId" placeholder="Enter messaging sender id.">
+                                        <input type="text" class="form-control" name="messagingSenderId" id="messagingSenderId" v-model="firebase.messagingSenderId" :placeholder="__('messagingsenderid')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="appId"> {{ __('appid') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="appId" id="appId" v-model="firebase.appId" placeholder="Enter app id.">
+                                        <input type="text" class="form-control" name="appId" id="appId" v-model="firebase.appId" :placeholder="__('appid')">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="measurementId">{{ __('measurementid') }}<span class="text-danger text-xs">*</span></label>
-                                        <input type="text" class="form-control" name="measurementId" id="measurementId" v-model="firebase.measurementId" placeholder="Enter measurement id.">
+                                        <input type="text" class="form-control" name="measurementId" id="measurementId" v-model="firebase.measurementId" :placeholder="__('measurementid')">
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@
                                 </div>
 
                             </div>
-                            
+
 
                         </div>
                         <div class="card-footer">

@@ -1,6 +1,6 @@
 <template>
    <div class="auth" :style="{ backgroundImage: 'url('+ $panelLoginBackgroundImg + ')' }">
-        <div class="login-wrapper"> 
+        <div class="login-wrapper">
             <div class="detail-card">
                 <div class="auth-logo">
                     <a href="javascript:void(0)"
@@ -12,34 +12,34 @@
                         <h2 style="margin: 10px;">{{ $appName }}</h2>
                     </a>
                 </div>
-                <h4>Delivery Boy Complete Profile</h4>
-                <p class="auth-subtitle text-primary">Please Complete the form to complete your registration</p>
+                <h4>{{ __("delivery_profile") }}</h4>
+                <p class="auth-subtitle text-primary">{{ __("seller_register_message") }}</p>
                 <form ref="my-form" @submit.prevent="saveRecord">
                     <div class="content">
-                        <h6>Delivery Boy Information</h6>
+                        <h6>{{ __("delivery_information") }}</h6>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" v-model="deliveryBoys.name" class="form-control" placeholder="Enter name.">
+                                    <label for="name">{{ __("name") }}</label>
+                                    <input type="text" name="name" id="name" v-model="deliveryBoys.name" class="form-control" :placeholder="__('name')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="mobile">Mobile No.</label>
-                                    <input type="number" name="mobile" id="mobile" v-model="deliveryBoys.mobile" class="form-control" placeholder="Enter mobile no.">
+                                    <label for="mobile">{{ __("mobile_no") }}</label>
+                                    <input type="number" name="mobile" id="mobile" v-model="deliveryBoys.mobile" class="form-control" :placeholder="__('mobile_no')">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="driving_license">Driving License</label>
+                                    <label for="driving_license">{{ __("driving_licence") }}</label>
                                     <input type="file" name="driving_license" id="driving_license" v-on:change="handleFileUploadLicense" ref="file_license" :required="!deliveryBoys.id" class="file-input" />
 
                                     <div class="file-input-div bg-gray-100" @click="$refs.file_license.click()" @drop="dropFileUploadLicense" @dragover="$dragoverFile" @dragleave="$dragleaveFile">
 
                                         <template v-if="deliveryBoys.driving_license && deliveryBoys.driving_license.name !== ''">
-                                            <label>Selected file name:- {{ deliveryBoys.driving_license.name }}</label>
+                                            <label>{{ __("selected_file_name") }}:- {{ deliveryBoys.driving_license.name }}</label>
                                         </template>
                                         <template v-else>
                                             <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -53,7 +53,7 @@
                                             <img class="custom-image" :src="deliveryBoys.driving_license_url" title='Driving License' alt='Driving License'/>
                                         </div>
                                         <div v-else class="col-md-2 mt-2">
-                                            <a target="_blank" :href="deliveryBoys.driving_license_url" class="badge bg-success"> <i class="fa fa-eye"></i> Identity Card</a>
+                                            <a target="_blank" :href="deliveryBoys.driving_license_url" class="badge bg-success"> <i class="fa fa-eye"></i> {{ __("identity") }}</a>
                                         </div>
                                     </div>
 
@@ -61,12 +61,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="national_identity_card">National Identity Card</label>
+                                    <label for="national_identity_card">{{ __("national_identity_card") }}</label>
                                     <input type="file" name="national_identity_card" id="national_identity_card" v-on:change="handleFileUploadCard" ref="file_card" :required="!deliveryBoys.id" class="file-input" />
-                                    
+
                                     <div class="file-input-div bg-gray-100" @click="$refs.file_card.click()" @drop="dropFileUploadCard" @dragover="$dragoverFile" @dragleave="$dragleaveFile">
                                         <template v-if="deliveryBoys.national_identity_card && deliveryBoys.national_identity_card.name !== ''">
-                                            <label>Selected file name:- {{ deliveryBoys.national_identity_card.name }}</label>
+                                            <label>{{ __("selected_file_name") }}:- {{ deliveryBoys.national_identity_card.name }}</label>
                                         </template>
                                         <template v-else>
                                             <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -79,7 +79,7 @@
                                             <img class="custom-image" :src="deliveryBoys.national_identity_card_url" title='National Identity Card' alt='National Identity Card'/>
                                         </div>
                                         <div v-else class="col-md-2 mt-2">
-                                            <a target="_blank" :href="deliveryBoys.national_identity_card_url" class="badge bg-success"> <i class="fa fa-eye"></i> Identity Card</a>
+                                            <a target="_blank" :href="deliveryBoys.national_identity_card_url" class="badge bg-success"> <i class="fa fa-eye"></i> {{ __("identity") }}</a>
                                         </div>
                                     </div>
 
@@ -87,40 +87,40 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="dob">Date Of Birth</label>
+                                    <label for="dob">{{ __("date_of_birth") }}</label>
                                     <input type="date" name="dob" id="dob" v-model="deliveryBoys.dob" required class="form-control" placeholder="Enter date of birth">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="ifsc_code">Bank's IFSC Code</label>
-                                    <input type="text" name="ifsc_code" id="ifsc_code" v-model="deliveryBoys.ifsc_code" required class="form-control" placeholder="Enter bank's IFSC code.">
+                                    <label for="ifsc_code">{{ __("bank_ifsc_code") }}</label>
+                                    <input type="text" name="ifsc_code" id="ifsc_code" v-model="deliveryBoys.ifsc_code" required class="form-control" :placeholder="__('ifsc_code')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="bank_name">Bank Name</label>
-                                    <input type="text" name="bank_name" id="bank_name" v-model="deliveryBoys.bank_name" required class="form-control" placeholder="Enter bank name">
+                                    <label for="bank_name">{{ __("bank_name") }}</label>
+                                    <input type="text" name="bank_name" id="bank_name" v-model="deliveryBoys.bank_name" required class="form-control" :placeholder="__('enter_bank_name')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account_number">Account Number</label>
-                                    <input type="text" name="account_number" id="account_number" v-model="deliveryBoys.bank_account_number" required class="form-control" placeholder="Enter account number">
+                                    <label for="account_number">{{ __("account_number") }}</label>
+                                    <input type="text" name="account_number" id="account_number" v-model="deliveryBoys.bank_account_number" required class="form-control" :placeholder="__('enter_account_number')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account_name">Bank Account Name</label>
-                                    <input type="text" name="account_name" id="account_name" v-model="deliveryBoys.account_name" required class="form-control" placeholder="Enter bank account name">
+                                    <label for="account_name">{{ __("bank_account_name") }}</label>
+                                    <input type="text" name="account_name" id="account_name" v-model="deliveryBoys.account_name" required class="form-control" :placeholder="__('enter_bank_account_name')">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="city_name">Select or Search City</label>
+                                <label for="city_name">{{ __("select_or_search_city") }}</label>
                                 <multiselect v-model="city"
                                              :options="cities"
                                              @close="setCityId"
-                                             placeholder="Select & Search City"
+                                             :placeholder="__('select_or_search_city')"
                                              label="name"
                                              track-by="name" id="city_name" required>
                                     <template slot="singleLabel" slot-scope="props">
@@ -139,21 +139,21 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <textarea name="address" id="address" v-model="deliveryBoys.address" rows='3' class="form-control" placeholder="Enter address"></textarea>
+                                    <label for="address">{{ __("address") }}</label>
+                                    <textarea name="address" id="address" v-model="deliveryBoys.address" rows='3' class="form-control" :placeholder="__('enter_address')"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="other_payment_info">Other Payment Information</label>
-                                    <textarea name="other_payment_info" id="other_payment_info" v-model="deliveryBoys.other_payment_information" rows='3' class="form-control" placeholder="Enter other payment information"></textarea>
+                                    <label for="other_payment_info">{{ __("other_payment_information") }}</label>
+                                    <textarea name="other_payment_info" id="other_payment_info" v-model="deliveryBoys.other_payment_information" rows='3' class="form-control" :placeholder="__('other_payment_information')"></textarea>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
-                        Complete
+                        {{ __("complete") }}
                         <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
                     </button>
 

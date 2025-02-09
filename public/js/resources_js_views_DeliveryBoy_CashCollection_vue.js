@@ -662,14 +662,14 @@ var render = function () {
                     { attrs: { md: "3", "offset-md": "5" } },
                     [
                       _c("h6", { staticClass: "box-title" }, [
-                        _vm._v("Search"),
+                        _vm._v(_vm._s(_vm.__("search"))),
                       ]),
                       _vm._v(" "),
                       _c("b-form-input", {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,

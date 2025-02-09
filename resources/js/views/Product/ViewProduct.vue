@@ -3,7 +3,7 @@
     <div class="page-heading">
       <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
-          <h3>View Product</h3>
+          <h3>{{ __("view_product") }}</h3>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
           <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -16,13 +16,13 @@
               </li>
 
               <li class="breadcrumb-item" v-if="isSellerRoute">
-                <router-link to="/seller/manage_products">Manage Product</router-link>
+                <router-link to="/seller/manage_products">{{ __("manage_products") }}</router-link>
               </li>
               <li class="breadcrumb-item" v-else>
-                <router-link to="/manage_products">Manage Product</router-link>
+                <router-link to="/manage_products">{{ __("manage_products") }}</router-link>
               </li>
 
-              <li class="breadcrumb-item active" aria-current="page">Product Details</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ __("product_details") }}</li>
             </ol>
           </nav>
         </div>
@@ -32,10 +32,10 @@
         <div class="col-12 col-md-12 order-md-1 order-last">
           <div class="card">
             <div class="card-header">
-              <h4>Product Details</h4>
+              <h4>{{ __("product_details") }}</h4>
               <span class="pull-right">
                 <router-link to="/manage_products" class="btn btn-primary"
-                  >Manage Product</router-link
+                  >{{ __("manage_products") }}</router-link
                 >
               </span>
             </div>
@@ -45,35 +45,35 @@
                   <table class="table table-bordered table-responsive">
                     <tbody>
                       <tr>
-                        <th class="th-width">Name</th>
+                        <th class="th-width">{{ __("name") }}</th>
                         <td>{{ record.name }}</td>
-                        <th class="th-width">Seller</th>
+                        <th class="th-width">{{ __("sellers") }}</th>
                         <td>{{ record.seller.name }}</td>
                       </tr>
                       <tr>
-                        <th class="th-width">Product Id</th>
+                        <th class="th-width">{{ __("product_id") }}</th>
                         <td>{{ record.id }}</td>
-                        <th class="th-width">Indicator</th>
+                        <th class="th-width">{{ __("indicator") }}</th>
                         <td>
                           <span v-if="record.status === 0" class="badge bg-info"
-                            >None</span
+                            >{{ __("none") }}</span
                           >
                           <span v-if="record.status === 1" class="badge bg-success"
-                            >Veg</span
+                            >{{ __("veg") }}</span
                           >
                           <span v-if="record.status === 2" class="badge bg-danger"
-                            >Non-Veg</span
+                            >{{ __("non_veg") }}</span
                           >
                         </td>
                       </tr>
                       <tr>
-                        <th class="th-width">Tax</th>
+                        <th class="th-width">{{ __("tax") }}</th>
                         <td>
                           <template v-if="record.tax">
                             {{ record.tax.title }} {{ record.tax.percentage }}%
                           </template>
                         </td>
-                        <th class="th-width">Made In</th>
+                        <th class="th-width">{{ __("made_in") }}</th>
                         <td>
                           <template v-if="record.made_in_country">
                             {{ record.made_in_country.name }}
@@ -81,22 +81,22 @@
                         </td>
                       </tr>
                       <tr>
-                        <th class="th-width">Status</th>
+                        <th class="th-width">{{ __("status") }}</th>
                         <td>
                           <span v-if="record.status === 1" class="badge bg-success"
-                            >Active</span
+                            >{{ __("active") }}</span
                           >
                           <span v-if="record.status === 0" class="badge bg-danger"
-                            >Deactive</span
+                            >{{ __("deactive") }}</span
                           >
                         </td>
-                        <th class="th-width">Return</th>
+                        <th class="th-width">{{ __("return") }}</th>
                         <td>
                           <span class="badge bg-danger" v-if="record.return_status === 0"
-                            >Not-Allowed</span
+                            >{{ __("not_allowed") }}</span
                           >
                           <span class="badge bg-success" v-if="record.return_status === 1"
-                            >Allowed</span
+                            >{{ __("allowed") }}</span
                           >
                         </td>
                       </tr>
@@ -105,27 +105,27 @@
                         <td>
                           {{ record.manufacturer }}
                         </td>
-                        <th class="th-width">Till Status</th>
+                        <th class="th-width">{{ __("till_status") }}</th>
                         <td>
                           <span class="badge bg-danger" v-if="record.till_status == 0"
-                            >Not Applicable</span
+                            >{{ __("not_applicable") }}</span
                           >
                           <span class="badge bg-success" v-if="record.till_status == 2"
-                            >Received</span
+                            >{{ __("received") }}</span
                           >
                           <span class="badge bg-success" v-if="record.till_status == 3"
-                            >Processed</span
+                            >{{ __("processed") }}</span
                           >
                           <span class="badge bg-success" v-if="record.till_status == 4"
-                            >Shipped</span
+                            >{{ __("shipped") }}</span
                           >
                           <span class="badge bg-success" v-if="record.till_status == 5"
-                            >Delivered</span
+                            >{{ __("delivered") }}</span
                           >
                         </td>
                       </tr>
                       <tr>
-                        <th class="th-width">Is Approved</th>
+                        <th class="th-width">{{ __("is_approved") }}</th>
                         <td>
                           <span
                             class="badge bg-success"
@@ -136,7 +136,7 @@
                             __("not-approved")
                           }}</span>
                         </td>
-                        <th class="th-width">Main Image</th>
+                        <th class="th-width">{{ __("main_image") }}</th>
                         <td>
                           <img
                             :src="$storageUrl + record.image"
@@ -146,20 +146,20 @@
                         </td>
                       </tr>
                       <tr>
-                        <th class="th-width">Cancellation</th>
+                        <th class="th-width">{{ __("cancellation") }}</th>
                         <td>
                           <span
                             class="badge bg-danger"
                             v-if="record.cancelable_status === 0"
-                            >Not-Allowed</span
+                            >{{ __("not_allowed") }}</span
                           >
                           <span
                             class="badge bg-success"
                             v-if="record.cancelable_status === 1"
-                            >Allowed</span
+                            >{{ __("allowed") }}</span
                           >
                         </td>
-                        <th class="th-width">Category</th>
+                        <th class="th-width">{{ __("category") }}</th>
                         <td>
                           <template v-if="record.category">
                             {{ record.category.name }}
@@ -167,7 +167,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <th class="th-width">Other Images</th>
+                        <th class="th-width">{{ __("other_images") }}</th>
                         <td colspan="3">
                           <template v-if="other_images" v-for="image in other_images">
                             <img
@@ -187,7 +187,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h4>Product Description</h4>
+              <h4>{{ __("product_description") }}</h4>
             </div>
             <div class="card-body">
               <div class="row">
@@ -210,7 +210,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h4>Product Variants List</h4>
+              <h4>{{ __("variants_list") }}</h4>
             </div>
             <div class="card-body">
               <div class="row">
@@ -221,12 +221,12 @@
                   <table class="table table-bordered">
                     <tbody>
                       <tr>
-                        <th class="th-width">Product Name</th>
-                        <th class="th-width">Variant Id</th>
-                        <th class="th-width">Measurement</th>
-                        <th class="th-width">Stock</th>
-                        <th class="th-width">Price({{ $currency }})</th>
-                        <th class="th-width">Discounted Price({{ $currency }})</th>
+                        <th class="th-width">{{ __("product_name") }}</th>
+                        <th class="th-width">{{ __("variant_id") }}</th>
+                        <th class="th-width">{{ __("measurement") }}</th>
+                        <th class="th-width">{{ __("stock") }}</th>
+                        <th class="th-width"> {{ __("price") }} ({{ $currency }})</th>
+                        <th class="th-width"> {{ __("discounted_price") }} ({{ $currency }})</th>
                       </tr>
                       <tr>
                         <td>
@@ -257,7 +257,7 @@
                         <td>{{ variant.discounted_price }}</td>
                       </tr>
                       <tr>
-                        <th class="th-width">Images</th>
+                        <th class="th-width">{{ __("images") }}</th>
                         <td colspan="5">
                           <template v-if="variant.images" v-for="image in variant.images">
                             <img

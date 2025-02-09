@@ -1080,8 +1080,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1922,15 +1920,12 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "INR" } }, [
-                                _vm._v(
-                                  "Indian rupee " +
-                                    _vm._s(_vm.__("indian_rupee"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("indian_rupee"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "AUD" } }, [
                                 _vm._v(
-                                  "\n                      Australian dollar" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("australian_dollar")) +
                                     "\n                    "
                                 ),
@@ -1938,7 +1933,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "BRL" } }, [
                                 _vm._v(
-                                  "\n                      Brazilian real" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("brazilian_real")) +
                                     "\n                    "
                                 ),
@@ -1946,7 +1941,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CAD" } }, [
                                 _vm._v(
-                                  "\n                      Canadian dollar" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("canadian_doller")) +
                                     "\n                    "
                                 ),
@@ -1954,33 +1949,27 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CNY" } }, [
                                 _vm._v(
-                                  "\n                      Chinese Renmenbi" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("chinese_renmenbi")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CZK" } }, [
-                                _vm._v(
-                                  "Czech koruna" +
-                                    _vm._s(_vm.__("czech_koruna"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("czech_koruna"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "DKK" } }, [
-                                _vm._v(
-                                  "Danish krone " +
-                                    _vm._s(_vm.__("danish_krone"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("danish_krone"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "EUR" } }, [
-                                _vm._v("Euro " + _vm._s(_vm.__("euro"))),
+                                _vm._v(_vm._s(_vm.__("euro"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HKD" } }, [
                                 _vm._v(
-                                  "\n                      Hong Kong dollar " +
+                                  "\n                     " +
                                     _vm._s(_vm.__("hong_kong_dollar")) +
                                     "\n                    "
                                 ),
@@ -1988,7 +1977,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "HUF" } }, [
                                 _vm._v(
-                                  "\n                      Hungarian forint " +
+                                  "\n                      " +
                                     _vm._s(_vm.__("hungarian_forint")) +
                                     "\n                    "
                                 ),
@@ -1996,37 +1985,31 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "ILS" } }, [
                                 _vm._v(
-                                  "\n                      Israeli new shekel" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("israeli_new_shekel")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "JPY" } }, [
-                                _vm._v(
-                                  "Japanese yen" +
-                                    _vm._s(_vm.__("japanese_yen"))
-                                ),
+                                _vm._v(" " + _vm._s(_vm.__("japanese_yen"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MYR" } }, [
                                 _vm._v(
-                                  "\n                      Malaysian ringgit" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("malaysian_ringgit")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "MXN" } }, [
-                                _vm._v(
-                                  "Mexican peso " +
-                                    _vm._s(_vm.__("mexican_peso"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("mexican_peso"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "TWD" } }, [
                                 _vm._v(
-                                  "\n                      New Taiwan dollar " +
+                                  "\n                     " +
                                     _vm._s(_vm.__("new_taiwan_dollar")) +
                                     "\n                    "
                                 ),
@@ -2034,7 +2017,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NZD" } }, [
                                 _vm._v(
-                                  "\n                      New Zealand dollar" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("new_zealand_dollar")) +
                                     "\n                    "
                                 ),
@@ -2042,7 +2025,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("option", { attrs: { value: "NOK" } }, [
                                 _vm._v(
-                                  "\n                      Norwegian krone" +
+                                  "\n                      " +
                                     _vm._s(_vm.__("norwegian_krone")) +
                                     "\n                    "
                                 ),
@@ -2057,52 +2040,37 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PLN" } }, [
-                                _vm._v(
-                                  "Polish złoty " +
-                                    _vm._s(_vm.__("polish_zloty"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("polish_zloty"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "GBP" } }, [
                                 _vm._v(
-                                  "\n                      Pound sterling" +
-                                    _vm._s(_vm.__("pound_sterling")) +
+                                  _vm._s(_vm.__("pound_sterling")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "RUB" } }, [
-                                _vm._v(
-                                  "Russian ruble" +
-                                    _vm._s(_vm.__("russian_ruble"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("russian_ruble"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SGD" } }, [
                                 _vm._v(
-                                  "\n                      Singapore dollar " +
-                                    _vm._s(_vm.__("singapore_dollar")) +
+                                  _vm._s(_vm.__("singapore_dollar")) +
                                     "\n                    "
                                 ),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "SEK" } }, [
-                                _vm._v(
-                                  "Swedish krona" +
-                                    _vm._s(_vm.__("swedish_krona"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("swedish_krona"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "CHF" } }, [
-                                _vm._v(
-                                  "Swiss franc" + _vm._s(_vm.__("swiss_franc"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("swiss_franc"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "THB" } }, [
-                                _vm._v(
-                                  "Thai baht" + _vm._s(_vm.__("thai_baht"))
-                                ),
+                                _vm._v(_vm._s(_vm.__("thai_baht"))),
                               ]),
                               _vm._v(" "),
                               _c(
@@ -2110,7 +2078,7 @@ var render = function () {
                                 { attrs: { value: "USD", selected: "" } },
                                 [
                                   _vm._v(
-                                    "\n                      United States dollar" +
+                                    "\n                     " +
                                       _vm._s(_vm.__("united_states_dollar")) +
                                       "\n                    "
                                   ),
@@ -2144,7 +2112,7 @@ var render = function () {
                               type: "text",
                               name: "paypal_business_email",
                               id: "paypal_business_email",
-                              placeholder: "Paypal Business Email",
+                              placeholder: _vm.__("paypal_business_email"),
                               required: "",
                             },
                             domProps: {
@@ -2175,13 +2143,11 @@ var render = function () {
                               _vm._v(_vm._s(_vm.__("notification_url"))),
                               _c("small", [
                                 _vm._v(
-                                  "(Set this as IPN notification URL in you PayPal account" +
-                                    _vm._s(
-                                      _vm.__(
-                                        "set_this_as_ipn_notification_url_in_you_paypal_account"
-                                      )
-                                    ) +
-                                    ")"
+                                  _vm._s(
+                                    _vm.__(
+                                      "set_this_as_ipn_notification_url_in_you_paypal_account"
+                                    )
+                                  )
                                 ),
                               ]),
                             ]
@@ -2203,7 +2169,7 @@ var render = function () {
                               type: "text",
                               name: "paypal_notification_url",
                               id: "paypal_notification_url",
-                              placeholder: "Paypal IPN notification URL",
+                              placeholder: _vm.__("paypal_url"),
                               disabled: "",
                             },
                             domProps: {
@@ -2350,7 +2316,7 @@ var render = function () {
                               type: "text",
                               name: "stripe_publishable_key",
                               id: "stripe_publishable_key",
-                              placeholder: "Stripe Publishable Key",
+                              placeholder: _vm.__("stripe_publishable_key"),
                             },
                             domProps: {
                               value: _vm.payment_method.stripe_publishable_key,
@@ -2391,7 +2357,7 @@ var render = function () {
                               type: "text",
                               name: "stripe_secret_key",
                               id: "stripe_secret_key",
-                              placeholder: "Stripe Secret Key ",
+                              placeholder: _vm.__("stripe_secret_key"),
                             },
                             domProps: {
                               value: _vm.payment_method.stripe_secret_key,
@@ -2440,7 +2406,7 @@ var render = function () {
                               type: "text",
                               name: "stripe_webhook_secret_key",
                               id: "stripe_webhook_secret_key",
-                              placeholder: "Stripe Webhook Secret Key",
+                              placeholder: _vm.__("stripe_webhook_secret_key"),
                             },
                             domProps: {
                               value:
@@ -3417,7 +3383,7 @@ var render = function () {
                               type: "text",
                               name: "paytabs_profile_id",
                               id: "paytabs_profile_id",
-                              placeholder: "Paytabs Profile ID",
+                              placeholder: _vm.__("profile_id"),
                             },
                             domProps: {
                               value: _vm.payment_method.paytabs_profile_id,
@@ -3459,7 +3425,7 @@ var render = function () {
                             attrs: {
                               type: "text",
                               name: "paytabs_secret_key",
-                              placeholder: "Paytabs Secret Key",
+                              placeholder: _vm.__("secret_key"),
                             },
                             domProps: {
                               value: _vm.payment_method.paytabs_secret_key,
@@ -3513,7 +3479,9 @@ var render = function () {
                             attrs: {
                               type: "text",
                               name: "paytabs_notification_url",
-                              placeholder: "Paytabs Webhook URL",
+                              placeholder: _vm.__(
+                                "set_webhook_url_for_paytabs"
+                              ),
                               disabled: "",
                             },
                             domProps: {

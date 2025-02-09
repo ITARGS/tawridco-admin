@@ -779,7 +779,7 @@ var render = function () {
                   attrs: {
                     options: _vm.deliveryBoys,
                     "custom-label": _vm.customLabelOption,
-                    placeholder: "Select & Search Delivery Boy",
+                    placeholder: _vm.__("select_delivery_boys"),
                     label: "name",
                     "track-by": "name",
                     required: "",
@@ -877,7 +877,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                 },
                 domProps: { value: _vm.fundTransfers.amount },
                 on: {
@@ -897,12 +897,9 @@ var render = function () {
               _vm.graterAmount === true
                 ? _c("span", { staticClass: "text-danger" }, [
                     _vm._v(
-                      "You Can not enter amount greater than balance." +
-                        _vm._s(
-                          _vm.__(
-                            "you_can_not_enter_amount_greater_than_balance"
-                          )
-                        )
+                      _vm._s(
+                        _vm.__("you_can_not_enter_amount_greater_than_balance")
+                      )
                     ),
                   ])
                 : _vm._e(),
@@ -933,7 +930,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                 },
                 domProps: { value: _vm.fundTransfers.message },
                 on: {

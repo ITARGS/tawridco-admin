@@ -145,52 +145,52 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: [{
         key: 'id',
-        label: 'ID',
+        label: __('id'),
         sortable: true,
         sortDirection: 'desc'
       }, {
         key: 'name',
-        label: 'Name',
+        label: __('name'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'mobile',
-        label: 'Mobile',
+        label: __('mobile'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'opening_balance',
-        label: 'Opening Balance',
+        label: __('opening_balance'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'closing_balance',
-        label: 'Closing Balance',
+        label: __('closing_balance'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'amount',
-        label: 'Amount',
+        label: __('amount'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'type',
-        label: 'Type',
+        label: __('type'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'message',
-        label: 'Message',
+        label: __('message'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'status',
-        label: 'Status',
+        label: __('status'),
         sortable: true,
         "class": 'text-center'
       }, {
         key: 'created_at',
-        label: 'Date Created',
+        label: __('date_created'),
         sortable: true,
         "class": 'text-center'
       }],
@@ -334,7 +334,9 @@ var render = function () {
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "page-title" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.__("fund_transfers")))]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
             _c(
@@ -352,7 +354,7 @@ var render = function () {
                       _c(
                         "router-link",
                         { attrs: { to: "/delivery_boy/dashboard" } },
-                        [_vm._v("Dashboard")]
+                        [_vm._v(_vm._s(_vm.__("dashboard")))]
                       ),
                     ],
                     1
@@ -364,7 +366,7 @@ var render = function () {
                       staticClass: "breadcrumb-item active",
                       attrs: { "aria-current": "page" },
                     },
-                    [_vm._v("Fund Transfers")]
+                    [_vm._v(_vm._s(_vm.__("fund_transfers")))]
                   ),
                 ]),
               ]
@@ -376,7 +378,9 @@ var render = function () {
       _c("section", { staticClass: "section" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
-            _c("h4", { staticClass: "card-title" }, [_vm._v("Fund Transfers")]),
+            _c("h4", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(_vm.__("fund_transfers"))),
+            ]),
             _vm._v(" "),
             _c("span", { staticClass: "pull-right" }, [
               _vm.$can("fund_transfers_create")
@@ -390,7 +394,7 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("Add Fund Transfers")]
+                    [_vm._v(_vm._s(_vm.__("add_fund_transfers")))]
                   )
                 : _vm._e(),
             ]),
@@ -409,14 +413,14 @@ var render = function () {
                     { attrs: { md: "3", "offset-md": "8" } },
                     [
                       _c("h6", { staticClass: "box-title" }, [
-                        _vm._v("Search"),
+                        _vm._v(_vm._s(_vm.__("search"))),
                       ]),
                       _vm._v(" "),
                       _c("b-form-input", {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,
@@ -556,8 +560,10 @@ var render = function () {
                         fn: function (row) {
                           return [
                             _vm._v(
-                              "\n                                " +
-                                _vm._s("Amount (" + _vm.$currency + ")") +
+                              "\n                               " +
+                                _vm._s(_vm.__("amount")) +
+                                " " +
+                                _vm._s(" (" + _vm.$currency + ")") +
                                 "\n                            "
                             ),
                           ]
@@ -571,10 +577,10 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Credit")]
+                                  [_vm._v(_vm._s(_vm.__("credit")))]
                                 )
                               : _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Debit"),
+                                  _vm._v(_vm._s(_vm.__("debit"))),
                                 ]),
                           ]
                         },
@@ -587,10 +593,10 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Active")]
+                                  [_vm._v(_vm._s(_vm.__("active")))]
                                 )
                               : _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Deactive"),
+                                  _vm._v(_vm._s(_vm.__("deactive"))),
                                 ]),
                           ]
                         },
@@ -693,16 +699,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Fund Transfers")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

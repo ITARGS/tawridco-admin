@@ -4,7 +4,7 @@
       <div class="page-title">
         <div class="row">
           <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Sales Reports</h3>
+            <h3>{{ __("sales_reports") }}</h3>
           </div>
           <div class="col-12 col-md-6 order-md-2 order-first">
             <nav
@@ -15,7 +15,7 @@
                 <li class="breadcrumb-item">
                   <router-link to="/dashboard">{{ __("dashboard") }}</router-link>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Sales Reports</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __("sales_reports") }}</li>
               </ol>
             </nav>
           </div>
@@ -24,12 +24,12 @@
       <section class="section">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Sales Reports</h4>
+            <h4 class="card-title">{{ __("sales_reports") }}</h4>
           </div>
           <div class="card-body">
             <b-row class="mb-2">
               <b-col md="2">
-                <h6 class="box-title">From & To Date</h6>
+                <h6 class="box-title">{{ __("from_and_to_date") }}</h6>
                 <div class="d-flex justify-content-center align-items-center">
                   <date-range-picker
                     :autoApply="false"
@@ -51,7 +51,7 @@
                 </div>
               </b-col>
               <b-col md="2">
-                <h6 class="box-title" for="seller">Seller</h6>
+                <h6 class="box-title" for="seller">{{ __("sellers") }}</h6>
                 <select
                   name="seller"
                   id="seller"
@@ -59,14 +59,14 @@
                   @change="getSalesReports()"
                   class="form-control form-select"
                 >
-                  <option value="">Select Seller</option>
+                  <option value="">{{ __("select_seller") }}</option>
                   <option v-for="seller in sellers" :value="seller.id">
                     {{ seller.name }}
                   </option>
                 </select>
               </b-col>
               <b-col md="2">
-                <h6 class="box-title" for="category">Category</h6>
+                <h6 class="box-title" for="category">{{ __("category") }}</h6>
                 <select
                   name="category"
                   id="category"
@@ -81,7 +81,7 @@
                 </select>
               </b-col>
               <b-col md="2">
-                <h6 class="box-title" for="category">Delivery Boys</h6>
+                <h6 class="box-title" for="category">{{ __("delivery_boys") }}</h6>
                 <select
                   name="deliveryBoy"
                   id="deliveryBoy"
@@ -89,14 +89,14 @@
                   @change="getSalesReports()"
                   class="form-control form-select"
                 >
-                  <option value="">Select Delivery Boys</option>
+                  <option value="">{{ __("select_delivery_boys") }}</option>
                   <option v-for="deliveryBoy in deliveryBoys" :value="deliveryBoy.id">
                     {{ deliveryBoy.name }}
                   </option>
                 </select>
               </b-col>
               <b-col md="1">
-                <h6 class="box-title" for="category">Payment</h6>
+                <h6 class="box-title" for="category">{{ __("payment") }}</h6>
                 <select
                   name="payment_type"
                   id="payment_type"
@@ -104,18 +104,18 @@
                   @change="getSalesReports()"
                   class="form-control form-select"
                 >
-                  <option value="">Select Type</option>
-                  <option :value="1">COD</option>
-                  <option :value="2">Online</option>
+                  <option value="">{{ __("select_type") }}</option>
+                  <option :value="1">{{ __("code") }}</option>
+                  <option :value="2">{{ __("online") }}</option>
                 </select>
               </b-col>
               <b-col md="2">
-                <h6 class="box-title">Search</h6>
+                <h6 class="box-title">{{ __("search") }}</h6>
                 <b-form-input
                   id="filter-input"
                   v-model="filter"
                   type="search"
-                  placeholder="Search"
+                  :placeholder="__('search')"
                 ></b-form-input>
               </b-col>
               <b-col md="1" class="text-center">
@@ -162,7 +162,7 @@
             </div>
             <b-row>
               <div class="col-md-4 text-success h6">
-                Total Amount :- {{ $currency }} {{ final_total_sum.toFixed(2) }}
+                {{ __("total_amount") }} :- {{ $currency }} {{ final_total_sum.toFixed(2) }}
               </div>
             </b-row>
             <b-row>
@@ -214,17 +214,17 @@ export default {
       seller: "",
       category: "",
       fields: [
-        { key: "id", label: "Order Item ID", sortable: true, sortDirection: "desc" },
-        { key: "user_name", label: "User", sortable: true, class: "text-center" },
-        { key: "product_name", label: "Product", sortable: true, class: "text-center" },
-        { key: "mobile", label: "Mob.", sortable: true, class: "text-center" },
+        { key: "id", label: __('order_item_id'), sortable: true, sortDirection: "desc" },
+        { key: "user_name", label: __('user'), sortable: true, class: "text-center" },
+        { key: "product_name", label: __('product'), sortable: true, class: "text-center" },
+        { key: "mobile", label: __('mobile'), sortable: true, class: "text-center" },
         {
           key: "sub_total",
-          label: "Total( " + this.$currency + " )",
+          label: __('total'),
           sortable: true,
           class: "text-center",
         },
-        { key: "added_date", label: "Date", sortable: true, class: "text-center" },
+        { key: "added_date", label: __('date'), sortable: true, class: "text-center" },
       ],
       totalRows: 1,
       currentPage: 1,

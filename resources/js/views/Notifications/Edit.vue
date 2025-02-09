@@ -38,7 +38,7 @@
 
       <div class="row">
         <div class="form-group">
-          <label for="type">Type {{ __("type") }}</label>
+          <label for="type">{{ __("type") }}</label>
           <select
             name="type"
             id="type"
@@ -61,7 +61,7 @@
             type="url"
             class="form-control"
             v-model="type_link"
-            placeholder="Enter Link"
+            :placeholder="__('enter_link')"
           />
         </div>
 
@@ -72,7 +72,7 @@
           >
           <Select2
             v-model="type_ids"
-            placeholder="Select customers"
+            :placeholder="__('select_customer')"
             :options="users_options"
             :settings="{
               multiple: 'multiple',
@@ -106,7 +106,7 @@
             class="form-control form-select"
             required
           >
-            <option>Select Product</option>
+            <option>{{ __("select_product") }}</option>
             <option v-for="product in products" :value="product.id">
               {{ product.name }}
             </option>
@@ -121,7 +121,7 @@
             required
             v-model="title"
             class="form-control"
-            placeholder="Enter title"
+            :placeholder="__('enter_link')"
           />
         </div>
 
@@ -135,7 +135,7 @@
               rows="40"
               cols="70"
               class="form-control"
-              placeholder="Enter Notification Message Here!"
+              :placeholder="__('enter_notification_message_here')"
             ></textarea>
             <label for="message"> {{ __("enter_notification_message_here") }}</label>
           </div>

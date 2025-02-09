@@ -524,7 +524,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortDirection: "desc"
       }, {
         key: "actions",
-        label: __("action")
+        label: __("actions")
       }],
       totalRows: 1,
       currentPage: 1,

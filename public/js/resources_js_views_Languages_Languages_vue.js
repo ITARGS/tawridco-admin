@@ -1076,9 +1076,7 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-md-6" }, [
               _c("label", { attrs: { for: "display_name" } }, [
-                _vm._v(
-                  _vm._s(_vm.__("display_name")) + " (Display in app/web)"
-                ),
+                _vm._v(_vm._s(_vm.__("display_name"))),
               ]),
               _vm._v(" "),
               _c("input", {
@@ -1351,7 +1349,9 @@ var render = function () {
                                 })
                               : _vm._e(),
                             _vm._v(
-                              " Add default supported languages\n                            "
+                              " " +
+                                _vm._s(_vm.__("add_anguages")) +
+                                "\n                            "
                             ),
                           ],
                           1
@@ -1398,7 +1398,8 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "Close\n                                    "
+                                      _vm._s(_vm.__("close")) +
+                                        "\n                                    "
                                     ),
                                   ]
                                 ),
@@ -1718,10 +1719,10 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Yes")]
+                                  [_vm._v(_vm._s(_vm.__("yes")))]
                                 )
                               : _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("No"),
+                                  _vm._v(_vm._s(_vm.__("no"))),
                                 ]),
                           ]
                         },
@@ -1734,13 +1735,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Activated")]
+                                  [_vm._v(_vm._s(_vm.__("activated")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             row.item.status == 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Deactivated"),
+                                  _vm._v(_vm._s(_vm.__("deactivated"))),
                                 ])
                               : _vm._e(),
                           ]

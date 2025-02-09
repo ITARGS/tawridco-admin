@@ -725,7 +725,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -736,7 +736,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -764,7 +764,7 @@ var render = function () {
                 _c("multiselect", {
                   attrs: {
                     options: _vm.customers,
-                    placeholder: "Select & Search Customer",
+                    placeholder: _vm.__("select_or_search_city"),
                     label: "name",
                     "track-by": "name",
                     required: "",
@@ -794,7 +794,9 @@ var render = function () {
                             _vm._v(",\n                            "),
                             _c("span", { staticClass: "option__small" }, [
                               _vm._v(
-                                "Balance:- " + _vm._s(props.option.balance)
+                                _vm._s(_vm.__("balance")) +
+                                  ":- " +
+                                  _vm._s(props.option.balance)
                               ),
                             ]),
                           ]),
@@ -823,7 +825,7 @@ var render = function () {
                               "d-flex justify-content-between align-items-center text-left",
                           },
                           [
-                            _c("span", [_vm._v("Name:-")]),
+                            _c("span", [_vm._v(_vm._s(_vm.__("name")) + ":-")]),
                             _c("span", [
                               _vm._v(
                                 " " +
@@ -831,7 +833,9 @@ var render = function () {
                               ),
                             ]),
                             _vm._v(" "),
-                            _c("span", [_vm._v("Mobile:-")]),
+                            _c("span", [
+                              _vm._v(_vm._s(_vm.__("mobile")) + ":-"),
+                            ]),
                             _c("span", [
                               _vm._v(
                                 " " +
@@ -848,14 +852,16 @@ var render = function () {
                               "d-flex justify-content-between align-items-center text-left",
                           },
                           [
-                            _c("span", [_vm._v("Id:-")]),
+                            _c("span", [_vm._v(_vm._s(_vm.__("id")) + ":-")]),
                             _c("span", [
                               _vm._v(
                                 " " + _vm._s(_vm.walletTransaction.customer.id)
                               ),
                             ]),
                             _vm._v(" "),
-                            _c("span", [_vm._v("Balance:-")]),
+                            _c("span", [
+                              _vm._v(_vm._s(_vm.__("balance")) + ":-"),
+                            ]),
                             _c("span", [
                               _vm._v(
                                 " " +
@@ -872,7 +878,9 @@ var render = function () {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "type" } }, [_vm._v("Type")]),
+              _c("label", { attrs: { for: "type" } }, [
+                _vm._v(_vm._s(_vm.__("type"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -905,7 +913,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "amount" } }, [_vm._v("Amount")]),
+              _c("label", { attrs: { for: "amount" } }, [
+                _vm._v(_vm._s(_vm.__("amount"))),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -922,7 +932,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                   min: "1",
                   step: "0.01",
                 },
@@ -947,7 +957,11 @@ var render = function () {
               _vm._v(" "),
               _vm.graterAmount === true
                 ? _c("span", { staticClass: "text-danger" }, [
-                    _vm._v("You Can not enter amount greater than balance."),
+                    _vm._v(
+                      _vm._s(
+                        _vm.__("you_can_not_enter_amount_greater_than_balance")
+                      )
+                    ),
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -959,7 +973,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+              _c("label", { attrs: { for: "message" } }, [
+                _vm._v(_vm._s(_vm.__("message"))),
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -975,7 +991,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                   required: "",
                 },
                 domProps: { value: _vm.walletTransaction.message },
@@ -1121,7 +1137,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,
@@ -1233,8 +1249,10 @@ var render = function () {
                           fn: function (row) {
                             return [
                               _vm._v(
-                                "\n                                " +
-                                  _vm._s("Amount (" + _vm.$currency + ")") +
+                                "\n                               " +
+                                  _vm._s(_vm.__("amount")) +
+                                  " " +
+                                  _vm._s(" (" + _vm.$currency + ")") +
                                   "\n                            "
                               ),
                             ]

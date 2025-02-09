@@ -1806,7 +1806,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("Select2", {
                       attrs: {
-                        placeholder: "Select Products",
+                        placeholder: _vm.__("select_products"),
                         options: _vm.products_options,
                         settings: {
                           multiple: "multiple",
@@ -2434,7 +2434,7 @@ var render = function () {
                           attrs: {
                             id: "filter-input",
                             type: "search",
-                            placeholder: "Search",
+                            placeholder: _vm.__("search"),
                           },
                           model: {
                             value: _vm.filter,

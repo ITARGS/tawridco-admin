@@ -7,7 +7,7 @@
             <b-button variant="secondary" @click="hideModal">{{ __('cancel') }}</b-button>
         </div>
         <form ref="my-form" @submit.prevent="saveRecord">
-            <div class="row"> 
+            <div class="row">
                 <div class="form-group">
                     <label>{{ __('type') }}</label>
                     <select class="form-control form-select" v-model="type">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group" v-if="type=='slider_url'">
                     <label> {{ __('link') }}</label>
-                    <input type="url" class="form-control" v-model="slider_url" placeholder="Enter Link" required>
+                    <input type="url" class="form-control" v-model="slider_url" :placeholder="__('enter_link')" required>
                 </div>
                 <div class="form-group">
                     <label> {{ __('image') }}</label>

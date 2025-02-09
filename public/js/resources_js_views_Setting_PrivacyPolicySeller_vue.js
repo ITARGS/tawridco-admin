@@ -376,7 +376,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Privacy Policy",
+                        placeholder: _vm.__("privacy_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -436,7 +436,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Terms & Conditions",
+                        placeholder: _vm.__("terms_conditions"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,

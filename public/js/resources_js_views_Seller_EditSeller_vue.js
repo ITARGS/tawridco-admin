@@ -874,11 +874,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -2936,7 +2931,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("editor", {
                             attrs: {
-                              placeholder: "Enter store description",
+                              placeholder: _vm.__("store_description"),
                               init: {
                                 height: 400,
                                 plugins: this.$editorPlugins,
@@ -2982,7 +2977,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("Select2", {
                             attrs: {
-                              placeholder: "select cities",
+                              placeholder: _vm.__("select_cities"),
                               options: _vm.cities_options,
                               settings: { multiple: "multiple" },
                             },
@@ -3015,7 +3010,7 @@ var render = function () {
                             attrs: {
                               type: "text",
                               readonly: "",
-                              placeholder: "Enter state",
+                              placeholder: _vm.__("state"),
                             },
                             domProps: { value: _vm.state },
                             on: {
@@ -3047,7 +3042,7 @@ var render = function () {
                             attrs: {
                               type: "text",
                               readonly: "",
-                              placeholder: "Enter street.",
+                              placeholder: _vm.__("street"),
                             },
                             domProps: { value: _vm.street },
                             on: {
@@ -3075,7 +3070,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "search",
-                                placeholder: "Search you location on map.",
+                                placeholder: _vm.__("search_location"),
                                 options: {
                                   fields: [
                                     "formatted_address",
@@ -3194,7 +3189,7 @@ var render = function () {
                             attrs: {
                               type: "text",
                               readonly: "",
-                              placeholder: "Enter latitude.",
+                              placeholder: _vm.__("latitude"),
                             },
                             domProps: { value: _vm.latitude },
                             on: {
@@ -3231,7 +3226,7 @@ var render = function () {
                             attrs: {
                               type: "text",
                               readonly: "",
-                              placeholder: "Enter longitude.",
+                              placeholder: _vm.__("latitude"),
                             },
                             domProps: { value: _vm.longitude },
                             on: {
@@ -3432,7 +3427,7 @@ var render = function () {
                                 staticClass: "form-control",
                                 attrs: {
                                   type: "text",
-                                  placeholder: "Enter bank name.",
+                                  placeholder: _vm.__("enter_bank_name"),
                                   required: "",
                                 },
                                 domProps: { value: _vm.bank_name },
@@ -3472,7 +3467,7 @@ var render = function () {
                                 staticClass: "form-control",
                                 attrs: {
                                   type: "number",
-                                  placeholder: "Enter account number.",
+                                  placeholder: _vm.__("enter_account_number"),
                                   required: "",
                                 },
                                 domProps: { value: _vm.account_number },
@@ -3520,7 +3515,7 @@ var render = function () {
                                 staticClass: "form-control",
                                 attrs: {
                                   type: "text",
-                                  placeholder: "Enter bank's IFSC code.",
+                                  placeholder: _vm.__("ifsc_code"),
                                   required: "",
                                 },
                                 domProps: { value: _vm.ifsc_code },
@@ -3560,7 +3555,9 @@ var render = function () {
                                 staticClass: "form-control valid",
                                 attrs: {
                                   type: "text",
-                                  placeholder: "Enter bank account name.",
+                                  placeholder: _vm.__(
+                                    "enter_bank_account_name"
+                                  ),
                                   required: "",
                                 },
                                 domProps: { value: _vm.account_name },
@@ -3766,7 +3763,7 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("Close\n      ")]
+                    [_vm._v(_vm._s(_vm.__("close")) + "\n      ")]
                   ),
                 ]
               },
@@ -3786,43 +3783,27 @@ var render = function () {
             _c("ol", [
               _c("li", [
                 _vm._v(
-                  "\n          Formula for commision (Admin commission) is\n          "
+                  "\n          " + _vm._s(_vm.__("formula_is")) + "\n          "
                 ),
-                _c("b", [
-                  _vm._v(
-                    "Sub total (Excluding delivery charge) / 100 * commission percentage"
-                  ),
-                ]),
+                _c("b", [_vm._v(_vm._s(_vm.__("sub_percentage")))]),
               ]),
               _vm._v(" "),
               _c("li", [
                 _vm._v(
-                  "\n          For example sub total is 1378 and commission is 20% then 1378 / 100 X 20 =\n          275.6 so 1378 - 275.6 = 1102.4 will get credited into seller's wallet.\n        "
+                  "\n          " + _vm._s(_vm.__("for_wallet")) + "\n        "
                 ),
               ]),
               _vm._v(" "),
+              _c("li", [_vm._v(_vm._s(_vm.__("selle")))]),
+              _vm._v(" "),
+              _c("li", [_vm._v(_vm._s(_vm.__("if_earning")))]),
+              _vm._v(" "),
               _c("li", [
-                _vm._v(
-                  "275.6 is commission for Admin and 1102.4 is earning of seller ."
-                ),
+                _vm._v("\n          " + _vm._s(_vm.__("ex")) + "\n        "),
               ]),
               _vm._v(" "),
               _c("li", [
-                _vm._v(
-                  "If Order status is delivered then only seller will get earning."
-                ),
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "\n          Ex - 1. Order placed on 11-Aug-21 and product return days are set to 0 so\n          11-Aug + 0 days = 11-Aug seller earning will get credited when admin is logged\n          in admin panel.\n        "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "\n          Ex - 2. Order placed on 11-Aug-21 and product return days are set to 7 so\n          11-Aug + 7 days = 18-Aug seller earning will get credited when admin is logged\n          in admin panel.\n        "
-                ),
+                _vm._v("\n          " + _vm._s(_vm.__("ex2")) + "\n        "),
               ]),
             ]),
           ]),

@@ -2524,7 +2524,7 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("Select Tax"),
+                                _vm._v(_vm._s(_vm.__("select_tax"))),
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.taxes, function (tax) {
@@ -2574,7 +2574,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("Select2", {
                                 attrs: {
-                                  placeholder: "Select Tags",
+                                  placeholder: _vm.__("select_tags"),
                                   "no-add-on-enter": "",
                                   options: _vm.tagsOptions,
                                   separator: " ,;",
@@ -2917,7 +2917,10 @@ var render = function () {
                                         ? [
                                             _c("label", [
                                               _vm._v(
-                                                "Selected file name:- " +
+                                                _vm._s(
+                                                  _vm.__("selected_file_name")
+                                                ) +
+                                                  " " +
                                                   _vm._s(_vm.images[0].name)
                                               ),
                                             ]),
@@ -2926,7 +2929,10 @@ var render = function () {
                                             _c("label", [
                                               _vm._v(
                                                 _vm._s(_vm.images.length) +
-                                                  " files Selected"
+                                                  " " +
+                                                  _vm._s(
+                                                    _vm.__("files_selected")
+                                                  )
                                               ),
                                             ]),
                                             _vm._v(" "),
@@ -2975,7 +2981,9 @@ var render = function () {
                             _vm.images && _vm.images.length !== 0
                               ? _c("div", { staticClass: "row" }, [
                                   _c("h6", { staticClass: "mt-3" }, [
-                                    _vm._v("Seleted Other Image List."),
+                                    _vm._v(
+                                      _vm._s(_vm.__("seleted_list")) + "."
+                                    ),
                                   ]),
                                   _vm._v(" "),
                                   _vm.images.length !== 0
@@ -3039,7 +3047,7 @@ var render = function () {
                             _vm.other_images && _vm.other_images.length !== 0
                               ? _c("div", { staticClass: "row" }, [
                                   _c("h6", { staticClass: "mt-3" }, [
-                                    _vm._v("Uploaded Other Image List."),
+                                    _vm._v(_vm._s(_vm.__("uploaded_list"))),
                                   ]),
                                   _vm._v(" "),
                                   _vm.other_images.length !== 0
@@ -3109,7 +3117,9 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card" }, [
-                  _vm._m(2),
+                  _c("div", { staticClass: "card-header" }, [
+                    _c("h4", [_vm._v(_vm._s(_vm.__("product_variant")))]),
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -3626,7 +3636,7 @@ var render = function () {
                                             },
                                           },
                                           [
-                                            _vm._m(3, true),
+                                            _vm._m(2, true),
                                             _vm._v(" "),
                                             _c("label", [
                                               _vm._v(
@@ -4129,7 +4139,7 @@ var render = function () {
                                                 },
                                               },
                                               [
-                                                _vm._m(4, true),
+                                                _vm._m(3, true),
                                                 _vm._v(" "),
                                                 _c("label", [
                                                   _vm._v(
@@ -4646,11 +4656,11 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("Veg"),
+                                _vm._v(_vm._s(_vm.__("veg"))),
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "2" } }, [
-                                _vm._v("Non Veg"),
+                                _vm._v(_vm._s(_vm.__("non_veg"))),
                               ]),
                             ]
                           ),
@@ -4817,7 +4827,9 @@ var render = function () {
                                 : _vm.isValid
                                 ? _c("p", { staticStyle: { color: "green" } }, [
                                     _vm._v(
-                                      "\n                          FSSAI License Number is valid!\n                        "
+                                      "\n                          " +
+                                        _vm._s(_vm.__("fssai_valid")) +
+                                        "\n                        "
                                     ),
                                   ])
                                 : _vm._e(),
@@ -5093,7 +5105,9 @@ var render = function () {
                                 : _vm.isBarcodeValid
                                 ? _c("p", { staticStyle: { color: "green" } }, [
                                     _vm._v(
-                                      "\n                          Barcode is valid!\n                        "
+                                      "\n                          " +
+                                        _vm._s(_vm.__("barcode_valid")) +
+                                        "\n                        "
                                     ),
                                   ])
                                 : _vm._e(),
@@ -5393,14 +5407,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", [
       _c("i", { staticClass: "fa fa-cloud-upload-alt fa-2x" }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Product Variant")]),
     ])
   },
   function () {

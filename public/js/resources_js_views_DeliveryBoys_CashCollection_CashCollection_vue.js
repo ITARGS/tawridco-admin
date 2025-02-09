@@ -186,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
         sortDirection: 'desc'
       }, {
         key: 'name',
-        label: 'name',
+        label: __('name'),
         sortable: true,
         "class": 'text-center'
       }, {
@@ -1388,7 +1388,7 @@ var render = function () {
                   attrs: {
                     options: _vm.deliveryBoys,
                     "custom-label": _vm.customLabelOption,
-                    placeholder: "Select or search Delivery Boy",
+                    placeholder: _vm.__("select_delivery_boy"),
                     label: "name",
                     "track-by": "name",
                     required: "",
@@ -1486,7 +1486,7 @@ var render = function () {
                   name: "amount",
                   id: "amount",
                   required: "",
-                  placeholder: "Enter Transfer Amount",
+                  placeholder: _vm.__("transfer_amount"),
                   step: "0.01",
                 },
                 domProps: { value: _vm.transactions.amount },
@@ -1541,7 +1541,7 @@ var render = function () {
                   name: "transaction_date",
                   id: "transaction_date",
                   required: "",
-                  placeholder: "Select Date & Time.",
+                  placeholder: _vm.__("date_time"),
                 },
                 domProps: { value: _vm.transactions.transaction_date },
                 on: {
@@ -1578,7 +1578,7 @@ var render = function () {
                   name: "message",
                   id: "message",
                   rows: "3",
-                  placeholder: "Enter Message.",
+                  placeholder: _vm.__("message"),
                 },
                 domProps: { value: _vm.transactions.message },
                 on: {

@@ -252,7 +252,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     exportToCSV: function exportToCSV() {
-      var customHeaders = ['Product Name', 'Seller Name', 'Seller ID', 'Product Variant ID', 'Unit of Measure', 'Total Units Sold', 'Total Sales'];
+      var customHeaders = [__("product_name"), __("seller_name"), __("seller_id"), __("product_variant_id"), __("unit_of_measure"), __("total_units_sold"), __("total_sales")];
       var csvData = this.convertToCSV(this.productSalesReports, customHeaders);
       var blob = new Blob([csvData], {
         type: 'text/csv'
@@ -611,7 +611,7 @@ var render = function () {
                         attrs: {
                           id: "filter-input",
                           type: "search",
-                          placeholder: "Search",
+                          placeholder: _vm.__("search"),
                         },
                         model: {
                           value: _vm.filter,

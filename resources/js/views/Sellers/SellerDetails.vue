@@ -22,58 +22,58 @@
             <h2 style="margin: 10px">{{ $appName }}</h2>
           </a>
         </div>
-        <h4>Seller Complete Profile</h4>
+        <h4>{{ __("register_message") }}</h4>
         <p class="auth-subtitle text-primary">
-          Please Complete the form to complete your registration
+         {{ __("seller_register_message") }}
         </p>
         <form ref="my-form" @submit.prevent="saveSellerDetails">
           <div class="row">
             <div class="content">
               <div class="card">
                 <div class="card-header">
-                  <h4>Store Information</h4>
+                  <h4>{{ __("store_information") }}</h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Name</label>
+                        <label>{{ __("name") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="name"
                           required
-                          placeholder="Enter name."
+                          :placeholder="__('enter_name')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Store Name</label>
+                        <label>{{ __("store_name") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="store_name"
                           required
-                          placeholder="Enter store name."
+                          :placeholder="__('enter_store-name')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Store URL</label>
+                        <label>{{ __("store_url") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="store_url"
-                          placeholder="Enter store URL."
+                          :placeholder="__('enter_store_url')"
                         />
                       </div>
                     </div>
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Categories</label>
+                        <label>{{ __("categories") }}</label>
                         <Select2
                           v-model="categories_ids"
                           :placeholder="__('select_categories')"
@@ -85,12 +85,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Tax Name</label>
+                        <label>{{ __("tax_name") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="tax_name"
-                          placeholder="Enter tax name."
+                          :placeholder="__('tax_name')"
                           required
                         />
                       </div>
@@ -98,12 +98,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Tax Number</label>
+                        <label>{{ __("tax_number") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="tax_number"
-                          placeholder="Enter tax number."
+                          :placeholder="__('enter_tax_number')"
                           required
                         />
                       </div>
@@ -111,12 +111,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>PAN Number</label>
+                        <label>{{ __("pan_number") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="pan_number"
-                          placeholder="Enter PAN number."
+                          :placeholder="__('Enter PAN number')"
                           required
                         />
                       </div>
@@ -124,7 +124,7 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>National Identity Card</label>
+                        <label>{{ __("national_identity_card") }}</label>
 
                         <input
                           type="file"
@@ -153,7 +153,7 @@
                             v-if="national_id_card && national_id_card.name !== ''"
                           >
                             <label
-                              >Selected file name:- {{ national_id_card.name }}</label
+                              >{{ __("selected_file_name") }}:- {{ national_id_card.name }}</label
                             >
                           </template>
                           <template v-else>
@@ -177,7 +177,7 @@
                               :href="national_id_card_url"
                               class="badge bg-success"
                             >
-                              <i class="fa fa-eye"></i> Identity Card</a
+                              <i class="fa fa-eye"></i> {{ __("identity") }}</a
                             >
                           </div>
                         </div>
@@ -185,7 +185,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Address Proof</label>
+                        <label>{{ __("address_proofs") }}</label>
                         <input
                           type="file"
                           class="file-input"
@@ -214,7 +214,7 @@
                             <label>{{ __("drop_files_here_or_click_to_upload") }}</label>
                           </template>
                           <template v-else>
-                            <label>Selected file name:- {{ address_proof_name }}</label>
+                            <label>{{ __("selected_file_name") }}:- {{ address_proof_name }}</label>
                           </template>
                         </div>
 
@@ -233,7 +233,7 @@
                               :href="address_proof_url"
                               class="badge bg-success"
                             >
-                              <i class="fa fa-eye"></i> Address Proof</a
+                              <i class="fa fa-eye"></i> {{ __("address_proofs") }}</a
                             >
                           </div>
                         </div>
@@ -241,7 +241,7 @@
                     </div>
 
                     <div class="form-group col-md-12">
-                      <label for="logo">Logo</label>
+                      <label for="logo">{{ __("logo") }}</label>
                       <input
                         type="file"
                         id="logo"
@@ -260,7 +260,7 @@
                         @dragleave="$dragleaveFile"
                       >
                         <template v-if="store_logo && store_logo.name !== ''">
-                          <label>Selected file name:- {{ store_logo.name }}</label>
+                          <label>{{ __("selected_file_name") }}:- {{ store_logo.name }}</label>
                         </template>
                         <template v-else>
                           <label><i class="fa fa-cloud-upload-alt fa-2x"></i></label>
@@ -279,10 +279,10 @@
                       </div>
                     </div>
                     <div class="form-group col-md-12">
-                      <label>Store Description :</label>
+                      <label>{{ __("store_description") }} :</label>
                       <
                       <editor
-                        placeholder="Enter store description"
+                        :placeholder="__('store_description')"
                         v-model="store_description"
                         :init="{
                           height: 400,
@@ -297,17 +297,17 @@
               </div>
               <div class="card">
                 <div class="card-header">
-                  <h4>Store Location Information</h4>
+                  <h4>{{ __("store_location_information") }}</h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-md-4">
-                      <label for="city_name">Select or Search City</label>
+                      <label for="city_name">{{ __("select_or_search_city") }}</label>
                       <multiselect
                         v-model="city"
                         :options="cities"
                         @close="setCityId"
-                        placeholder="Select & Search City"
+                        :placeholder="__('select_or_search_city')"
                         label="name"
                         track-by="name"
                         id="city_name"
@@ -329,59 +329,59 @@
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>State</label>
+                        <label>{{ __("state") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="state"
                           readonly
-                          placeholder="Enter state"
+                          :placeholder="__('state')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Street</label>
+                        <label>{{ __("street") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="street"
                           readonly
-                          placeholder="Enter street."
+                          :placeholder="__('street')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Latitude</label>
+                        <label>{{ __("latitude") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="latitude"
                           readonly
-                          placeholder="Enter latitude."
+                          :placeholder="__('latitude')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Longitude</label>
+                        <label>{{ __("latitude") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="longitude"
                           readonly
-                          placeholder="Enter longitude."
+                          :placeholder="__('latitude')"
                         />
                       </div>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="location">Search Location</label>
+                      <label for="location">{{ __("search_location") }}</label>
                       <div class="input-group">
                         <GmapAutocomplete
                           type="search"
                           class="form-control"
-                          placeholder="Search you location on map."
+                          :placeholder="__('search_you_location_on_map')"
                           @place_changed="setPlace"
                           :options="{
                             fields: ['formatted_address', 'geometry', 'name'],
@@ -394,7 +394,7 @@
                           type="button"
                           variant="primary"
                           v-b-tooltip.hover
-                          title="Add current location"
+                          :title=__("add_current_location")
                           @click="getCurrentLocation"
                         >
                           <svg
@@ -404,7 +404,7 @@
                             width="48px"
                             fill="#FFFFFF"
                           >
-                            <title>current-location</title>
+                            <title>{{ __("current_location") }}</title>
                             <path d="M0 0h24v24H0V0z" fill="none" />
                             <path
                               d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"
@@ -413,17 +413,15 @@
                         </b-button>
                       </div>
                       <span class="text-danger d-block font-size-13"
-                        >*Only Search Location, When Update is necessary</span
+                        >{{ __("only_search_location_when_update_is_necessary") }}</span
                       >
                       <span class="text text-primary font-size-13"
-                        >Search your seller name and you will get the location
-                        points(Latitude & Longitude) below.</span
+                        >{{ __("search_your_seller_name_and_you_will_get_the_location_points_latitude_longitude_below") }}</span
                       >
                     </div>
                     <div class="col-md-12 mb-3">
                       <div v-if="formatted_address" class="text-danger">
-                        *Drag and click marker to your shop proper location (This will
-                        affect into delivery charge calculation)
+                        {{ __("draf_and_click_marker_to_your_shop_proper_location") }}
                       </div>
                       <div id="map" style="position: relative; overflow: hidden">
                         <GmapMap
@@ -468,18 +466,18 @@
               </div>
               <div class="card">
                 <div class="card-header">
-                  <h4>Seller Bank Information</h4>
+                  <h4>{{ __("seller_bank_information") }}</h4>
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Bank Name</label>
+                        <label>{{ __("bank_name") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="bank_name"
-                          placeholder="Enter bank name."
+                          :placeholder="__('bank_name')"
                           required
                         />
                       </div>
@@ -487,12 +485,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Account Number</label>
+                        <label>{{ __("account_number") }}</label>
                         <input
                           type="number"
                           class="form-control"
                           v-model="account_number"
-                          placeholder="Enter account number."
+                          :placeholder="__('account_number')"
                           required
                         />
                       </div>
@@ -500,12 +498,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Bank's IFSC Code</label>
+                        <label>{{ __("bank_ifsc_code") }}</label>
                         <input
                           type="text"
                           class="form-control"
                           v-model="ifsc_code"
-                          placeholder="Enter bank's IFSC code."
+                          :placeholder="__('bank_ifsc_code')"
                           required
                         />
                       </div>
@@ -513,12 +511,12 @@
 
                     <div class="form-group col-md-4">
                       <div class="form-group">
-                        <label>Bank Account Name</label>
+                        <label>{{ __("bank_account_name") }}</label>
                         <input
                           type="text"
                           class="form-control valid"
                           v-model="account_name"
-                          placeholder="Enter bank account name."
+                          :placeholder="__('bank_account_name')"
                           required
                         />
                       </div>
@@ -528,7 +526,7 @@
               </div>
             </div>
             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
-              Complete
+              {{ __("complete") }}
               <b-spinner v-if="isLoading" small label="Spinning"></b-spinner>
             </button>
           </div>

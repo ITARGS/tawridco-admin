@@ -4,13 +4,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Manager App Privacy Policy</h3>
+                        <h3>{{ __("manager_policy") }}</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><router-link to="/dashboard">{{ __('dashboard') }}</router-link></li>
-                                <li class="breadcrumb-item active" aria-current="page">Manager App Privacy Policy</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ __("manager_policy") }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -20,18 +20,18 @@
                 <form id="contact_us_form" method="post" enctype="multipart/form-data" @submit.prevent="saveRecord">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Update Privacy Policy</h4>
+                            <h4 class="card-title">{{ __("update_privacy_policy") }}</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="d-flex justify-content-between mb-2">
-                                    <label>Privacy Policy</label>
+                                    <label>{{ __("privacy_policy") }}</label>
                                     <a :href="$baseUrl+'/manager-privacy-policy'" v-b-tooltip.hover title="Privacy Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Privacy Policy"
+                                    :placeholder="__('privacy_policy')"
                                     v-model="policies.privacy_policy_manager_app"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -40,16 +40,16 @@
                                     }"
                                 />
                             </div>
-                            <h4 class="card-title">Update Terms & Conditions</h4>
+                            <h4 class="card-title">{{ __("update_terms_conditions") }}</h4>
                             <div class="form-group">
                                 <div class="d-flex justify-content-between mb-2">
-                                    <label>Terms & Conditions : </label>
+                                    <label> {{ __("terms_conditions") }} : </label>
                                     <a :href="$baseUrl+'/manager-terms-conditions'" v-b-tooltip.hover title="Terms & Conditions" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Terms & Conditions"
+                                    :placeholder="__('terms_conditions')"
                                     v-model="policies.terms_conditions_manager_app"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,

@@ -347,52 +347,52 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: [{
         key: "id",
-        label: "ID",
+        label: __("id"),
         sortable: true,
         sortDirection: "desc"
       }, {
         key: "user_id",
-        label: "U.ID",
+        label: __("user_id"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "name",
-        label: "Name",
+        label: __("name"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "product_name",
-        label: "Product Name",
+        label: __("product_name"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "price",
-        label: "Price",
+        label: __("price"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "discounted_price",
-        label: "Discounted Price",
+        label: __("discounted_price"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "quantity",
-        label: "Quantity",
+        label: __("quantity"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "sub_total",
-        label: "Total",
+        label: __("total"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "status",
-        label: "Status",
+        label: __("status"),
         sortable: true,
         "class": "text-center"
       }, {
         key: "created_at",
-        label: "Date",
+        label: __("date"),
         sortable: true,
         "class": "text-center"
       }, {
@@ -668,7 +668,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -679,7 +679,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -737,7 +737,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Pending\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("pending")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -771,7 +775,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Approve\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("approved")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -805,7 +813,11 @@ var render = function () {
                             },
                           },
                         }),
-                        _vm._v(" Reject\n                        "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.__("reject")) +
+                            "\n                        "
+                        ),
                       ]
                     ),
                   ]
@@ -836,7 +848,7 @@ var render = function () {
               _vm.returnRequest.status == 2
                 ? _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "assign delivery boy" } }, [
-                      _vm._v("Assign Delivery Boy"),
+                      _vm._v(_vm._s(_vm.__("assign_delivery_boy"))),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -853,7 +865,7 @@ var render = function () {
                               staticClass: "visually-hidden",
                               attrs: { for: "delivery_boy_id" },
                             },
-                            [_vm._v("Delivery Boy")]
+                            [_vm._v(_vm._s(_vm.__("delivery_boy")))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -896,7 +908,7 @@ var render = function () {
                             },
                             [
                               _c("option", { attrs: { value: "" } }, [
-                                _vm._v("Select Delivery Boy"),
+                                _vm._v(_vm._s(_vm.__("select_delivery_boy"))),
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.deliveryBoys, function (boy) {
@@ -917,7 +929,9 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "remark" } }, [_vm._v("Remark")]),
+              _c("label", { attrs: { for: "remark" } }, [
+                _vm._v(_vm._s(_vm.__("remark"))),
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -932,7 +946,7 @@ var render = function () {
                 attrs: {
                   name: "remark",
                   id: "remark",
-                  placeholder: "Enter Remark",
+                  placeholder: _vm.__("remark"),
                 },
                 domProps: { value: _vm.returnRequest.remark },
                 on: {
@@ -1169,8 +1183,10 @@ var render = function () {
                       fn: function (row) {
                         return [
                           _vm._v(
-                            "\n              " +
-                              _vm._s("Price (" + _vm.$currency + ")") +
+                            "\n            " +
+                              _vm._s(_vm.__("price")) +
+                              "  " +
+                              _vm._s("(" + _vm.$currency + ")") +
                               "\n            "
                           ),
                         ]
@@ -1182,9 +1198,8 @@ var render = function () {
                         return [
                           _vm._v(
                             "\n              " +
-                              _vm._s(
-                                "Discounted Price (" + _vm.$currency + ")"
-                              ) +
+                              _vm._s(_vm.__("discounted_price")) +
+                              _vm._s("(" + _vm.$currency + ")") +
                               "\n            "
                           ),
                         ]
@@ -1196,18 +1211,18 @@ var render = function () {
                         return [
                           row.item.status === 1
                             ? _c("span", { staticClass: "badge bg-warning" }, [
-                                _vm._v("Pending"),
+                                _vm._v(_vm._s(_vm.__("pending"))),
                               ])
                             : row.item.status === 2
                             ? _c("span", { staticClass: "badge bg-success" }, [
-                                _vm._v("Approved"),
+                                _vm._v(_vm._s(_vm.__("approved"))),
                               ])
                             : row.item.status === 3
                             ? _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Rejected"),
+                                _vm._v(_vm._s(_vm.__("rejected"))),
                               ])
                             : _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Undefine"),
+                                _vm._v(_vm._s(_vm.__("undefine"))),
                               ]),
                         ]
                       },

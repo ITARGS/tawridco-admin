@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="display_name">{{ __('display_name') }} (Display in app/web)</label>
+                    <label for="display_name">{{ __('display_name') }}</label>
                     <input name="display_name" id="display_name" v-model="display_name"  class="form-control">
                 </div>
 
@@ -106,7 +106,7 @@ export default {
         },
 
         handleFileUpload() {
-            
+
             this.json_file = this.$refs.json_file.files[0];
 
             const reader = new FileReader();

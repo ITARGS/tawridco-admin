@@ -663,7 +663,12 @@ var render = function () {
             return [
               _vm.id
                 ? _c("h5", { staticClass: "modal-title" }, [
-                    _vm._v(_vm._s(_vm.modal_title) + " & Permission Access : "),
+                    _vm._v(
+                      _vm._s(_vm.modal_title) +
+                        " & " +
+                        _vm._s(_vm.__("permission_access")) +
+                        " : "
+                    ),
                     _c("strong", [_vm._v(" " + _vm._s(_vm.printName) + " ")]),
                   ])
                 : _c("h5", { staticClass: "modal-title" }, [
@@ -704,7 +709,7 @@ var render = function () {
               },
             },
             [
-              _vm._v("Save\n            "),
+              _vm._v(_vm._s(_vm.__("save")) + "\n            "),
               _vm.isLoading
                 ? _c("b-spinner", { attrs: { small: "", label: "Spinning" } })
                 : _vm._e(),
@@ -715,7 +720,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -736,7 +741,7 @@ var render = function () {
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Title")]),
+              _c("label", [_vm._v(_vm._s(_vm.__("title")))]),
               _vm._v(" "),
               _c("i", { staticClass: "text-danger" }, [_vm._v("*")]),
               _vm._v(" "),
@@ -753,7 +758,7 @@ var render = function () {
                 attrs: {
                   type: "text",
                   required: "",
-                  placeholder: "Enter Role title.",
+                  placeholder: _vm.__("enter_role_title"),
                 },
                 domProps: { value: _vm.name },
                 on: {

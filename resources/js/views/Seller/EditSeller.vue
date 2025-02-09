@@ -487,7 +487,7 @@
                   <div class="form-group col-md-12">
                     <label> {{ __("store_description") }}</label>
                     <editor
-                      placeholder="Enter store description"
+                      :placeholder="__('store_description')"
                       v-model="store_description"
                       :init="{
                         height: 400,
@@ -515,7 +515,7 @@
 
                     <Select2
                       v-model="city_id"
-                      placeholder="select cities"
+                      :placeholder="__('select_cities')"
                       :options="cities_options"
                       :settings="{ multiple: 'multiple' }"
                     />
@@ -528,7 +528,7 @@
                         class="form-control"
                         v-model="state"
                         readonly
-                        placeholder="Enter state"
+                        :placeholder="__('state')"
                       />
                     </div>
                   </div>
@@ -541,7 +541,7 @@
                         class="form-control"
                         v-model="street"
                         readonly
-                        placeholder="Enter street."
+                        :placeholder="__('street')"
                       />
                     </div>
                   </div>
@@ -553,7 +553,7 @@
                       <GmapAutocomplete
                         type="search"
                         class="form-control"
-                        placeholder="Search you location on map."
+                        :placeholder="__('search_location')"
                         @place_changed="setPlace"
                         :options="{
                           fields: ['formatted_address', 'geometry', 'name'],
@@ -606,7 +606,7 @@
                         class="form-control"
                         v-model="latitude"
                         readonly
-                        placeholder="Enter latitude."
+                        :placeholder="__('latitude')"
                       />
                     </div>
                   </div>
@@ -619,7 +619,7 @@
                         class="form-control"
                         v-model="longitude"
                         readonly
-                        placeholder="Enter longitude."
+                        :placeholder="__('latitude')"
                       />
                     </div>
                   </div>
@@ -695,7 +695,7 @@
                         type="text"
                         class="form-control"
                         v-model="bank_name"
-                        placeholder="Enter bank name."
+                        :placeholder="__('enter_bank_name')"
                         required
                       />
                     </div>
@@ -710,7 +710,7 @@
                         type="number"
                         class="form-control"
                         v-model="account_number"
-                        placeholder="Enter account number."
+                        :placeholder="__('enter_account_number')"
                         @input="validateAccountNumber"
                         required
                       />
@@ -729,7 +729,7 @@
                         type="text"
                         class="form-control"
                         v-model="ifsc_code"
-                        placeholder="Enter bank's IFSC code."
+                        :placeholder="__('ifsc_code')"
                         required
                       />
                     </div>
@@ -744,7 +744,7 @@
                         type="text"
                         class="form-control valid"
                         v-model="account_name"
-                        placeholder="Enter bank account name."
+                        :placeholder="__('enter_bank_account_name')"
                         required
                       />
                     </div>
@@ -824,24 +824,19 @@
       <b-container fluid>
         <ol>
           <li>
-            Formula for commision (Admin commission) is
-            <b>Sub total (Excluding delivery charge) / 100 * commission percentage</b>
+            {{ __("formula_is") }}
+            <b>{{ __("sub_percentage") }}</b>
           </li>
           <li>
-            For example sub total is 1378 and commission is 20% then 1378 / 100 X 20 =
-            275.6 so 1378 - 275.6 = 1102.4 will get credited into seller's wallet.
+            {{ __("for_wallet") }}
           </li>
-          <li>275.6 is commission for Admin and 1102.4 is earning of seller .</li>
-          <li>If Order status is delivered then only seller will get earning.</li>
+          <li>{{ __("selle") }}</li>
+          <li>{{ __("if_earning") }}</li>
           <li>
-            Ex - 1. Order placed on 11-Aug-21 and product return days are set to 0 so
-            11-Aug + 0 days = 11-Aug seller earning will get credited when admin is logged
-            in admin panel.
+            {{ __("ex") }}
           </li>
           <li>
-            Ex - 2. Order placed on 11-Aug-21 and product return days are set to 7 so
-            11-Aug + 7 days = 18-Aug seller earning will get credited when admin is logged
-            in admin panel.
+            {{ __("ex2") }}
           </li>
         </ol>
       </b-container>
@@ -851,7 +846,7 @@
           size="sm"
           class="float-right"
           @click="commissionRule = false"
-          >Close
+          >{{ __("close") }}
         </b-button>
       </template>
     </b-modal>

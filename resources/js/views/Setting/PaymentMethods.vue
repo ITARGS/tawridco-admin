@@ -165,61 +165,59 @@
                       class="form-control form-select"
                     >
                       <option value="">{{ __("select_currency_code") }}</option>
-                      <option value="INR">Indian rupee {{ __("indian_rupee") }}</option>
+                      <option value="INR">{{ __("indian_rupee") }}</option>
                       <option value="AUD">
-                        Australian dollar{{ __("australian_dollar") }}
+                        {{ __("australian_dollar") }}
                       </option>
                       <option value="BRL">
-                        Brazilian real{{ __("brazilian_real") }}
+                        {{ __("brazilian_real") }}
                       </option>
                       <option value="CAD">
-                        Canadian dollar{{ __("canadian_doller") }}
+                        {{ __("canadian_doller") }}
                       </option>
                       <option value="CNY">
-                        Chinese Renmenbi{{ __("chinese_renmenbi") }}
+                        {{ __("chinese_renmenbi") }}
                       </option>
-                      <option value="CZK">Czech koruna{{ __("czech_koruna") }}</option>
-                      <option value="DKK">Danish krone {{ __("danish_krone") }}</option>
-                      <option value="EUR">Euro {{ __("euro") }}</option>
+                      <option value="CZK">{{ __("czech_koruna") }}</option>
+                      <option value="DKK">{{ __("danish_krone") }}</option>
+                      <option value="EUR">{{ __("euro") }}</option>
                       <option value="HKD">
-                        Hong Kong dollar {{ __("hong_kong_dollar") }}
+                       {{ __("hong_kong_dollar") }}
                       </option>
                       <option value="HUF">
-                        Hungarian forint {{ __("hungarian_forint") }}
+                        {{ __("hungarian_forint") }}
                       </option>
                       <option value="ILS">
-                        Israeli new shekel{{ __("israeli_new_shekel") }}
+                        {{ __("israeli_new_shekel") }}
                       </option>
-                      <option value="JPY">Japanese yen{{ __("japanese_yen") }}</option>
+                      <option value="JPY"> {{ __("japanese_yen") }}</option>
                       <option value="MYR">
-                        Malaysian ringgit{{ __("malaysian_ringgit") }}
+                        {{ __("malaysian_ringgit") }}
                       </option>
-                      <option value="MXN">Mexican peso {{ __("mexican_peso") }}</option>
+                      <option value="MXN">{{ __("mexican_peso") }}</option>
                       <option value="TWD">
-                        New Taiwan dollar {{ __("new_taiwan_dollar") }}
+                       {{ __("new_taiwan_dollar") }}
                       </option>
                       <option value="NZD">
-                        New Zealand dollar{{ __("new_zealand_dollar") }}
+                        {{ __("new_zealand_dollar") }}
                       </option>
                       <option value="NOK">
-                        Norwegian krone{{ __("norwegian_krone") }}
+                        {{ __("norwegian_krone") }}
                       </option>
                       <option value="PHP">
                         Philippine peso {{ __("philippine_peso") }}
                       </option>
-                      <option value="PLN">Polish złoty {{ __("polish_zloty") }}</option>
-                      <option value="GBP">
-                        Pound sterling{{ __("pound_sterling") }}
+                      <option value="PLN">{{ __("polish_zloty") }}</option>
+                      <option value="GBP">{{ __("pound_sterling") }}
                       </option>
-                      <option value="RUB">Russian ruble{{ __("russian_ruble") }}</option>
-                      <option value="SGD">
-                        Singapore dollar {{ __("singapore_dollar") }}
+                      <option value="RUB">{{ __("russian_ruble") }}</option>
+                      <option value="SGD">{{ __("singapore_dollar") }}
                       </option>
-                      <option value="SEK">Swedish krona{{ __("swedish_krona") }}</option>
-                      <option value="CHF">Swiss franc{{ __("swiss_franc") }}</option>
-                      <option value="THB">Thai baht{{ __("thai_baht") }}</option>
+                      <option value="SEK">{{ __("swedish_krona") }}</option>
+                      <option value="CHF">{{ __("swiss_franc") }}</option>
+                      <option value="THB">{{ __("thai_baht") }}</option>
                       <option value="USD" selected="">
-                        United States dollar{{ __("united_states_dollar") }}
+                       {{ __("united_states_dollar") }}
                       </option>
                     </select>
                   </div>
@@ -236,7 +234,7 @@
                       name="paypal_business_email"
                       id="paypal_business_email"
                       v-model="payment_method.paypal_business_email"
-                      placeholder="Paypal Business Email"
+                      :placeholder="__('paypal_business_email')"
                       required
                     />
                   </div>
@@ -247,9 +245,9 @@
                     <label for="paypal_notification_url"
                       >{{ __("notification_url")
                       }}<small
-                        >(Set this as IPN notification URL in you PayPal account{{
+                        >{{
                           __("set_this_as_ipn_notification_url_in_you_paypal_account")
-                        }})</small
+                        }}</small
                       ></label
                     >
                     <input
@@ -258,7 +256,7 @@
                       name="paypal_notification_url"
                       id="paypal_notification_url"
                       v-model="payment_method.paypal_notification_url"
-                      placeholder="Paypal IPN notification URL"
+                      :placeholder="__('paypal_url')"
                       disabled=""
                     />
                   </div>
@@ -359,7 +357,7 @@
                       name="stripe_publishable_key"
                       id="stripe_publishable_key"
                       v-model="payment_method.stripe_publishable_key"
-                      placeholder="Stripe Publishable Key"
+                      :placeholder="__('stripe_publishable_key')"
                     />
                   </div>
                   <div
@@ -373,7 +371,7 @@
                       name="stripe_secret_key"
                       id="stripe_secret_key"
                       v-model="payment_method.stripe_secret_key"
-                      placeholder="Stripe Secret Key "
+                      :placeholder="__('stripe_secret_key')"
                     />
                   </div>
                   <div
@@ -389,7 +387,7 @@
                       name="stripe_webhook_secret_key"
                       id="stripe_webhook_secret_key"
                       v-model="payment_method.stripe_webhook_secret_key"
-                      placeholder="Stripe Webhook Secret Key"
+                      :placeholder="__('stripe_webhook_secret_key')"
                     />
                   </div>
                   <div
@@ -1011,7 +1009,7 @@
                       name="paytabs_profile_id"
                       id="paytabs_profile_id"
                       v-model="payment_method.paytabs_profile_id"
-                      placeholder="Paytabs Profile ID"
+                      :placeholder="__('profile_id')"
                     />
                   </div>
                   <div
@@ -1024,7 +1022,7 @@
                       class="form-control"
                       name="paytabs_secret_key"
                       v-model="payment_method.paytabs_secret_key"
-                      placeholder="Paytabs Secret Key"
+                      :placeholder="__('secret_key')"
                     />
                   </div>
                   <div
@@ -1040,7 +1038,7 @@
                       class="form-control"
                       name="paytabs_notification_url"
                       v-model="payment_method.paytabs_notification_url"
-                      placeholder="Paytabs Webhook URL"
+                      :placeholder="__('set_webhook_url_for_paytabs')"
                       disabled=""
                     />
                   </div>

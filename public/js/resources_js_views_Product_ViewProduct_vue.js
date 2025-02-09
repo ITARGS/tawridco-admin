@@ -565,7 +565,9 @@ var render = function () {
   return _c("div", [
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "row" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.__("view_product")))]),
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
           _c(
@@ -608,7 +610,7 @@ var render = function () {
                         _c(
                           "router-link",
                           { attrs: { to: "/seller/manage_products" } },
-                          [_vm._v("Manage Product")]
+                          [_vm._v(_vm._s(_vm.__("manage_products")))]
                         ),
                       ],
                       1
@@ -620,7 +622,7 @@ var render = function () {
                         _c(
                           "router-link",
                           { attrs: { to: "/manage_products" } },
-                          [_vm._v("Manage Product")]
+                          [_vm._v(_vm._s(_vm.__("manage_products")))]
                         ),
                       ],
                       1
@@ -632,7 +634,7 @@ var render = function () {
                     staticClass: "breadcrumb-item active",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v("Product Details")]
+                  [_vm._v(_vm._s(_vm.__("product_details")))]
                 ),
               ]),
             ]
@@ -644,7 +646,7 @@ var render = function () {
         _c("div", { staticClass: "col-12 col-md-12 order-md-1 order-last" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _c("h4", [_vm._v("Product Details")]),
+              _c("h4", [_vm._v(_vm._s(_vm.__("product_details")))]),
               _vm._v(" "),
               _c(
                 "span",
@@ -656,7 +658,7 @@ var render = function () {
                       staticClass: "btn btn-primary",
                       attrs: { to: "/manage_products" },
                     },
-                    [_vm._v("Manage Product")]
+                    [_vm._v(_vm._s(_vm.__("manage_products")))]
                   ),
                 ],
                 1
@@ -673,13 +675,13 @@ var render = function () {
                       _c("tbody", [
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Name"),
+                            _vm._v(_vm._s(_vm.__("name"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.record.name))]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Seller"),
+                            _vm._v(_vm._s(_vm.__("sellers"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.record.seller.name))]),
@@ -687,19 +689,19 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Product Id"),
+                            _vm._v(_vm._s(_vm.__("product_id"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(_vm.record.id))]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Indicator"),
+                            _vm._v(_vm._s(_vm.__("indicator"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm.record.status === 0
                               ? _c("span", { staticClass: "badge bg-info" }, [
-                                  _vm._v("None"),
+                                  _vm._v(_vm._s(_vm.__("none"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -707,13 +709,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Veg")]
+                                  [_vm._v(_vm._s(_vm.__("veg")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.record.status === 2
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Non-Veg"),
+                                  _vm._v(_vm._s(_vm.__("non_veg"))),
                                 ])
                               : _vm._e(),
                           ]),
@@ -721,7 +723,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Tax"),
+                            _vm._v(_vm._s(_vm.__("tax"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -743,7 +745,7 @@ var render = function () {
                           ),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Made In"),
+                            _vm._v(_vm._s(_vm.__("made_in"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -767,7 +769,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Status"),
+                            _vm._v(_vm._s(_vm.__("status"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -775,25 +777,25 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Active")]
+                                  [_vm._v(_vm._s(_vm.__("active")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
                             _vm.record.status === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Deactive"),
+                                  _vm._v(_vm._s(_vm.__("deactive"))),
                                 ])
                               : _vm._e(),
                           ]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Return"),
+                            _vm._v(_vm._s(_vm.__("return"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm.record.return_status === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Allowed"),
+                                  _vm._v(_vm._s(_vm.__("not_allowed"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -801,7 +803,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Allowed")]
+                                  [_vm._v(_vm._s(_vm.__("allowed")))]
                                 )
                               : _vm._e(),
                           ]),
@@ -821,13 +823,13 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Till Status"),
+                            _vm._v(_vm._s(_vm.__("till_status"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm.record.till_status == 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not Applicable"),
+                                  _vm._v(_vm._s(_vm.__("not_applicable"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -835,7 +837,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Received")]
+                                  [_vm._v(_vm._s(_vm.__("received")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -843,7 +845,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Processed")]
+                                  [_vm._v(_vm._s(_vm.__("processed")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -851,7 +853,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Shipped")]
+                                  [_vm._v(_vm._s(_vm.__("shipped")))]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -859,7 +861,7 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Delivered")]
+                                  [_vm._v(_vm._s(_vm.__("delivered")))]
                                 )
                               : _vm._e(),
                           ]),
@@ -867,7 +869,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Is Approved"),
+                            _vm._v(_vm._s(_vm.__("is_approved"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -887,7 +889,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Main Image"),
+                            _vm._v(_vm._s(_vm.__("main_image"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
@@ -904,13 +906,13 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Cancellation"),
+                            _vm._v(_vm._s(_vm.__("cancellation"))),
                           ]),
                           _vm._v(" "),
                           _c("td", [
                             _vm.record.cancelable_status === 0
                               ? _c("span", { staticClass: "badge bg-danger" }, [
-                                  _vm._v("Not-Allowed"),
+                                  _vm._v(_vm._s(_vm.__("not_allowed"))),
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
@@ -918,13 +920,13 @@ var render = function () {
                               ? _c(
                                   "span",
                                   { staticClass: "badge bg-success" },
-                                  [_vm._v("Allowed")]
+                                  [_vm._v(_vm._s(_vm.__("allowed")))]
                                 )
                               : _vm._e(),
                           ]),
                           _vm._v(" "),
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Category"),
+                            _vm._v(_vm._s(_vm.__("category"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -946,7 +948,7 @@ var render = function () {
                         _vm._v(" "),
                         _c("tr", [
                           _c("th", { staticClass: "th-width" }, [
-                            _vm._v("Other Images"),
+                            _vm._v(_vm._s(_vm.__("other_images"))),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -979,7 +981,9 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [_vm._v(_vm._s(_vm.__("product_description")))]),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "row" }, [
@@ -1014,7 +1018,9 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card" }, [
-            _vm._m(2),
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [_vm._v(_vm._s(_vm.__("variants_list")))]),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c(
@@ -1029,28 +1035,36 @@ var render = function () {
                         _c("tbody", [
                           _c("tr", [
                             _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Product Name"),
+                              _vm._v(_vm._s(_vm.__("product_name"))),
                             ]),
                             _vm._v(" "),
                             _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Variant Id"),
+                              _vm._v(_vm._s(_vm.__("variant_id"))),
                             ]),
                             _vm._v(" "),
                             _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Measurement"),
+                              _vm._v(_vm._s(_vm.__("measurement"))),
                             ]),
                             _vm._v(" "),
                             _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Stock"),
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Price(" + _vm._s(_vm.$currency) + ")"),
+                              _vm._v(_vm._s(_vm.__("stock"))),
                             ]),
                             _vm._v(" "),
                             _c("th", { staticClass: "th-width" }, [
                               _vm._v(
-                                "Discounted Price(" +
+                                " " +
+                                  _vm._s(_vm.__("price")) +
+                                  " (" +
+                                  _vm._s(_vm.$currency) +
+                                  ")"
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("th", { staticClass: "th-width" }, [
+                              _vm._v(
+                                " " +
+                                  _vm._s(_vm.__("discounted_price")) +
+                                  " (" +
                                   _vm._s(_vm.$currency) +
                                   ")"
                               ),
@@ -1129,7 +1143,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("tr", [
                             _c("th", { staticClass: "th-width" }, [
-                              _vm._v("Images"),
+                              _vm._v(_vm._s(_vm.__("images"))),
                             ]),
                             _vm._v(" "),
                             _c(
@@ -1169,32 +1183,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("View Product")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Product Description")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Product Variants List")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

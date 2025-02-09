@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group" v-if="popup_type=='category'">
-                                    <label>Category</label>
+                                    <label>{{ __("category") }}</label>
                                     <select class="form-control form-select" v-model="popup_type_id">
                                         <option value="">{{ __('select_category') }}</option>
                                         <option v-for="category in categories" :value="category.id">{{ category.name }}</option>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group" v-if="popup_type=='popup_url'">
                                     <label> {{ __('link') }}</label>
-                                    <input type="url" class="form-control" v-model="popup_url" placeholder="Enter Link">
+                                    <input type="url" class="form-control" v-model="popup_url" :placeholder="__('enter_link')">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -181,7 +181,7 @@ export default {
         },
         handleFileUpload() {
             const file = this.$refs.file_image.files[0];
-      
+
             // Reset previous error message
             this.error = null;
 

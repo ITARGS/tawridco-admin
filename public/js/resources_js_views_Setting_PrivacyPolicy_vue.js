@@ -426,7 +426,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Privacy Policy.",
+                        placeholder: _vm.__("privacy_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -484,7 +484,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Returns and Exchanges Policy.",
+                        placeholder: _vm.__("return_exchange_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -544,7 +544,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Shipping Policy.",
+                        placeholder: _vm.__("shipping_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -601,7 +601,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Cancellation Policy",
+                        placeholder: _vm.__("cancellation_policy"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,
@@ -661,7 +661,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("editor", {
                       attrs: {
-                        placeholder: "Enter Update Terms Conditions",
+                        placeholder: _vm.__("update_terms_conditions"),
                         init: {
                           height: 400,
                           plugins: this.$editorPlugins,

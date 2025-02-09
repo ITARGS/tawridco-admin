@@ -488,7 +488,7 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'text-center'
       }, {
         key: 'message',
-        label: __('messgae'),
+        label: __('message'),
         sortable: true,
         "class": 'text-center'
       }, {
@@ -871,7 +871,7 @@ var render = function () {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "type" } }, [
-                _vm._v("Type " + _vm._s(_vm.__("type"))),
+                _vm._v(_vm._s(_vm.__("type"))),
               ]),
               _vm._v(" "),
               _c(
@@ -945,7 +945,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "url", placeholder: "Enter Link" },
+                    attrs: { type: "url", placeholder: _vm.__("enter_link") },
                     domProps: { value: _vm.type_link },
                     on: {
                       input: function ($event) {
@@ -980,7 +980,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("Select2", {
                       attrs: {
-                        placeholder: "Select customers",
+                        placeholder: _vm.__("select_customer"),
                         options: _vm.users_options,
                         settings: {
                           multiple: "multiple",
@@ -1097,7 +1097,7 @@ var render = function () {
                       },
                     },
                     [
-                      _c("option", [_vm._v("Select Product")]),
+                      _c("option", [_vm._v(_vm._s(_vm.__("select_product")))]),
                       _vm._v(" "),
                       _vm._l(_vm.products, function (product) {
                         return _c(
@@ -1138,7 +1138,7 @@ var render = function () {
                   name: "title",
                   id: "title",
                   required: "",
-                  placeholder: "Enter title",
+                  placeholder: _vm.__("enter_link"),
                 },
                 domProps: { value: _vm.title },
                 on: {
@@ -1173,7 +1173,7 @@ var render = function () {
                     id: "message",
                     rows: "40",
                     cols: "70",
-                    placeholder: "Enter Notification Message Here!",
+                    placeholder: _vm.__("enter_notification_message_here"),
                   },
                   domProps: { value: _vm.message },
                   on: {

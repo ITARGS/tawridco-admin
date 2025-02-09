@@ -556,7 +556,9 @@ var render = function () {
   return _c("div", [
     _c("div", { staticClass: "page-heading" }, [
       _c("div", { staticClass: "row" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.__("deliverable_area")))]),
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-md-6 order-md-2 order-first" }, [
           _c(
@@ -584,7 +586,7 @@ var render = function () {
                     staticClass: "breadcrumb-item",
                     attrs: { "aria-current": "page" },
                   },
-                  [_vm._v("Deliverable Area")]
+                  [_vm._v(_vm._s(_vm.__("deliverable_area")))]
                 ),
               ]),
             ]
@@ -595,7 +597,14 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 col-md-12 order-md-1 order-last" }, [
           _c("div", { staticClass: "card" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "card-header" }, [
+              _c("h4", [
+                _vm._v(_vm._s(_vm.__("deliverable_area_for_city")) + " "),
+                _c("small", { staticClass: "text text-primary text-sm" }, [
+                  _vm._v(_vm._s(_vm.__("search_points"))),
+                ]),
+              ]),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c(
@@ -617,13 +626,13 @@ var render = function () {
                         { staticClass: "col-md-6 map-div" },
                         [
                           _c("label", { attrs: { for: "city_name" } }, [
-                            _vm._v("Select or Search City"),
+                            _vm._v(_vm._s(_vm.__("select_or_search_city"))),
                           ]),
                           _vm._v(" "),
                           _c("multiselect", {
                             attrs: {
                               options: _vm.cities,
-                              placeholder: "Select & Search City",
+                              placeholder: _vm.__("select_or_search_city"),
                               label: "zone",
                               "track-by": "zone",
                               id: "city_name",
@@ -688,14 +697,37 @@ var render = function () {
                         _c(
                           "small",
                           { staticClass: "text text-primary text-sm h4 mt-1" },
-                          [
-                            _vm._v(
-                              "Please edit Map or City Deliverable Area in desktop. It may not work in mobile device."
-                            ),
-                          ]
+                          [_vm._v(_vm._s(_vm.__("please_edit_device")))]
                         ),
                         _vm._v(" "),
-                        _vm._m(2),
+                        _c("div", { staticClass: "offset-3 mt-1" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "badge bg-primary",
+                              attrs: { type: "button", id: "remove-line" },
+                            },
+                            [_vm._v(_vm._s(_vm.__("remove_newly_added_line")))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "badge bg-danger",
+                              attrs: { type: "button", id: "clear-line" },
+                            },
+                            [_vm._v(_vm._s(_vm.__("clear_map")))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "badge bg-success",
+                              attrs: { type: "button", id: "add-line" },
+                            },
+                            [_vm._v(_vm._s(_vm.__("restore_old_map")))]
+                          ),
+                        ]),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -785,7 +817,21 @@ var render = function () {
                           : _vm._e(),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group d-none" }, [
-                          _vm._m(3),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "control-label",
+                              attrs: { for: "vertices" },
+                            },
+                            [
+                              _vm._v(_vm._s(_vm.__("boundary_points"))),
+                              _c(
+                                "span",
+                                { staticClass: "text-danger text-xs" },
+                                [_vm._v("*")]
+                              ),
+                            ]
+                          ),
                           _vm._v(" "),
                           _c("textarea", {
                             directives: [
@@ -800,8 +846,7 @@ var render = function () {
                             attrs: {
                               name: "vertices",
                               id: "vertices",
-                              placeholder:
-                                "here will be your selected outlines latitude and longitude",
+                              placeholder: _vm.__("here_longitude"),
                               cols: "10",
                               rows: "2",
                             },
@@ -839,77 +884,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Deliverable Area")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [
-        _vm._v("Deliverable Area for City "),
-        _c("small", { staticClass: "text text-primary text-sm" }, [
-          _vm._v(
-            "Search your city in which you will deliver the foods and city points."
-          ),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offset-3 mt-1" }, [
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-primary",
-          attrs: { type: "button", id: "remove-line" },
-        },
-        [_vm._v("Remove Newly Added Line")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-danger",
-          attrs: { type: "button", id: "clear-line" },
-        },
-        [_vm._v("Clear Map")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "badge bg-success",
-          attrs: { type: "button", id: "add-line" },
-        },
-        [_vm._v("Restore Old Map")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "control-label", attrs: { for: "vertices" } },
-      [
-        _vm._v("Boundry Points"),
-        _c("span", { staticClass: "text-danger text-xs" }, [_vm._v("*")]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

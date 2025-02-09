@@ -1959,7 +1959,7 @@ var render = function () {
                               step: "0.1",
                               name: "bonus_percentage",
                               id: "bonus_percentage",
-                              placeholder: "Enter Bonus (%)",
+                              placeholder: _vm.__("bonus_percentage"),
                             },
                             domProps: {
                               value: _vm.deliveryBoys.bonus_percentage,

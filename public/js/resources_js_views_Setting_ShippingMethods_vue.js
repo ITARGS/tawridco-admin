@@ -319,7 +319,11 @@ var render = function () {
       _c("div", { staticClass: "page-heading" }, [
         _c("div", { staticClass: "page-title" }, [
           _c("div", { staticClass: "row" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              { staticClass: "col-12 col-md-6 order-md-1 order-last" },
+              [_c("h3", [_vm._v(_vm._s(_vm.__("shipping_methods")))])]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -338,7 +342,7 @@ var render = function () {
                         { staticClass: "breadcrumb-item" },
                         [
                           _c("router-link", { attrs: { to: "/dashboard" } }, [
-                            _vm._v("Dashboard"),
+                            _vm._v(_vm._s(_vm.__("dashboard"))),
                           ]),
                         ],
                         1
@@ -350,7 +354,7 @@ var render = function () {
                           staticClass: "breadcrumb-item active",
                           attrs: { "aria-current": "page" },
                         },
-                        [_vm._v("Shipping Methods")]
+                        [_vm._v(_vm._s(_vm.__("shipping_methods")))]
                       ),
                     ]),
                   ]
@@ -380,7 +384,7 @@ var render = function () {
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "card-header" }, [
                   _c("h4", { staticClass: "card-title" }, [
-                    _vm._v("Shipping Methods"),
+                    _vm._v(_vm._s(_vm.__("shipping_methods"))),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -394,7 +398,7 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("(What is shipping method?)")]
+                    [_vm._v(_vm._s(_vm.__("shipping_method")))]
                   ),
                 ]),
                 _vm._v(" "),
@@ -403,11 +407,9 @@ var render = function () {
                     _c("div", { staticClass: "col-md-12" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "local_shipping" } }, [
-                          _vm._v("Enable Local Shipping "),
+                          _vm._v(_vm._s(_vm.__("enable_shipping"))),
                         ]),
-                        _c("small", [
-                          _vm._v("( Use Local Delivery Boy For Shipping)"),
-                        ]),
+                        _c("small", [_vm._v(_vm._s(_vm.__("use_shipping")))]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-check form-switch" }, [
                           _c("input", {
@@ -467,10 +469,33 @@ var render = function () {
                     _c("div", { staticClass: "col-md-12" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "standard_shipping" } }, [
-                          _vm._v("Standard delivery method (Shiprocket)"),
+                          _vm._v(_vm._s(_vm.__("standard"))),
                         ]),
                         _vm._v(" "),
-                        _vm._m(1),
+                        _c("small", [
+                          _vm._v(_vm._s(_vm.__("enable_disable"))),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "https://app.shiprocket.in/api-user",
+                                target: "_blank",
+                              },
+                            },
+                            [_vm._v(_vm._s(_vm.__("click_here")))]
+                          ),
+                          _vm._v(" " + _vm._s(_vm.__("credentials")) + ". "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "https://www.shiprocket.in/",
+                                target: "_blank",
+                              },
+                            },
+                            [_vm._v("What is shiprocket?")]
+                          ),
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-check form-switch" }, [
                           _c("input", {
@@ -538,7 +563,7 @@ var render = function () {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group " }, [
                         _c("label", { attrs: { for: "shiprocket_email" } }, [
-                          _vm._v("Email"),
+                          _vm._v(_vm._s(_vm.__("email"))),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -555,7 +580,7 @@ var render = function () {
                             type: "text",
                             name: "shiprocket_email",
                             id: "shiprocket_email",
-                            placeholder: "Shiprocket account email",
+                            placeholder: _vm.__("shiprocket_email"),
                           },
                           domProps: { value: _vm.shipping.shiprocket_email },
                           on: {
@@ -577,7 +602,7 @@ var render = function () {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "shiprocket_password" } }, [
-                          _vm._v("Password"),
+                          _vm._v(_vm._s(_vm.__("password"))),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "input-group" }, [
@@ -600,7 +625,7 @@ var render = function () {
                                 attrs: {
                                   name: "shiprocket_password",
                                   id: "shiprocket_password",
-                                  placeholder: "Shiprocket account password",
+                                  placeholder: _vm.__("password"),
                                   type: [
                                     _vm.showPassword ? "text" : "password",
                                   ],
@@ -646,7 +671,7 @@ var render = function () {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "shiprocket_email" } }, [
-                          _vm._v("Shiprocket Webhoook Url"),
+                          _vm._v(_vm._s(_vm.__("shiprocket_url"))),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -664,7 +689,7 @@ var render = function () {
                             name: "shiprocket_email",
                             id: "Shiprocket Webhoook",
                             disabled: "",
-                            placeholder: "Shiprocket Webhook url",
+                            placeholder: _vm.__("shiprocket_url"),
                           },
                           domProps: { value: _vm.shipping.shiprocket_webhook },
                           on: {
@@ -685,7 +710,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("label", { attrs: { for: "webhook_token" } }, [
-                        _vm._v("Shiprocket webhook token"),
+                        _vm._v(_vm._s(_vm.__("shiprocket_token"))),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "input-group" }, [
@@ -705,7 +730,7 @@ var render = function () {
                             id: "webhook_token",
                             readonly: "",
                             required: "",
-                            placeholder: "Generating new token....",
+                            placeholder: _vm.__("shiprocket_token"),
                           },
                           domProps: { value: _vm.shipping.webhook_token },
                           on: {
@@ -782,7 +807,13 @@ var render = function () {
                         },
                       },
                     },
-                    [_vm._v("\n                    Close\n                ")]
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.__("close")) +
+                          "\n                "
+                      ),
+                    ]
                   ),
                 ]
               },
@@ -850,40 +881,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-md-6 order-md-1 order-last" }, [
-      _c("h3", [_vm._v("Shipping Methods")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("small", [
-      _vm._v("( Enable/Disable ) "),
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "https://app.shiprocket.in/api-user",
-            target: "_blank",
-          },
-        },
-        [_vm._v("Click here")]
-      ),
-      _vm._v(" to get credentials. "),
-      _c(
-        "a",
-        { attrs: { href: "https://www.shiprocket.in/", target: "_blank" } },
-        [_vm._v("What is shiprocket?")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

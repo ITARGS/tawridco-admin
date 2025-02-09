@@ -518,19 +518,13 @@ var render = function () {
                         _vm._v("🙌"),
                       ]),
                       _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "Thank you for choosing the eGrogcer script from WRTeam."
-                        ),
-                      ]),
+                      _c("p", [_vm._v(_vm._s(_vm.__("thank_wrTeam")))]),
                       _vm._v(" "),
                       _c("p", [
-                        _vm._v(
-                          "This quick setup wizard will help you configure your new website."
-                        ),
+                        _vm._v(" " + _vm._s(_vm.__("this_website")) + " "),
                       ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("It should only take 3-5 minutes.")]),
+                      _c("p", [_vm._v(_vm._s(_vm.__("It_minutes")))]),
                     ]),
                   ]),
                   _vm._v(" "),
@@ -608,7 +602,7 @@ var render = function () {
                             _c(
                               "th",
                               { staticClass: "ps-2", attrs: { colspan: "2" } },
-                              [_vm._v("Permissions")]
+                              [_vm._v(_vm._s(_vm.__("permissions")))]
                             ),
                           ]),
                         ]),
@@ -745,9 +739,7 @@ var render = function () {
                     [
                       _c("div", [
                         _c("p", { staticClass: "text-center" }, [
-                          _vm._v(
-                            "Below you should enter your database connection details. If you are not sure about these, contact your host."
-                          ),
+                          _vm._v(_vm._s(_vm.__("below_host"))),
                         ]),
                         _vm._v(" "),
                         _c("form", [
@@ -761,7 +753,7 @@ var render = function () {
                                     attrs: { for: "database_host" },
                                   },
                                   [
-                                    _vm._v("Database Host"),
+                                    _vm._v(_vm._s(_vm.__("database_host"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -782,7 +774,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    placeholder: "Database Host",
+                                    placeholder: _vm.__("database_host"),
                                     id: "database_host",
                                     required: "",
                                   },
@@ -814,7 +806,7 @@ var render = function () {
                                     attrs: { for: "database_port" },
                                   },
                                   [
-                                    _vm._v("Database Port"),
+                                    _vm._v(_vm._s(_vm.__("database_port"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -835,7 +827,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    placeholder: "Database Port",
+                                    placeholder: _vm.__("database_port"),
                                     id: "database_port",
                                     required: "",
                                   },
@@ -867,7 +859,7 @@ var render = function () {
                                     attrs: { for: "database_name" },
                                   },
                                   [
-                                    _vm._v("Database Name"),
+                                    _vm._v(_vm._s(_vm.__("database_name"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -888,7 +880,7 @@ var render = function () {
                                   staticClass: "form-control ",
                                   attrs: {
                                     type: "text",
-                                    placeholder: "Database Name",
+                                    placeholder: _vm.__("database_name"),
                                     id: "database_name",
                                     required: "",
                                   },
@@ -920,7 +912,7 @@ var render = function () {
                                     attrs: { for: "database_username" },
                                   },
                                   [
-                                    _vm._v("Database Username"),
+                                    _vm._v(_vm._s(_vm.__("database_username"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -941,7 +933,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    placeholder: "Database Usersname",
+                                    placeholder: _vm.__("database_username"),
                                     id: "database_username",
                                     required: "",
                                   },
@@ -973,7 +965,7 @@ var render = function () {
                                     attrs: { for: "database_password" },
                                   },
                                   [
-                                    _vm._v("Database Password"),
+                                    _vm._v(_vm._s(_vm.__("database_password"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -994,7 +986,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "password",
-                                    placeholder: "Database Password",
+                                    placeholder: _vm.__("database_password"),
                                     id: "database_password",
                                     required: "",
                                     autocomplete: "off",
@@ -1020,7 +1012,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "divider" }, [
                               _c("div", { staticClass: "divider-text" }, [
-                                _vm._v("Admin Details"),
+                                _vm._v(_vm._s(_vm.__("admin_details"))),
                               ]),
                             ]),
                             _vm._v(" "),
@@ -1033,7 +1025,7 @@ var render = function () {
                                     attrs: { for: "admin_email" },
                                   },
                                   [
-                                    _vm._v("Admin Email"),
+                                    _vm._v(_vm._s(_vm.__("admin_email"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -1054,7 +1046,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "email",
-                                    placeholder: "Admin Email",
+                                    placeholder: _vm.__("admin_email"),
                                     id: "admin_email",
                                     required: "",
                                   },
@@ -1084,7 +1076,7 @@ var render = function () {
                                     attrs: { for: "admin_password" },
                                   },
                                   [
-                                    _vm._v("Admin Password"),
+                                    _vm._v(_vm._s(_vm.__("admin_password"))),
                                     _c(
                                       "span",
                                       { staticClass: "text-danger text-xs" },
@@ -1109,7 +1101,7 @@ var render = function () {
                                         ],
                                         staticClass: "form-control",
                                         attrs: {
-                                          placeholder: "Admin Password",
+                                          placeholder: _vm.__("admin_password"),
                                           name: "admin_password",
                                           id: "admin_password",
                                           required: "",
@@ -1179,7 +1171,7 @@ var render = function () {
                                         ],
                                         staticClass: "form-control",
                                         attrs: {
-                                          placeholder: "Admin Password",
+                                          placeholder: _vm.__("admin_password"),
                                           name: "admin_password",
                                           id: "admin_password",
                                           required: "",
@@ -1214,7 +1206,7 @@ var render = function () {
                                         ],
                                         staticClass: "form-control",
                                         attrs: {
-                                          placeholder: "Admin Password",
+                                          placeholder: _vm.__("admin_password"),
                                           name: "admin_password",
                                           id: "admin_password",
                                           required: "",
@@ -1284,17 +1276,13 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         _c("h1", { staticClass: "text-success my-3" }, [
-                          _vm._v("Congratulations!"),
+                          _vm._v(_vm._s(_vm.__("congratulations"))),
                         ]),
                         _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Your website is ready now. Login to your Admin dashboard to make changes and modify any of the default content to suit your needs."
-                          ),
-                        ]),
+                        _c("p", [_vm._v(_vm._s(_vm.__("your_needs")) + ".")]),
                         _vm._v(" "),
                         _c("p", [
-                          _vm._v("Please come back and"),
+                          _vm._v(_vm._s(_vm.__("please_and"))),
                           _c(
                             "a",
                             {
@@ -1303,15 +1291,13 @@ var render = function () {
                                 href: "https://codecanyon.net/item/egrocer-online-grocery-store-ecommerce-marketplace-flutter-full-app-with-admin-panel/reviews/41423150",
                               },
                             },
-                            [_vm._v(" Leave a 5-star rating ")]
+                            [_vm._v(_vm._s(_vm.__("leave_rating")) + " ")]
                           ),
-                          _vm._v(" if you are happy with this script."),
+                          _vm._v(" " + _vm._s(_vm.__("if_script"))),
                         ]),
                         _vm._v(" "),
                         _c("small", { staticClass: "form-hint" }, [
-                          _vm._v(
-                            "For security reasons, the system will remove the install link automatically."
-                          ),
+                          _vm._v(_vm._s(_vm.__("for_automatically"))),
                         ]),
                       ]),
                     ]

@@ -964,10 +964,10 @@ var render = function () {
                         return [
                           row.item.status == 1
                             ? _c("span", { staticClass: "badge bg-success" }, [
-                                _vm._v("Active"),
+                                _vm._v(_vm._s(_vm.__("active"))),
                               ])
                             : _c("span", { staticClass: "badge bg-danger" }, [
-                                _vm._v("Deactive"),
+                                _vm._v(_vm._s(_vm.__("deactive"))),
                               ]),
                         ]
                       },
@@ -1325,7 +1325,9 @@ var render = function () {
                     ? [
                         _c("label", [
                           _vm._v(
-                            "Selected file name:- " + _vm._s(_vm.image.name)
+                            _vm._s(_vm.__("selected_file_name")) +
+                              " " +
+                              _vm._s(_vm.image.name)
                           ),
                         ]),
                       ]

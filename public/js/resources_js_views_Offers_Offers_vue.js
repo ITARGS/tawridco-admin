@@ -803,7 +803,7 @@ var render = function () {
           _c(
             "b-button",
             { attrs: { variant: "secondary" }, on: { click: _vm.hideModal } },
-            [_vm._v("Cancel")]
+            [_vm._v(_vm._s(_vm.__("cancel")))]
           ),
         ],
         1
@@ -1003,7 +1003,7 @@ var render = function () {
                     staticClass: "form-control",
                     attrs: {
                       type: "url",
-                      placeholder: "Enter Link",
+                      placeholder: _vm.__("enter_link"),
                       required: "",
                     },
                     domProps: { value: _vm.offer_url },

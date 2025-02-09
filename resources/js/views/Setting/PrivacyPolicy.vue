@@ -29,9 +29,9 @@
                                     <a :href="$baseUrl+'/customer-privacy-policy'" v-b-tooltip.hover title="Privacy Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Privacy Policy."
+                                    :placeholder="__('privacy_policy')"
                                     v-model="policies.privacy_policy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -47,9 +47,9 @@
                                     <a :href="$baseUrl+'/customer-returns-and-exchanges-policy'" v-b-tooltip.hover title="Returns and Exchanges Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Returns and Exchanges Policy."
+                                    :placeholder="__('return_exchange_policy')"
                                     v-model="policies.returns_and_exchanges_policy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -64,9 +64,9 @@
                                     <a :href="$baseUrl+'/customer-shipping-policy'" v-b-tooltip.hover title="Shipping Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Shipping Policy."
+                                    :placeholder="__('shipping_policy')"
                                     v-model="policies.shipping_policy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -81,9 +81,9 @@
                                     <a :href="$baseUrl+'/customer-cancellation-policy'" v-b-tooltip.hover title="Cancellation Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Cancellation Policy"
+                                    :placeholder="__('cancellation_policy')"
                                     v-model="policies.cancellation_policy"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -101,9 +101,9 @@
                                     <a :href="$baseUrl+'/customer-terms-conditions'" v-b-tooltip.hover title="Terms & Conditions" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Update Terms Conditions"
+                                    :placeholder="__('update_terms_conditions')"
                                     v-model="policies.terms_conditions"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,

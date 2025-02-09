@@ -29,9 +29,9 @@
                                     <a :href="$baseUrl+'/seller-privacy-policy'" v-b-tooltip.hover title="Privacy Policy" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Privacy Policy"
+                                    :placeholder="__('privacy_policy')"
                                     v-model="policies.privacy_policy_seller"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,
@@ -47,9 +47,9 @@
                                     <a :href="$baseUrl+'/seller-terms-conditions'" v-b-tooltip.hover title="Terms & Conditions" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                 </div>
                                 <editor
-                                    placeholder="Enter Terms & Conditions"
+                                    :placeholder="__('terms_conditions')"
                                     v-model="policies.terms_conditions_seller"
-                                    
+
                                     :init="{
                                         height:400,
                                         plugins: this.$editorPlugins ,

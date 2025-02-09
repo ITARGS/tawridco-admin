@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="city_name"> {{ __('search_city') }}</label>
                                     <GmapAutocomplete type="search" class="form-control"
-                                                      placeholder="Search City on map."
+                                                      :placeholder="__('search_city_on_map')"
                                                       @place_changed="setPlace"
                                                       :options="{ fields: ['address_components','formatted_address', 'geometry', 'name','place_id','plus_code','types'], strictBounds: false }"
                                                       id="city_name"
@@ -48,48 +48,48 @@
                                     <input type="hidden" v-model="city.formatted_address">
                                     <span class="text text-primary">{{ __('search_your_city_where_you_will_deliver_the_food_and_to_find_co_ordinates') }}</span>
                                 </div>
-                              
+
                                 <div class="form-group">
                                     <label for="latitude">{{ __('latitude') }} <span
                                         class="text-danger text-sm">*</span></label>
                                     <input type="text" class="form-control" name="latitude" id="latitude"
-                                           v-model="city.latitude" placeholder="Enter Latitude." required readonly>
+                                           v-model="city.latitude" :placeholder="__('enter_latitude')" required readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="longitude"> {{ __('longitude') }}<span class="text-danger text-sm">*</span></label>
                                     <input type="text" class="form-control" name="longitude" id="longitude"
-                                           v-model="city.longitude" placeholder="Enter Longitude." required readonly>
+                                           v-model="city.longitude" :placeholder="__('enter_longitude')" required readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="name"> {{ __('city_name') }}<span
                                         class="text-danger text-sm">*</span></label>
                                     <input type="text" class="form-control" name="name" id="name"
-                                           v-model="city.name" placeholder="Enter City Name." required readonly>
+                                           v-model="city.name" :placeholder="__('enter_city_name')" required readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="state"> {{ __('state_name') }}<span
                                         class="text-danger text-sm">*</span></label>
                                     <input type="text" class="form-control" name="state" id="state"
-                                           v-model="city.state" placeholder="Enter State Name." required readonly>
+                                           v-model="city.state" :placeholder="__('enter_state_name')" required readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="state"> {{ __('zone_name') }}<span
                                         class="text-danger text-sm">*</span></label>
                                     <input type="text" class="form-control" name="zone" id="zone"
-                                           v-model="city.zone" placeholder="Enter Zone Name." required>
+                                           v-model="city.zone" :placeholder="__('enter_zone_name')" required>
                                 </div>
 
                                 <div class="form-group">
-                                   
+
                                     <label for="time_to_travel">{{ __('time_to_travel_1km') }} <span
-                                        class="text-danger text-sm">*</span> <small>(Enter in minutes)</small>
+                                        class="text-danger text-sm">*</span> <small>{{ __("enter_in_minutes") }}</small>
                                     </label>
                                     <input type="number" class="form-control" name="time_to_travel"
                                            id="time_to_travel" min="0" max="999999999" v-model="city.time_to_travel"
-                                           placeholder="Enter Time to travel 1 (km)." required>
+                                           :placeholder="__('enter_time_travel')" required>
                                 </div>
 
 
@@ -98,14 +98,14 @@
                                         class="text-danger text-xs">*</span> <small>[ {{ $currency }} ]</small></label>
                                     <input type="number" class="form-control" name="min_amount_for_free_delivery"
                                            id="min_amount_for_free_delivery" v-model="city.min_amount_for_free_delivery"
-                                           placeholder="Enter Delivarable Maximum Distance in km" min="0" max="999999999" required>
+                                           :placeholder="__('minimum_amount_for_free_delivery')" min="0" max="999999999" required>
                                 </div>
 
                                 <div class="form-group d-none">
                                     <label for="max_deliverable_distance"> {{ __('maximum_delivarable_distance') }}<span
-                                        class="text-danger text-xs">*</span> <small>[Kilometre]</small></label>
+                                        class="text-danger text-xs">*</span> <small>[{{ __("kilometre") }}]</small></label>
                                     <input type="number" class="form-control" name="max_deliverable_distance" v-model="city.max_deliverable_distance"
-                                           placeholder="Enter Delivarable Maximum Distance in km" min="0" max="999999999">
+                                           :placeholder="__('minimum_amount_for_free_delivery')" min="0" max="999999999">
                                 </div>
 
                                 <div class="form-group">
@@ -122,39 +122,39 @@
                                     <label for="fixed_charge"> {{ __('fix_delivery_charges') }}<span
                                         class="text-danger text-sm">*</span></label>
                                     <input type="number" class="form-control" name="fixed_charge" id="fixed_charge"
-                                           v-model="city.fixed_charge" placeholder="Global Flat Charges" min="0" max="999999999" step="any">
+                                           v-model="city.fixed_charge" :placeholder="__('global_flat_charges')" min="0" max="999999999" step="any">
                                 </div>
                                 <div class="form-group" v-if="city.delivery_charge_method === 'per_km_charge'">
                                     <label for="per_km_charge">{{ __('per_km_delivery_charges') }}<span
                                         class="text-danger text-sm">*</span> </label>
                                     <input type="number" class="form-control" name="per_km_charge" id="per_km_charge"
-                                           v-model="city.per_km_charge" placeholder="Per Kilometer Delivery Charge"
+                                           v-model="city.per_km_charge" :placeholder="__('per_km_delivery_charges')"
                                            min="0" max="999999999" step="any">
                                            <input type="text" class="form-control d-none" name="boundary_points" id="boundary_points"
-                                                   v-model="city.boundary_points" placeholder="Boundary Points" >
+                                                   v-model="city.boundary_points" :placeholder="__('boundary_points')" >
                                 </div>
-                                
+
                                 <div class="form-group col-sm-12"
                                      v-if="city.delivery_charge_method === 'range_wise_charges'">
                                     <label>{{ __('range_wise_delivery_charges') }}<span class="text-danger text-sm">* </span> <span
-                                        class="text-secondary text-sm">(Set Proper ranges for delivery charge. Do not repeat the range value to next range. For e.g. 1-3,4-6)</span>
+                                        class="text-secondary text-sm">{{ __("handel_message") }}</span>
                                     </label>
                                     <div class="form-group row" v-for="(range, index) in city.range_wise_charges"
                                          :key="key = index+1">
                                         <div class="col-sm-1">{{ key }}.</div>
                                         <div class="col-sm-3">
                                             <input type="number" class="form-control" name="from_range[]"
-                                                   id="from_range" v-model="range.from_range" placeholder="From Range"
+                                                   id="from_range" v-model="range.from_range" :placeholder="__('from_range')"
                                                    min="0" max="999999999">
                                         </div>
                                         <div class="col-sm-1 btn btn-secondary">To</div>
                                         <div class="col-sm-3">
                                             <input type="number" class="form-control" name="to_range[]" id="to_range"
-                                                   v-model="range.to_range"  placeholder="To Range" min="0" max="999999999">
+                                                   v-model="range.to_range"  :placeholder="__('to_range')" min="0" max="999999999">
                                         </div>
                                         <div class="col-sm-3">
                                             <input type="number" class="form-control" name="price[]" id="price"
-                                                   v-model="range.price" placeholder="Price" min="0" max="999999999" step="any">
+                                                   v-model="range.price" :placeholder="__('price')" min="0" max="999999999" step="any">
                                         </div>
 
                                         <div class="col-sm-1" v-if="index === 0">
@@ -184,13 +184,13 @@
                 <div class="col-6 col-md-6 order-md-1 order-last map_view_desktop">
                     <div class="card h-100">
                         <div class="card-header">
-                            <h4>Map View</h4>
+                            <h4>{{ __("map_view") }}</h4>
                         </div>
                         <div class="card-body">
                             <div class="offset-3 mt-1">
-                                                <button type="button" id="remove-line" class="badge bg-primary">Remove Newly Added Line</button>
-                                                <button type="button" id="clear-line" class="badge bg-danger">Clear Map</button>
-                                                <button type="button" id="add-line" class="badge bg-success">Restore Old Map</button>
+                                                <button type="button" id="remove-line" class="badge bg-primary">{{ __("remove_newly_added_line") }}</button>
+                                                <button type="button" id="clear-line" class="badge bg-danger">{{ __("clear_map") }}</button>
+                                                <button type="button" id="add-line" class="badge bg-success">{{ __("restore_old_map") }}</button>
                                             </div>
                             <div id="map" style="position: relative; overflow: hidden;">
                                 <GmapMap
@@ -225,9 +225,9 @@
                                 <span class="title font-weight-bolder">{{ city.formatted_address }}</span>
                             </div>
                              <div class="form-group d-none">
-                                                <label for="vertices" class="control-label">Boundry Points<span class='text-danger text-xs'>*</span> </label>
-                                                <textarea name="vertices" id="vertices" v-model="vertices" class="form-control" placeholder="here will be your selected outlines latitude and longitude" cols="10" rows="2"></textarea>
-                                                 
+                                                <label for="vertices" class="control-label">{{ __("boundary_points") }}<span class='text-danger text-xs'>*</span> </label>
+                                                <textarea name="vertices" id="vertices" v-model="vertices" class="form-control" :placeholder="__('here_longitude')" cols="10" rows="2"></textarea>
+
                                             </div>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ import {gmapApi} from 'vue2-google-maps'
 export default {
     data: function () {
         return {
-       
+
             center: {lat: 0, lng: 0},
             currentPlace: null,
             markers: [],
@@ -268,7 +268,7 @@ export default {
                 boundary_points:"",
                 geolocation_type:"",
                 radius:"",
-                
+
             },
             boundary_points:"",
             formatted_address: "",
@@ -282,7 +282,7 @@ export default {
             vertices:"",
             geolocation_type:"",
              googleMapsLoaded: false,
-           
+
         }
     },
     mounted() {
@@ -349,10 +349,10 @@ export default {
         this.cityRecord = this.$route.params.record;
         if (this.city.id) {
             this.getCity();
-          
-           
+
+
         }
-        
+
     },
     methods: {
         addRow() {
@@ -393,7 +393,7 @@ export default {
                 .then((response) => {
                     this.isLoading = false
                     let data = response.data.data;
-                   
+
                     for (let key in this.city) {
                         if (key === 'range_wise_charges') {
                             this.city[key] = JSON.parse(data[key]);
@@ -415,7 +415,7 @@ export default {
                 });
         },
 
-       
+
         overlayClickListener(overlay){
             google.maps.event.addListener(overlay, "mouseup", function (event) {
                 this.vertices = overlay.getPath().getArray();
@@ -457,7 +457,7 @@ export default {
       }, 100); // Check every 100ms
     },
         setMap() {
-           
+
             this.id = this.city.id;
             const marker = {
                 lat: parseFloat(this.city.latitude),
@@ -469,7 +469,7 @@ export default {
             this.infoWindow.template = `<b>${this.city.name}</b><br>${this.city.formatted_address}`
             this.infoWindow.open = true;
             //mapRef
-           
+
             let boundary_points = this.boundary_points ? JSON.parse(this.boundary_points) : [];
 
 
@@ -492,7 +492,7 @@ export default {
                     });
                     bermudaTriangle.setMap(this.map);
                     this.overlayRemoveListener(bermudaTriangle, true, this.map, true, boundary_points);
-             
+
                 } else if (this.city.geolocation_type === "circle") {
                     this.vertices = this.city.boundary_points;
                     const cityCircle = new google.maps.Circle({
@@ -505,7 +505,7 @@ export default {
                         center: boundary_points[0],
                         radius: Number(this.city.radius),
                     });
-                  
+
                     this.overlayRemoveListener(cityCircle, true, this.map, true , this.city.boundary_points);
                 }
             }

@@ -29,7 +29,7 @@
                                 <b-col md="3">
 
                                     <div class="form-group">
-                                        <h6 for="filterStatus">Filter Seller by Status {{ __('filter_seller_by_status') }}</h6>
+                                        <h6 for="filterStatus">{{ __("filter_status") }} {{ __('filter_seller_by_status') }}</h6>
                                         <select id="filterStatus" name="filterStatus" v-model="filterStatus" @change="getRecords()" class="form-control form-select">
                                             <option value=""> {{ __('all') }}</option>
                                             <option value="0"> {{ __('registered') }}</option>
@@ -46,7 +46,7 @@
                                         id="filter-input"
                                         v-model="filter"
                                         type="search"
-                                        placeholder="Search"
+                                        :placeholder="__('search')"
                                     ></b-form-input>
                                 </b-col>
                                 <b-col md="1" class="text-center">
@@ -189,7 +189,7 @@ export default {
                 { key: 'status', label:  __('status'), class: 'text-center', sortable: true, sortDirection: 'desc' },
                 { key: 'availability', label:  __('availability'), class: 'text-center', sortable: true, sortDirection: 'desc' },
                 { key: 'require_products_approval', label:  __('require_products_approval'), class: 'text-center', sortable: true, sortDirection: 'desc' },
-                { key: 'actions', label:  __('action') }
+                { key: 'actions', label:  __('actions') }
             ],
             totalRows: 1,
             currentPage: 1,
