@@ -103,8 +103,34 @@ class ProductApiController extends Controller
             }
         }
 
-        $products = \DB::table('products as p')->select('p.id as id', 'p.id as product_id',  app()->getLocale() == 'en'? 'p.name_en as name':'p.name_ar as name', 'p.name_en','p.name_ar', 'p.seller_id', 'p.status', 'p.tax_id', 'p.image', 's.name as seller_name', 's.id as seller_id',
-            'p.indicator', 'p.manufacturer', 'p.made_in', 'p.return_status', 'p.cancelable_status', 'p.till_status', 'pv.id as product_variant_id', 'pv.price', 'pv.discounted_price', 'pv.measurement', 'pv.status as pv_status', 'pv.stock', 'pv.stock_unit_id', 'u.short_code', \DB::raw('(select short_code from units where units.id = pv.stock_unit_id) as stock_unit'))
+        $products = \DB::table('products as p')->select(
+            'p.id as id',
+            'p.id as product_id',
+            app()->getLocale() == 'en' ? 'p.name_en as name' : 'p.name_ar as name',
+            'p.name_en',
+            'p.name_ar',
+            'p.seller_id',
+            'p.status',
+            'p.tax_id',
+            'p.image',
+            's.name as seller_name',
+            's.id as seller_id',
+            'p.indicator',
+            'p.manufacturer',
+            'p.made_in',
+            'p.return_status',
+            'p.cancelable_status',
+            'p.till_status',
+            'pv.id as product_variant_id',
+            'pv.price',
+            'pv.discounted_price',
+            'pv.measurement',
+            'pv.status as pv_status',
+            'pv.stock',
+            'pv.stock_unit_id',
+            'u.short_code',
+            \DB::raw('(select short_code from units where units.id = pv.stock_unit_id) as stock_unit')
+        )
             ->join('sellers as s', 'p.seller_id', '=', 's.id')
             ->join('product_variants as pv', 'p.id', '=', 'pv.product_id')
             ->join('units as u', 'pv.stock_unit_id', '=', 'u.id');
@@ -120,7 +146,15 @@ class ProductApiController extends Controller
         // Apply filter to all columns in all joined tables
         if ($filter) {
             $columns = [
-                'p.id', 'pv.id', 'p.name_en','p.name_ar', 's.name', 'pv.price', 'pv.discounted_price', 'pv.measurement', 'pv.stock',
+                'p.id',
+                'pv.id',
+                'p.name_en',
+                'p.name_ar',
+                's.name',
+                'pv.price',
+                'pv.discounted_price',
+                'pv.measurement',
+                'pv.stock',
             ];
 
             $products = $products->where(function ($query) use ($filter, $columns) {
@@ -204,7 +238,7 @@ class ProductApiController extends Controller
 
             if (isset($request['search']) && $request['search'] != '') {
                 $search = $request['search'];
-                $where .= " AND ( p.`name_en` like '%". $search . "%' OR p.`name_ar` like '%" . $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
+                $where .= " AND ( p.`name_en` like '%" . $search . "%' OR p.`name_ar` like '%" . $search . "%' OR p.`slug` like '%" . $search . "%' OR p.`tags` like '%" . $search . "%') ";
             }
 
             if (isset($request->section_id) && $request->section_id != "") {
@@ -318,7 +352,6 @@ class ProductApiController extends Controller
                         ->orWhere('p.slug', 'like', '%' . $search . '%')
                         ->orWhere('p.tags', 'like', '%' . $search . '%');
                 });
-
             }
 
             if (isset($request->brand_ids) && $request->brand_ids != "") {
@@ -339,17 +372,38 @@ class ProductApiController extends Controller
             $products = $products->orderByRaw($sort)->skip($offset)->take($limit)->get();
 
 
-            $products = $products->makeHidden(['seller_id', 'row_order', 'return_status',
-                'cancelable_status', 'till_status', 'description', 'status', 'return_days', 'pincodes',
-                'cod_allowed', 'pickup_location', 'tags', 'd_type', 'seller_name', 'seller_slug', 'seller_status',
-                'created_at', 'updated_at', 'deleted_at', 'image', 'other_images']);
+            $products = $products->makeHidden([
+                'seller_id',
+                'row_order',
+                'return_status',
+                'cancelable_status',
+                'till_status',
+                'description',
+                'status',
+                'return_days',
+                'pincodes',
+                'cod_allowed',
+                'pickup_location',
+                'tags',
+                'd_type',
+                'seller_name',
+                'seller_slug',
+                'seller_status',
+                'created_at',
+                'updated_at',
+                'deleted_at',
+                'image',
+                'other_images'
+            ]);
 
             $i = 0;
 
             foreach ($products as $row) {
 
-                $sql = ProductVariant::select('*',
-                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name"))
+                $sql = ProductVariant::select(
+                    '*',
+                    DB::raw("(SELECT short_code FROM units u WHERE u.id=pv.stock_unit_id) as stock_unit_name")
+                )
                     ->from('product_variants as pv')
                     ->where('pv.product_id', '=', $row['id'])
                     ->orderBy('pv.status', 'ASC');
@@ -418,8 +472,6 @@ class ProductApiController extends Controller
             throw $e;
             return CommonHelper::responseError("Something Went Wrong!");
         }
-
-
     }
 
     public function getActiveProducts()
@@ -435,12 +487,14 @@ class ProductApiController extends Controller
     public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name_en' => ['required',
+            'name_en' => [
+                'required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id);
                 })
             ],
-             'name_ar' => ['required',
+            'name_ar' => [
+                'required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id);
                 })
@@ -456,12 +510,15 @@ class ProductApiController extends Controller
 
             'packet_measurement.*' => ['required_if:type,packet', 'numeric', Rule::notIn([0]),],
             'packet_price.*' => ['required_if:type,packet', 'numeric'],
-            'packet_stock.*' => ['required_if:type,packet', 'numeric',
+            'packet_stock.*' => [
+                'required_if:type,packet',
+                'numeric',
                 function ($attribute, $value, $fail) use ($request) {
                     if ($request->input('is_unlimited_stock') == 0 && $value == 0 && $request->input('type') == 'packet') {
                         $fail($attribute . ' must be greater than 0 when is_unlimited_stock is 0.');
                     }
-                },],
+                },
+            ],
             'packet_stock_unit_id.*' => ['required_if:type,packet', 'numeric'],
 
             'loose_measurement.*' => ['required_if:type,loose', 'numeric', Rule::notIn([0]),],
@@ -564,7 +621,6 @@ class ProductApiController extends Controller
                 $pattern = '/^[0-9]{14}$/';
                 // Check if the FSSAI number matches the pattern
                 if (preg_match($pattern, $request->fssai_lic_no)) {
-
                 } else {
                     return CommonHelper::responseError("Please enter valid FSSAI no.");
                 }
@@ -574,7 +630,6 @@ class ProductApiController extends Controller
                 $pattern = '/^[a-zA-Z0-9-]+$/';
                 // Check if the FSSAI number matches the pattern
                 if (preg_match($pattern, $request->barcode)) {
-
                 } else {
                     return CommonHelper::responseError("Please enter valid Barcode");
                 }
@@ -696,12 +751,14 @@ class ProductApiController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name_en' => ['required',
+            'name_en' => [
+                'required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id)->where('id', '!=', $request->id);
                 })
             ],
-            'name_ar' => ['required',
+            'name_ar' => [
+                'required',
                 Rule::unique('products')->where(function ($query) use ($request) {
                     $query->where('seller_id', $request->seller_id)->where('id', '!=', $request->id);
                 })
@@ -832,7 +889,6 @@ class ProductApiController extends Controller
                 $pattern = '/^[0-9]{14}$/';
                 // Check if the FSSAI number matches the pattern
                 if (preg_match($pattern, $request->fssai_lic_no)) {
-
                 } else {
                     return CommonHelper::responseError("Please enter valid FSSAI no.");
                 }
@@ -842,7 +898,6 @@ class ProductApiController extends Controller
                 $pattern = '/^[a-zA-Z0-9-]+$/';
                 // Check if the FSSAI number matches the pattern
                 if (preg_match($pattern, $request->barcode)) {
-
                 } else {
                     return CommonHelper::responseError("Please enter valid Barcode");
                 }
@@ -911,7 +966,6 @@ class ProductApiController extends Controller
                     if ($request->hasFile('loose_variant_images_' . $index)) {
                         CommonHelper::uploadProductImages($request->file('loose_variant_images_' . $index), $product->id, $variant->id);
                     }
-
                 }
             }
             $tagIds = array_filter(array_map('trim', explode(',', $request->tag_ids)), function ($value) {
@@ -1020,7 +1074,6 @@ class ProductApiController extends Controller
             } else {
                 return CommonHelper::responseSuccess("Products Record not found!");
             }
-
         }
     }
 
@@ -1167,7 +1220,6 @@ class ProductApiController extends Controller
                         $index1 = $index1 + 1;
                     }
                 }
-
             }
             fclose($file);
 
@@ -1183,7 +1235,7 @@ class ProductApiController extends Controller
                     $is_approved = isset($seller->require_products_approval) && $seller->require_products_approval == 0 ? 1 : 0;
 
                     $product_name_en = $emapData[0]; // product name en
-                     $product_name_ar = $emapData[1]; // product name ar
+                    $product_name_ar = $emapData[1]; // product name ar
                     $category_id = $emapData[2]; // category id
                     $indicator = $emapData[3]; // indicator
                     $manufacturer = $emapData[4]; // manufacturer
@@ -1304,7 +1356,7 @@ class ProductApiController extends Controller
         $csvData = [];
 
         // Base header fields
-        $header = ['ID', 'Product Name en', 'Product Name ar', 'Category ID', 'Indicator', 'Manufacturer', 'Made in', 'Is Returnable?', 'Is cancel-able', 'Till which status', 'Description_en','Description_ar', 'image', 'Seller_id', 'Is_approved?', 'Brand_id', 'return_days', 'tax_id', 'Fssai No', 'Barcode'];
+        $header = ['ID', 'Product Name en', 'Product Name ar', 'Category ID', 'Indicator', 'Manufacturer', 'Made in', 'Is Returnable?', 'Is cancel-able', 'Till which status', 'Description_en', 'Description_ar', 'image', 'Seller_id', 'Is_approved?', 'Brand_id', 'return_days', 'tax_id', 'Fssai No', 'Barcode'];
 
         // Determine the maximum number of variants across all products
         $maxVariants = $products->map(function ($product) {
@@ -1698,7 +1750,5 @@ class ProductApiController extends Controller
         }
 
         return CommonHelper::responseSuccess('Stock updated successfully');
-
     }
-
 }

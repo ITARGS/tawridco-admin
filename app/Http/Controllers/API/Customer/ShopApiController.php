@@ -95,73 +95,72 @@ class ShopApiController extends Controller
         } else {
             $categoryNameField = 'name_ar';
             $subtileFiels = 'subtitle_ar';
-
         }
 
 
-        if($is_category_section_in_homepage && $is_category_section_in_homepage==1){
+        if ($is_category_section_in_homepage && $is_category_section_in_homepage == 1) {
             $count_category_section_in_homepage = CommonHelper::getCountCategorySectionInHomepage();
 
             $categories = Category::where('status', 1)
-            ->where('parent_id', 0)
-            ->where('status', 1)
-            ->orderBy('row_order', 'ASC')
-            ->limit($count_category_section_in_homepage)
-            ->get(['id', $categoryNameField, $subtileFiels, 'image', 'slug']);
+                ->where('parent_id', 0)
+                ->where('status', 1)
+                ->orderBy('row_order', 'ASC')
+                ->limit($count_category_section_in_homepage)
+                ->get(['id', $categoryNameField, $subtileFiels, 'image', 'slug']);
 
-        $categories = $categories->makeHidden(['image']);
+            $categories = $categories->makeHidden(['image']);
 
 
 
-        $output['categories'] = $categories->toArray();
+            $output['categories'] = $categories->toArray();
         }
 
 
 
-        if($is_brand_section_in_homepage && $is_brand_section_in_homepage==1){
+        if ($is_brand_section_in_homepage && $is_brand_section_in_homepage == 1) {
             $count_brand_section_in_homepage = CommonHelper::getCountBrandSectionInHomepage();
-            $brands = Brand::orderBy('id','ASC')->where('status',1)->whereExists(function($query) {
+            $brands = Brand::orderBy('id', 'ASC')->where('status', 1)->whereExists(function ($query) {
                 $query->select(DB::raw(1))
                     ->from('products')
                     ->whereColumn('products.brand_id', 'brands.id');
             });
             $brands = $brands->limit($count_brand_section_in_homepage)->get();
-            $brands = $brands->makeHidden(['created_at','updated_at','image','status']);
+            $brands = $brands->makeHidden(['created_at', 'updated_at', 'image', 'status']);
             $output['brands'] = $brands->toArray();
         }
 
 
-        if($is_seller_section_in_homepage && $is_seller_section_in_homepage==1){
+        if ($is_seller_section_in_homepage && $is_seller_section_in_homepage == 1) {
             $count_seller_section_in_homepage = CommonHelper::getIsSellerSectionInHomepage()['count_seller_section_in_homepage'];
             $sellers = Seller::select('sellers.id', 'sellers.name', 'sellers.store_name', 'sellers.logo', DB::raw("ROUND(6371 * acos(cos(radians(" . $request->latitude . "))
                                 * cos(radians(sellers.latitude)) * cos(radians(sellers.longitude) - radians(" . $request->longitude . "))
-                                + sin(radians(" .$request->latitude. ")) * sin(radians(sellers.latitude))), 2) AS distance"), 'cities.max_deliverable_distance')
-            ->leftJoin("cities", "sellers.city_id", "cities.id")
-            ->where('status', Seller::$statusActive)
-            ->whereExists(function($query) {
-                $query->select(DB::raw(1))
-                    ->from('products')
-                    ->whereColumn('products.seller_id', 'sellers.id');
-            })
-            ->whereIn('sellers.id', $seller_ids)
-            ->orderBy('distance','asc')
-            ->limit($count_seller_section_in_homepage)
-            ->get();
+                                + sin(radians(" . $request->latitude . ")) * sin(radians(sellers.latitude))), 2) AS distance"), 'cities.max_deliverable_distance')
+                ->leftJoin("cities", "sellers.city_id", "cities.id")
+                ->where('status', Seller::$statusActive)
+                ->whereExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('products')
+                        ->whereColumn('products.seller_id', 'sellers.id');
+                })
+                ->whereIn('sellers.id', $seller_ids)
+                ->orderBy('distance', 'asc')
+                ->limit($count_seller_section_in_homepage)
+                ->get();
 
-            $sellers = $sellers->makeHidden(['national_identity_card_url','address_proof_url','logo']);
+            $sellers = $sellers->makeHidden(['national_identity_card_url', 'address_proof_url', 'logo']);
             $output['sellers'] = $sellers->toArray();
         }
 
 
-        if($is_country_section_in_homepage && $is_country_section_in_homepage==1){
+        if ($is_country_section_in_homepage && $is_country_section_in_homepage == 1) {
             $count_country_section_in_homepage = CommonHelper::getIsCountrySectionInHomepage()['count_country_section_in_homepage'];
-            $countries = Country::orderBy('id','ASC')->where('status',1)->whereExists(function($query) {
+            $countries = Country::orderBy('id', 'ASC')->where('status', 1)->whereExists(function ($query) {
                 $query->select(DB::raw(1))
                     ->from('products')
                     ->whereColumn('products.made_in', 'countries.id');
             });
             $countries = $countries->limit($count_country_section_in_homepage)->get();
-            $countries = $countries->makeHidden(['created_at','updated_at','status']);
+            $countries = $countries->makeHidden(['created_at', 'updated_at', 'status']);
             $output['countries'] = $countries->toArray();
         }
 

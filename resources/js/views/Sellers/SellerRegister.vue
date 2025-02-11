@@ -803,7 +803,7 @@ export default {
       axios.get(this.$sellerApiUrl + "/cities").then((response) => {
         this.isLoading = false;
         let data = response.data;
-        this.cities = data.data;
+        this.cities = data.data.cities;
       });
     },
     setCityId() {

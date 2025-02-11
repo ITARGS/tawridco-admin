@@ -131,6 +131,8 @@ const SocialMedia = () => import("../views/WebSetings/SocialMedia/SocialMedia");
 
 //Customers
 const Customers = () => import("../views/Customers/Customers");
+//Customers
+const ProCustomers = () => import("../views/Customers/ProCustomers");
 
 //Customers Wallet Transactions
 const WalletTransactions = () => import("../views/Customers/WalletTransactions/WalletTransactions");
@@ -1125,6 +1127,17 @@ function configRoutes() {
                     path: "users",
                     name: "Customers",
                     component: Customers,
+                    meta: {
+                        permission: 'order_list',
+                        role: adminRoles,
+                        title: 'Customers'
+
+                    },
+                },
+                {
+                    path: "prousers",
+                    name: "ProCustomers",
+                    component: ProCustomers,
                     meta: {
                         permission: 'order_list',
                         role: adminRoles,

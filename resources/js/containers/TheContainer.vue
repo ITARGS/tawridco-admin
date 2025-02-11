@@ -762,6 +762,12 @@ export default {
               permission: "customer_list",
             },
             {
+              name: __("procustomers"),
+              icon: "grid-fill",
+              url: "/prousers",
+              permission: "customer_list",
+            },
+            {
               name: __("wishlists"),
               icon: "grid-fill",
               url: "/wishlists",

@@ -197,10 +197,10 @@ class StoreSettingsApiController extends Controller
 
         $validator->after(function ($validator) use ($request) {
             // Validate that at least one of phone_login or google_login is enabled
-            if (!$request->phone_login && !$request->google_login) {
-                $validator->errors()->add('phone_login', 'At least one of phone login or google login must be enabled.');
-                $validator->errors()->add('google_login', 'At least one of phone login or google login must be enabled.');
-            }
+            // if (!$request->phone_login && !$request->google_login) {
+            //     $validator->errors()->add('phone_login', 'At least one of phone login or google login must be enabled.');
+            //     $validator->errors()->add('google_login', 'At least one of phone login or google login must be enabled.');
+            // }
 
             // Additional validation if phone_login is enabled
             if ($request->phone_login) {

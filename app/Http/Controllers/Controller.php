@@ -33,19 +33,18 @@ class Controller extends BaseController
 
 
         $data = array();
-        $data['order_count'] = Order::get()->count();
-        $data['product_count'] = Product::get()->count();
+        // Mark:- count start from 100 not zero.
+        $data['order_count'] = 100 + Order::get()->count();
+        $data['product_count'] = 100 + Product::get()->count();
 
-        $data['customer_count'] = User::where('status', '!=', 2)->get()->count();
-        $data['seller_count'] = Seller::where('status', 1)->get()->count();
-        $data['category_count'] = Category::get()->count();
-        $data['brand_count'] = Brand::get()->count();
-        $data['section_count'] = Section::get()->count();
+        $data['customer_count'] = 300 + User::where('status', '!=', 2)->get()->count();
+        $data['seller_count'] = 100 + Seller::where('status', 1)->get()->count();
+        $data['category_count'] = 100 + Category::get()->count();
+        $data['brand_count'] = 100 + Brand::get()->count();
+        $data['section_count'] = 100 + Section::get()->count();
         $data['city_count'] = City::get()->count();
-        $data['packet_products'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->
-        where('products.type', 'packet')->get()->count();
-        $data['loose_products'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->
-        where('products.type', 'loose')->get()->count();
+        $data['packet_products'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->where('products.type', 'packet')->get()->count();
+        $data['loose_products'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->where('products.type', 'loose')->get()->count();
 
         $data['sold_out_count'] = ProductVariant::Join("products", "product_variants.product_id", "=", "products.id")
             ->where('products.is_unlimited_stock', 0)
@@ -58,15 +57,18 @@ class Controller extends BaseController
         if ($low_stock) {
             $low_stock_limit = $low_stock->value;
         }
-        $data['low_stock_count'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->
-        where('product_variants.status', ProductVariant::$statusAvailable);
+        $data['low_stock_count'] = ProductVariant::select("*")->leftJoin('products', 'product_variants.product_id', '=', 'products.id')->where('product_variants.status', ProductVariant::$statusAvailable);
         if (isset($low_stock_limit) && $low_stock_limit !== "" && $low_stock_limit !== 0) {
             $data['low_stock_count'] = $data['low_stock_count']->where('product_variants.stock', '<=', $low_stock_limit)->where('products.is_unlimited_stock', '!=', 1);
         }
         $data['low_stock_count'] = $data['low_stock_count']->get()->count();
 
-        $data['top_sellers'] = OrderItem::select(DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue"), 'order_items.seller_id',
-            'sellers.name as seller_name', 'sellers.store_name')
+        $data['top_sellers'] = OrderItem::select(
+            DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue"),
+            'order_items.seller_id',
+            'sellers.name as seller_name',
+            'sellers.store_name'
+        )
             ->leftJoin('sellers', 'order_items.seller_id', '=', 'sellers.id')
             ->groupBy('order_items.seller_id')
             ->orderBy('order_items.id', 'DESC')
@@ -85,8 +87,18 @@ class Controller extends BaseController
 
 
 
-        $data['top_categories'] = OrderItem::select('product_variants.product_id', 'product_variants.id', $productNameField, 'products.category_id', 'products.seller_id', $categoryNameField,
-            'product_variants.measurement', 'order_items.product_name', 'order_items.variant_name', DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue"))
+        $data['top_categories'] = OrderItem::select(
+            'product_variants.product_id',
+            'product_variants.id',
+            $productNameField,
+            'products.category_id',
+            'products.seller_id',
+            $categoryNameField,
+            'product_variants.measurement',
+            'order_items.product_name',
+            'order_items.variant_name',
+            DB::raw("ROUND(SUM(order_items.sub_total),2) as total_revenue")
+        )
             ->leftJoin('orders', 'order_items.order_id', '=', 'orders.id')
             ->leftJoin('product_variants', 'order_items.product_variant_id', '=', 'product_variants.id')
             ->leftJoin('units', 'product_variants.stock_unit_id', '=', 'units.id')
@@ -140,7 +152,6 @@ class Controller extends BaseController
             })
             ->markAsRead();
         return CommonHelper::responseWithData("Notification Mark as Read Successfully!");
-
     }
 
     public function deploy()
@@ -171,7 +182,6 @@ class Controller extends BaseController
         ]);
 
         return response()->json(['success' => true]);
-
     }
 
     public function test()
@@ -300,8 +310,8 @@ class Controller extends BaseController
         }
 
         $google_place_api_key = Setting::get_value('google_place_api_key') ?? "";
-        $currency = Setting::get_value('currency') ?? "$";
-        $purchase_code = "123456";//Setting::get_value('purchase_code') ?? "";
+        $currency = Setting::get_value('currency') ?? "";
+        $purchase_code = "123456"; //Setting::get_value('purchase_code') ?? "";
 
         $website_url = Setting::get_value('website_url') ?? "";
         $copyright_details = Setting::get_value('copyright_details') ?? "";
@@ -344,5 +354,4 @@ class Controller extends BaseController
             'isDemoMode' => $isDemoMode,
         ]);
     }
-
 }

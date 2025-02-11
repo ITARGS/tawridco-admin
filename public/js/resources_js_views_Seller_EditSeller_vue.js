@@ -996,7 +996,7 @@ __webpack_require__.r(__webpack_exports__);
     cities_options: function cities_options() {
       var temp = [];
       if (this.cities.length !== 0) {
-        this.cities.forEach(function (city) {
+        this.cities.cities.forEach(function (city) {
           temp.push({
             id: city.id,
             text: city.name + "-" + city.zone

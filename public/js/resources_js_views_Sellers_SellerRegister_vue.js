@@ -815,7 +815,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$sellerApiUrl + "/cities").then(function (response) {
         _this3.isLoading = false;
         var data = response.data;
-        _this3.cities = data.data;
+        _this3.cities = data.data.cities;
       });
     },
     setCityId: function setCityId() {
@@ -1060,7 +1060,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_10_use_1_node_modules_vue_multiselect_dist_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948] {\r\n  overflow: auto !important;\n}\n.auth[data-v-e3df3948] {\r\n  overflow-x: hidden !important;\n}\n.auth-logo[data-v-e3df3948] {\r\n  padding-bottom: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#auth[data-v-e3df3948] {\n  overflow: auto !important;\n}\n.auth[data-v-e3df3948] {\n  overflow-x: hidden !important;\n}\n.auth-logo[data-v-e3df3948] {\n  padding-bottom: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
