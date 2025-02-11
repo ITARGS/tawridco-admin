@@ -211,7 +211,8 @@
 @php
 
     $lang = config('app.locale');
-    $lang = $lang ?? 'en';
+    $lang = 'en';
+
     // \Log::info("lang file ".$lang);
     $file =  file_get_contents(resource_path('lang/' . $lang . '.json'));
 
