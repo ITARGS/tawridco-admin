@@ -211,10 +211,11 @@
 @php
 
     $lang = config('app.locale');
-    $lang = 'en';
+    $lang = $lang ?? 'en';
 
     // \Log::info("lang file ".$lang);
-    $file =  file_get_contents(resource_path('lang/' . $lang . '.json'));
+    $lang = substr($lang, 0, 2);
+    $file = file_get_contents(resource_path('lang/' . $lang . '.json'));
 
 @endphp
 
