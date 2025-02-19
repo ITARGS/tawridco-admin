@@ -180,12 +180,12 @@ Vue.prototype.$logo = '';
 var lang = localStorage.getItem("language");
 
 lang = JSON.parse(lang);
-
+Vue.prototype.$perPage = 5;
 Vue.prototype.$pageOptions = [2, 5, 10, 20, 50, {
     value: 100,
     text: lang && lang.show_a_lot ? lang.show_a_lot : 'View All',
 }];
-// Vue.prototype.$perPage = 5;
+
 // vue__WEBPACK_IMPORTED_MODULE_17__["default"].prototype.$pageOptions = [2, 5, 10, 20, 50, {
 //     value: 100,
 //     text: lang && lang.show_a_lot ? lang.show_a_lot : 'View All'

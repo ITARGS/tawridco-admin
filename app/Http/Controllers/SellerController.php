@@ -216,7 +216,7 @@ class SellerController extends BaseController
     public function countProductCategoryWise()
     {
         $sellerCategoryIds = auth()->user()->seller->categories;
-        $categories = Category::select('name_en','name_ar', DB::raw('(SELECT count(id) from `products` WHERE products.category_id = categories.id) AS product_count'))
+        $categories = Category::select('name_en', 'name_ar', DB::raw('(SELECT count(id) from `products` WHERE products.category_id = categories.id) AS product_count'))
             ->whereIn('id', explode(',', $sellerCategoryIds))
             ->orderBy('id', 'ASC')->get();
         return CommonHelper::responseWithData($categories);
@@ -521,10 +521,17 @@ class SellerController extends BaseController
 
     public function getSalesReport(Request $request)
     {
+        if (app()->getLocale() == "en") {
+            $productName = "products.name_en";
+        } else {
+            $productName = "products.name_ar";
+        }
+
         $seller_id = auth()->user()->seller->id;
         $startDate = Carbon::parse($request->input('startDate'))->startOfDay();
         $endDate = Carbon::parse($request->input('endDate'))->endOfDay();
         $categories = CommonHelper::getSellerCategories($seller_id);
+
         $SalesReports = OrderItem::select(
             'order_items.id',
             'orders.total',
@@ -532,8 +539,7 @@ class SellerController extends BaseController
             'order_items.sub_total',
             'orders.user_id',
             'orders.mobile',
-            'products.name_en as product_name_en',
-            'products.name_ar as product_name_ar',
+            $productName . ' as product_name',
             'orders.final_total',
             'orders.address',
             'users.name as user_name',
@@ -547,6 +553,7 @@ class SellerController extends BaseController
             ->where('products.seller_id', $seller_id)
             ->whereBetween('order_items.created_at', [$startDate, $endDate])
             ->where('orders.active_status', OrderStatusList::$delivered);
+
         if (isset($request->category) && $request->category != "") {
             $SalesReports = $SalesReports->where('products.category_id', $request->category);
         }

@@ -1235,7 +1235,12 @@ class ProductApiController extends Controller
     public function getAllProductNames(Request $request)
     {
 
-        $sql = "SELECT p.name FROM `products` p JOIN sellers s on s.id = p.seller_id where p.is_approved = 1 AND p.status = 1 AND s.status = 1";
+        if (app()->getLocale() == "en") {
+            $productName = "p.name_en";
+        } else {
+            $productName = "p.name_ar";
+        }
+        $sql = "SELECT " . $productName . " FROM `products` p JOIN sellers s on s.id = p.seller_id where p.is_approved = 1 AND p.status = 1 AND s.status = 1";
         $res = \DB::select(\DB::raw($sql));
         $res = json_decode(json_encode($res), true);
 
