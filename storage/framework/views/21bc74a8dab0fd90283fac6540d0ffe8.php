@@ -209,10 +209,17 @@
 <?php
 
     $lang = config('app.locale');
-    $lang = $lang ?? 'en';
+
+    $lang = "en-US,en;q=0.9,ar;q=0.8" ;
+     //$lang ?? 'en';
 
     // \Log::info("lang file ".$lang);
-    $lang = substr($lang, 0, 2);
+    if(strlen($lang) != 2){
+      $lang = substr($lang, 0, 2);
+    }
+
+     echo $lang;
+
     $file = file_get_contents(resource_path('lang/' . $lang . '.json'));
 
 ?>
