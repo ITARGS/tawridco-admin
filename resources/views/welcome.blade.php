@@ -218,9 +218,6 @@
     if(strlen($lang) != 2){
       $lang = substr($lang, 0, 2);
     }
-
-     echo $lang;
-
     $file = file_get_contents(resource_path('lang/' . $lang . '.json'));
 
 @endphp
