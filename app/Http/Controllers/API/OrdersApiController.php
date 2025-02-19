@@ -80,8 +80,16 @@ class OrdersApiController extends Controller
         // Apply filter to all columns in all joined tables
         if ($search) {
             $columns = [
-                'orders.payment_method', 'orders.id', 'orders.delivery_charge', 'orders.wallet_balance', 'orders.final_total', 'orders.total', 'orders.delivery_time', 'sellers.name',
-                'users.name', 'order_items.active_status'
+                'orders.payment_method',
+                'orders.id',
+                'orders.delivery_charge',
+                'orders.wallet_balance',
+                'orders.final_total',
+                'orders.total',
+                'orders.delivery_time',
+                'sellers.name',
+                'users.name',
+                'order_items.active_status'
             ];
 
             $orders = $orders->where(function ($query) use ($search, $columns) {
@@ -107,7 +115,9 @@ class OrdersApiController extends Controller
 
     public function view($id)
     {
+
         $data = CommonHelper::getOrderDetails($id);
+
         if (!$data["order"]) {
             return CommonHelper::responseError("Order Not found!");
         }
@@ -298,7 +308,6 @@ class OrdersApiController extends Controller
                     }
                 })->afterResponse();
             } catch (Exception $e) {
-
             }
 
             try {
@@ -395,7 +404,6 @@ class OrdersApiController extends Controller
         } else {
             return CommonHelper::responseError("Order Not found!");
         }
-
     }
 
     public function updateItemsStatus(Request $request)
@@ -426,6 +434,4 @@ class OrdersApiController extends Controller
         }
         return CommonHelper::responseSuccess("Order Updated Successfully!");
     }
-
 }
-

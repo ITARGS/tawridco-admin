@@ -1532,7 +1532,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -10699,7 +10699,7 @@ var core_helpers = function() {
 	/**
 	 * Returns the max width or height of the given DOM node in a cross-browser compatible fashion
 	 * @param {HTMLElement} domNode - the node to check the constraint on
-	 * @param {string} maxStyle - the style that defines the maximum for the direction we are using ('max-width' / 'max-height')
+	 * @param {string} maxStyle - the style that defines the maximum for the direction we are using ('max-width'/'max-height')
 	 * @param {string} percentageProperty - property of parent to use when calculating width as a percentage
 	 * @see {@link https://www.nathanaeljones.com/blog/2013/reading-max-width-cross-browser}
 	 */
